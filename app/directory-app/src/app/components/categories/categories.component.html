@@ -1,5 +1,4 @@
-
-<button (click)="loadCategories()" class="button is-info">Cargar</button>
-<pre>
-    {{categories | json}}
-</pre>
+<span>Categorías:</span>
+<button class="button is-link is-small is-light categories-buttons" *ngFor="let cat of categories.data">
+    {{cat.description}}
+</button>

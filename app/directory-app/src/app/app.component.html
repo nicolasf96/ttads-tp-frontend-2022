@@ -1,17 +1,31 @@
-<div class='principal-banner'>
-  <div class="columns is-centered">
-    <div class='column is-8 has-text-centered'>
-      <h1 class="pageTitle title is-1">Directory <strong>App!</strong></h1>
-      <h2 class="pageTitle title is-3">Esta WebApp consume una api creada para la materia TTADS</h2>
-        <button class="button is-primary is-light">Usuarios</button>
-        <button class="button is-primary is-light">Stores</button>
-        <button class="button is-primary is-light">Categories</button>
-        <button class="button is-primary is-light">Productos</button>
-    </div>
+<div class='columns is-centered  navbar-border'>
+  <div class='column is-10'>
+    <app-navigation>
+    </app-navigation>
+
   </div>
-  <app-categories>
+
+</div>
+<div class='columns'>
+  <div class='column is-2 app-side-menu'>
+    <app-side-menu>
+
+    </app-side-menu>
+  </div>
+  <div class='column app-home'>
+    <div class='columns'>
+      <div class='column'>
+        <app-categories>
+        </app-categories>
+      </div>
+    </div>
+    <div class='columns'>
+      <div class='column'>
+        <app-stores>
+
+        </app-stores>
+      </div>
+    </div>
     
-  </app-categories>
-
-
+  </div>
 </div>

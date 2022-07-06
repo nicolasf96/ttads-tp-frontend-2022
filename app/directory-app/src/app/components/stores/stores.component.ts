@@ -15,7 +15,7 @@ export class StoresComponent implements OnInit {
   }
 
   stores:any = []
-  @Output() go = new EventEmitter();
+
 
   ngOnInit(): void {
   }
@@ -25,10 +25,7 @@ export class StoresComponent implements OnInit {
   }
 
   goToStore(id:any){
-    console.log(id)
-    this.go.emit(id);
-    this.router.navigate(['store'])
-    
+    this.router.navigate(['store/'+id])
   }
 
 }

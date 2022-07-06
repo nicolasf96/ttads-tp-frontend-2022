@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { StoresService } from 'src/app/services/stores/stores.service';
 
 @Component({
@@ -8,20 +9,23 @@ import { StoresService } from 'src/app/services/stores/stores.service';
 })
 export class StoreComponent implements OnInit {
 
-  constructor(private service: StoresService) {
+  constructor(private service: StoresService,
+    private route: ActivatedRoute) {
     console.log("Soy Store Component")
    }
 
-  store:any = {}
-  @Input() id: any;
+  identifier = '';
+  store: any;
 
   ngOnInit(): void {
-    this.loadStore();
+    this.route.params.subscribe( (params) => this.identifier = params['id'] )
+    this.service.getStore(this.identifier).subscribe( response => this.store = response.data);
   }
 
   loadStore() {
-    console.log("Este es mi id: " +this.id)
-    this.service.getStore(this.id).subscribe( response => this.store = response);
+    console.log("Este es mi id: " +this.identifier)
+    this.service.getStore(this.identifier).subscribe( response => this.store = response);
+    console.log(this.store)
   }
 
 }

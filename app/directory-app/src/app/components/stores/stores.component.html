@@ -19,6 +19,8 @@
                   <th>Valoration</th>
                   <th>Category</th>
                   <th>User Owner</th>
+                  <th>Edit</th>
+                  <th>Delete</th>
                 </tr>
               </thead>
             <tr  *ngFor="let store of stores.data">
@@ -50,10 +52,10 @@
                   {{store.user}}
               </td>
                 <td>
-                    <button class="button is-small is-warning btn-cat">Editar</button>
+                    <button class="button is-small is-info btn-cat" (click)="goToStore(store._id)">/</button>
                 </td>
                 <td>
-                    <button class="button is-small is-danger btn-cat">Eliminar</button>
+                    <button class="button is-small is-danger btn-cat">X</button>
                 </td>
             </tr>
         </table> 

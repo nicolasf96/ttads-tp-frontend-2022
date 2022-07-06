@@ -11,7 +11,7 @@ const routes: Routes = [
   { path: 'stores', component: StoresComponent },
   { path: 'categories', component: CategoriesComponent},
   { path: 'newcategory', component: CreateCategoriesComponent},
-  { path: 'store', component: StoreComponent},
+  { path: 'store/:id', component: StoreComponent},
   { path: 'users', component: UsersComponent},
   { path: 'newuser', component: CreateUsersComponent}
 ];

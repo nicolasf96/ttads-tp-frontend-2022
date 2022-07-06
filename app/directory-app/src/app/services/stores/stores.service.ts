@@ -17,8 +17,9 @@ export class StoresService {
     return this.http.get<any>(url);
   }
 
-  getStore(id: any) {
+  getStore(id: String) {
     const url = this.baseURL+'stores/'+id;
+    console.log(url);
     return this.http.get<any>(url);
   }
 

@@ -5,6 +5,8 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 export class StoresService {
+ 
+  
 
   readonly baseURL = 'http://localhost:3000/api/'
   constructor(private http: HttpClient) { }
@@ -14,5 +16,11 @@ export class StoresService {
     const url = this.baseURL+'stores'
     return this.http.get<any>(url);
   }
+
+  getStore(id: any) {
+    const url = this.baseURL+'stores/'+id;
+    return this.http.get<any>(url);
+  }
+
 
 }

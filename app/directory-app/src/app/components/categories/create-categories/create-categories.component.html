@@ -1,0 +1,26 @@
+<div class='columns is-centered'>
+    <div class='column is-8 has-text-centered'>
+        <span><a href="javascript:void(0)" routerLink="/categories">Volver</a></span>
+        <h3 class="title is-4">Nueva Categoría</h3>
+    </div>
+</div>
+<div class='columns is-centered'>
+    <div class='column is-5'>
+        <div class='card'>
+            <div class='card-content block'>
+                <form [formGroup]="categoryForm" (ngSubmit)="onSubmit()">
+                    <label>
+                      Description:
+                      <input type="text" formControlName="description">
+                    </label><br>
+                    <label>
+                      Category Parent:
+                      <input type="text" formControlName="idCategoryParent">
+                    </label><br>
+                    <button class="button is-primary" type="submit" [disabled]="!categoryForm.valid">Submit</button>
+                    <button class="button is-secondary" type="button" (click)="initialize()" >Reset</button>
+                  </form>
+            </div>
+        </div>
+    </div>
+</div>

@@ -20,4 +20,14 @@ export class CategoriesComponent implements OnInit {
     this.service.getCategories().subscribe( response => this.categories = response);
   }
 
+  deleteCategory(idCategory: any) {
+    this.service.deleteCategory(idCategory).subscribe( response => console.log(response));
+    this.loadCategories();
+  }
+
+  editCategory(idCategory: any) {
+    this.service.deleteCategory(idCategory).subscribe( response => console.log(response));
+    this.loadCategories();
+  }
+
 }

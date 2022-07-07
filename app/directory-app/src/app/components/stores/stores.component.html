@@ -9,13 +9,13 @@
 <div class='columns is-centered'>
   <div class='column'>
       <h2 class="title is-4">Stores</h2>
-      <button class="button is-primary is-small btn-cat" routerLink="/newcategory">+</button>
+      <button class="button is-primary is-small btn-cat" routerLink="/newstore">+</button>
   </div>
 </div>
 <div class='columns is-centered'>
   <div class='column'>
       <div class='table-container'>
-        <table class="table is-hoverable">
+        <table class="table is-hoverable is-narrow">
             <thead>
                 <tr>
                   <th>Id</th>
@@ -24,7 +24,7 @@
                   <th>Address</th>
                   <th>City</th>
                   <th>is Service?</th>
-                  <th>Valoration</th>
+                  <th>*</th>
                   <th>Category</th>
                   <th>User Owner</th>
                   <th>Edit</th>
@@ -39,7 +39,7 @@
                     {{store.name}}
                 </td>
                 <td>
-                    - {{store.username}}
+                    {{store.username}}
                 </td>
                 <td>
                     {{store.address}}
@@ -54,10 +54,10 @@
                   {{store.valoration}}
               </td>
               <td>
-                  - {{store.idCategory}}
+                  {{store.idCategory?.description}}
               </td>
               <td>
-                  {{store.user}}
+                  {{store.user?.username}}
               </td>
                 <td>
                     <button class="button is-small is-info btn-cat" (click)="goToStore(store._id)">/</button>

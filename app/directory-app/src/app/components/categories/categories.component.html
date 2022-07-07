@@ -5,6 +5,7 @@
     </ul>
   </nav>
 
+  
 <div class='columns is-centered'>
     <div class='column'>
         <h2 class="title is-4">Categories</h2>
@@ -27,7 +28,7 @@
                       <th>Delete</th>
                     </tr>
                   </thead>
-                <tr  *ngFor="let cat of categories.data">
+                <tr  *ngFor="let cat of categories">
                     <td>
                         {{cat._id}}
                     </td>
@@ -35,7 +36,7 @@
                         {{cat.description}}
                     </td>
                     <td>
-                        - {{cat.idCategoryParent}}
+                        {{cat.idCategoryParent?.description}}
                     </td>
                     <td>
                         {{cat.createdAt}}

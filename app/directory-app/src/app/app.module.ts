@@ -17,6 +17,9 @@ import { EditCategoriesComponent } from './components/categories/edit-categories
 import { HomeComponent } from './home/home.component';
 import { CreateStoreComponent } from './components/stores/create-store/create-store.component';
 import { ProductsOfStoreComponent } from './components/stores/products-of-store/products-of-store.component';
+import { ReviewsOfStoreComponent } from './components/stores/reviews-of-store/reviews-of-store.component';
+import { StoreDetailsComponent } from './components/stores/store-details/store-details.component';
+import { EditUsersComponent } from './components/users/edit-users/edit-users.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +35,10 @@ import { ProductsOfStoreComponent } from './components/stores/products-of-store/
     EditCategoriesComponent,
     HomeComponent,
     CreateStoreComponent,
-    ProductsOfStoreComponent
+    ProductsOfStoreComponent,
+    ReviewsOfStoreComponent,
+    StoreDetailsComponent,
+    EditUsersComponent
   ],
   imports: [
     BrowserModule,

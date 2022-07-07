@@ -8,20 +8,22 @@
 <div class='columns'>
   <div class='column'>
     <h1 class="title is-4">{{store.name}}</h1>
+    <p class="title is-6">@{{store.username}}</p>
+    <p class="block">{{store.description}}</p>
     
     <div class="tabs is-centered">
       <ul>
-        <li class="is-active">
+        <li [class.is-active] = "currentPanel === 'details'" (click)="activateDetails()">
           <a>
-            <span>Settings</span>
+            <span>Details</span>
           </a>
         </li>
-        <li>
+        <li [class.is-active] = "currentPanel === 'products'" (click)="activateProducts()">
           <a>
             <span>Products</span>
           </a>
         </li>
-        <li>
+        <li [class.is-active] = "currentPanel === 'reviews'" (click)="activateReviews()">
           <a>
             <span>Reviews</span>
           </a>
@@ -33,35 +35,14 @@
   </div>
 </div>
 
+<app-store-details [store]="store" *ngIf="currentPanel=='details'">
 
-<div class='columns is-multiline'>
-  <div class='column is-3'  *ngFor="let prod of products">
-    
-    <div class='card'>
-        <div class="card-content">
-            <div class="media">
-              <div class="media-left">
-                <figure class="image is-48x48">
-                  <img src="https://bulma.io/images/placeholders/96x96.png" alt="Placeholder image">
-                </figure>
-              </div>
-              <div class="media-content">
-                <p class="title is-4">{{prod.title}}</p>
-              </div>
-            </div>
-            <div class="content">
-              {{prod.description}}
-              <div class='columns'>
-                <div class='column is-5 is-offset-7'>
-                  <p class="title is-3">${{prod.price}}</p>
-                </div>
-              </div>
-              
-              <time datetime="2016-1-1">11:09 PM - 1 Jan 2016</time>
-            </div>
-        </div>
-        
-    </div>
+</app-store-details>
 
-  </div>
-</div>
+<app-products-of-store [products]="products" *ngIf="currentPanel=='products'">
+
+</app-products-of-store>
+
+<app-reviews-of-store *ngIf="currentPanel=='reviews'"> 
+
+</app-reviews-of-store>

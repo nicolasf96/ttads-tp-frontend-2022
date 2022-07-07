@@ -1,3 +1,10 @@
+<nav class="breadcrumb" aria-label="breadcrumbs">
+    <ul>
+      <li><a href="javascript:void(0)" routerLink="/home">Home</a></li>
+      <li class="is-active"><a href="#" aria-current="page">Users</a></li>
+    </ul>
+  </nav>
+
 <div class='columns is-centered'>
     <div class='column'>
         <h2 class="title is-4">Users</h2>
@@ -29,7 +36,7 @@
                         {{user.email}}
                     </td>
                     <td>
-                        - {{user.username}}
+                        {{user.username}}
                     </td>
                     <td>
                         {{user.firstName}}
@@ -44,7 +51,7 @@
                         <button class="button is-small is-info btn-cat">/</button>
                     </td>
                     <td>
-                        <button class="button is-small is-danger btn-cat">X</button>
+                        <button class="button is-small is-danger btn-cat" (click)="deleteUser(user._id)">X</button>
                     </td>
                 </tr>
             </table>

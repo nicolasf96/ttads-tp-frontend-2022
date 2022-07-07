@@ -20,7 +20,7 @@ export class CategoriesComponent implements OnInit {
   }
 
   loadCategories() {
-    this.service.getCategories().subscribe( response => this.categories = response);
+    this.service.getCategories().subscribe( response => this.categories = response.data);
   }
 
   deleteCategory(idCategory: any) {

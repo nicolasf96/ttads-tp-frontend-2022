@@ -2,14 +2,13 @@
   <ul>
     <li><a href="javascript:void(0)" routerLink="/home">Home</a></li>
     <li><a href="javascript:void(0)" routerLink="/categories">Categories</a></li>
-    <li class="is-active"><a href="#" aria-current="page">{{category.description}}</a></li>
+    <li class="is-active"><a href="#" aria-current="page">Edit {{category.description}}</a></li>
   </ul>
 </nav>
 
 <div *ngIf="category">
   <div class='columns is-centered'>
     <div class='column is-8 has-text-centered'>
-        <span><a href="javascript:void(0)" routerLink="/categories">Volver</a></span>
         <h3 class="title is-4">{{category.description | uppercase}} Details</h3>
     </div>
 </div>

@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, Output } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { StoresService } from 'src/app/services/stores/stores.service';
 
@@ -13,6 +13,7 @@ export class StoreComponent implements OnInit {
     private route: ActivatedRoute) {
    }
 
+  currentPanel = 'details';
   identifier = '';
   store: any;
   products: any =[];
@@ -26,6 +27,18 @@ export class StoreComponent implements OnInit {
   loadProducts() {
     this.service.getProductsByStoreId(this.identifier).subscribe( response => this.products = response.data);
     console.log(this.products)
+  }
+
+  activateDetails(){
+    this.currentPanel = 'details';
+  }
+
+  activateProducts(){
+    this.currentPanel = 'products';
+  }
+
+  activateReviews(){
+    this.currentPanel = 'reviews';
   }
 
 }

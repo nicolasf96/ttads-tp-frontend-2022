@@ -20,6 +20,12 @@ export class UsersComponent implements OnInit {
     this.service.getUsers().subscribe( response => this.users = response);
   }
 
+  
+  deleteUser(idUser: string) {
+    this.service.deleteUser(idUser).subscribe( response => console.log(response));
+    this.loadUsers();
+  }
+
  
 
 }

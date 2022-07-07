@@ -1,1 +1,62 @@
-<p>create-users works!</p>
+<nav class="breadcrumb" aria-label="breadcrumbs">
+    <ul>
+      <li><a href="javascript:void(0)" routerLink="/home">Home</a></li>
+      <li><a href="javascript:void(0)" routerLink="/users">Users</a></li>
+      <li class="is-active"><a href="#" aria-current="page">New User</a></li>
+    </ul>
+  </nav>
+
+
+<div class='columns is-centered'>
+    <div class='column is-8 has-text-centered'>
+        <h3 class="title is-4">New User</h3>
+    </div>
+</div>
+<div class='columns is-centered'>
+    <div class='column is-5'>
+        <div class='card'>
+            <div class='card-content block'>
+                <form [formGroup]="userForm" (ngSubmit)="onSubmit()">
+                    <div class="field">
+                        <label class="label">Email</label>
+                        <div class="control">
+                          <input class="input" type="email" placeholder="Text input" formControlName="email">
+                        </div>
+                    </div>
+                    <div class="field">
+                        <label class="label">Username</label>
+                        <div class="control">
+                          <input class="input" type="text" placeholder="Text input" formControlName="username">
+                        </div>
+                    </div>
+                    <div class="field">
+                        <label class="label">Password</label>
+                        <div class="control">
+                          <input class="input" type="password" placeholder="Text input" formControlName="password">
+                        </div>
+                    </div>
+                    <div class="field">
+                        <label class="label">First Name</label>
+                        <div class="control">
+                          <input class="input" type="text" placeholder="Text input" formControlName="firstName">
+                        </div>
+                    </div>
+                    <div class="field">
+                        <label class="label">Last Name</label>
+                        <div class="control">
+                          <input class="input" type="text" placeholder="Text input" formControlName="lastName">
+                        </div>
+                    </div>
+                    <div class="field">
+                        <label class="label">Phone</label>
+                        <div class="control">
+                          <input class="input" type="text" placeholder="Text input" formControlName="phone">
+                        </div>
+                    </div>
+                    <button class="button is-primary" type="submit" [disabled]="!userForm.valid">Submit</button>
+                    <button class="button is-secondary" type="button" (click)="initialize()" >Reset</button>
+                  </form>
+            </div>
+        </div>
+    </div>
+</div>

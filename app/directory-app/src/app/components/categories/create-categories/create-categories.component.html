@@ -9,14 +9,18 @@
         <div class='card'>
             <div class='card-content block'>
                 <form [formGroup]="categoryForm" (ngSubmit)="onSubmit()">
-                    <label>
-                      Description:
-                      <input type="text" formControlName="description">
-                    </label><br>
-                    <label>
-                      Category Parent:
-                      <input type="text" formControlName="idCategoryParent">
-                    </label><br>
+                    <div class="field">
+                        <label class="label">Description</label>
+                        <div class="control">
+                          <input class="input" type="text" placeholder="Text input" formControlName="description">
+                        </div>
+                    </div>
+                    <div class="field">
+                        <label class="label">Category Parent</label>
+                        <div class="control">
+                          <input class="input" type="text" placeholder="Text input" formControlName="idCategoryParent">
+                        </div>
+                    </div>
                     <button class="button is-primary" type="submit" [disabled]="!categoryForm.valid">Submit</button>
                     <button class="button is-secondary" type="button" (click)="initialize()" >Reset</button>
                   </form>

@@ -5,6 +5,7 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 export class StoresService {
+  
  
   
 
@@ -20,6 +21,11 @@ export class StoresService {
   getStore(id: String) {
     const url = this.baseURL+'stores/'+id;
     console.log(url);
+    return this.http.get<any>(url);
+  }
+
+  getProductsByStoreId(identifier: string) {
+    const url = this.baseURL+'products/'+identifier;
     return this.http.get<any>(url);
   }
 

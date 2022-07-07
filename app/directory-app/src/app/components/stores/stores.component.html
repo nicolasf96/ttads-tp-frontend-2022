@@ -1,3 +1,11 @@
+<nav class="breadcrumb" aria-label="breadcrumbs">
+    <ul>
+      <li><a href="javascript:void(0)" routerLink="/home">Home</a></li>
+      <li><a href="javascript:void(0)" routerLink="/stores">Stores</a></li>
+    </ul>
+  </nav>
+
+
 <div class='columns is-centered'>
   <div class='column'>
       <h2 class="title is-4">Stores</h2>
@@ -23,7 +31,7 @@
                   <th>Delete</th>
                 </tr>
               </thead>
-            <tr  *ngFor="let store of stores.data">
+            <tr  *ngFor="let store of stores">
                 <td>
                     {{store._id}}
                 </td>

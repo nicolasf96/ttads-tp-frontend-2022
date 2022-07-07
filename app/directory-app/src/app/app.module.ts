@@ -14,6 +14,9 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { UsersComponent } from './components/users/users.component';
 import { CreateUsersComponent } from './components/users/create-users/create-users.component';
 import { EditCategoriesComponent } from './components/categories/edit-categories/edit-categories.component';
+import { HomeComponent } from './home/home.component';
+import { CreateStoreComponent } from './components/stores/create-store/create-store.component';
+import { ProductsOfStoreComponent } from './components/stores/products-of-store/products-of-store.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +29,10 @@ import { EditCategoriesComponent } from './components/categories/edit-categories
     StoreComponent,
     UsersComponent,
     CreateUsersComponent,
-    EditCategoriesComponent
+    EditCategoriesComponent,
+    HomeComponent,
+    CreateStoreComponent,
+    ProductsOfStoreComponent
   ],
   imports: [
     BrowserModule,

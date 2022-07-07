@@ -16,6 +16,11 @@ export class CategoriesService {
     return this.http.get<any>(url);
   }
 
+  getCategory(identifier: string) {
+    const url = this.baseURL+'categories/'+identifier
+    return this.http.get<any>(url);
+  }
+
   createCategory(newCat: any) {
     const url = this.baseURL+'categories';
     console.log("servicio: ", newCat)
@@ -28,6 +33,7 @@ export class CategoriesService {
   }
 
   editCategory(catEdited: any) {
+    console.log("servicio: ", catEdited)
     const url = this.baseURL+'categories/'+catEdited._id
     return this.http.put<any>(url,catEdited);
   }

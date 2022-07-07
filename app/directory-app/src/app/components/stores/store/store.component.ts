@@ -11,21 +11,21 @@ export class StoreComponent implements OnInit {
 
   constructor(private service: StoresService,
     private route: ActivatedRoute) {
-    console.log("Soy Store Component")
    }
 
   identifier = '';
   store: any;
+  products: any =[];
 
   ngOnInit(): void {
     this.route.params.subscribe( (params) => this.identifier = params['id'] )
     this.service.getStore(this.identifier).subscribe( response => this.store = response.data);
+    this.loadProducts();
   }
 
-  loadStore() {
-    console.log("Este es mi id: " +this.identifier)
-    this.service.getStore(this.identifier).subscribe( response => this.store = response);
-    console.log(this.store)
+  loadProducts() {
+    this.service.getProductsByStoreId(this.identifier).subscribe( response => this.products = response.data);
+    console.log(this.products)
   }
 
 }

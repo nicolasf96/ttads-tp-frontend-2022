@@ -21,7 +21,7 @@ export class StoresComponent implements OnInit {
   }
 
   loadStores() {
-    this.service.getStores().subscribe( response => this.stores = response);
+    this.service.getStores().subscribe( response => this.stores = response.data);
   }
 
   goToStore(id:any){

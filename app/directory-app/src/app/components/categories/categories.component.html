@@ -1,3 +1,10 @@
+<nav class="breadcrumb" aria-label="breadcrumbs">
+    <ul>
+      <li><a href="javascript:void(0)" routerLink="/home">Home</a></li>
+      <li class="is-active"><a href="#" aria-current="page">Categories</a></li>
+    </ul>
+  </nav>
+
 <div class='columns is-centered'>
     <div class='column'>
         <h2 class="title is-4">Categories</h2>
@@ -37,7 +44,7 @@
                         {{cat.updatedAt}}
                     </td>
                     <td>
-                        <button class="button is-small is-info btn-cat">/</button>
+                        <button class="button is-small is-info btn-cat" (click)="categoryDetails(cat._id)">/</button>
                     </td>
                     <td>
                         <button class="button is-small is-danger btn-cat" (click)="deleteCategory(cat._id)">X</button>
@@ -47,3 +54,4 @@
         </div>
 </div>
 </div>
+

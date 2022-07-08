@@ -7,6 +7,7 @@ import { HttpClient } from '@angular/common/http';
 export class StoresService {
   
   
+  
  
   
 
@@ -33,6 +34,11 @@ export class StoresService {
   createStore(store: any) {
     const url = this.baseURL+'stores';
     return this.http.post<any>(url, store);
+  }
+
+  getReviewsByStore(identifier: string) {
+    const url = this.baseURL+'reviews/'+identifier;
+    return this.http.get<any>(url);
   }
 
 

@@ -17,11 +17,19 @@ export class StoreComponent implements OnInit {
   identifier = '';
   store: any;
   products: any =[];
+  reviews: any =[];
 
   ngOnInit(): void {
     this.route.params.subscribe( (params) => this.identifier = params['id'] )
     this.service.getStore(this.identifier).subscribe( response => this.store = response.data);
     this.loadProducts();
+    this.loadReviews();
+  }
+
+
+  loadReviews() {
+    this.service.getReviewsByStore(this.identifier).subscribe( response => this.reviews = response.data);
+    console.log(this.reviews)
   }
 
   loadProducts() {

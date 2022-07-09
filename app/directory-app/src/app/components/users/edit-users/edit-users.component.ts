@@ -59,6 +59,12 @@ export class EditUsersComponent implements OnInit {
     }
   }
 
+  uploadPhoto(title:HTMLInputElement) :Boolean{
+    this.imageService.createImage(this.user._id, title.value, this.file).subscribe(
+      res => console.log(Response), err => console.log(err)
+    )
+    return false
+  }
 
 
 }

@@ -19,30 +19,18 @@
             <table class="table is-hoverable">
                 <thead>
                     <tr>
-                      <th>Id</th>
                       <th>Description</th>
                       <th>Category Parent</th>
-                      <th>Created At</th>
-                      <th>Updated At</th>
                       <th>Edit</th>
                       <th>Delete</th>
                     </tr>
                   </thead>
                 <tr  *ngFor="let cat of categories">
                     <td>
-                        {{cat._id}}
-                    </td>
-                    <td>
                         {{cat.description}}
                     </td>
                     <td>
                         {{cat.idCategoryParent?.description}}
-                    </td>
-                    <td>
-                        {{cat.createdAt}}
-                    </td>
-                    <td>
-                        {{cat.updatedAt}}
                     </td>
                     <td>
                         <button class="button is-small is-info btn-cat" (click)="categoryDetails(cat._id)">/</button>

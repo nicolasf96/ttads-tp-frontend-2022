@@ -18,7 +18,7 @@
             <table class="table is-hoverable">
                 <thead>
                     <tr>
-                      <th>Id</th>
+                      <th>Profile</th>
                       <th>Email</th>
                       <th>Username</th>
                       <th>First Name</th>
@@ -30,7 +30,7 @@
                   </thead>
                 <tr  *ngFor="let user of users.data">
                     <td>
-                        {{user._id}}
+                        <img [src]="'http://localhost:3000/api/uploads/' + user.profilePicture" class="profile-img">
                     </td>
                     <td>
                         {{user.email}}

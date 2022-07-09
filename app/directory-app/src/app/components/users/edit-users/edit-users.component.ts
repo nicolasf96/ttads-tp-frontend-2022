@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ImagesService } from 'src/app/services/images/images.service';
 import { UsersService } from 'src/app/services/users/users.service';
+import { CommonModule } from '@angular/common'
 
 interface HtmlInputEvent extends Event {
   target: HTMLInputElement & EventTarget;
@@ -30,24 +31,15 @@ export class EditUsersComponent implements OnInit {
 
   ngOnInit(): void {
     this.route.params.subscribe( (params) => this.identifier = params['id'] )
-    this.userService.getUser(this.identifier).subscribe( response => this.user = response.data);
+    this.userService.getUser(this.identifier).subscribe( response => { this.user = response.data });
+    console.log(this.user);
   }
 
-  getFile($event: any){
-    /* const [ file ] = $event.target.files;
-    this.fileTmp = {
-      fileRaw: file,
-      fileName: file.name
-    } */
+  loadUser(){
+    this.userService.getUser(this.identifier).subscribe( response => { this.user = response.data });
   }
 
-  onSubmit(){
-   /*  const body = new FormData();
-    body.append('myFile', this.fileTmp.fileRaw, this.fileTmp.fileName);
-    console.log( body );
-
-    this.imageService.createImage(body, this.user._id).subscribe(response => console.log(response)); */
-  }
+ 
 
   onPhotoSelected($event: any){
     if ($event.target.files && $event.target.files[0]) {
@@ -59,11 +51,10 @@ export class EditUsersComponent implements OnInit {
     }
   }
 
-  uploadPhoto(title:HTMLInputElement) :Boolean{
-    this.imageService.createImage(this.user._id, title.value, this.file).subscribe(
-      res => console.log(Response), err => console.log(err)
-    )
-    return false
+  async uploadPhoto(){
+    this.imageService.createImage(this.user._id, this.file).subscribe( response => console.log(response));
+    this.router.navigate(['users']);
+
   }
 
 

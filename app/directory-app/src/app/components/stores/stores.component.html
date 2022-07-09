@@ -15,10 +15,9 @@
 <div class='columns is-centered'>
   <div class='column'>
       <div class='table-container'>
-        <table class="table is-hoverable is-narrow">
+        <table class="table is-hoverable">
             <thead>
                 <tr>
-                  <th>Id</th>
                   <th>Name</th>
                   <th>Username</th>
                   <th>Address</th>
@@ -32,9 +31,6 @@
                 </tr>
               </thead>
             <tr  *ngFor="let store of stores">
-                <td>
-                    {{store._id}}
-                </td>
                 <td>
                     {{store.name}}
                 </td>

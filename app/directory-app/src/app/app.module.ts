@@ -20,6 +20,7 @@ import { ProductsOfStoreComponent } from './components/stores/products-of-store/
 import { ReviewsOfStoreComponent } from './components/stores/reviews-of-store/reviews-of-store.component';
 import { StoreDetailsComponent } from './components/stores/store-details/store-details.component';
 import { EditUsersComponent } from './components/users/edit-users/edit-users.component';
+import { CommonModule } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -44,7 +45,8 @@ import { EditUsersComponent } from './components/users/edit-users/edit-users.com
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    CommonModule
   ],
   providers: [],
   bootstrap: [AppComponent]

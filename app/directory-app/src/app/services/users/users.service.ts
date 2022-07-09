@@ -17,6 +17,11 @@ export class UsersService {
     return this.http.get<any>(url);
   }
 
+  getUser(id: string) {
+    const url = this.baseURL+'users/'+id;
+    return this.http.get<any>(url);
+  }
+
   createUser(newUser: FormData) {
     const url = this.baseURL+'users'
     return this.http.post<any>(url, newUser);

@@ -48,7 +48,7 @@
                         {{user.phone}}
                     </td>
                     <td>
-                        <button class="button is-small is-info btn-cat">/</button>
+                        <button class="button is-small is-info btn-cat" (click)="userDetails(user._id)">/</button>
                     </td>
                     <td>
                         <button class="button is-small is-danger btn-cat" (click)="deleteUser(user._id)">X</button>

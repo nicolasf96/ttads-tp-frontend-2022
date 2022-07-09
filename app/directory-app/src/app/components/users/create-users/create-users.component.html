@@ -53,10 +53,6 @@
                           <input class="input" type="text" placeholder="Text input" formControlName="phone">
                         </div>
                     </div>
-                    <div class="field">
-                      <label class="label">Profile Picture</label>
-                        <input class="input" type="file" (change)="getFile($event)">
-                    </div>
                     <button class="button is-primary" type="submit" [disabled]="!userForm.valid">Submit</button>
                     <button class="button is-secondary" type="button" (click)="initialize()" >Reset</button>
                   </form>

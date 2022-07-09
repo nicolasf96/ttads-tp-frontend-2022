@@ -35,19 +35,7 @@ export class CreateUsersComponent implements OnInit {
 
   onSubmit() {
     
-    const body = new FormData();
-    body.append('myFile', this.fileTmp.fileRaw, this.fileTmp.fileName);
-    body.append('email', this.userForm.value.email);
-    body.append('username', this.userForm.value.username)
-    body.append('password', this.userForm.value.password)
-    body.append('firstName', this.userForm.value.firstName)
-    body.append('lastName', this.userForm.value.lastName)
-    body.append('phone', this.userForm.value.phone)
-    console.log( this.userForm.value);
-    console.log( body );
-
-    this.service.createUser(body).subscribe(response => console.log(response));
-    //this.router.navigate(['users'])
+    this.router.navigate(['users'])
   }
 
 
@@ -55,11 +43,5 @@ export class CreateUsersComponent implements OnInit {
     this.userForm.reset()
   }  
 
-  getFile($event: any){
-    const [ file ] = $event.target.files;
-    this.fileTmp = {
-      fileRaw: file,
-      fileName: file.name
-    }
-  }
+  
 }

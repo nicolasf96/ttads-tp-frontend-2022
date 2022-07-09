@@ -9,3 +9,19 @@
   <h1 class="title is-4">{{user.username}}</h1>
 
   <p>Add Profile Picture</p>
+<div class='columns'>
+  <div class='column is-5'>
+    <form >
+      <div class='field'>
+        <label class="label">Title</label>
+        <div class="control">
+          <input class="input" type="text" placeholder="Photo's Title">
+        </div>
+      </div>
+      <input type="file"  class="is-hidden" (change)="onPhotoSelected($event)" #photoInput>
+      <img [src]="photoSelected || 'assets/no-image.png'" (click)="photoInput.click()">
+      <button type="submit" class="button is-primary">Submit</button>
+    </form>
+
+  </div>
+</div>

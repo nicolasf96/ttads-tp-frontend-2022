@@ -1,0 +1,23 @@
+*{
+    color: rgb(196, 196, 196)!important;
+}
+
+div.button.is-light{
+    color: blue!important;
+}
+
+table{
+    background-color: rgb(61, 61, 61)!important;
+    color:rgb(107, 107, 107)!important;
+}
+
+div{
+    background-color: rgb(61, 61, 61);
+}
+
+div.nav{
+    background-color: blueviolet;
+}
+div.card{
+    color:rgb(107, 107, 107)!important;
+}

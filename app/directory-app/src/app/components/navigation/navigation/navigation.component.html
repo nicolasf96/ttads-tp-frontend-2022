@@ -27,6 +27,11 @@
                 <a class="button is-info is-light">
                   Log in
                 </a>
+                  <div class="styleModeContainer" (click)="changeStyle()">
+                    <div [ngClass]="(style)? 'styleDark':'styleLight'">
+  
+                    </div>
+                  </div>
               </div>
             </div>
           </div>

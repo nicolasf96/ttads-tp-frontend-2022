@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DomSanitizer } from '@angular/platform-browser';
 import { Router } from '@angular/router';
 
 @Component({
@@ -8,11 +9,21 @@ import { Router } from '@angular/router';
 })
 export class AppComponent implements OnInit {
   title = 'directory-app';
+  cssUrl: string;
 
-    constructor(private router: Router) { }
+    constructor(private router: Router, public sanitizer: DomSanitizer) { 
+      this.cssUrl = './assets/styleLightMode.css';
+    }
   
+   
+
     ngOnInit(): void {
-      this.router.navigate(['home'])
+    }
+
+    setStyleMode(mode:any){
+      console.log(mode);
+      this.cssUrl = (this.cssUrl === `/assets/styleLightMode.css`) ? `/assets/styleDarkMode.css` : `/assets/styleLightMode.css`;
+
     }
 
 

@@ -1,6 +1,7 @@
+<link rel="stylesheet" [href]="sanitizer.bypassSecurityTrustResourceUrl(cssUrl)">
 <div class='columns is-centered'>
   <div class='column'>
-    <app-navigation>
+    <app-navigation (styleMode)="setStyleMode($event)">
     </app-navigation>
 
   </div>

@@ -19,6 +19,7 @@
             <table class="table is-hoverable">
                 <thead>
                     <tr>
+                      <th>Id</th>
                       <th>Description</th>
                       <th>Category Parent</th>
                       <th>Edit</th>
@@ -26,6 +27,9 @@
                     </tr>
                   </thead>
                 <tr  *ngFor="let cat of categories">
+                    <td>
+                        {{cat._id}}
+                    </td>
                     <td>
                         {{cat.description}}
                     </td>

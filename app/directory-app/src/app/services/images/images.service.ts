@@ -23,10 +23,19 @@ export class ImagesService {
 
   
 
-  createImage(idUser:string, image: File) {
-    const url = this.baseURL+'images';
+  createImageProfileUser(idUser:string, image: File) {
+    const url = this.baseURL+'images/profileUser';
     const fd = new FormData();
     fd.append('idUser', idUser);
+    fd.append('image', image);
+
+    return this.http.post(url,fd);
+  }
+
+  createImageProduct(idProduct:string, image: File) {
+    const url = this.baseURL+'images/product';
+    const fd = new FormData();
+    fd.append('idProduct', idProduct);
     fd.append('image', image);
 
     return this.http.post(url,fd);

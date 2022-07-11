@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-navigation',
@@ -7,14 +7,26 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavigationComponent implements OnInit {
 
-  constructor() { }
 
-  ngOnInit(): void {
-    
+  @Output()
+  styleMode = new EventEmitter<boolean>();
+  style: boolean;
 
+  constructor() { 
+    this.style=false;
+ 
   }
 
-  
+  ngOnInit(): void {
+    this.styleMode.emit(this.style);
+  }
+
+
+
+  changeStyle() {
+    this.style = !this.style;
+    this.styleMode.emit(this.style);
+  }
 
   
 

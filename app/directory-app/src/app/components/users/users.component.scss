@@ -7,3 +7,9 @@
     border-radius: 50%;
     background-size: 100% auto;
 }
+
+table.is-hoverable{
+    :hover{
+        background-color: rgb(238, 238, 238);
+    }
+}

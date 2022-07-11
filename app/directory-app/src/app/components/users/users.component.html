@@ -28,9 +28,13 @@
                       <th>Delete</th>
                     </tr>
                   </thead>
-                <tr  *ngFor="let user of users.data">
+                <tr  *ngFor="let user of users.data" 
+                [ngStyle]="{'cursor': 'pointer'}" 
+            
+                (click)="userDetails(user._id)">
                     <td>
-                        <img [src]="'http://localhost:3000/api/' + user.profilePicture?.path" class="profile-img">
+                        <img 
+                        [src]="'http://localhost:3000/api/' + user.profilePicture?.path" class="profile-img">
                     </td>
                     <td>
                         {{user.email}}

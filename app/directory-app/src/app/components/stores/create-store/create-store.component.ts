@@ -24,7 +24,6 @@ export class CreateStoreComponent implements OnInit {
   store:any = {};
 
   constructor(private service: StoresService, private router: Router) { 
-    this.storeForm.valueChanges.subscribe(value => console.log(value));
   }
 
 

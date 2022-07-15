@@ -41,4 +41,13 @@ export class ImagesService {
     return this.http.post(url,fd);
   }
 
+  createImageProfileStore(idStore:string, image: File) {
+    const url = this.baseURL+'images/profileStore';
+    const fd = new FormData();
+    fd.append('idStore', idStore);
+    fd.append('image', image);
+
+    return this.http.post(url,fd);
+  }
+
 }

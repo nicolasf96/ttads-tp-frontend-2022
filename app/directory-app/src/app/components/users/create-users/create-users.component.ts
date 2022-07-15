@@ -11,7 +11,7 @@ import { UsersService } from 'src/app/services/users/users.service';
 export class CreateUsersComponent implements OnInit {
   
   userForm = new FormGroup({
-    email: new FormControl('', [Validators.required]),
+    email: new FormControl('', [Validators.required, Validators.email]),
     username: new FormControl('', [Validators.required]),
     password: new FormControl('', [Validators.required]),
     firstName: new FormControl('', [Validators.required]),
@@ -33,8 +33,9 @@ export class CreateUsersComponent implements OnInit {
   }
 
 
+  
   onSubmit() {
-    
+    this.service.createUser(this.userForm.value).subscribe( response => console.log(response));
     this.router.navigate(['users'])
   }
 

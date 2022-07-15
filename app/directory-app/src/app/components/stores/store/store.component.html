@@ -6,11 +6,18 @@
     </ul>
   </nav>
 <div class='columns'>
+  <div class='column is-narrow'>
+    <img [src]="'http://localhost:3000/api/' + store.profilePicture?.path" 
+      class="profile-img">
+  </div>
   <div class='column'>
     <h1 class="title is-4">{{store.name}}</h1>
     <p class="title is-6">@{{store.username}}</p>
     <p class="block">{{store.description}}</p>
-    
+  </div>
+</div>
+<div class='columns'>
+  <div class='column'>
     <div class="tabs is-centered">
       <ul>
         <li [class.is-active] = "currentPanel === 'details'" (click)="activateDetails()">

@@ -30,7 +30,9 @@
                   <th>Delete</th>
                 </tr>
               </thead>
-            <tr  *ngFor="let store of stores">
+            <tr  *ngFor="let store of stores"
+            [ngStyle]="{'cursor': 'pointer'}" 
+            (click)="goToStore(store._id)">
                 <td>
                     {{store.name}}
                 </td>

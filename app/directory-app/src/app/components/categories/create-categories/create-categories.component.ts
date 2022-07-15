@@ -26,10 +26,6 @@ export class CreateCategoriesComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  createCategory(newCat: any){
-    this.service.createCategory(newCat);
-    this.router.navigate(['categories'])
-  }
 
 
   onSubmit() {

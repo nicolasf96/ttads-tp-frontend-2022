@@ -1,0 +1,65 @@
+<div class='columns is-centered fondo' >
+    <div class='column is-7' style="padding: 0px;">
+      <div class="banner" [style.background-image]="sanitizeImage(store.profilePicture.path)" >
+          <h1 class="title is-1">{{store.name}}</h1>
+          <img  [src]="'http://localhost:3000/api/' + store.profilePicture?.path">
+        </div> 
+        <div class='columns is-multiline'>
+          <div class='column is-5'>
+            <div class='perfil-container flex-wrap-start'>
+              <div class='profile-img'>
+                <img  [src]="'http://localhost:3000/api/' + store.profilePicture?.path">
+              </div>
+              <div class='profile-info'>
+                <h2 class="title is-4">{{store.name}}</h2>
+                <p class="title is-6">@{{store.username}}</p>
+              </div>
+            </div>
+
+            <div class='perfil-container'>
+              <h3 class="title is-3">About Us</h3>
+              <p class="title is-6">{{store.address}}</p>
+              <p class="title is-6">Valoration: {{store.valoration}} :)</p>
+
+            </div>
+
+          </div>
+
+          <div class='column is-7'>
+            <div class='perfil-container'>
+
+                Aquí van las imágenes
+            </div>
+            <div class='single-product' *ngFor="let prod of products">
+              <div class='img-product-container'>
+                <img class="product-img" [src]="'http://localhost:3000/api/'+prod.image?.path">
+              </div>
+              <div class='info-product'>
+                  <div class='info'>
+                    {{prod.title}} <br>
+                    {{prod.description}}
+                  </div>
+                  <div class='price'>
+                    {{prod.price}}
+                  </div>
+
+                  
+                  
+              </div>
+            </div>
+          </div>
+
+
+        </div>
+    </div>
+</div>
+
+<!-- <li *ngFor="let article of arr;let i=index;">
+  <div  *ngIf="i == 0" class="w3l_banner_nav_right_banner" [style.background-image]="sanitizeImage(article.uri)">
+    <h3>Make your <span>food</span> with Spicy.</h3>
+           <div class="more">
+               <a href="products.html" class="button--saqui button--round-l button--text-thick" data-text="Shop now">Shop now1</a>
+           </div>
+   </div>
+</li>
+[ngStyle]="{'background': 'url(http://localhost:3000/api/' + store.profilePicture.path + ')'}" -->

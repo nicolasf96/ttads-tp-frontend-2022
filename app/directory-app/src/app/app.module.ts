@@ -21,6 +21,11 @@ import { ReviewsOfStoreComponent } from './components/stores/reviews-of-store/re
 import { StoreDetailsComponent } from './components/stores/store-details/store-details.component';
 import { EditUsersComponent } from './components/users/edit-users/edit-users.component';
 import { CommonModule } from '@angular/common';
+import { PrincipalViewComponent } from './components/principal-view/principal-view.component';
+import { ListingViewComponent } from './components/listing-view/listing-view.component';
+import { StoreViewComponent } from './components/store-view/store-view.component';
+import { FooterComponent } from './components/footer/footer.component';
+import { ProductViewComponent } from './components/product-view/product-view.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +44,12 @@ import { CommonModule } from '@angular/common';
     ProductsOfStoreComponent,
     ReviewsOfStoreComponent,
     StoreDetailsComponent,
-    EditUsersComponent
+    EditUsersComponent,
+    PrincipalViewComponent,
+    ListingViewComponent,
+    StoreViewComponent,
+    FooterComponent,
+    ProductViewComponent
   ],
   imports: [
     BrowserModule,

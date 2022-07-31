@@ -1,38 +1,43 @@
-<nav class="breadcrumb" aria-label="breadcrumbs">
-    <ul>
-      <li><a href="javascript:void(0)" routerLink="/home">Home</a></li>
-      <li><a href="javascript:void(0)" routerLink="/categories">Categories</a></li>
-      <li class="is-active"><a href="#" aria-current="page">New Category</a></li>
-    </ul>
-  </nav>
-
-
 <div class='columns is-centered'>
-    <div class='column is-8 has-text-centered'>
-        <h3 class="title is-4">New Category</h3>
+  <div class='column is-10'>
+      
+    <nav class="breadcrumb" aria-label="breadcrumbs">
+        <ul>
+          <li><a href="javascript:void(0)" routerLink="/home">Home</a></li>
+          <li><a href="javascript:void(0)" routerLink="/categories">Categories</a></li>
+          <li class="is-active"><a href="#" aria-current="page">New Category</a></li>
+        </ul>
+      </nav>
+    
+    
+    <div class='columns is-centered'>
+        <div class='column is-8 has-text-centered'>
+            <h3 class="title is-4">New Category</h3>
+        </div>
     </div>
-</div>
-<div class='columns is-centered'>
-    <div class='column is-5'>
-        <div class='card'>
-            <div class='card-content block'>
-                <form [formGroup]="categoryForm" (ngSubmit)="onSubmit()">
-                    <div class="field">
-                        <label class="label">Description</label>
-                        <div class="control">
-                          <input class="input" type="text" placeholder="Text input" formControlName="description">
+    <div class='columns is-centered'>
+        <div class='column is-5'>
+            <div class='card'>
+                <div class='card-content block'>
+                    <form [formGroup]="categoryForm" (ngSubmit)="onSubmit()">
+                        <div class="field">
+                            <label class="label">Description</label>
+                            <div class="control">
+                              <input class="input" type="text" placeholder="Text input" formControlName="description">
+                            </div>
                         </div>
-                    </div>
-                    <div class="field">
-                        <label class="label">Category Parent</label>
-                        <div class="control">
-                          <input class="input" type="text" placeholder="Text input" formControlName="idCategoryParent">
+                        <div class="field">
+                            <label class="label">Category Parent</label>
+                            <div class="control">
+                              <input class="input" type="text" placeholder="Text input" formControlName="idCategoryParent">
+                            </div>
                         </div>
-                    </div>
-                    <button class="button is-primary" type="submit" [disabled]="!categoryForm.valid">Submit</button>
-                    <button class="button is-secondary" type="button" (click)="initialize()" >Reset</button>
-                  </form>
+                        <button class="button is-primary" type="submit" [disabled]="!categoryForm.valid">Submit</button>
+                        <button class="button is-secondary" type="button" (click)="initialize()" >Reset</button>
+                      </form>
+                </div>
             </div>
         </div>
     </div>
+  </div>
 </div>

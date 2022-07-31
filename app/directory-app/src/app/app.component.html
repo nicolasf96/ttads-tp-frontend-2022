@@ -1,30 +1,16 @@
 <link rel="stylesheet" [href]="sanitizer.bypassSecurityTrustResourceUrl(cssUrl)">
 <div class='columns is-centered'>
   <div class='column'>
-    <app-navigation (styleMode)="setStyleMode($event)">
+    <app-navigation (styleMode)="setStyleMode($event)" >
     </app-navigation>
 
   </div>
 
 </div>
 <div class='columns'>
-  <div class='column is-2 app-side-menu'>
-    <app-side-menu>
-
-    </app-side-menu>
-  </div>
   <div class='column app-home'>
-    <div class='columns'>
-      <div class='column'>
-      </div>
-    </div>
-    <div class='columns'>
-      <div class='column padding-mobile'>
-        <router-outlet>
+        <router-outlet  >
 
         </router-outlet>
-      </div>
-    </div>
-    
   </div>
 </div>

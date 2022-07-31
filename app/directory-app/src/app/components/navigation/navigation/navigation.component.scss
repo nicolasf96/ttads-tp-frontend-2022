@@ -3,12 +3,15 @@
     font-weight: bold;
 }
 
+
+$backColor: #1e253d;
+
 .navbar-style{
 
     
-    background-color: rgb(65, 197, 236);
+    background-color: $backColor;
     div{
-        background-color: rgb(65, 197, 236);
+        background-color: $backColor;
     }
     a.navigation-title{
         color: #FFFF;
@@ -16,29 +19,3 @@
     
 }
 
-.styleModeContainer{
-    width: 120px;
-    height: 80px;
-    border-radius: 50%;
-    background-color: black;
-    padding: 5px;
-
-    .styleLight{
-        position: absolute;
-        top:25px;
-        width: 30px;
-        height: 30px;  
-        border-radius: 50%;
-        background-color: yellow;
-    }
-    .styleDark{
-        position: absolute;
-        top:25px;
-        width: 30px;
-        height: 30px;  
-        border-radius: 50%;
-        background-color: blue;
-    }
-
-
-}

@@ -20,6 +20,12 @@ export class StoresService {
     return this.http.get<any>(url);
   }
 
+  getStoresWithImage() {
+    const url = this.baseURL+'stores/images/'
+    return this.http.get<any>(url);
+  }
+
+
   getStore(id: String) {
     const url = this.baseURL+'stores/'+id;
     console.log(url);

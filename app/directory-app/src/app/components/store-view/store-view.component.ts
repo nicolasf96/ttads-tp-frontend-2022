@@ -19,6 +19,7 @@ export class StoreViewComponent implements OnInit {
   store: any;
   products: any =[];
   reviews: any =[];
+  tags:any =[];
 
   ngOnInit(): void {
     this.route.params.subscribe( (params) => this.identifier = params['id'] )
@@ -38,11 +39,5 @@ export class StoreViewComponent implements OnInit {
     this.service.getProductsByStoreId(this.identifier).subscribe( response => this.products = response.data);
     console.log(this.products)
   }
-
-
-  public sanitizeImage(image: string) {
-    return this._sanitizer.bypassSecurityTrustStyle(`url(${image})`);
-  }
-  
 
 }

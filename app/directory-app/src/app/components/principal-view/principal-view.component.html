@@ -1,48 +1,50 @@
 <div class='columns'>
     <div class='column principal-banner'>
-        <h1 class="principal-title">Discover your city</h1>
+        <h1 class="principal-title">Discover Your City</h1>
         <div class='principal-input-container columns is-centered'>
             <div class='column is-half'>
-                <div class="field has-addons principal-field">
-                    <div class="control">
-                      <input class="input" type="text" placeholder="Find a repository">
-                      <div class="control">
-                        <a class="button is-info">
-                          Search
-                        </a>
-                      </div>
-                    </div>
+                <div class='principal-form'>
+                    <input type="text" placeholder="Que estás buscando?">
+                    <button >Buscar</button>
+                </div>
+                <div *ngIf="categories">
+                    <span class="tag is-danger is-light categories" *ngFor="let cat of categories">{{cat.description}}</span>
+
                 </div>
 
             </div>
         </div>
     </div>
 </div>
-<div class='columns'>
-    <div class='column most-popular-stores'>
-        <h1 class="secondary-title">Most popular stores</h1>
+<div class='fondo'>
+    <div class='columns'>
+        <div class='column most-popular-stores'>
+            <h1 class="secondary-title">Most popular stores</h1>
+        </div>
+        
     </div>
-    
-</div>
-<div class='columns is-multiline is-centered' style="padding: 30px;">
-    <div class='column is-narrow' *ngFor="let store of stores" (click)="goToStore(store._id)" [ngStyle]="{'cursor': 'pointer'}" >
-        <div id="demo" class='store-card'>
-            <div class='image-container' >
-                <div class='image-decoration'>
-                    <img [src]="'http://localhost:3000/api/' + store.profilePicture?.path"  class="profile-img" *ngIf="store.profilePicture">
-                    <div class='store-title'>
-                        {{store.name}}
-    
+    <div class='columns is-multiline is-centered' style="padding: 30px;">
+        <div class='column is-narrow' *ngFor="let store of stores" (click)="goToStore(store._id)" [ngStyle]="{'cursor': 'pointer'}" >
+            <div  class='store-card'>
+                <div class='image-container' >
+                    <div class='image-decoration'>
+                        <img [src]="'http://localhost:3000/api/' + store.profilePicture?.path"  *ngIf="store.profilePicture">
+                        <img class="noPicture" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5a/Hollywood_Sign_%28Zuschnitt%29.jpg/1200px-Hollywood_Sign_%28Zuschnitt%29.jpg"  *ngIf="!store.profilePicture">
+                        <div class='store-title'>
+                            {{store.name}}
+        
+                        </div>
                     </div>
+                    
+                </div>
+                <div class='info-container'>
+                    <h2 class="store-info">@{{store.username}}</h2>
+                    <p class="store-city">{{store.city}}</p>
+                    <span> </span>
                 </div>
                 
             </div>
-            <div class='info-container'>
-                <h2 class="store-info">@{{store.username}}</h2>
-                <p class="store-city">{{store.city}}</p>
-                <span> </span>
-            </div>
-            
         </div>
     </div>
+
 </div>

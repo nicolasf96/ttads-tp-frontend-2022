@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { CategoriesService } from 'src/app/services/categories/categories.service';
 import { StoresService } from 'src/app/services/stores/stores.service';
 
 @Component({
@@ -9,12 +10,15 @@ import { StoresService } from 'src/app/services/stores/stores.service';
 })
 export class PrincipalViewComponent implements OnInit {
 
-  constructor(private service: StoresService,
+  constructor(private storeService: StoresService,
+    private categoryService: CategoriesService,
     private router: Router) { 
     this.loadStores();
+    this.loadCategories();
   }
 
-  stores:any = []
+  stores:any = [];
+  categories:any = [];
   storesSing:any=[];
 
 
@@ -23,9 +27,15 @@ export class PrincipalViewComponent implements OnInit {
   }
 
   loadStores() {
-    this.service.getStoresWithImage().subscribe( response => this.stores = response.data);
+    this.storeService.getStoresWithImage().subscribe( response => this.stores = response.data);
     
   }
+
+  loadCategories() {
+    this.categoryService.getCategories().subscribe( response => this.categories = response.data);
+    
+  }
+
 
   goToStore(id:any){
     this.router.navigate(['storeDetails/'+id]);

@@ -22,6 +22,12 @@ export class UsersService {
     return this.http.get<any>(url);
   }
 
+  getUserByStore(id: string) {
+    const url = this.baseURL+'users/store/'+id;
+    return this.http.get<any>(url);
+  }
+
+
   createUser(newUser: any) {
     const url = this.baseURL+'users'
     return this.http.post<any>(url, newUser);

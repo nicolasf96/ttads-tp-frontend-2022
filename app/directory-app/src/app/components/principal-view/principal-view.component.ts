@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { CategoriesService } from 'src/app/services/categories/categories.service';
 import { StoresService } from 'src/app/services/stores/stores.service';
@@ -9,6 +10,11 @@ import { StoresService } from 'src/app/services/stores/stores.service';
   styleUrls: ['./principal-view.component.scss']
 })
 export class PrincipalViewComponent implements OnInit {
+
+  searchForm = new FormGroup({
+    keySearch: new FormControl('', [Validators.required, Validators.maxLength(12)])
+  })
+
 
   constructor(private storeService: StoresService,
     private categoryService: CategoriesService,
@@ -39,6 +45,10 @@ export class PrincipalViewComponent implements OnInit {
 
   goToStore(id:any){
     this.router.navigate(['storeDetails/'+id]);
+  }
+
+  onSubmit() {
+    this.router.navigate(['search/'+this.searchForm.value.keySearch])
   }
 
 }

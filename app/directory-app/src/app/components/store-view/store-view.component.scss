@@ -194,6 +194,10 @@ $background-color: rgb(245, 245, 245);
                 fill-rule:nonzero}
         }
     }
+
+    a{
+        color: white;
+    }
     margin-top: 20px;
     width: 100%;
     min-height: 35px;
@@ -204,6 +208,8 @@ $background-color: rgb(245, 245, 245);
     padding: 15px;
     font-size: 24px;
     border-radius: 4px;
+
+
 }
 
 .separate-info{

@@ -8,6 +8,7 @@ export class StoresService {
   
   
   
+  
  
   
 
@@ -22,6 +23,11 @@ export class StoresService {
 
   getStoresWithImage() {
     const url = this.baseURL+'stores/images/'
+    return this.http.get<any>(url);
+  }
+
+  getStoresByKeyword(keyword: any) {
+    const url = this.baseURL+'stores/keyword/'+keyword;
     return this.http.get<any>(url);
   }
 

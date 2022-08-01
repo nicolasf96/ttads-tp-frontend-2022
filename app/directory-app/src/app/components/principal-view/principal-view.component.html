@@ -4,8 +4,10 @@
         <div class='principal-input-container columns is-centered'>
             <div class='column is-half'>
                 <div class='principal-form'>
-                    <input type="text" placeholder="Que estás buscando?">
-                    <button >Buscar</button>
+                    <form [formGroup]="searchForm" (ngSubmit)="onSubmit()">
+                        <input id="inputForm" type="text" placeholder="Que estás buscando?"  formControlName="keySearch">
+                        <button id="buttonForm"  type="submit">Buscar</button>
+                    </form>
                 </div>
                 <div *ngIf="categories">
                     <span class="tag is-danger is-light categories" *ngFor="let cat of categories">{{cat.description}}</span>

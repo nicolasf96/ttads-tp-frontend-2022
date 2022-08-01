@@ -1,1 +1,53 @@
-<p>listing-view works!</p>
+<div class='columns is-centered fondo' >
+    <div class='column is-7' style="padding: 0px;">
+      <div class="banner" >
+        <img  src="https://media.meer.com/attachments/dca773f2852f48e6eed0c6a31fed34e624c80b79/store/fill/1230/692/9532a7b5e4cd887bf0fad04cba7ddaecb35b2cdf06b906dd9059f0ae1de8/Una-mujer-buscando-trabajo.jpg">
+        <h1 class="title is-1">Search</h1>
+        </div> 
+        <div class='columns is-multiline'>
+          <div class='column is-5'>
+            <div class='filter-container'>
+                <form [formGroup]="searchForm" (ngSubmit)="onSubmit()">
+                    <input id="inputForm" type="text" placeholder="Que estás buscando?"  formControlName="keySearch">
+                    <button id="buttonForm"  type="submit">Buscar</button>
+                </form>
+            </div>
+
+
+          </div>
+
+          <div class='column is-7'>
+            <div class='section-title'>
+              Showing {{stores.length}} results
+            </div>
+            
+            <div class='single-product' *ngFor="let store of stores">
+                <div class='img-product-container'>
+                  <!-- <img class="product-img" [src]="'http://localhost:3000/api/'+prod.image?.path"> -->
+                  <img class="product-img"  [src]="'http://localhost:3000/api/'+store.profilePicture?.path" alt="" *ngIf="store.profilePicture">
+                  <img  src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5a/Hollywood_Sign_%28Zuschnitt%29.jpg/1200px-Hollywood_Sign_%28Zuschnitt%29.jpg" *ngIf="!store.profilePicture">
+                  
+                </div>
+                <div class='info-product'>
+                  <div class='superior' >
+                    <svg xmlns="http://www.w3.org/2000/svg"  width="24" height="24" viewBox="0 0 24 24"><path d="M12 0c-4.198 0-8 3.403-8 7.602 0 4.198 3.469 9.21 8 16.398 4.531-7.188 8-12.2 8-16.398 0-4.199-3.801-7.602-8-7.602zm0 11c-1.657 0-3-1.343-3-3s1.343-3 3-3 3 1.343 3 3-1.343 3-3 3z"/></svg>
+                    {{store.city}}
+                  </div>
+                  <div class='info'>
+                    <h3 class="title is-5">{{store.name}}</h3>
+                    <p>{{store.description}}</p>
+                  </div>
+                 
+  
+                    
+                    
+                </div>
+              </div>
+
+
+
+
+          </div>
+        </div>
+    </div>
+</div>

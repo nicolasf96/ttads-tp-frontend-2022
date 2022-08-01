@@ -4,3 +4,28 @@
     height: 250px;
     color: white;
 }
+
+.branding-footer{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding-top: 40px;
+}
+
+.second-branding-footer{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding-top: 40px;
+
+    ul{
+        li{
+            font-size: 18px;
+            font-weight: 500;
+            margin-bottom: 8px;
+            a{
+                color: gray;
+            }
+        }
+    }
+}

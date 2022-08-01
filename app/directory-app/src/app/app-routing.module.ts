@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { CategoriesComponent } from './components/categories/categories.component';
 import { CreateCategoriesComponent } from './components/categories/create-categories/create-categories.component';
 import { EditCategoriesComponent } from './components/categories/edit-categories/edit-categories.component';
+import { ListingViewComponent } from './components/listing-view/listing-view.component';
 import { PrincipalViewComponent } from './components/principal-view/principal-view.component';
 import { StoreViewComponent } from './components/store-view/store-view.component';
 import { CreateStoreComponent } from './components/stores/create-store/create-store.component';
@@ -20,8 +21,9 @@ const routes: Routes = [
   { path: 'categories/:id', component: EditCategoriesComponent},
   { path: 'newcategory', component: CreateCategoriesComponent},
   { path: 'store/:id', component: StoreComponent},
+  { path: 'storeDetails/:id/:idUser', component: StoreViewComponent},
   { path: 'storeDetails/:id', component: StoreViewComponent},
-  { path: 'users', component: UsersComponent},
+  { path: 'search/:keySearch', component: ListingViewComponent},
   { path: 'users/:id', component: EditUsersComponent},
   { path: 'newuser', component: CreateUsersComponent},
   { path: '', component: PrincipalViewComponent}

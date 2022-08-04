@@ -24,6 +24,7 @@ const routes: Routes = [
   { path: 'storeDetails/:id/:idUser', component: StoreViewComponent},
   { path: 'storeDetails/:id', component: StoreViewComponent},
   { path: 'search/:keySearch', component: ListingViewComponent},
+  { path: 'users', component: UsersComponent},
   { path: 'users/:id', component: EditUsersComponent},
   { path: 'newuser', component: CreateUsersComponent},
   { path: '', component: PrincipalViewComponent}

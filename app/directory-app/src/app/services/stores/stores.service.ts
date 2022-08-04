@@ -34,7 +34,6 @@ export class StoresService {
 
   getStore(id: String) {
     const url = this.baseURL+'stores/'+id;
-    console.log(url);
     return this.http.get<any>(url);
   }
 

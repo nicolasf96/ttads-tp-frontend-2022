@@ -1,0 +1,37 @@
+
+$color: rgba(241,114,114);
+$background-color: rgb(245, 245, 245);
+
+form{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    margin-top: 25px;
+    margin-bottom: 30px;
+    *{
+        padding:  10px 14px;
+        font-size: 18px;
+        border-radius: 10px;
+        border:none;
+    }
+    *:last-child{
+        margin-left: 12px;
+
+    }
+    input{
+        width: 74%;
+    }
+    button{
+        width: 24%;
+        background-color: $color;
+        color: white;
+        &:hover{
+            background-color: #bd4343;
+            cursor: pointer;
+        }
+    }
+
+
+
+
+}

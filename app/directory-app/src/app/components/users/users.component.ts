@@ -9,16 +9,20 @@ import { UsersService } from 'src/app/services/users/users.service';
 })
 export class UsersComponent implements OnInit {
 
+  users:any = []
+
+
   constructor(private service: UsersService, private router: Router) { 
     this.loadUsers();
   }
 
-  users:any = []
+
   ngOnInit(): void {
+    this.loadUsers();
   }
 
   loadUsers() {
-    this.service.getUsers().subscribe( response => this.users = response);
+    this.service.getUsers().subscribe( response => this.users = response.data);
   }
 
   

@@ -1,8 +1,25 @@
 $text-color: #414141;
 $text-deco-color: #afafaf;
-$color: rgba(241,114,114,0.75);
+$color: rgba(241,114,114,1);
 $contrast-color: white;
 $background-color: rgb(245, 245, 245);
+
+
+*{
+    font-family: Poppins;
+}
+
+.searcher-container{
+    background-color: rgb(211, 83, 105);
+    margin: none;
+    padding: 20px auto;
+    width: 100%;
+    div h2{
+        color: $contrast-color;
+    }
+
+
+}
 
 .separator{
     padding: 20px
@@ -36,7 +53,7 @@ $background-color: rgb(245, 245, 245);
         position: relative;
         top: -100px;
         left: 40px;
-        z-index: 1000;
+        z-index: 2;
     
     }
 }
@@ -50,10 +67,13 @@ $background-color: rgb(245, 245, 245);
 .flex-wrap-start{
     width: 100%;
     height: 100%;
-    display: flex;
+    text-align: center;
     align-items: center;
     justify-content: space-between;
     justify-content: flex-start;
+    @media  screen and (min-width: 1200px){
+        display: flex;
+    }
 }
 
 .perfil-container{
@@ -62,6 +82,10 @@ $background-color: rgb(245, 245, 245);
         height: 100px;
         border-radius: 50%;
         overflow: hidden;
+        @media  screen and (max-width: 1200px){
+            margin: 0 auto 15px;
+        }
+
         img{
             height: 100%;
             width: 100%;
@@ -119,11 +143,16 @@ $background-color: rgb(245, 245, 245);
     .info-product{
         width: 65%;
         height: 100%;
-        padding: 15px 35px;
         color: $text-color;
+
         .superior{
+            position: relative;
+            top: 10px;
+            float: right;
             text-align: end;
             color: $text-deco-color;
+            margin-bottom: 15px;
+            transform: translate(-50%);
 
             svg{
                 width: 14px;
@@ -132,14 +161,27 @@ $background-color: rgb(245, 245, 245);
             }
         }
 
-        .info h3{
-            margin-bottom: 8px;
+        .info {
+            position: relative;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            width: 70%;
+        height: 70%;
+        overflow: hidden;
+            h3{
+
+                margin-bottom: 8px;
+            }
         }
         .price{
-            margin-top: 10px;
-            font-size: 22px;
+            font-size: 20px;
             font-weight: 600;
             color: $text-color;
+            position: relative;
+            bottom: 10px;
+            float: right;
+            transform: translate(-50%);
 
             .unitOM{
                 color: $color;
@@ -265,3 +307,54 @@ $background-color: rgb(245, 245, 245);
         vertical-align: top;
     }
 }
+
+.perfil-container-img{
+    margin-top: 30px;
+    width: 100%;
+    background-color: $contrast-color;
+    padding: 20px;
+
+}
+
+.images-container{
+    width: 100%;
+    overflow: auto;
+    height: 350px;
+    display: flex;
+    scrollbar-width: thin;          /* "auto" or "thin" */
+    scrollbar-color: blue orange;   /* scroll thumb and track */
+    .img-deco{
+        width: 320px;
+        height: 320px;
+        object-fit: cover;
+        margin-right: 20px;
+        position: relative;
+        display: inline;
+    }
+}
+
+a svg{
+    width: 35px;
+}
+#instagram{
+    fill: #E1306C;
+}
+
+
+*::-webkit-scrollbar {
+    width: 20px;
+  }
+  
+  *::-webkit-scrollbar-track {
+    background: $contrast-color
+  }
+  
+  *::-webkit-scrollbar-thumb {
+    background-color: $color;
+    border-radius: 20px;
+    border: 2px solid $contrast-color;
+  }
+
+  span.tag{
+    margin-bottom: 10px;
+  }

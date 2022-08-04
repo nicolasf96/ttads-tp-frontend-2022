@@ -1,14 +1,14 @@
 <link rel="stylesheet" [href]="sanitizer.bypassSecurityTrustResourceUrl(cssUrl)">
-<div class='columns is-centered'>
-  <div class='column'>
+<div class='columns is-centered' style="margin-bottom: 0">
+  <div class='column' style="margin-bottom: 0; padding-bottom: 0;">
     <app-navigation (styleMode)="setStyleMode($event)" >
     </app-navigation>
 
   </div>
 
 </div>
-<div class='columns'>
-  <div class='column app-home'>
+<div class='columns m-0'>
+  <div class='column app-home p-0'>
         <router-outlet  >
 
         </router-outlet>

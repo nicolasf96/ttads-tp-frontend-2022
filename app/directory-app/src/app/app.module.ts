@@ -26,6 +26,7 @@ import { ListingViewComponent } from './components/listing-view/listing-view.com
 import { StoreViewComponent } from './components/store-view/store-view.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { ProductViewComponent } from './components/product-view/product-view.component';
+import { SearcherComponent } from './components/searcher/searcher.component';
 
 @NgModule({
   declarations: [
@@ -49,7 +50,8 @@ import { ProductViewComponent } from './components/product-view/product-view.com
     ListingViewComponent,
     StoreViewComponent,
     FooterComponent,
-    ProductViewComponent
+    ProductViewComponent,
+    SearcherComponent
   ],
   imports: [
     BrowserModule,

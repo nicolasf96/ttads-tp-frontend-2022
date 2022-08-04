@@ -28,7 +28,7 @@
                       <th>Delete</th>
                     </tr>
                   </thead>
-                <tr  *ngFor="let user of users.data" 
+                <tr  *ngFor="let user of users" 
                 [ngStyle]="{'cursor': 'pointer'}" 
             
                 (click)="userDetails(user._id)">

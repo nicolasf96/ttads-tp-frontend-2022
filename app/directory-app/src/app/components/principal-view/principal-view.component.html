@@ -1,4 +1,4 @@
-<div class='columns'>
+<div class='columns m-0'>
     <div class='column principal-banner'>
         <h1 class="principal-title">Discover Your City</h1>
         <div class='principal-input-container columns is-centered'>
@@ -9,17 +9,13 @@
                         <button id="buttonForm"  type="submit">Buscar</button>
                     </form>
                 </div>
-                <div *ngIf="categories">
-                    <span class="tag is-danger is-light categories" *ngFor="let cat of categories">{{cat.description}}</span>
-
-                </div>
 
             </div>
         </div>
     </div>
 </div>
 <div class='fondo'>
-    <div class='columns'>
+    <div class='columns m-0 '>
         <div class='column most-popular-stores'>
             <h1 class="secondary-title">Most popular stores</h1>
         </div>
@@ -27,7 +23,7 @@
     </div>
     <div class='columns is-multiline is-centered' style="padding: 30px;">
         <div class='column is-narrow' *ngFor="let store of stores" (click)="goToStore(store._id)" [ngStyle]="{'cursor': 'pointer'}" >
-            <div  class='store-card'>
+            <div  class='store-card mx-auto'>
                 <div class='image-container' >
                     <div class='image-decoration'>
                         <img [src]="'http://localhost:3000/api/' + store.profilePicture?.path"  *ngIf="store.profilePicture">

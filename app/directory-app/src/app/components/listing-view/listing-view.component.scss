@@ -56,43 +56,7 @@ $background-color: rgb(245, 245, 245);
     justify-content: flex-start;
 }
 
-.perfil-container{
-    .profile-img{
-        width: 100px;
-        height: 100px;
-        border-radius: 50%;
-        overflow: hidden;
-        img{
-            height: 100%;
-            width: 100%;
-            object-fit: cover;
-            position: relative;
-        }
-    }
-    .profile-info{
-        margin-left: 20px;
 
-        h2{
-            margin-bottom: 10px;
-        }
-    }
-
-}
-
-.perfil-container{
-    margin-top: 30px;
-    width: 100%;
-    background-color: $contrast-color;
-    padding: 10%;
-
-    span{
-        margin-right: 15px;
-        &:hover{
-            cursor: pointer;
-        }
-    }
-
-}
 
 
 
@@ -165,14 +129,6 @@ $background-color: rgb(245, 245, 245);
     margin-bottom: 7px;
 }
 
-.trivial-text{
-    font-size: 18px;
-    color: $text-color;
-    font-weight: 400;
-    margin-bottom: 12px;
-
-}
-
 .svg-size{
     width: 18px;
     height: 18px;
@@ -184,37 +140,6 @@ $background-color: rgb(245, 245, 245);
     }
 }
 
-.telephone-container{
-    .svg-size{
-        width: 26px;
-        height: 26px;
-        svg{
-            .fil0 {fill: $contrast-color}
-            .fil1 {fill:$contrast-color;
-                fill-rule:nonzero}
-        }
-    }
-
-    a{
-        color: white;
-    }
-    margin-top: 20px;
-    width: 100%;
-    min-height: 35px;
-    background-color: $color;
-    color: white;
-    text-align: center;
-    vertical-align: middle;
-    padding: 15px;
-    font-size: 24px;
-    border-radius: 4px;
-
-
-}
-
-.separate-info{
-    margin-bottom: 15px;
-}
 
 .section-title{
     margin-top: 30px;
@@ -227,44 +152,9 @@ $background-color: rgb(245, 245, 245);
     border-top: 3px solid $color;
 }
 
-.mr-4{
-    margin-right: 6px;
-}
-
-.social-link{
-    cursor: pointer;
-    &:hover{
-        color: $color;
-    }
-}
 
 
 
-
-.single-review{
-    margin-top: 30px;
-    background-color: $contrast-color;
-    width: 100%;
-    padding: 35px;
-    .img-review-container{
-        display: inline-block;
-        width: 60px;
-        height: 60px;
-        overflow: hidden;
-        img{
-            display: inline-block;
-            height: 100%;
-            max-width: auto;
-            position: relative;
-        }
-    }
-
-    .info-review{
-        margin-left: 35px;
-        display: inline-block;
-        vertical-align: top;
-    }
-}
 
 
 
@@ -273,5 +163,26 @@ $background-color: rgb(245, 245, 245);
     margin-top: 30px;
     padding: 35px;
     background-color: $contrast-color;
-    height: 300px;
+
+    form *{
+        border: none;
+        padding: 10px 14px;
+        font-size: 16px;
+    }
+    
+    form{
+        width: 100%;
+        margin-top: 20px;
+        input{
+            width: 70%;
+            margin-right: 12px;
+            border: 1px solid $text-deco-color;
+        }
+        button{
+            width: 25%;
+            background-color: $color;
+            color: white;
+        }
+    }
+
 }

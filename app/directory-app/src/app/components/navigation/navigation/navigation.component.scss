@@ -13,8 +13,15 @@ $backColor: #1e253d;
     div{
         background-color: $backColor;
     }
+    a.navbar-item{
+        color: var(--lightcolor2);
+        &hover{
+            background-color: var(--pcolor2);
+            color: var(--pcolor2)!important;
+        }
+    }
     a.navigation-title{
-        color: #FFFF;
+        color: white!important
     }
     
 }

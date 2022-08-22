@@ -6,11 +6,6 @@ import { HttpClient } from '@angular/common/http';
 })
 export class StoresService {
   
-  
-  
-  
- 
-  
 
   readonly baseURL = 'http://localhost:3000/api/'
   constructor(private http: HttpClient) { }
@@ -23,6 +18,11 @@ export class StoresService {
 
   getStoresWithImage() {
     const url = this.baseURL+'stores/images/'
+    return this.http.get<any>(url);
+  }
+
+  getStoresWithLimit(limit: any) {
+    const url = this.baseURL+'stores/limit/'+limit;
     return this.http.get<any>(url);
   }
 
@@ -50,6 +50,11 @@ export class StoresService {
   getReviewsByStore(identifier: string) {
     const url = this.baseURL+'reviews/'+identifier;
     return this.http.get<any>(url);
+  }
+
+  editStore(storeEdited: any, identifier:any) {
+    const url = this.baseURL+'stores/'+identifier
+    return this.http.put<any>(url,storeEdited);
   }
 
 

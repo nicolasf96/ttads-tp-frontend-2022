@@ -1,29 +1,63 @@
-<nav class="breadcrumb" aria-label="breadcrumbs">
-    <ul>
-      <li><a href="javascript:void(0)" routerLink="/home">Home</a></li>
-      <li><a href="javascript:void(0)" routerLink="/users">Users</a></li>
-      <li class="is-active"><a href="#" aria-current="page">Edit {{user.username}}</a></li>
-    </ul>
-  </nav>
-  <div class='columns'>
-    <div class='column is-3'>
-      <h1 class="title is-4">{{user.username}}</h1>
-      <img [src]="'http://localhost:3000/api/' + user.profilePicture?.path" 
-      class="profile-img">
-    </div>
-    <div class='column is-3'>
-      <p>Add Profile Picture</p>
-        <form  (submit)="uploadPhoto()">
-          <div class='field'>
-            <img class="imgTmp" [src]="photoSelected || 'assets/no-image.png'" (click)="photoInput.click()">
+
+<div class='columns is-centered'>
+  <div class='column is-10 area-container'>   
+    <nav class="breadcrumb" aria-label="breadcrumbs">
+        <ul>
+          <li><a href="javascript:void(0)" routerLink="/home">Home</a></li>
+          <li><a href="javascript:void(0)" routerLink="/users">Users</a></li>
+          <li class="is-active"><a href="#" aria-current="page">Edit {{user.username}}</a></li>
+        </ul>
+    </nav>
+    <div class='columns'>
+      <div class='column is-7'>
+
+        <div class='columns is-multiline'>
+          <div class='column is-6'>
+            <div class='user-section with-border has-text-centered'>
+              <h1 class="title is-6">User: {{user.username}}</h1>
+              <img [src]="'http://localhost:3000/api/' + user.profilePicture?.path" 
+              class="profile-img">
+              <p class="subtitle is-6 my-4">{{user.email}}</p>
+              <p class="subtitle is-6 my-4">{{user.firstName}}</p>
+              <p class="subtitle is-6 my-4">{{user.lastName}}</p>
+            </div>
           </div>
-          <input type="file"  class="is-hidden" (change)="onPhotoSelected($event)" #photoInput>
-          <button class="button is-primary block">Submit</button>
-        </form>
+          <div class='column is-6 '>
+            <div class='user-section with-border has-text-centered'>
+              <p class="title is-6 ">Edit Profile Picture</p>
+              <form  (submit)="uploadPhoto()">
+                <div class='field'>
+                  <img class="imgTmp" [src]="photoSelected || 'assets/no-image.png'" (click)="photoInput.click()" [ngStyle]="{'cursor': 'pointer'}">
+                </div>
+                <input type="file"  class="is-hidden" (change)="onPhotoSelected($event)" #photoInput>
+                <button class="button is-primary block">Submit</button>
+              </form>
+            </div>
+          </div>
+        </div>
+
+       
+      </div>
+
+      <div class='column is-5'>
+        <div class='columns is-multiline'>
+          <div class='column is-12'>
+            <div class='store-section with-border'>
+              <div class='header'>
+                <div class='tag is-info'>Editar</div>
+                <div class='tag is-danger'>Eliminar</div>
+              </div>
+              <p class="subtitle is-4 mb-5">Store:</p>
+              <p class="title is-3">{{user.store?.name}}</p>
+              <img [src]="'http://localhost:3000/api/' + user.store.profilePicture?.path" *ngIf="user.store">
+              <img [src]="'assets/no-banner.png'" *ngIf="!user.store">
+              <p class="subtitle is-6 my-5">{{user.store?.description}}</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      
     </div>
   </div>
-
-  
-  
-
- 
+</div>

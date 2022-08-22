@@ -50,4 +50,29 @@ export class ImagesService {
     return this.http.post(url,fd);
   }
 
+  addImageToStore(idStore:string, image: File) {
+    const url = this.baseURL+'images/addToStore';
+    const fd = new FormData();
+    fd.append('idStore', idStore);
+    fd.append('image', image);
+
+    return this.http.post(url,fd);
+  }
+ 
+
+  deleteImage(identifier: string) {
+    const url = this.baseURL+'images/'+identifier
+    return this.http.delete<any>(url);
+  }
+
+  createBanner(idStore:string, image: File) {
+    const url = this.baseURL+'images/bannerStore';
+    const fd = new FormData();
+    fd.append('idStore', idStore);
+    fd.append('image', image);
+
+    return this.http.post(url,fd);
+  }
+
+
 }

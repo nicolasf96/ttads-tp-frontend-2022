@@ -11,7 +11,7 @@ import { FormGroup, FormControl, Form, Validators, AbstractControl } from '@angu
 export class CreateCategoriesComponent implements OnInit {
 
   categoryForm = new FormGroup({
-    description: new FormControl('', [Validators.required, Validators.maxLength(12)]),
+    description: new FormControl('', [Validators.required, Validators.maxLength(20)]),
     idCategoryParent: new FormControl('', [Validators.minLength(24)]),
   })
 

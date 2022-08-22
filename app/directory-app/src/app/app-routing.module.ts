@@ -5,6 +5,7 @@ import { CreateCategoriesComponent } from './components/categories/create-catego
 import { EditCategoriesComponent } from './components/categories/edit-categories/edit-categories.component';
 import { ListingViewComponent } from './components/listing-view/listing-view.component';
 import { PrincipalViewComponent } from './components/principal-view/principal-view.component';
+import { ProductViewComponent } from './components/product-view/product-view.component';
 import { StoreViewComponent } from './components/store-view/store-view.component';
 import { CreateStoreComponent } from './components/stores/create-store/create-store.component';
 import { StoreComponent } from './components/stores/store/store.component';
@@ -23,7 +24,9 @@ const routes: Routes = [
   { path: 'store/:id', component: StoreComponent},
   { path: 'storeDetails/:id/:idUser', component: StoreViewComponent},
   { path: 'storeDetails/:id', component: StoreViewComponent},
+  { path: 'listingview', component:  ListingViewComponent},
   { path: 'search/:keySearch', component: ListingViewComponent},
+  { path: 'product/:id', component: ProductViewComponent},
   { path: 'users', component: UsersComponent},
   { path: 'users/:id', component: EditUsersComponent},
   { path: 'newuser', component: CreateUsersComponent},

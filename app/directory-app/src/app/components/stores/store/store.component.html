@@ -1,55 +1,99 @@
-<nav class="breadcrumb" aria-label="breadcrumbs">
-    <ul>
-      <li><a href="javascript:void(0)" routerLink="/home">Home</a></li>
-      <li><a href="javascript:void(0)" routerLink="/stores">Stores</a></li>
-      <li class="is-active"><a href="#" aria-current="page">{{store.name}}</a></li>
-    </ul>
-  </nav>
-<div class='columns'>
-  <div class='column is-narrow'>
-    <img [src]="'http://localhost:3000/api/' + store.profilePicture?.path" 
-      class="profile-img">
-  </div>
-  <div class='column'>
-    <h1 class="title is-4">{{store.name}}</h1>
-    <p class="title is-6">@{{store.username}}</p>
-    <p class="block">{{store.description}}</p>
-  </div>
-</div>
-<div class='columns'>
-  <div class='column'>
-    <div class="tabs is-centered">
-      <ul>
-        <li [class.is-active] = "currentPanel === 'details'" (click)="activateDetails()">
-          <a>
-            <span>Details</span>
-          </a>
-        </li>
-        <li [class.is-active] = "currentPanel === 'products'" (click)="activateProducts()">
-          <a>
-            <span>Products</span>
-          </a>
-        </li>
-        <li [class.is-active] = "currentPanel === 'reviews'" (click)="activateReviews()">
-          <a>
-            <span>Reviews</span>
-          </a>
-        </li>
-        
-      </ul>
+<div class='columns is-centered'>
+  <div class='column is-10 area-container'>
+    
+    <nav class="breadcrumb" aria-label="breadcrumbs">
+        <ul>
+          <li><a href="javascript:void(0)" routerLink="/home">Home</a></li>
+          <li><a href="javascript:void(0)" routerLink="/stores">Stores</a></li>
+          <li class="is-active"><a href="#" aria-current="page">{{store.name}}</a></li>
+        </ul>
+      </nav>
+    <div class='columns is-multiline'>
+      <div class='column is-narrow'>
+        <img [src]="'http://localhost:3000/api/' + store.profilePicture?.path" 
+          class="profile-img" *ngIf="store.profilePicture">
+        <img [src]="'assets/no-image.png'" 
+          class="profile-img" *ngIf="!store.profilePicture">
+      </div>
+      <div class='column'>
+        <h1 class="title is-4">{{store.name}}</h1>
+        <p class="title is-6">@{{store.username}}</p>
+        <p class="block">{{store.description}}</p>
+        <p class="title is-6">Categoría: <span *ngIf="store.category" >{{store.category?.description}} <span class="tag is-info" [ngStyle]="{'cursor' : 'pointer'}" (click)="editCatToggle()">Editar</span> </span><span *ngIf="!store.category"> - Sin Categoría - <span class="tag is-primary" [ngStyle]="{'cursor' : 'pointer'}" (click)="editCatToggle()">Agregar</span></span></p>
+        <div class="select is-primary" [ngClass]="{'hidden' : !editCategory , 'noHidden': editCategory}">
+          <select (change)="onSelectCategory($event)" > 
+            <option value="">Select category</option>
+            <option *ngFor="let cat of categories" [value]="cat._id">{{cat.description}}</option>
+          </select>
+        </div>
+        <button class="button is-primary" (click)="changeCategory($event)" [ngClass]="{'hidden' : !editCategory , 'noHidden': editCategory}" >Ok</button>
+        <button class="button is-danger is-light" (click)="editCatToggle()" [ngClass]="{'hidden' : !editCategory , 'noHidden': editCategory}">Cancel</button>
+
+      </div>
+      <div class='column is-12'>
+        <p class="title is-4">Profile Picture</p>
+          <form  (submit)="uploadPhoto()">
+            <input type="file"   (change)="onPhotoSelected($event)" #photoInput>
+            <button class="button is-primary block">Submit</button>
+          </form>
+      </div>
+      <div class='column is-12'>
+        <p class="title is-4">Banner <span class="tag is-primary"  [ngStyle]="{'cursor': 'pointer'}" (click)="bannerToggle()">+</span></p>
+        <form  (submit)="addBannerToStore()" [ngClass]="{'hidden' : !addBannerToggle , 'noHidden': addBannerToggle}">
+          <input type="file" (change)="onBannerSelected($event)">
+          <button class="button is-primary block">Submit</button>
+        </form>
+        <div class='bannerContainer'>
+          <img [src]="'http://localhost:3000/api/' + store.banner?.path" *ngIf="store.banner">
+          <img [src]="'assets/no-banner.png'" *ngIf="!store.banner">
+        </div>
+      </div>
+      <div class='column is-12'>
+        <p class="title is-4">Imágenes del Store  <span class="tag is-primary"  [ngStyle]="{'cursor': 'pointer'}" (click)="addImageToggle()">+</span></p>
+        <form  (submit)="addImageToStore()" [ngClass]="{'hidden' : !addImagesToggle , 'noHidden': addImagesToggle}">
+          <input type="file" (change)="onPhotoSelected2($event)">
+          <button class="button is-primary block">Submit</button>
+        </form>
+          <div class='images-container'>
+            <div class='img-deco' *ngFor="let img of store.images">
+              <img [src]="'http://localhost:3000/api/' + img.path">
+              <div class='tag is-danger delete-image-button' (click)="deleteImageOfStore(img._id)" [ngStyle]="{'cursor': 'pointer'}"> Eliminar </div>
+            </div>
+          </div>   
+      </div>
     </div>
-
+    <div class='columns'>
+      <div class='column'>
+        <div class="tabs is-centered">
+          <ul>
+            <li [class.is-active] = "currentPanel === 'products'" (click)="activateProducts()">
+              <a>
+                <span>Products</span>
+              </a>
+            </li>
+            <li [class.is-active] = "currentPanel === 'reviews'" (click)="activateReviews()">
+              <a>
+                <span>Reviews</span>
+              </a>
+            </li>
+            
+          </ul>
+        </div>
+    
+      </div>
+    </div>
+    
+    <app-store-details [store]="store" *ngIf="currentPanel=='details'">
+    
+    </app-store-details>
+    
+    <app-products-of-store [store]="store" *ngIf="currentPanel=='products'">
+    
+    </app-products-of-store>
+    
+    <app-reviews-of-store [reviews]="reviews" *ngIf="currentPanel=='reviews'"> 
+    
+    </app-reviews-of-store>
   </div>
 </div>
 
-<app-store-details [store]="store" *ngIf="currentPanel=='details'">
-
-</app-store-details>
-
-<app-products-of-store [products]="products" *ngIf="currentPanel=='products'">
-
-</app-products-of-store>
-
-<app-reviews-of-store [reviews]="reviews" *ngIf="currentPanel=='reviews'"> 
-
-</app-reviews-of-store>

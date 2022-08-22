@@ -23,6 +23,7 @@ export class ListingViewComponent implements OnInit {
   stores:any;
   categories:any;
   storesFiltered:any;
+  toggle = false;
 
   categoriesFilter:any = [];
 
@@ -33,13 +34,23 @@ export class ListingViewComponent implements OnInit {
 
   ngOnInit(): void {
     this.route.params.subscribe( (params) => this.keyword = params['keySearch'] );
-    this.loadStores();
+    if(this.keyword == '' || this.keyword == null){
+      this.toggle = true;
+      this.loadAllStores();
+    }else{
+      this.loadStores();
+    }
+    
     this.loadCategories();
   }
 
+  loadAllStores(){
+    this.storesService.getStores().subscribe( response => this.storesFiltered = response.data);
+  }
+
+
   loadStores(){
-    this.storesService.getStoresByKeyword(this.keyword).subscribe( response => this.stores = response.data);
-    console.log("categories Filter " +this.categoriesFilter)
+    this.storesService.getStoresByKeyword(this.keyword).subscribe( response => this.storesFiltered = response.data);
   }
 
   loadCategories(){
@@ -47,8 +58,15 @@ export class ListingViewComponent implements OnInit {
   }
 
   onSubmit(){
-    this.storesService.getStoresByKeyword(this.searchForm.value.keySearch).subscribe( response => this.stores = response.data);
+    // this.storesService.getStoresByKeyword(this.searchForm.value.keySearch).subscribe( response => this.stores = response.data);
     this.keyword = this.searchForm.value.keySearch;
+    if(this.keyword == '' || this.keyword == null){
+      this.toggle = true;
+      this.loadAllStores();
+    }else{
+      this.toggle = false;
+      this.loadStores();
+    }
     this.categoriesFilter = [];
     this.searchForm.reset()
   }

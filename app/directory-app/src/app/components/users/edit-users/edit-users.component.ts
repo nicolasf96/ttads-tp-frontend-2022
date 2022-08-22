@@ -53,7 +53,8 @@ export class EditUsersComponent implements OnInit {
 
   async uploadPhoto(){
     this.imageService.createImageProfileUser(this.user._id, this.file).subscribe( response => console.log(response));
-    this.router.navigate(['users']);
+    
+    this.loadUser();
 
   }
 

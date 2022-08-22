@@ -1,7 +1,7 @@
 <div class='columns is-centered fondo' >
     <div class='column is-9' style="padding: 0px;">
       <div class="banner" >
-        <img  src="https://media.meer.com/attachments/dca773f2852f48e6eed0c6a31fed34e624c80b79/store/fill/1230/692/9532a7b5e4cd887bf0fad04cba7ddaecb35b2cdf06b906dd9059f0ae1de8/Una-mujer-buscando-trabajo.jpg">
+        <!-- <img  src="https://media.meer.com/attachments/dca773f2852f48e6eed0c6a31fed34e624c80b79/store/fill/1230/692/9532a7b5e4cd887bf0fad04cba7ddaecb35b2cdf06b906dd9059f0ae1de8/Una-mujer-buscando-trabajo.jpg"> -->
         <h1 class="title is-1">Stores</h1>
         </div> 
         <div class='columns is-multiline'>
@@ -17,8 +17,8 @@
               <div class='info-deco'>Categories</div>
               <ul>
                 <li [ngClass]="categoriesFilter.indexOf(cat) === -1 ? 'is-light' : 'is-info'"
-                class="tag is-link  mr-3 mt-3" *ngFor="let cat of categories"
-                [ngStyle]="{'cursor': 'pointer'}" >{{cat.description}}</li>
+                class="tag is-info is-big  mr-3 mt-3" *ngFor="let cat of categories"
+                [ngStyle]="{'cursor': 'pointer'}">{{cat.description}}</li>
               </ul>
           </div>
 
@@ -26,15 +26,22 @@
           </div>
 
           <div class='column is-7'>
-            <div class='section-title'>
-              Showing {{stores.length}} results on searching "{{keyword}}"
+            <div class='section-title' *ngIf="toggle == false">
+              Showing {{storesFiltered.length}} results on searching "{{keyword}}"
+            </div>
+            <div class='section-title' *ngIf="toggle == true">
+              Showing All Stores
+            </div>
+
+            <div class='nothingToShow' *ngIf="storesFiltered.length == 0">
+              Sorry! Nothing to Show
             </div>
             
-            <div class='single-product' *ngFor="let store of stores" (click)="goToStore(store._id)" [ngStyle]="{'cursor': 'pointer'}">
+            <div class='single-product' *ngFor="let store of storesFiltered" (click)="goToStore(store._id)" [ngStyle]="{'cursor': 'pointer'}">
                 <div class='img-product-container'>
                   <!-- <img class="product-img" [src]="'http://localhost:3000/api/'+prod.image?.path"> -->
                   <img class="product-img"  [src]="'http://localhost:3000/api/'+store.profilePicture?.path" alt="" *ngIf="store.profilePicture">
-                  <img  src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5a/Hollywood_Sign_%28Zuschnitt%29.jpg/1200px-Hollywood_Sign_%28Zuschnitt%29.jpg" *ngIf="!store.profilePicture">
+                  <img  [src]="'assets/no-image.png'" *ngIf="!store.profilePicture">
                   
                 </div>
                 <div class='info-product'>

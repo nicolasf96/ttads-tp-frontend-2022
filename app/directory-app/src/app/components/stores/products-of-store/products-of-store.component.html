@@ -1,45 +1,102 @@
 <div class='columns is-multiline'>
-    <div class='column is-narrow'  *ngFor="let prod of products">
-      
-      <div class="box">
-        <article class="media">
-          <div class="media-left">
-            <figure class="image is-128x128">
-              <img [src]="'http://localhost:3000/api/'+prod.image?.path">
-            </figure>
-          </div>
-          <div class="media-content">
-            <div class="content">
-              <p>
-                <strong>{{prod.title}} </strong>
-                <br>
-                {{prod.description}}
-              </p>
-              <p class="title is-5">
-                <strong>$ {{prod.price}}</strong>
-              </p>
+    <div class='column is-12 mb-5'>
+        <p class="title is-4">Create a Product <span class="tag is-primary" (click)="productsToggle()"> + </span></p>
+        <div class="box" [ngClass]="{'hidden' : !productToggle , 'noHidden': productToggle}"
+        [ngStyle]="{'width': '70%'}">
+          <form [formGroup]="productForm" (ngSubmit)="onSubmit()">
+            <div class="field">
+                <label class="label">Title</label>
+                <div class="control">
+                  <input class="input" type="text" placeholder="Text input" formControlName="title">
+                </div>
             </div>
-            <nav class="level is-mobile">
-              <div class="level-left">
-                <a class="level-item" aria-label="reply">
-                  <span class="icon is-small">
-                    <i class="fas fa-reply" aria-hidden="true"></i>
-                  </span>
-                </a>
-                <a class="level-item" aria-label="retweet">
-                  <span class="icon is-small">
-                    <i class="fas fa-retweet" aria-hidden="true"></i>
-                  </span>
-                </a>
-                <a class="level-item" aria-label="like">
-                  <span class="icon is-small">
-                    <i class="fas fa-heart" aria-hidden="true"></i>
-                  </span>
-                </a>
+            <div class="field">
+              <label class="label">Description</label>
+              <div class="control">
+                <input class="input" type="text" placeholder="Text input" formControlName="description">
               </div>
-            </nav>
+            </div>
+            <div class="field">
+              <label class="checkbox">
+                <input type="checkbox" default="false" formControlName="used">
+                Producto Usado
+              </label>
+            </div>
+            <div class="field">
+              <label class="label">Price</label>
+              <div class="control">
+                <input class="input" type="number" placeholder="Text input" formControlName="price">
+              </div>
+            </div>
+            <div class="field">
+              <label class="label">Location</label>
+              <div class="control">
+                <input class="input" type="text" placeholder="Text input" formControlName="location">
+              </div>
+            </div>
+            
+            <div class="field">
+              <label class="label">Unit</label>
+              <div class="control">
+                <input class="input" type="text" placeholder="Text input" formControlName="unit">
+              </div>
+            </div>
+            <div class="field">
+              <label class="label">UnitOM</label>
+              <div class="control">
+                <input class="input" type="text" placeholder="Text input" formControlName="unitOM">
+              </div>
+            </div>
+            <button class="button is-primary" type="submit" [disabled]="!productForm.valid">Submit</button>
+            <button class="button is-secondary" type="button" (click)="initialize()" >Reset</button>
+          </form>
+        </div>
+    </div>
+
+
+    
+
+
+
+
+    <div class='column is-12'>
+
+      <p class="title is-4">Products List ({{products.length}})</p><br>
+    </div>
+    <div class='column is-12'  *ngFor="let prod of products">
+      <div class="product">
+        
+
+        <div class='contenido'>
+          <p class="has-text-right	">Location: {{prod.location}}</p>
+          <p class="title is-4 my-3"> {{prod.title}}</p>
+          <p class="subtitle is-4 my-3">{{prod.unit}} <span class="subtitle is-4">{{prod.unitOM}}</span></p>
+          <p>{{prod.description}}</p>
+          <p class="title is-6 my-2">Producto usado: {{prod.used}}</p>
+        </div>
+        
+        <p class="title is-6 mt-5 mb-3">Imágenes de Producto ({{prod.images.length}})</p>
+        <div class='imgs'>
+          <div class='img'>
+            <form class="img-form" (submit)="uploadPhoto(prod._id)">
+              <div class='field'>
+                <img class="imgTmp" [src]="photoSelected || 'assets/no-banner.png'" (click)="photoInput.click()">
+              </div>
+              <input type="file"  class="is-hidden" (change)="onPhotoSelected($event)" #photoInput>
+              <button class="add-image-prod button is-primary block">Submit</button>
+            </form>
           </div>
-        </article>
+          <div class='img' *ngFor="let img of prod.images">
+            <img [src]="'http://localhost:3000/api/'+ img.path" alt="">
+            <div class="tag is-danger delete-tag" (click)="deleteImageOfProduct(img._id)" [ngStyle]="{'cursor': 'pointer'}">Eliminar</div>
+          </div>
+        </div>
+
+        <div class='prod-header my-3'>
+          Id: <span class="tag is-link is-small mr-4">{{prod._id}}</span>
+          Created At:<span class="subtitle is-6"> {{prod.createdAt  | date: 'dd MMM yyyy'}}</span>
+        </div>
+
       </div>
   
     </div>

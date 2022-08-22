@@ -27,10 +27,13 @@
                 <div class='image-container' >
                     <div class='image-decoration'>
                         <img [src]="'http://localhost:3000/api/' + store.profilePicture?.path"  *ngIf="store.profilePicture">
-                        <img class="noPicture" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5a/Hollywood_Sign_%28Zuschnitt%29.jpg/1200px-Hollywood_Sign_%28Zuschnitt%29.jpg"  *ngIf="!store.profilePicture">
+                        <img class="noPicture" [src]="'assets/no-banner.png'"  *ngIf="!store.profilePicture">
                         <div class='store-title'>
                             {{store.name}}
         
+                        </div>
+                        <div class="store-valoration">
+                            {{store.valoration}}
                         </div>
                     </div>
                     

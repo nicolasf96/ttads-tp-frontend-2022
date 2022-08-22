@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, Renderer2, ViewChild } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Subscriber, Subscription } from 'rxjs';
 import { StoresService } from 'src/app/services/stores/stores.service';
@@ -14,9 +14,14 @@ export class StoreViewComponent implements OnInit {
   constructor(private service: StoresService,
     private userService: UsersService,
     private route: ActivatedRoute,
-    private router: Router) {
+    private router: Router,
+    private renderer2: Renderer2) {
    }
 
+
+   @ViewChild('modal') modal: ElementRef | undefined;
+   @ViewChild('info') info: ElementRef | undefined;
+   
   identifier = '';
   identifierUser = '';
   store: any;
@@ -24,7 +29,7 @@ export class StoreViewComponent implements OnInit {
   reviews: any =[];
   tags:any =[];
   user:any;
-  sub1: any;
+  dataModal: any;
 
   ngOnInit(): void {
     this.route.params.subscribe( (params) => this.identifier = params['id'] );
@@ -34,12 +39,6 @@ export class StoreViewComponent implements OnInit {
     this.loadUser();
     
   }
-
-  ngOnDestroy():void{
-    this.sub1.unsubscribe();
-  }
-
-
 
 
   loadReviews() {
@@ -59,6 +58,23 @@ export class StoreViewComponent implements OnInit {
   
   tagSearch(tag:any) {
     this.router.navigate(['search/'+tag])
+  }
+
+  openModal(imgPath:any){
+    const myModal = this.modal?.nativeElement;
+    this.renderer2.addClass(myModal, 'is-active')
+    this.dataModal = imgPath;
+  }
+
+  closeModal(){
+    const myModal = this.modal?.nativeElement;
+    this.renderer2.removeClass(myModal, 'is-active');
+  }
+
+  mouseOvered = false;
+
+  goToProduct(productId:any) {
+    this.router.navigate(['product/'+productId])
   }
 
   

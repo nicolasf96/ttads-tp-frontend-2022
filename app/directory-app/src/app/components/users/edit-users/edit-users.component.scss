@@ -6,8 +6,44 @@
     background-position: 50%;
     border-radius: 50%;
     background-size: 100% auto;
+    object-fit: cover;
 }
 
 .imgTmp{
     width: 100px;
+}
+
+.area-container{
+    padding: 80px 40px;
+    min-height: 800px;
+}
+
+.with-border{
+    border: 2px solid var(--lightcolor2);
+}
+
+.user-section{
+padding: 20px;
+width: 100%;
+
+}
+
+.store-section{
+    padding: 20px;
+    text-align: center;
+    img{
+        width: 100px;
+        height: 100px;
+        object-fit: cover;
+        border-radius: 50%;
+    }
+
+    .header{
+        display: block;
+        text-align: right;
+        margin-bottom: 30px;
+        .tag{
+            margin-right: 15px;
+        }
+    }
 }

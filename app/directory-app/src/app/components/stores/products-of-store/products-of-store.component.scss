@@ -1,0 +1,62 @@
+.hidden{
+    display: none;
+}
+
+.noHidden{
+    display: block;
+}
+
+
+.product{
+    padding: 20px;
+    width: 100%;
+    min-height: 450px;
+    border: 2px solid var(--lightcolor3);
+    .imgs{
+        width: 100%;
+        height: 240px;
+        overflow: auto;
+        .img{
+            width: 220px;
+            height: 220px;
+            overflow: hidden;
+            margin-right: 15px;
+            display: inline-block;
+            img{
+                
+                width: 100%;
+                height: 100%;
+                object-fit: cover; 
+            }
+            .delete-tag{
+                position: relative;
+                top: -200px;
+                left: 20px;
+    
+            }
+        }
+    }   
+}
+
+
+.img-form{
+    width: 220px;
+    height: 220px;
+    .field{
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        .imgTmp{
+            width: 220px;
+            height: 220px;
+            object-fit: cover;
+            margin-right: 15px;     
+        }
+    }
+
+    .add-image-prod{
+        position: relative;
+        top: -75px;
+        left: 20px;
+    }
+}

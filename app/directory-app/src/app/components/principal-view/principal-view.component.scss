@@ -1,11 +1,9 @@
-    
-$color: rgba(241,114,114);
-$background-color: rgb(245, 245, 245);
+
 
 
 .fondo{
     min-height: 100vh;
-    background-color: $background-color;
+    background-color: var(--backg-color);
     padding-bottom: 50px;
 }
 
@@ -37,7 +35,7 @@ $background-color: rgb(245, 245, 245);
 
 .principal-title{
     font-size: 72px;
-    color: white;
+    color: var(--lightcolor1);
     font-weight: bold;
     display: block;
     text-align: center;
@@ -57,7 +55,6 @@ $background-color: rgb(245, 245, 245);
     *{
         padding:  10px 14px;
         font-size: 18px;
-        border-radius: 10px;
         border:none;
     }
     *:last-child{
@@ -69,10 +66,11 @@ $background-color: rgb(245, 245, 245);
     }
     button{
         width: 25%;
-        background-color: $color;
+        background-color: var(--pcolor2);
         color: white;
         &:hover{
-            background-color: #bd4343;
+            background-color: var(--pcolor3);
+            color: var(--pcolor2);
             cursor: pointer;
         }
     }
@@ -113,7 +111,7 @@ $background-color: rgb(245, 245, 245);
 .store-card{
     width: 300px;
     height: 250px;
-    border-radius: 10px;
+    // border-radius: 10px;
     padding: none;
     background-color: white;
 
@@ -127,7 +125,7 @@ $background-color: rgb(245, 245, 245);
     background-repeat: no-repeat;
     background-size: cover;
     background-blend-mode: darken;
-    border-radius: 10px 10px 0 0;
+    // border-radius: 10px 10px 0 0;
     .image-decoration{
         top: 0px;
         width: 100%;
@@ -140,13 +138,13 @@ $background-color: rgb(245, 245, 245);
             height: 100%;
             position: relative;
             display:inline-block;
-            border-radius: 10px 10px 0 0;
+            // border-radius: 10px 10px 0 0;
             -webkit-transition: all 0.4s ease-in-out;
             object-fit: cover;
             &:hover{
                 transform: scale(1.15);
                 -webkit-transition: all 0.4s ease-in-out;
-                border-radius: 10px 10px 0px 0px;
+                // border-radius: 10px 10px 0px 0px;
             }
         }
         .store-title{
@@ -169,16 +167,15 @@ $background-color: rgb(245, 245, 245);
 
 
 img .noPicture{
-    background-color: rgba(0, 0, 0, 0.25);
+    background-color: #ffffff;
     backdrop-filter: blur(5px);
 }
 
 .info-container{
     height: 30%;
     width: 100%;
-    padding: 5px;
+    padding: 15px;
     .store-info{
-        margin-left: 15px;
         font-weight: bold;
         font-size: 16px;
         color:#707070;

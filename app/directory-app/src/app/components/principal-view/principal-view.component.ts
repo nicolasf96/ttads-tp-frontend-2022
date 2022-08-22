@@ -12,7 +12,7 @@ import { StoresService } from 'src/app/services/stores/stores.service';
 export class PrincipalViewComponent implements OnInit {
 
   searchForm = new FormGroup({
-    keySearch: new FormControl('', [Validators.required, Validators.maxLength(12)])
+    keySearch: new FormControl('', [Validators.maxLength(12)])
   })
 
 
@@ -23,9 +23,11 @@ export class PrincipalViewComponent implements OnInit {
     this.loadCategories();
   }
 
+  keyword:any ;
   stores:any = [];
   categories:any = [];
   storesSing:any=[];
+  limitStoresToShow: number = 6;
 
 
   ngOnInit(): void {
@@ -33,7 +35,7 @@ export class PrincipalViewComponent implements OnInit {
   }
 
   loadStores() {
-    this.storeService.getStoresWithImage().subscribe( response => this.stores = response.data);
+    this.storeService.getStoresWithLimit(this.limitStoresToShow).subscribe( response => this.stores = response.data);
     
   }
 
@@ -48,7 +50,13 @@ export class PrincipalViewComponent implements OnInit {
   }
 
   onSubmit() {
-    this.router.navigate(['search/'+this.searchForm.value.keySearch])
+    this.keyword = this.searchForm.value.keySearch;
+    if(this.keyword == '' || this.keyword == null){
+      this.router.navigate(['listingview'])
+    }else{
+      this.router.navigate(['search/'+this.searchForm.value.keySearch])
+    }
+    this.searchForm.reset()
   }
 
 }

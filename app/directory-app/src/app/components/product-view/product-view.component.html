@@ -37,13 +37,18 @@
 
 
                   <div class='profile-img mt-5'>
-                    <img class="mb-5" [src]="'http://localhost:3000/api/' + product.store.profilePicture?.path">
+                    <img class="mb-5" [src]="'http://localhost:3000/api/' + product.store.profilePicture?.path"
+                    (click)="goToStore(product.store._id)" [ngStyle]="{'cursor': 'pointer'}">
                   </div>
                   <br>
                   <span class="tag is-primary mb-3" >{{product.store.category?.description}}</span>
   
-                  <h2 class="title is-4 mb-2">{{product.store?.name}}</h2>
-                  <p class="title is-6">@{{product.store?.username}}</p>
+                  <h2 class="title is-4 mb-2"
+                  (click)="goToStore(product.store._id)" [ngStyle]="{'cursor': 'pointer'}"
+                  >{{product.store?.name}}</h2>
+                  <p class="title is-6"
+                  (click)="goToStore(product.store._id)" [ngStyle]="{'cursor': 'pointer'}"
+                  >@{{product.store?.username}}</p>
                 <div id="center" class="separate-info" *ngIf="product.store.address">
                   <div class='info-deco'>Address</div>
                   
@@ -114,14 +119,20 @@
 
 
           <div class='column is-8'>
-            <div class='section-title' style="text-align: center;">
-                <h2 class="title is-4 mb-2 mt-5">{{product.title}}</h2>
-                <p class="title is-6" [ngStyle]="{'color' : 'var(--lightcolor3)','text-align': 'left', 'margin-left': '20px'}">Views: {{product.views}}</p>
-                <div class="principal-img-container">
-                  <img class="product-img"  [ngStyle]="{'left' : picSlider+'%'}" [src]="'http://localhost:3000/api/' +img.path" alt="" *ngFor="let img of product.images">    
+            <div class='section-title' >
+                <div class='header'>
+                  <h2 class="title is-4 mt-5 mb-2">{{product.title}}</h2>
+                  <p class="title is-6 owner my-2">Publicado por <span (click)="goToStore(product.store._id)">{{product.store?.name}}</span></p>
+                  <p class="title is-6 views my-2">Views: {{product.views}}</p>
                 </div>
-                <button class="button is-info is-small" (click)="atras()" [ngStyle]="{'margin-right' : '20px', 'margin-bottom' : '20px'}"> < </button>
-                <button class="button is-info is-small" (click)="adelante()"> > </button>
+                <div class="principal-img-container">
+                  <img class="product-img"  [ngStyle]="{'left' : picSlider+'%'}" [src]="'http://localhost:3000/api/' +img.path" alt="" *ngFor="let img of product.images">
+                  <div class='used' *ngIf="product.used">Producto Usado</div>    
+                </div>
+                <div class='has-text-centered'>
+                  <button class="button is-info is-small" (click)="atras()" [ngStyle]="{'margin-right' : '20px', 'margin-bottom' : '20px'}"> < </button>
+                  <button class="button is-info is-small" (click)="adelante()"> > </button>
+                </div>
                 <div class="thumbnail-container">
                   <img class="product-img-thumbnail" [ngStyle]="{'left' : picSlider+'%' , 'cursor': 'pointer'}" 
                   [src]="'http://localhost:3000/api/' +i.path" *ngFor="let i of product.images"

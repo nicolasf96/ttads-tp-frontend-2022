@@ -6,14 +6,14 @@
         </div> 
         <div class='columns is-multiline'>
           <div class='column is-5'>
-            <div class='filter-container'>
+            <div class='filter-container w-border'>
                 <div class='info-deco'>Filter</div>
                 <form [formGroup]="searchForm" (ngSubmit)="onSubmit()">
                     <input id="inputForm" type="text" placeholder="Que estás buscando?"  formControlName="keySearch">
                     <button id="buttonForm"  type="submit">Buscar</button>
                 </form>
             </div>
-            <div class='filter-container'>
+            <div class='filter-container w-border'>
               <div class='info-deco'>Categories</div>
               <ul>
                 <li [ngClass]="categoriesFilter.indexOf(cat) === -1 ? 'is-light' : 'is-info'"
@@ -37,7 +37,7 @@
               Sorry! Nothing to Show
             </div>
             
-            <div class='single-product' *ngFor="let store of storesFiltered" (click)="goToStore(store._id)" [ngStyle]="{'cursor': 'pointer'}">
+            <div class='single-product w-border' *ngFor="let store of storesFiltered" (click)="goToStore(store._id)" [ngStyle]="{'cursor': 'pointer'}">
                 <div class='img-product-container'>
                   <!-- <img class="product-img" [src]="'http://localhost:3000/api/'+prod.image?.path"> -->
                   <img class="product-img"  [src]="'http://localhost:3000/api/'+store.profilePicture?.path" alt="" *ngIf="store.profilePicture">

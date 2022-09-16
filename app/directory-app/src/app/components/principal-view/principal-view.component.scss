@@ -9,85 +9,65 @@
 
 
 .principal-banner{
-    padding: 10%;
     width: 100%;
-    min-height: 300px;
-    //background-color: #FF9A8B;
-    
-    //background-image: url("https://upload.wikimedia.org/wikipedia/commons/4/47/New_york_times_square-terabass.jpg");
-   // background-image: linear-gradient(90deg, #FF9A8B 0%, #FF6A88 55%, #FF99AC 100%);
-
-
-     background: rgba(0, 0, 0, 0.6) url('https://upload.wikimedia.org/wikipedia/commons/4/47/New_york_times_square-terabass.jpg');
-    height: 100%;
+    height: 600px;
+    background-image: url("https://upload.wikimedia.org/wikipedia/commons/4/47/New_york_times_square-terabass.jpg");
+    background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    background-size: cover;
-    background-blend-mode: darken;
-    form{
+    background-attachment: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    &::before{
+        padding-left: 0;
         width: 100%;
+        height: 100%;
+        content: "";
+        position: absolute;
+        background-color: var(--pcolor2);
+        opacity: 1;
+        mix-blend-mode: multiply;
     }
-    .principal-input-container{
-        display:flexbox;
-        text-align: center;   
+
+    .principal-title{
+        font-size: 72px;
+        color: var(--lightcolor1);
+        font-weight: bold;
+        display: block;
+        text-align: center;
+        position: relative;
     }
+    
+
+
 }
 
-.principal-title{
-    font-size: 72px;
-    color: var(--lightcolor1);
-    font-weight: bold;
-    display: block;
-    text-align: center;
-}
-
-.principal-field{
-    display: block;
-    width: 100%;
-}
 
 .principal-form{
-    width: 100%;
-    display: flex;
-    align-items: center;
-    margin-top: 25px;
-    margin-bottom: 30px;
-    *{
-        padding:  10px 14px;
+    margin: 35px auto;
+    position: relative;
+    input{
+        padding-left: 15px;
+        min-width: 450px;
+        line-height: 46px;
         font-size: 18px;
-        border:none;
-    }
-    *:last-child{
-        margin-left: 12px;
+        margin-right: 20px;
 
     }
-    input{
-        width: 70%;
-    }
     button{
-        width: 25%;
+        line-height: 48px;
+        font-size: 18px;
+        padding: 0 60px;
         background-color: var(--pcolor2);
         color: white;
+        border: 1px solid var(--pcolor2);
         &:hover{
             background-color: var(--pcolor3);
             color: var(--pcolor2);
             cursor: pointer;
         }
-    }
-
-
-
-
-}
-
-
-.categories{
-    margin-right: 10px;
-    cursor: pointer;
-    margin-top: 15px;
-
-    &:hover{
-        background-color: #FF6A88!important;
     }
 }
 

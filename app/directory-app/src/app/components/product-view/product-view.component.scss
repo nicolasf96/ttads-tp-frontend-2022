@@ -175,6 +175,28 @@
     border: 2px solid var(--lightcolor2);
 }
 
+.header{
+
+    margin-left: 25px;
+    .owner{
+        margin-top: 10px;
+        font-weight: 500;
+        span{
+            color: var(--strongcolor);
+            &:hover{
+                color: var(--pcolor2);
+                cursor: pointer;
+            }
+        }
+    }
+    .views{
+        margin-top: 10px;
+        color: var(--lightcolor3);
+        text-align: left;
+        font-weight: 400;
+    }
+}
+
 .mr-4{
     margin-right: 6px;
 }
@@ -199,6 +221,7 @@
     margin: 20px auto;
     display: flex;
     overflow: hidden;
+    position: relative;
     .product-img{
         position: relative;
         width: 100%;
@@ -209,6 +232,16 @@
         transition: all 0.5s ease-in-out;
     
     
+    }
+    .used{
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        padding: 8px 25px;
+        font-size: 14px;
+        font-weight: 400;
+        background-color: var(--pinkcolor);
+        color: var(--lightcolor1);
     }
 }
 
@@ -246,8 +279,8 @@
         margin-bottom: 10px;
     }
     .price{
-        padding: 0 40px 0 20px;
-        background-color: var(--pinkcolor);
+        padding: 0 25px;
+        background-color: var(--strongcolor);
         display: inline-block;
         color: var(--lightcolor1);
         line-height: 46px;

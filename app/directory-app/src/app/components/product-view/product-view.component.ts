@@ -20,7 +20,8 @@ export class ProductViewComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
-    private service: ProductsService) { }
+    private service: ProductsService,
+    private router: Router) { }
 
 
     identifier = '';
@@ -78,5 +79,9 @@ export class ProductViewComponent implements OnInit {
   initialize() {
     this.contactForm.reset()
   } 
+
+  goToStore(id:any){
+    this.router.navigate(['storeDetails/'+id]);
+  }
   
 }

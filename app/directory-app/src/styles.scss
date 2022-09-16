@@ -20,6 +20,9 @@ body{
     --lightcolor2: #e9e9e9;
     --lightcolor3: #707070;
 
+    --strongcolor: #15133C;
+    --graycolor: #73777B;
+
     --pinkcolor: #DF7861;
 
     --backg-color: rgb(245, 245, 245);
@@ -46,6 +49,24 @@ body{
     .perfil-container{
         border: 2px solid var(--lightcolor2);
     }
+
+    *::-webkit-scrollbar {
+        width: 20px;
+      }
+      
+      *::-webkit-scrollbar-track {
+        background: var(--lightcolor1)
+      }
+      
+      *::-webkit-scrollbar-thumb {
+        background-color: var(--pcolor);
+        border-radius: 20px;
+        border: 2px solid var(--lightcolor1);
+      }
+
+      w-border{
+        border: 2px solid var(--graycolor)!important;
+      }
     
     
 }

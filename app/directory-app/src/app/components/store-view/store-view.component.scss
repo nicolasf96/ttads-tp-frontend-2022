@@ -144,12 +144,12 @@ $background-color: var(--backg-color);
     background-color: $contrast-color;
     display: flex;
     overflow: hidden;
-    /* -webkit-box-shadow: 4px 4px 15px -6px rgba(0,0,0,0.61); 
-    box-shadow: 4px 4px 15px -6px rgba(0,0,0,0.61); */
+    border: 2px solid var(--lightcolor2);
     .img-product-container{
         width: 35%;
         height: 100%;
         overflow: hidden;
+        position: relative;
         img{
             height: 100%;
             width: 100%;
@@ -162,35 +162,69 @@ $background-color: var(--backg-color);
                 transition: all 300ms ease-in-out;
             }
         }
+        .price{
+
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+            padding: 0 22px;
+            background-color: var(--strongcolor);
+            color: var(--lightcolor1);
+            font-size: 18px;
+            line-height: 36px;
+            font-weight: 500;
+
+        }
+        .no-price{
+
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+            padding: 0 22px;
+            background-color: var(--strongcolor);
+            color: var(--lightcolor1);
+            font-size: 14px;
+            line-height: 30px;
+            font-weight: 500;
+
+        }
     
     }
     .info-product{
         width: 65%;
         height: 100%;
         color: $text-color;
+        text-align: right;
+
+        div.tag{
+            position: relative;
+            right: 25px;
+            
+            bottom: 20px;
+        }
 
         .superior{
             position: relative;
             top: 10px;
-            float: right;
+            margin-top: 12px;
             text-align: end;
-            color: $text-deco-color;
+            line-height: 14px;
+            color: var(--lightcolor3);
             margin-bottom: 15px;
-            transform: translate(-50%);
+            margin-right: 25px;
 
             svg{
                 width: 14px;
                 height: 14px;
-                fill: $text-deco-color
+                fill:var(--lightcolor3)
             }
         }
 
         .info {
+            text-align: left;
             position: relative;
             padding:15px;
-            top: 70px;
-            left: 50%;
-            transform: translate(-50%,-50%);
+            left: 40px;
             width: 70%;
             height: 70%;
             overflow: hidden;
@@ -200,24 +234,7 @@ $background-color: var(--backg-color);
                 margin-bottom: 8px;
             }
         }
-        .price{
-            font-size: 20px;
-            font-weight: 600;
-            color: $text-color;
-            position: relative;
-            bottom: 10px;
-            float: right;
-            transform: translate(-50%);
-
-            .unitOM{
-                color: $color;
-                font-size: 18px;
-                font-weight:500;
-                font-style: oblique;
-
-            }
-        }
-
+        
     }
     &:last-child{
         margin-bottom: 100px;
@@ -283,7 +300,7 @@ $background-color: var(--backg-color);
     margin-top: 20px;
     width: 100%;
     min-height: 35px;
-    background-color: var(--pcolor2);
+    background-color: var(--strongcolor);
     color: white;
     text-align: center;
     vertical-align: middle;
@@ -306,7 +323,7 @@ $background-color: var(--backg-color);
     color: $text-color;
     font-size: 18px;
     font-weight: bold;
-    border-top: 3px solid $color;
+    border-top: 3px solid var(--strongcolor);
 }
 
 .mr-4{
@@ -408,3 +425,19 @@ a svg{
     text-align: center;
     background-color: var(--lightcolor1);
  }
+
+ .module {
+    width: 250px;
+    margin: 0 0 1em 0;
+    overflow: hidden;
+  }
+
+  .module p {
+    margin: 0;
+  }
+  
+  .line-clamp {
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+  }

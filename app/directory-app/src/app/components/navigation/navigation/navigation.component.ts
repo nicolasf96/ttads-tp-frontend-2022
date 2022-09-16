@@ -1,4 +1,5 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { AuthService } from 'src/app/services/auth/auth.service';
 
 @Component({
   selector: 'app-navigation',
@@ -10,23 +11,16 @@ export class NavigationComponent implements OnInit {
 
   @Output()
   styleMode = new EventEmitter<boolean>();
-  style: boolean;
 
-  constructor() { 
-    this.style=false;
+  constructor(public authService: AuthService) { 
  
   }
 
   ngOnInit(): void {
-    this.styleMode.emit(this.style);
   }
 
+  
 
-
-  changeStyle() {
-    this.style = !this.style;
-    this.styleMode.emit(this.style);
-  }
 
   
 

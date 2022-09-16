@@ -1,16 +1,11 @@
 <div class='columns m-0'>
-    <div class='column principal-banner'>
+    <div class='column is-12 p-0 principal-banner'>
         <h1 class="principal-title">Discover Your City</h1>
-        <div class='principal-input-container columns is-centered'>
-            <div class='column is-half'>
-                <div class='principal-form'>
-                    <form [formGroup]="searchForm" (ngSubmit)="onSubmit()">
-                        <input id="inputForm" type="text" placeholder="Que estás buscando?"  formControlName="keySearch">
-                        <button id="buttonForm"  type="submit">Buscar</button>
-                    </form>
-                </div>
-
-            </div>
+        <div class='principal-form'>
+            <form [formGroup]="searchForm" (ngSubmit)="onSubmit()">
+                <input id="inputForm" type="text" placeholder="Que estás buscando?"  formControlName="keySearch">
+                <button id="buttonForm"  type="submit">Buscar</button>
+            </form>
         </div>
     </div>
 </div>

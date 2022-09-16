@@ -1,0 +1,105 @@
+<div class='columns is-centered m-0' >
+    <div class='column is-9 ' style="margin-top: 50px; padding-bottom: 150px;">
+        <h1 class="title is-4">Store</h1>
+    
+        <div class='box perfil mb-5'>
+            <div class='tag is-primary is-small mb-5'>active</div> <br>
+            <h2 class="title is-6">{{user.store?.name}}</h2>
+            <h2 class="title is-6">@{{user.store?.username}}</h2>
+            <p class="subtitle is-6 my-1">{{user.store?.description}}</p>
+            <p class="subtitle is-6 my-1">{{user.store?.address}}</p>
+            <p class="subtitle is-6 my-1">{{user.store?.city}}</p>
+            <p class="subtitle is-6 my-1">{{user.store?.valoration}}</p>
+                <form [formGroup]="storeForm" (ngSubmit)="onSubmit()">
+                    <div class="field">
+                        <label class="label">Name</label>
+                        <div class="control">
+                          <input class="input" type="text" placeholder="Text input" formControlName="name">
+                        </div>
+                    </div>
+                    <div class="field">
+                        <div class="control has-icons-left has-icons-right">
+                          <input class="input is-success" type="text" placeholder="Text input" formControlName="username">
+                          <span class="icon is-small is-left">
+                            <i class="fas fa-user"></i>
+                          </span>
+                        </div>
+                      </div>
+                    <div class="field">
+                        <label class="label">Description</label>
+                        <div class="control">
+                          <input class="input" type="text" placeholder="Text input" formControlName="description">
+                        </div>
+                    </div>
+                    <div class="field">
+                        <label class="label">Address</label>
+                        <div class="control">
+                          <input class="input" type="text" placeholder="Text input" formControlName="address">
+                        </div>
+                    </div>
+                    <div class="field">
+                        <label class="label">City</label>
+                        <div class="control">
+                          <input class="input" type="text" placeholder="Text input" formControlName="city">
+                        </div>
+                    </div>
+                    <div class="field">
+                        <label class="label">Valoration</label>
+                        <div class="control">
+                          <input class="input" type="text" placeholder="Text input" formControlName="valoration">
+                        </div>
+                    </div>
+                    <button class="button is-primary" type="submit" [disabled]="!storeForm.valid">Submit</button>
+                    <button class="button is-secondary" type="button" (click)="initialize()" >Reset</button>
+                  </form>
+        </div>
+
+        <h1 class="title is-4">Productos</h1>
+    
+        <div class='box perfil '>
+            <button class="button is-primary is-small mb-4">Add Producto</button>
+            <div class='mb-5'>
+                Showing {{user.store?.products.length}} products
+            </div>
+            <table class="table is-hoverable is-fullwidth is-stripped">
+                <thead>
+                    <tr>
+                      <th></th>
+                      <th>Product</th>
+                      <th>Description</th>
+                      <th>Price</th>
+                      <th>Location</th>
+                      <th>Unit</th>
+                      <th>Action</th>
+                    </tr>
+                  </thead>
+                <tr *ngFor="let prod of user.store?.products">
+                    <td>
+                      <img [src]="'http://localhost:3000/api/' + prod.images[0]?.path"  class="prod-img">
+                    </td>
+                    <td>
+                        {{prod.title}}
+                    </td>
+                    <td>
+                        {{prod.description}}
+                    </td>
+                    <td>
+                        ${{prod.price}}
+                    </td>
+                    <td>
+                        {{prod.location}}
+                    </td>
+                    <td>
+                    {{prod.unit}} - {{prod.unitOM}}
+                    </td>
+                    <td>
+                      <button class="button is-small is-info mr-3">Editar</button>
+                      <button class="button is-small is-danger">Eliminar</button>
+                  </td>
+                </tr>
+            </table>
+        </div>
+
+
+    </div>
+</div>

@@ -71,3 +71,18 @@
         object-fit: cover;
     }
   }
+
+
+  *::-webkit-scrollbar {
+    width: 20px;
+  }
+  
+  *::-webkit-scrollbar-track {
+    background: var(--lightcolor1)
+  }
+  
+  *::-webkit-scrollbar-thumb {
+    background-color: var(--pcolor);
+    border-radius: 20px;
+    border: 2px solid var(--lightcolor1);
+  }

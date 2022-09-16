@@ -1,10 +1,11 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CategoriesComponent } from './components/categories/categories.component';
-import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { HttpClient, HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { StoresComponent } from './components/stores/stores.component';
 import { NavigationComponent } from './components/navigation/navigation/navigation.component';
 import { SideMenuComponent } from './components/side-menu/side-menu.component';
@@ -27,6 +28,14 @@ import { StoreViewComponent } from './components/store-view/store-view.component
 import { FooterComponent } from './components/footer/footer.component';
 import { ProductViewComponent } from './components/product-view/product-view.component';
 import { SearcherComponent } from './components/searcher/searcher.component';
+import { LoginComponent } from './components/login/login.component';
+import { AuthGuard } from './auth.guard';
+import { TokenInterceptorService } from './services/token-interceptor/token-interceptor.service';
+import { PanelNavComponent } from './components/user-panel/panel-nav/panel-nav.component';
+import { PerfilComponent } from './components/user-panel/perfil/perfil.component';
+import { PanelStoresComponent } from './components/user-panel/panel-stores/panel-stores.component';
+import { AllProductsViewComponent } from './components/all-products-view/all-products-view.component';
+import { UserPanelComponent } from './components/user-panel/user-panel.component';
 
 @NgModule({
   declarations: [
@@ -51,16 +60,30 @@ import { SearcherComponent } from './components/searcher/searcher.component';
     StoreViewComponent,
     FooterComponent,
     ProductViewComponent,
-    SearcherComponent
+    SearcherComponent,
+    LoginComponent,
+    PanelNavComponent,
+    PerfilComponent,
+    PanelStoresComponent,
+    AllProductsViewComponent,
+    UserPanelComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     ReactiveFormsModule,
-    CommonModule
+    CommonModule,
+    FormsModule
   ],
-  providers: [],
+  providers: [
+    AuthGuard,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: TokenInterceptorService,
+      multi: true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -276,8 +276,13 @@
 
 
 
-          <div class='section-title'>
-            Productos
+          <div class='section-title' style="display: flex">
+            <div class='has-text-left is-inline-block'>
+              Productos
+            </div>
+            <div class='subtitle is-6 has-text-right is-inline-block ml-auto mr-3'>
+              Ver todos
+            </div>
           </div>
 
           <div class='no-reviews' *ngIf="products.length == 0">
@@ -285,10 +290,15 @@
           </div>
 
 
-          <div class='single-product' *ngFor="let prod of products">
+          <div class='single-product w-border' *ngFor="let prod of products">
             <div class='img-product-container'>
               <img class="product-img"   [src]="'http://localhost:3000/api/' + prod.images[0]?.path" alt="" (click)="goToProduct(prod._id)" [ngStyle]="{'cursor': 'pointer'}">
-              
+              <div class='price' *ngIf="prod.price">
+                ${{prod.price}}
+              </div>
+              <div class='no-price' *ngIf="!prod.price" (click)="goToProduct(prod._id)" [ngStyle]="{'cursor': 'pointer'}">
+                Consultar $
+              </div>
             </div>
             <div class='info-product'>
               <div class='superior' *ngIf="prod.location">
@@ -297,12 +307,12 @@
               </div>
               <div class='info'>
                 <h3 class="title is-5" (click)="goToProduct(prod._id)" [ngStyle]="{'cursor': 'pointer'}">{{prod.title}}</h3>
-                <p>{{prod.description}}</p>
+                <div class="module line-clamp">
+                  <p>{{prod.description}}</p>
+                </div>
               </div>
-              <!-- <div class='price'>
-                ${{prod.price}} <span class="unitOM" *ngIf="prod.unitOM">x {{prod.unitOM}}</span>
-              </div> -->
-
+              <div class="tag is-link is-small" [ngStyle]="{'cursor': 'pointer'}" (click)="goToProduct(prod._id)">Ver más</div>
+             
                 
                 
             </div>
@@ -321,7 +331,7 @@
               <img  [src]="'http://localhost:3000/api/' + rev.user.profilePicture?.path" alt="">
             </div>
 
-            <div class='info-review'>
+            <div class='info-review w-border'>
               <div class='superior'>
                 By @{{rev.user?.username}}
               </div>
@@ -336,20 +346,20 @@
                   ({{rev.score}})
                 </p>
               </div>
+            </div>
+
+
+
           </div>
 
 
 
+
+
         </div>
-
-
-
-
-
       </div>
+    </div>
   </div>
-</div>
-</div>
 <div #modal class="modal">
   <div class="modal-background" (click)="closeModal()"></div>
   <div class="modal-content">

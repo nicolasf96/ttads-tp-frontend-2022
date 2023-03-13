@@ -19,6 +19,7 @@ import { AuthGuard } from './auth.guard';
 import { UserPanelComponent } from './components/user-panel/user-panel.component';
 import { PanelStoresComponent } from './components/user-panel/panel-stores/panel-stores.component';
 import { PerfilComponent } from './components/user-panel/perfil/perfil.component';
+import { PanelProductDetailComponent } from './components/user-panel/panel-product-detail/panel-product-detail.component';
 
 const routes: Routes = [
   { path: 'stores', component: StoresComponent, canActivate: [AuthGuard] },
@@ -33,6 +34,7 @@ const routes: Routes = [
   { path: 'listingview', component:  ListingViewComponent},
   { path: 'search/:keySearch', component: ListingViewComponent},
   { path: 'product/:id', component: ProductViewComponent},
+  { path: 'product-details/:id', component: PanelProductDetailComponent},
   { path: 'users', component: UsersComponent, canActivate: [AuthGuard]},
   { path: 'user-panel/:id', component: UserPanelComponent, canActivate: [AuthGuard]},
   { path: 'store-panel/:id', component: PanelStoresComponent, canActivate: [AuthGuard]},

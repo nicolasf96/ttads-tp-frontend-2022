@@ -1,0 +1,32 @@
+<div class='columns is-multiline'>
+    <div class='column is-12'>
+        <div class='review' *ngIf="myReview">
+            <div>
+                Ya hiciste un comentario en esta tienda! <br> <br>
+                Comentario: <br>
+                "{{myReview.comment}}"  Score: {{myReview.score}}
+            </div>
+        </div>
+
+
+        <div class='review' *ngIf="!myReview">
+            <form [formGroup]="reviewForm" (ngSubmit)="onSubmit()">
+                <div class="field">
+                    <label class="label">Comentario:</label>
+                    <div class="control">
+                      <textarea class="input  is-outlined" type="text"  formControlName="comment" placeholder="Ingrese su Comentario"></textarea>
+                    </div>
+                </div>
+                <div class="field">
+                    <label class="label">Puntaje: (de 1 a 5)</label>
+                    <div class="control">
+                      <input class="input"  type="number" min="1" max="5" formControlName="score">
+                    </div>
+                </div>
+                <div class='buttons has-pulled-right'>
+                    <button type="submit" class="button is-primary">Enviar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,71 @@
+<div class='columns is-centered m-0 config' >
+    <div class='column is-9 ' style="margin-top: 50px; padding-bottom: 150px;">
+        <h1 class="title is-5"><span class="breadcrumb">Panel / Perfil de Negocio / </span>Producto</h1>
+        <div class='columns'>
+            <div class='column box is-12 config-box'>
+
+                <div class='columns'>
+                    <div class='column is-3 has-text-centered '>
+                        <div class="img-perfil" >
+                            <img  [src]="'http://localhost:3000/api/' + product.images[0]?.path || 'assets/no-image.png'" alt="">
+                        </div>
+                    </div>
+                    
+                    <div class='column is-9'>
+                        
+                        <div *ngIf="showDiv" class="notification is-primary is-light">
+                            Los cambios se han guardado correctamente.
+                        </div>
+                        <div class="tag is-info is-small mr-3 mb-5">Product_id: {{product._id}}</div>
+                        <form [formGroup]="productForm" (ngSubmit)="onSubmit()">
+                            <div class="field">
+                                <label class="label">Producto:</label>
+                                <div class="control">
+                                    <input class="input  is-outlined" type="text"  formControlName="title" placeholder="Ingrese el nombre de su producto">
+                                </div>
+                                <p *ngIf="productForm.get('name').touched && productForm.get('name').invalid" class="help is-danger">Este campo es obligatorio</p>
+                            </div>
+                            <div class="field">
+                                <label class="label">Descripción:</label>
+                                <div class="control">
+                                    <textarea class="input  is-outlined" formControlName="description" placeholder="Ingrese una descripción para su producto"></textarea>
+                                </div>
+                                <p *ngIf="productForm.get('name').touched && productForm.get('name').invalid" class="help is-danger">Este campo es obligatorio</p>
+                            </div>
+                            <div class="field">
+                                <label class="label">Ciudad:</label>
+                                <div class="control">
+                                    <input class="input  is-outlined" type="text"  formControlName="location" placeholder="Ingrese ciudad de su producto" value="{{product.location}}">
+                                </div>
+                                <p *ngIf="productForm.get('name').touched && productForm.get('name').invalid" class="help is-danger">Este campo es obligatorio</p>
+                            </div>
+                            
+                            <div class="field">
+                                <label class="label">Precio:</label>
+                                <div class="control">
+                                    <input class="input  is-outlined" type="number"  formControlName="price" placeholder="Ingrese un Precio">
+                                </div>
+                                <p *ngIf="productForm.get('name').touched && productForm.get('name').invalid" class="help is-danger">Este campo es obligatorio</p>
+                            </div>
+                            <div class="field">
+                                <label class="checkbox">
+                                    <input type="checkbox" formControlName="used" >
+                                    El producto es usado
+                                </label>
+                            </div>
+
+                            
+                            
+                            <div *ngIf="errorToggle" class="notification is-danger is-light">
+                            Los cambios no se han guardado
+                            </div>
+                            <div class='buttons is-pulled-right'>
+                                <button type="submit" class="button is-primary ">Guardar cambios</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

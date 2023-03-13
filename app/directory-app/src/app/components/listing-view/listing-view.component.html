@@ -1,20 +1,21 @@
 <div class='columns is-centered fondo' >
     <div class='column is-9' style="padding: 0px;">
-      <div class="banner" >
-        <!-- <img  src="https://media.meer.com/attachments/dca773f2852f48e6eed0c6a31fed34e624c80b79/store/fill/1230/692/9532a7b5e4cd887bf0fad04cba7ddaecb35b2cdf06b906dd9059f0ae1de8/Una-mujer-buscando-trabajo.jpg"> -->
+     <!--  <div class="banner" >
+         <img  src="https://media.meer.com/attachments/dca773f2852f48e6eed0c6a31fed34e624c80b79/store/fill/1230/692/9532a7b5e4cd887bf0fad04cba7ddaecb35b2cdf06b906dd9059f0ae1de8/Una-mujer-buscando-trabajo.jpg"> 
         <h1 class="title is-1">Stores</h1>
-        </div> 
+        </div>  -->
+        <h1 class="title is-5" style="margin-top: 40px;"><span class="breadcrumb">Inicio / </span>Negocios</h1>
         <div class='columns is-multiline'>
           <div class='column is-5'>
             <div class='filter-container w-border'>
-                <div class='info-deco'>Filter</div>
+                <div class='info-deco'>Filtrar</div>
                 <form [formGroup]="searchForm" (ngSubmit)="onSubmit()">
                     <input id="inputForm" type="text" placeholder="Que estás buscando?"  formControlName="keySearch">
                     <button id="buttonForm"  type="submit">Buscar</button>
                 </form>
             </div>
             <div class='filter-container w-border'>
-              <div class='info-deco'>Categories</div>
+              <div class='info-deco'>Categorías</div>
               <ul>
                 <li [ngClass]="categoriesFilter.indexOf(cat) === -1 ? 'is-light' : 'is-info'"
                 class="tag is-info is-big  mr-3 mt-3" *ngFor="let cat of categories"
@@ -27,10 +28,10 @@
 
           <div class='column is-7'>
             <div class='section-title' *ngIf="toggle == false">
-              Showing {{storesFiltered.length}} results on searching "{{keyword}}"
+              Mostrando {{storesFiltered.length}} resultados de la búsqueda "{{keyword}}"
             </div>
             <div class='section-title' *ngIf="toggle == true">
-              Showing All Stores
+              Mostrando todos los Negocios
             </div>
 
             <div class='nothingToShow' *ngIf="storesFiltered.length == 0">

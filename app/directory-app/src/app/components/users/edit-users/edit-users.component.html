@@ -18,6 +18,7 @@
               <img [src]="'http://localhost:3000/api/' + user.profilePicture?.path || 'assets/no-image.png'" 
               class="profile-img">
               <p class="subtitle is-6 my-4">{{user.email}}</p>
+              <p class="subtitle is-6 my-4">{{user._id}}</p>
               <p class="subtitle is-6 my-4">{{user.firstName}}</p>
               <p class="subtitle is-6 my-4">{{user.lastName}}</p>
             </div>

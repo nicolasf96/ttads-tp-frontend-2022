@@ -24,14 +24,17 @@ export class PanelStoresComponent implements OnInit {
       private storesService: StoresService) { }
      
 
+
       chart: any;
       userIdentifier: any;
       categories: any;
       user:any;
       store: any;
+      products: any;
       storeForm: any;
       catForm: any;
       showPanel: any;
+      showFormBanner: any;
       showDiv= false;
       showForm = false;
       errorToggle = false;
@@ -60,10 +63,18 @@ export class PanelStoresComponent implements OnInit {
           this.crearFormularioCat();
           }
         );
+
         this.categoryService.getCategories().subscribe( res => this.categories = res.data );
-        this.crearGrafico();
+        this.loadProducts();
     }
 
+    loadProducts(){
+      this.storesService.getProductsByStoreId(this.store._id).subscribe( response => this.products = response.data)
+    }
+
+    goToStore(id:any){
+      this.router.navigate(['storeDetails/'+id]);
+    }
 
     crearFormulario() {
       this.storeForm = new FormGroup({
@@ -125,11 +136,23 @@ export class PanelStoresComponent implements OnInit {
     }
 
     uploadPhoto(){
-      this.imageService.deleteImage(this.user.profilePicture._id);
+      if(this.user.store.profilePicture){
+        this.imageService.deleteImage(this.user.store.profilePicture._id);
+      }
       this.imageService.createImageProfileStore(this.store._id, this.file).subscribe( response => console.log(response));
       this.showTempDiv();
       this.showForm = false;
     }
+
+    uploadBannerPhoto(){
+      if(this.user.store.banner._id){
+        this.imageService.deleteImage(this.user.store.banner._id);
+      }
+      this.imageService.createBanner(this.store._id, this.file).subscribe( response => console.log(response));
+      this.showTempDiv();
+      this.showForm = false;
+    }
+
 
     onPhotoSelected($event: any){
       if ($event.target.files && $event.target.files[0]) {
@@ -141,8 +164,22 @@ export class PanelStoresComponent implements OnInit {
       }
     }
 
+    onPhotoSelected2($event: any){
+      if ($event.target.files && $event.target.files[0]) {
+        this.file = <File>$event.target.files[0];
+        // image preview
+        const reader = new FileReader();
+        reader.onload = e => this.photoSelected = reader.result;
+        reader.readAsDataURL(this.file);
+      }
+    }
+
     showPhotoForm(){
       this.showForm = !this.showForm;
+    }
+
+    showBannerForm(){
+      this.showFormBanner = !this.showFormBanner;
     }
     
     onSelect(){

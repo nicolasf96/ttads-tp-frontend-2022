@@ -1,0 +1,39 @@
+<div class='mb-5'>Mostrando  productos <span class="button is-primary is-small mb-4 ml-4">Nuevo</span></div>
+<div class='tag is-info'>Store_id: {{store._id}}</div>          
+<table class="table is-hoverable is-fullwidth is-stripped">
+  <thead>
+    <tr>
+      <th></th>
+      <th>Id</th>
+      <th>Producto</th>
+      <th>Descripción</th>
+      <th>Precio</th>
+      <th>Ciudad</th>
+      <th>Acción</th>
+    </tr>
+  </thead>
+  <tr *ngFor="let prod of products">
+    <td>
+      <img [src]="'http://localhost:3000/api/' + prod.images[0]?.path"  class="prod-img">
+    </td>
+    <td>
+       <div class='tag is-link'> {{prod._id}}</div>
+    </td>
+    <td>
+        {{prod.title}}
+    </td>
+    <td>
+        {{prod.description}}
+    </td>
+    <td>
+        ${{prod.price}}
+    </td>
+    <td>
+        {{prod.location}}
+    </td>
+    <td>
+      <button class="button is-small is-info is-light mr-3" (click)="goToProduct(prod._id)">Editar</button>
+      <button class="button is-small is-danger is-light">Eliminar</button>
+    </td>
+  </tr>
+</table>

@@ -1,11 +1,4 @@
-.prod-img{
-    width: 60px;
-    height: 60px;
-    object-fit: cover;
-}
 
-td{
-}
 
 .perfil{
     position: relative;
@@ -63,3 +56,33 @@ form.newPhoto{
     align-items: center;
 
 }
+
+.banner{
+    width: 100%;
+    aspect-ratio: 16 / 4;
+    background-color: #c7c7c700;
+
+    .banner-container{
+        width: inherit;
+        aspect-ratio: inherit;
+        border-radius: inherit;
+        overflow: hidden;
+        position: relative;
+        img{
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            scale: 1.1;
+        }
+    }
+
+    .bannerForm{
+        display: inline;
+        button{
+            margin: 0 15px;
+        }
+    }
+
+    
+}
+

@@ -1,0 +1,45 @@
+.review{
+    .img-review-container{
+        img{
+            height: 120px;
+            width: 120px;
+            /* los siguientes valores son independientes del tamaño del círculo */
+            background-repeat: no-repeat;
+            background-position: 50%;
+            border-radius: 50%;
+            background-size: 100% auto;
+        }
+    }
+
+}
+
+.no-revies{
+    text-align: center;
+    display: inline-block;
+}
+
+
+.globo{
+    padding: 15px 25px;
+    border-radius: 20px;
+    width: 100%;
+    display: inline-block;
+    background-color: #f0f0f0;
+    .user{
+        font-weight: bold;
+        font-size: 18px;
+
+    }
+    .content{
+        padding: 12px 0;
+        font-size: 16px;
+        p{
+            margin-bottom: 8px!important;
+        }
+    }
+    .time{
+        color: rgb(21, 21, 100);
+        font-weight: normal;
+        font-size: 14px;
+    }
+}

@@ -36,6 +36,11 @@ import { PerfilComponent } from './components/user-panel/perfil/perfil.component
 import { PanelStoresComponent } from './components/user-panel/panel-stores/panel-stores.component';
 import { AllProductsViewComponent } from './components/all-products-view/all-products-view.component';
 import { UserPanelComponent } from './components/user-panel/user-panel.component';
+import { PanelProductsListComponent } from './components/user-panel/panel-products-list/panel-products-list.component';
+import { PanelProductDetailComponent } from './components/user-panel/panel-product-detail/panel-product-detail.component';
+import { ImagesOfStoreComponent } from './components/user-panel/images-of-store/images-of-store.component';
+import { AddReviewComponent } from './components/add-review/add-review.component';
+import { ReviewsComponent } from './components/reviews/reviews.component';
 
 @NgModule({
   declarations: [
@@ -66,7 +71,12 @@ import { UserPanelComponent } from './components/user-panel/user-panel.component
     PerfilComponent,
     PanelStoresComponent,
     AllProductsViewComponent,
-    UserPanelComponent
+    UserPanelComponent,
+    PanelProductsListComponent,
+    PanelProductDetailComponent,
+    ImagesOfStoreComponent,
+    AddReviewComponent,
+    ReviewsComponent
   ],
   imports: [
     BrowserModule,

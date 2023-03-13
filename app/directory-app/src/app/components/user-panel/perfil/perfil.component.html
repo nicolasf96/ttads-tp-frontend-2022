@@ -1,6 +1,6 @@
 <div class='columns is-centered m-0' >
     <div class='column is-9' style="margin-top: 50px; padding-bottom: 150px;">
-        <h1 class="title is-5"><span class="breadcrumb">Dashboard / </span>Información Personal</h1>
+        <h1 class="title is-5"><span class="breadcrumb">Panel / </span>Información Personal</h1>
     
         <div class='box perfil'>
             <div class='columns'>
@@ -8,7 +8,7 @@
                     <div class="img-perfil" >
                         <img #imgPerfil [src]="'http://localhost:3000/api/' + user.profilePicture?.path || 'assets/no-image.png'" alt="">
                     </div>
-                    <button type="" class="button is-info is-small is-rounded" (click)="showPhotoForm()">Editar Foto de Perfil</button>
+                    <button type="" class="button is-link is-light is-small" (click)="showPhotoForm()">Editar Foto de Perfil</button>
                     <form *ngIf="showForm" class="newPhoto" (submit)="uploadPhoto()">
                         <label class="label">Nueva Imagen de Perfil</label>              
                         <input type="file" (change)="onPhotoSelected($event)" #photoInput>
@@ -23,47 +23,47 @@
                         <div class="field">
                             <label class="label">Nombre:</label>
                             <div class="control">
-                              <input class="input is-rounded is-outlined" type="text"  formControlName="firstName" placeholder="Ingrese su nombre">
+                              <input class="input is-outlined" type="text"  formControlName="firstName" placeholder="Ingrese su nombre">
                             </div>
                             <p *ngIF="!user.firstName" class="help is-danger">Este campo es obligatorio</p>
                         </div>
                         <div class="field">
                             <label class="label">Apellido:</label>
                             <div class="control">
-                              <input class="input is-rounded is-outlined" type="text"  formControlName="lastName" placeholder="Ingrese su nombre">
+                              <input class="input is-outlined" type="text"  formControlName="lastName" placeholder="Ingrese su nombre">
                             </div>
                             <p *ngIF="!user.firstName" class="help is-danger">Este campo es obligatorio</p>
                         </div>
                         <div class="field">
                             <label class="label">Username:</label>
                             <div class="control">
-                              <input class="input is-rounded is-outlined" type="text"  formControlName="username" placeholder="Ingrese su nombre">
+                              <input class="input is-outlined" type="text"  formControlName="username" placeholder="Ingrese su nombre">
                             </div>
                             <p *ngIF="!user.firstName" class="help is-danger">Este campo es obligatorio</p>
                         </div>
                         <div class="field">
                             <label class="label">Email:</label>
                             <div class="control">
-                              <input class="input is-rounded is-outlined" type="email"  formControlName="email" placeholder="Ingrese su nombre">
+                              <input class="input is-outlined" type="email"  formControlName="email" placeholder="Ingrese su nombre">
                             </div>
                             <p *ngIF="!user.firstName" class="help is-danger">Este campo es obligatorio</p>
                         </div>
                         <div class="field">
                             <label class="label">Password:</label>
                             <div class="control">
-                              <input class="input is-rounded is-outlined" type="password"  formControlName="password" placeholder="Ingrese su nombre">
+                              <input class="input is-outlined" type="password"  formControlName="password" placeholder="Ingrese su nombre">
                             </div>
                             <p *ngIF="!user.firstName" class="help is-danger">Este campo es obligatorio</p>
                         </div>
                         <div class="field">
                             <label class="label">Phone:</label>
                             <div class="control">
-                              <input class="input is-rounded is-outlined" type="text"  formControlName="phone" placeholder="Ingrese su nombre">
+                              <input class="input is-outlined" type="text"  formControlName="phone" placeholder="Ingrese su nombre">
                             </div>
                             <p *ngIF="!user.firstName" class="help is-danger">Este campo es obligatorio</p>
                         </div>
                         <div class='buttons is-pulled-right'>
-                            <button type="submit" class="button is-primary is-rounded">Guardar cambios</button>
+                            <button type="submit" class="button is-primary">Guardar cambios</button>
                         </div>
                     </form>
                 </div>

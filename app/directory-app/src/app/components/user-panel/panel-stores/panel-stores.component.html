@@ -1,105 +1,181 @@
 <div class='columns is-centered m-0' >
     <div class='column is-9 ' style="margin-top: 50px; padding-bottom: 150px;">
-        <h1 class="title is-4">Store</h1>
-    
+        <h1 class="title is-5"><span class="breadcrumb">Dashboard / </span>Perfil de Negocio</h1>
+        <div  *ngIf="!showPanel" class="notification is-link is-light">
+          Parece que todavía no has creado tu Perfil de Negocio
+        </div> 
         <div class='box perfil mb-5'>
-            <div class='tag is-primary is-small mb-5'>active</div> <br>
-            <h2 class="title is-6">{{user.store?.name}}</h2>
-            <h2 class="title is-6">@{{user.store?.username}}</h2>
-            <p class="subtitle is-6 my-1">{{user.store?.description}}</p>
-            <p class="subtitle is-6 my-1">{{user.store?.address}}</p>
-            <p class="subtitle is-6 my-1">{{user.store?.city}}</p>
-            <p class="subtitle is-6 my-1">{{user.store?.valoration}}</p>
+          <div class='columns'>
+            <div *ngIf="!showPanel" class='column is-12 no-store'>
+              <button class="button is-primary is-medium">Configurar</button>
+            </div>
+          </div>
+          <div *ngIf="showPanel" class='columns'>
+            <div class='column is-3 has-text-centered border is-info'>
+                <div class="img-perfil" >
+                    <img #imgPerfil [src]="'http://localhost:3000/api/' + store.profilePicture?.path || 'assets/no-image.png'" alt="">
+                </div>
+                 <button type="" class="button is-info is-light is-rounded is-small" (click)="showPhotoForm()">Editar Foto de Perfil</button>
+                 <form *ngIf="showForm" class="newPhoto" (submit)="uploadPhoto()">
+                    <label class="label">Nueva Imagen de Perfil</label>              
+                    <input type="file" (change)="onPhotoSelected($event)" #photoInput>
+                    <button class="button is-primary is-rounded is-small">Enviar</button>
+                </form>
+
+                <hr>
+
+                <div class="label">Categoría</div>
+                <div *ngIf="store.category" class="tag is-primary is-medium">{{store.category?.description}}</div>
+                <div class="tag is-info is-light" style="margin-left: 10px; cursor: pointer;"(click)="showCat()">⬇</div>
+
+                <form *ngIf="showCatToggle" [formGroup]="catForm" (ngSubmit)="onSubmitCat()" style="margin-top: 20px;">
+                  <div class="select">
+                    <select formControlName="category">
+                      <option *ngFor="let cat of categories" [value]="cat._id">{{cat.description}}</option>
+                    </select>
+                  </div>
+                  <button type="submit" class="button is-primary is-rounded is-small">Actualizar Categoría</button>
+                </form>
+            </div>
+
+
+
+
+
+
+
+            <div class='column is-9'>
+                <div *ngIf="showDiv" class="notification is-primary is-light">
+                    Los cambios se han guardado correctamente.
+                </div>
                 <form [formGroup]="storeForm" (ngSubmit)="onSubmit()">
                     <div class="field">
-                        <label class="label">Name</label>
+                        <label class="label">Nombre:</label>
                         <div class="control">
-                          <input class="input" type="text" placeholder="Text input" formControlName="name">
+                          <input class="input is-rounded is-outlined" type="text"  formControlName="name" placeholder="Ingrese su nombre">
                         </div>
+                        <p *ngIf="storeForm.get('name').touched && storeForm.get('name').invalid" class="help is-danger">Este campo es obligatorio</p>
+                    </div>
+                    
+                    <div class="field">
+                        <label class="label">Username:</label>
+                        <div class="control">
+                          <input class="input is-rounded is-outlined" type="text"  formControlName="username" placeholder="Ingrese un nombre de usuario">
+                        </div>
+                        <p *ngIf="storeForm.get('username').touched && storeForm.get('username').invalid" class="help is-danger">Este campo es obligatorio</p>
                     </div>
                     <div class="field">
-                        <div class="control has-icons-left has-icons-right">
-                          <input class="input is-success" type="text" placeholder="Text input" formControlName="username">
-                          <span class="icon is-small is-left">
-                            <i class="fas fa-user"></i>
-                          </span>
-                        </div>
+                      <label class="label">Description:</label>
+                      <div class="control">
+                        <textarea class="textarea" formControlName="description" placeholder="Escribe aquí una descripción de tu negocio"></textarea>
                       </div>
+                      <p *ngIf="storeForm.get('description').touched && storeForm.get('description').invalid" class="help is-danger">Este campo es obligatorio</p>
+                    </div>
                     <div class="field">
-                        <label class="label">Description</label>
+                        <label class="label">Dirección:</label>
                         <div class="control">
-                          <input class="input" type="text" placeholder="Text input" formControlName="description">
+                          <input class="input is-rounded is-outlined" type="email"  formControlName="address" placeholder="Ingrese la dirección de su negocio">
+                        </div>
+                        <p *ngIf="storeForm.get('address').touched && storeForm.get('address').invalid" class="help is-danger">Este campo es obligatorio</p>
+                    </div>
+                    <div class="field">
+                        <label class="label">Ciudad:</label>
+                        <div class="control">
+                          <input class="input is-rounded is-outlined" type="text"  formControlName="city" placeholder="Ingrese la ciudad de su negocio">
+                        </div>
+                        <p *ngIf="storeForm.get('city').touched && storeForm.get('city').invalid" class="help is-danger">Este campo es obligatorio</p>
+                    </div>
+                    <div class="field">
+                        <label class="label">Teléfono:</label>
+                        <div class="control">
+                          <input class="input is-rounded is-outlined" type="text"  formControlName="telephone" placeholder="Ingrese su teléfono">
                         </div>
                     </div>
                     <div class="field">
-                        <label class="label">Address</label>
-                        <div class="control">
-                          <input class="input" type="text" placeholder="Text input" formControlName="address">
-                        </div>
+                      <label class="label">Website:</label>
+                      <div class="control">
+                        <input class="input is-rounded is-outlined" type="url"  formControlName="website" placeholder="Ingrese su usuario de Website">
+                      </div>
                     </div>
                     <div class="field">
-                        <label class="label">City</label>
-                        <div class="control">
-                          <input class="input" type="text" placeholder="Text input" formControlName="city">
-                        </div>
+                      <label class="label">Instagram:</label>
+                      <div class="control">
+                        <input class="input is-rounded is-outlined" type="text"  formControlName="instagram" placeholder="Ingrese su usuario de Instagram">
+                      </div>
                     </div>
                     <div class="field">
-                        <label class="label">Valoration</label>
-                        <div class="control">
-                          <input class="input" type="text" placeholder="Text input" formControlName="valoration">
-                        </div>
+                      <label class="label">Twitter:</label>
+                      <div class="control">
+                        <input class="input is-rounded is-outlined" type="text"  formControlName="twitter" placeholder="Ingrese su usuario de Twitter">
+                      </div>
+                  </div>
+                  <div class="field">
+                    <label class="label">Facebook:</label>
+                    <div class="control">
+                      <input class="input is-rounded is-outlined" type="text"  formControlName="facebook" placeholder="Ingrese su usuario de Facebook">
                     </div>
-                    <button class="button is-primary" type="submit" [disabled]="!storeForm.valid">Submit</button>
-                    <button class="button is-secondary" type="button" (click)="initialize()" >Reset</button>
-                  </form>
-        </div>
-
-        <h1 class="title is-4">Productos</h1>
-    
-        <div class='box perfil '>
-            <button class="button is-primary is-small mb-4">Add Producto</button>
-            <div class='mb-5'>
-                Showing {{user.store?.products.length}} products
+                  </div>
+                  <div *ngIf="errorToggle" class="notification is-danger is-light">
+                    Los cambios no se han guardado
+                  </div>
+                  <div class='buttons is-pulled-right'>
+                      <button type="submit" class="button is-primary is-rounded">Guardar cambios</button>
+                  </div>
+                </form>
             </div>
-            <table class="table is-hoverable is-fullwidth is-stripped">
-                <thead>
-                    <tr>
-                      <th></th>
-                      <th>Product</th>
-                      <th>Description</th>
-                      <th>Price</th>
-                      <th>Location</th>
-                      <th>Unit</th>
-                      <th>Action</th>
-                    </tr>
-                  </thead>
-                <tr *ngFor="let prod of user.store?.products">
-                    <td>
-                      <img [src]="'http://localhost:3000/api/' + prod.images[0]?.path"  class="prod-img">
-                    </td>
-                    <td>
-                        {{prod.title}}
-                    </td>
-                    <td>
-                        {{prod.description}}
-                    </td>
-                    <td>
-                        ${{prod.price}}
-                    </td>
-                    <td>
-                        {{prod.location}}
-                    </td>
-                    <td>
-                    {{prod.unit}} - {{prod.unitOM}}
-                    </td>
-                    <td>
-                      <button class="button is-small is-info mr-3">Editar</button>
-                      <button class="button is-small is-danger">Eliminar</button>
-                  </td>
-                </tr>
-            </table>
+        </div>
         </div>
 
+
+        <h1 class="title is-5" style="margin-top: 60px;"><span class="breadcrumb">Dashboard / Perfil de Negocio /</span> Imágenes</h1>
+        <div class='box perfil '>
+          
+
+        </div>
+
+        <h1 class="title is-5" style="margin-top: 60px;"><span class="breadcrumb">Dashboard / Perfil de Negocio /</span> Productos</h1>
+        <div class='box perfil '>
+          <div class='mb-5'>Mostrando {{store.products?.length}} productos <span class="button is-primary is-small mb-4 ml-4">Nuevo</span></div>          
+          <table class="table is-hoverable is-fullwidth is-stripped">
+            <thead>
+              <tr>
+                <th></th>
+                <th>Producto</th>
+                <th>Descripción</th>
+                <th>Precio</th>
+                <th>Ciudad</th>
+                <th>Medida</th>
+                <th>Acción</th>
+              </tr>
+            </thead>
+            <tr *ngFor="let prod of user.store?.products">
+              <td>
+                <img [src]="'http://localhost:3000/api/' + prod.images[0]?.path"  class="prod-img">
+              </td>
+              <td>
+                  {{prod.title}}
+              </td>
+              <td>
+                  {{prod.description}}
+              </td>
+              <td>
+                  ${{prod.price}}
+              </td>
+              <td>
+                  {{prod.location}}
+              </td>
+              <td>
+              {{prod.unit}} - {{prod.unitOM}}
+              </td>
+              <td>
+                <button class="button is-small is-info mr-3">Editar</button>
+                <button class="button is-small is-danger">Eliminar</button>
+              </td>
+            </tr>
+          </table>
+        </div>
+
+        <!-- <canvas id="canvas"></canvas> -->
 
     </div>
 </div>

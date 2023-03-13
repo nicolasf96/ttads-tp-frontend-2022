@@ -15,7 +15,7 @@
           <div class='column is-6'>
             <div class='user-section with-border has-text-centered'>
               <h1 class="title is-6">User: {{user.username}}</h1>
-              <img [src]="'http://localhost:3000/api/' + user.profilePicture?.path" 
+              <img [src]="'http://localhost:3000/api/' + user.profilePicture?.path || 'assets/no-image.png'" 
               class="profile-img">
               <p class="subtitle is-6 my-4">{{user.email}}</p>
               <p class="subtitle is-6 my-4">{{user.firstName}}</p>
@@ -29,7 +29,7 @@
                 <div class='field'>
                   <img class="imgTmp" [src]="photoSelected || 'assets/no-image.png'" (click)="photoInput.click()" [ngStyle]="{'cursor': 'pointer'}">
                 </div>
-                <input type="file"  class="is-hidden" (change)="onPhotoSelected($event)" #photoInput>
+                <input type="file" class="is-hidden" (change)="onPhotoSelected($event)" #photoInput>
                 <button class="button is-primary block">Submit</button>
               </form>
             </div>

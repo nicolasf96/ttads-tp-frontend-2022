@@ -38,4 +38,9 @@ export class UsersService {
     return this.http.delete<any>(url);
   }
 
+  editUser(id:String, userEdited: any) {
+    const url = this.baseURL+'users/'+id;
+    return this.http.put<any>(url,userEdited);
+  }
+
 }

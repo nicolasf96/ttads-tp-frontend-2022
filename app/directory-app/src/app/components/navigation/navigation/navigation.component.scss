@@ -26,3 +26,19 @@ $backColor: #1e253d;
     
 }
 
+.navbar-link{
+    span{
+        margin-right: 5px;
+        i.fa-solid.fa-user{
+            color: white;
+            &:hover{
+                color: $backColor;
+            }
+        }
+    }
+    color: white;
+    &:hover{
+        color: $backColor;
+    }
+}
+

@@ -292,7 +292,7 @@
 
           <div class='single-product w-border' *ngFor="let prod of products">
             <div class='img-product-container'>
-              <img class="product-img"   [src]="'http://localhost:3000/api/' + prod.images[0]?.path" alt="" (click)="goToProduct(prod._id)" [ngStyle]="{'cursor': 'pointer'}">
+              <img class="product-img"   [src]="'http://localhost:3000/api/'+prod.images[0]?.path || 'assets/no-image.png'" alt="" (click)="goToProduct(prod._id)" [ngStyle]="{'cursor': 'pointer'}">
               <div class='price' *ngIf="prod.price">
                 ${{prod.price}}
               </div>

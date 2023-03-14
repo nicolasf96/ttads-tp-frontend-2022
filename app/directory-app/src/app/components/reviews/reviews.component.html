@@ -9,7 +9,7 @@
 <div class='columns review my-5 is is-centered' *ngFor="let rev of reviews">
     <div class='column is-2 has-text-centered'>
         <div class='img-review-container'>
-            <img  [src]="'http://localhost:3000/api/' + rev.user.profilePicture?.path || 'assets/no-image.png'" alt="">
+            <img class="ml-auto"  [src]="'http://localhost:3000/api/' + rev.user.profilePicture?.path || 'assets/no-image.png'" alt="">
         </div>
     </div>
     <div class='column is-5'>

@@ -14,14 +14,17 @@
             <div class='column is-12 banner'>
               <p class="title is-6 mb-2">Banner:</p>
               <div class="banner-container">
-                <img [src]="'http://localhost:3000/api/' + store.banner?.path || 'assets/no-banner.png'">
+                <img  [src]="'http://localhost:3000/api/' + store.banner?.path" *ngIf="store.banner">
+                <img  [src]="'assets/no-portada.jpg'" *ngIf="!store.banner">
               </div>
               <div class='buttons is-pulled-right mt-2'>
                 <form *ngIf="showFormBanner" class="bannerForm" (submit)="uploadBannerPhoto()">            
                   <input type="file" (change)="onPhotoSelected2($event)" #photoInput>
                   <button class="button is-primary is-light is-small">Enviar</button>
                 </form>
-                <button class="button is-info is-light is-small" (click)="showBannerForm()">Editar Banner</button>
+                <button class="button is-info is-light is-small" (click)="showBannerForm()" *ngIf="store.banner">Editar Banner</button>
+                <button class="button is-danger is-light is-small" (click)="deleteBanner()" *ngIf="store.banner">Eliminar Banner</button>
+                <button class="button is-info is-light is-small" (click)="showBannerForm()" *ngIf="!store.banner">Agregar Banner</button>
               </div>
               <br>
               <br>

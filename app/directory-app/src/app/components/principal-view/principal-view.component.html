@@ -1,11 +1,22 @@
 <div class='columns m-0'>
     <div class='column is-12 p-0 principal-banner'>
         <h1 class="principal-title">Descubrí tu Ciudad</h1>
-        <div class='principal-form'>
-            <form [formGroup]="searchForm" (ngSubmit)="onSubmit()">
-                <input id="inputForm" type="text" placeholder="¿Que estás buscando?"  formControlName="keySearch">
-                <button id="buttonForm"  type="submit">Buscar</button>
+        <div class=''>
+            <form class="my-5" [formGroup]="searchForm" (ngSubmit)="onSubmit()">
+                <div class="field is-grouped">
+                    <p class="control is-expanded">
+                      <input class="input" style="width:500px; height: 50px;" type="text" placeholder="¿Que estás buscando?"  formControlName="keySearch" id="inputForm">
+                    </p>
+                    <p class="control">
+                      <button class="button is-medium is-info" style="width: 180px;" id="buttonForm"  type="submit">
+                        Buscar
+                      </button>
+                    </p>
+                </div>
             </form>
+            <div>
+                
+            </div>
         </div>
     </div>
 </div>

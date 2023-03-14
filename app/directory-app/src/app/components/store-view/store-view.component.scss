@@ -9,17 +9,6 @@ $background-color: var(--backg-color);
     font-family: Poppins;
 }
 
-.searcher-container{
-    background-color: rgb(211, 83, 105);
-    margin: none;
-    padding: 20px auto;
-    width: 100%;
-    div h2{
-        color: $contrast-color;
-    }
-
-
-}
 
 .separator{
     padding: 20px
@@ -32,7 +21,6 @@ $background-color: var(--backg-color);
 .banner{
     width: 100%;
     height: 260PX;
-    background: var(--pcolor);
     margin-top:30px;
     overflow: hidden;
 

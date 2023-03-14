@@ -1,15 +1,16 @@
 
 <div class='columns is-centered fondo' >
     <div class='column is-9' style="padding: 0px;">
-      <div class="banner" >
+      <div class="banner box p-0" >
           <img  [src]="'http://localhost:3000/api/' + store.banner?.path" *ngIf="store.banner">
+          <img  [src]="'assets/no-portada.jpg'" *ngIf="!store.banner">
           <h1 class="title is-1" *ngIf="store.banner">{{store.name}}</h1>
           <h1 class="title is-1 noBanner" *ngIf="!store.banner">{{store.name}}</h1>
       </div> 
    
       <div class='columns is-multiline'>
         <div class='column is-4'>
-          <div class='perfil-container'>
+          <div class='perfil-container box'>
               <div class='has-text-centered'>
                 <img [src]="'http://localhost:3000/api/' + store.profilePicture?.path" *ngIf="store.profilePicture">
                 <img [src]="'assets/no-banner.png'" class="profile-img" *ngIf="!store.profilePicture">
@@ -60,8 +61,8 @@
           </div>
 
 
-          <div class='perfil-container'>
-            <h3 class="title is-5">About Us</h3>
+          <div class='perfil-container box'>
+            <h3 class="title is-5">Descripción</h3>
             <hr>
             <p class="trivial-text">{{store.description}}</p>
             <hr>
@@ -213,7 +214,6 @@
             </div>
 
             <hr>
-            <span class="tag is-link is-light" *ngFor="let tag of store.tags" (click)="tagSearch(tag)" >{{tag}}</span>
 
 
           </div>

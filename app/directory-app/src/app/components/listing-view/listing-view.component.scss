@@ -2,7 +2,6 @@ $text-color: #414141;
 $text-deco-color: #afafaf;
 $color: rgb(241,114,114);
 $contrast-color: white;
-$background-color: rgb(245, 245, 245);
 
 .separator{
     padding: 20px
@@ -12,38 +11,10 @@ $background-color: rgb(245, 245, 245);
     color: $text-color;
 }
 
-.banner{
-    width: 100%;
-    height: 260PX;
-    background: var(--pcolor);
-    margin-top:30px;
-    overflow: hidden;
-
-    img{
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        position: relative;
-        display: inline-block;
-    }
-    h1{
-        display: inline-block;
-        padding: 10px 25px;
-        border-radius: 10px;
-        background-color: rgba(0, 0, 0, 0.25);
-        backdrop-filter: blur(5px);
-        color: $contrast-color;
-        position: relative;
-        top: 160px;
-        left: 40px;
-        z-index: 1000;
-    
-    }
-}
 
 .fondo{
     min-height: 100vh;
-    background-color: $background-color;
+    background-color: var(--backg-color);
     padding-bottom: 50px;
 }
 
@@ -139,36 +110,6 @@ $background-color: rgb(245, 245, 245);
         height: 100%;
     }
 }
-
-
-.section-title{
-    margin-top: 30px;
-    background-color: $contrast-color;
-    padding: 20px;
-    width: 100%;
-    color: $text-color;
-    font-size: 18px;
-    font-weight: bold;
-    border-top: 3px solid var(--pcolor);
-    
-}
-
-.nothingToShow{
-    text-align: center;
-    margin-top: 30px;
-    background-color: $contrast-color;
-    padding: 50px;
-    width: 100%;
-    color: $text-color;
-    font-size: 32px;
-    font-weight: bold;
-}
-
-
-
-
-
-
 
 
 

@@ -1,75 +1,75 @@
-<div class='columns is-centered navbar-style' style="margin-bottom: 0">
-  <div class='column is-10' style="margin-bottom: 0">
-    
-    <nav class="navbar" role="navigation" aria-label="main navigation">
-        <div class="navbar-brand">
-          <a class="navbar-item navigation-title" href="#">
-            Inicio
-          </a>
-      
-          <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
-            <span aria-hidden="true"></span>
-            <span aria-hidden="true"></span>
-            <span aria-hidden="true"></span>
-          </a>
-        </div>
-      
-        <div id="navbarBasicExample" class="navbar-menu">
-          <div class="navbar-start">
-            <a class="navbar-item" href="http://localhost:4200/users">
-              Users
+<div class='columns is-centered navbar-style p-0 m-0'>
+  <div class='column is-12 p-0 m-0' style="margin-bottom: 0">
+      <nav class="navbar is-dark" role="navigation" aria-label="main navigation" style="height: 80px; padding: 0 10%;">
+
+          <div class="navbar-brand">
+            <a class="navbar-item navigation-title" href="#">
+              Inicio
             </a>
-      
-            <a class="navbar-item" href="http://localhost:4200/stores">
-              Stores
-            </a>
-            <a class="navbar-item" href="http://localhost:4200/categories">
-              Categories
-            </a>
-            <a class="navbar-item" href="http://localhost:4200/listingview">
-              Negocios
+        
+            <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+              <span aria-hidden="true"></span>
+              <span aria-hidden="true"></span>
+              <span aria-hidden="true"></span>
             </a>
           </div>
-      
-          <div class="navbar-end">
-            <div class="navbar-item">
-              <div class="buttons">
-                <ng-container *ngIf="!authService.loggedIn(); else loggedIn">
-                  <a class="button is-info">
-                    <strong>Sign up</strong>
-                  </a>
-                  <a class="button is-info is-light" routerLink="/login">
-                    Log in
-                  </a>
-                </ng-container>
-                <ng-template #loggedIn>
-                  <div class="navbar-item has-dropdown is-hoverable">
-                    <a class="navbar-link">
-                      <span>
-                      </span>
-                      Panel
+        
+          <div id="navbarBasicExample" class="navbar-menu">
+            <div class="navbar-start">
+              <a class="navbar-item" href="http://localhost:4200/users">
+                Users
+              </a>
+        
+              <a class="navbar-item" href="http://localhost:4200/stores">
+                Stores
+              </a>
+              <a class="navbar-item" href="http://localhost:4200/categories">
+                Categories
+              </a>
+              <a class="navbar-item" href="http://localhost:4200/listingview">
+                Negocios
+              </a>
+            </div>
+        
+            <div class="navbar-end">
+              <div class="navbar-item">
+                <div class="buttons">
+                  <ng-container *ngIf="!authService.loggedIn(); else loggedIn">
+                    <a class="button is-info">
+                      <strong>Sign up</strong>
                     </a>
-            
-                    <div class="navbar-dropdown">
-                      <a class="navbar-item" (click)="authService.goToPerfilPanel()">
+                    <a class="button is-info is-light" routerLink="/login">
+                      Log in
+                    </a>
+                  </ng-container>
+                  <ng-template #loggedIn>
+                    <div class="navbar-item has-dropdown is-hoverable">
+                      <a class="navbar-link">
                         <span>
                         </span>
-                        Perfil
+                        Panel
                       </a>
-                      <a class="navbar-item" (click)="authService.goToStorePanel()">
-                        Negocio
-                      </a>
-                      <hr class="navbar-divider">
-                      <a class="navbar-item" (click)="authService.logOut()">
-                        Cerrar Sesión
-                      </a>
-                    </div>
+              
+                      <div class="navbar-dropdown">
+                        <a class="navbar-item" (click)="authService.goToPerfilPanel()">
+                          <span>
+                          </span>
+                          Perfil
+                        </a>
+                        <a class="navbar-item" (click)="authService.goToStorePanel()">
+                          Negocio
+                        </a>
+                        <hr class="navbar-divider">
+                        <a class="navbar-item" (click)="authService.logOut()">
+                          Cerrar Sesión
+                        </a>
+                      </div>
+                  </div>
+                  </ng-template>
                 </div>
-                </ng-template>
               </div>
             </div>
           </div>
-        </div>
       </nav>
 
 

@@ -1,6 +1,6 @@
 <div class='columns is-multiline'>
     <div class='column is-12'>
-        <h2 class="title is-5 mb-5">Products</h2>
+        <h2 class="title is-5 mb-5">Productos</h2>
         <hr>
     </div>
     <div class='column is-12'>
@@ -10,7 +10,7 @@
             </div>
             <div class='column is-8 content'>
                 <strong>{{prod.title}}</strong>
-                <div class='text'>{{prod.description}}</div>
+                <p class="text"><span style="display:inline-block; overflow:hidden; text-overflow:ellipsis; width:500px; height:60px;">{{prod.description}}</span><a>Ver más.</a></p>
                 <div *ngIf="prod.used">Este Producto es Usado</div>
                 <div class='price' *ngIf="prod.price">${{prod.price}}</div>
                 <div class='time'>{{prod.updatedAt}}</div>

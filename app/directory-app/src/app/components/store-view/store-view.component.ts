@@ -24,7 +24,6 @@ export class StoreViewComponent implements OnInit {
   store: any;
   products: any =[];
   reviews: any =[];
-  tags:any =[];
   user:any;
 
   ngOnInit(): void {
@@ -50,10 +49,6 @@ export class StoreViewComponent implements OnInit {
   loadUser(){
       this.userService.getUserByStore(this.identifier).subscribe( response => this.user = response.data);
       console.log(this.user);
-  }
-  
-  tagSearch(tag:any) {
-    this.router.navigate(['search/'+tag])
   }
 
   mouseOvered = false;

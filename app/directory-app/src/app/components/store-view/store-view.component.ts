@@ -18,9 +18,6 @@ export class StoreViewComponent implements OnInit {
     private renderer2: Renderer2) {
    }
 
-
-   @ViewChild('modal') modal: ElementRef | undefined;
-   @ViewChild('info') info: ElementRef | undefined;
    
   identifier = '';
   identifierUser = '';
@@ -29,7 +26,6 @@ export class StoreViewComponent implements OnInit {
   reviews: any =[];
   tags:any =[];
   user:any;
-  dataModal: any;
 
   ngOnInit(): void {
     this.route.params.subscribe( (params) => this.identifier = params['id'] );
@@ -58,17 +54,6 @@ export class StoreViewComponent implements OnInit {
   
   tagSearch(tag:any) {
     this.router.navigate(['search/'+tag])
-  }
-
-  openModal(imgPath:any){
-    const myModal = this.modal?.nativeElement;
-    this.renderer2.addClass(myModal, 'is-active')
-    this.dataModal = imgPath;
-  }
-
-  closeModal(){
-    const myModal = this.modal?.nativeElement;
-    this.renderer2.removeClass(myModal, 'is-active');
   }
 
   mouseOvered = false;

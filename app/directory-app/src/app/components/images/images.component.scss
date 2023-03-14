@@ -1,0 +1,10 @@
+.galery{
+    padding: 30px;
+}
+
+.foto{
+    aspect-ratio: 4 / 4;
+    width: 100%;
+    object-fit: cover;
+    overflow: hidden;
+}

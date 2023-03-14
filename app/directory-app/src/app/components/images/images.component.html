@@ -1,1 +1,11 @@
-<p>images works!</p>
+<div class='columns is-multiline'>
+    <div class='column is-12'>
+        <h2 class="title is-5 mb-5">Imágenes</h2>
+        <hr>
+    </div>
+    <div class='columns is-multiline galery'>
+        <div class='column is-one-third' *ngFor="let img of store.images">
+            <img class="foto"  [src]="'http://localhost:3000/api/' + img.path || 'assets/no-banner.png'" alt="" >
+        </div>
+    </div>
+</div>

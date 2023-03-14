@@ -261,88 +261,47 @@
 
 
 
-          <div class='section-title'>
-            Fotos
-          </div>
-          <div class='perfil-container-img' >
-
-              <div class='images-container'>
-                  <img *ngFor="let img of store.images" class="img-deco" [src]="'http://localhost:3000/api/' + img.path" [ngStyle]="{'cursor': 'pointer'}"  (click)="openModal(img.path)">
-              </div>              
-          </div>
-
-
-          
-
-
-
-          <div class='section-title' style="display: flex">
-            <div class='has-text-left is-inline-block'>
-              Productos
-            </div>
-            <div class='subtitle is-6 has-text-right is-inline-block ml-auto mr-3'>
-              Ver todos
-            </div>
-          </div>
-
-          <div class='no-reviews' *ngIf="products.length == 0">
-            Sorry! There are no products to show
-          </div>
-
-
-          <div class='single-product w-border' *ngFor="let prod of products">
-            <div class='img-product-container'>
-              <img class="product-img"   [src]="'http://localhost:3000/api/'+prod.images[0]?.path || 'assets/no-image.png'" alt="" (click)="goToProduct(prod._id)" [ngStyle]="{'cursor': 'pointer'}">
-              <div class='price' *ngIf="prod.price">
-                ${{prod.price}}
-              </div>
-              <div class='no-price' *ngIf="!prod.price" (click)="goToProduct(prod._id)" [ngStyle]="{'cursor': 'pointer'}">
-                Consultar $
-              </div>
-            </div>
-            <div class='info-product'>
-              <div class='superior' *ngIf="prod.location">
-                <svg xmlns="http://www.w3.org/2000/svg"  width="24" height="24" viewBox="0 0 24 24"><path d="M12 0c-4.198 0-8 3.403-8 7.602 0 4.198 3.469 9.21 8 16.398 4.531-7.188 8-12.2 8-16.398 0-4.199-3.801-7.602-8-7.602zm0 11c-1.657 0-3-1.343-3-3s1.343-3 3-3 3 1.343 3 3-1.343 3-3 3z"/></svg>
-                {{prod.location}}
-              </div>
-              <div class='info'>
-                <h3 class="title is-5" (click)="goToProduct(prod._id)" [ngStyle]="{'cursor': 'pointer'}">{{prod.title}}</h3>
-                <div class="module line-clamp">
-                  <p>{{prod.description}}</p>
-                </div>
-              </div>
-              <div class="tag is-link is-small" [ngStyle]="{'cursor': 'pointer'}" (click)="goToProduct(prod._id)">Ver más</div>
-             
-                
-                
-            </div>
-          </div>
-
-
-          <div class='section-title'>
-            Reviews
-          </div>
-          <div class='box mt-5'>
-            <app-add-review></app-add-review>
-          </div>
-
-          <div class='box my-5'>
-            <app-reviews></app-reviews>
-          </div>
-
-
-
-
-        </div>
-      </div>
-    </div>
-  </div>
-<div #modal class="modal">
-  <div class="modal-background" (click)="closeModal()"></div>
-  <div class="modal-content">
-    <p class="image">
-      <img [src]="'http://localhost:3000/api/' + dataModal" alt="">
-    </p>
-  </div>
-  <button class="modal-close is-large" aria-label="close" (click)="closeModal()"></button>
-</div>
+          <!--        <div class='section-title'>
+                   Fotos
+                 </div> -->
+                 <div class='perfil-container-img box' >
+                     <div class='mb-5 title is-5'>Galería de Fotos</div>
+                     <hr class="my-5">
+                     <div class='images-container'>
+                         <img *ngFor="let img of store.images" class="img-deco" [src]="'http://localhost:3000/api/' + img.path" [ngStyle]="{'cursor': 'pointer'}"  (click)="openModal(img.path)">
+                     </div>              
+                 </div>
+       
+       
+       
+                 <div class='box my-5'>
+                   <app-products></app-products>
+                 </div>
+       
+                 <div class='box mt-5'>
+                   <app-add-review></app-add-review>
+                 </div>
+       
+                 <div class='box my-5'>
+                   <app-reviews></app-reviews>
+                 </div>
+       
+       
+       
+       
+               </div>
+             </div>
+           </div>
+         </div>
+       <div #modal class="modal">
+         <div class="modal-background" (click)="closeModal()"></div>
+         <div class="modal-content">
+           <p class="image">
+             <img [src]="'http://localhost:3000/api/' + dataModal" alt="">
+           </p>
+         </div>
+         <button class="modal-close is-large" aria-label="close" (click)="closeModal()"></button>
+       </div>
+       
+       
+       

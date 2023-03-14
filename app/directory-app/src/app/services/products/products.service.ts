@@ -21,6 +21,12 @@ export class ProductsService {
     return this.http.get<any>(url);
   }
 
+  getProductsByStore(idStore:any) {
+    const url = this.baseURL+'products/'+idStore;
+    return this.http.get<any>(url);
+  }
+
+
   createProduct(prod: any) {
     const url = this.baseURL+'products';
     return this.http.post<any>(url, prod);

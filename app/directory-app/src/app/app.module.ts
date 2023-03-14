@@ -41,6 +41,8 @@ import { PanelProductDetailComponent } from './components/user-panel/panel-produ
 import { ImagesOfStoreComponent } from './components/user-panel/images-of-store/images-of-store.component';
 import { AddReviewComponent } from './components/add-review/add-review.component';
 import { ReviewsComponent } from './components/reviews/reviews.component';
+import { ProductsComponent } from './components/products/products.component';
+import { ImagesComponent } from './components/images/images.component';
 
 @NgModule({
   declarations: [
@@ -76,7 +78,9 @@ import { ReviewsComponent } from './components/reviews/reviews.component';
     PanelProductDetailComponent,
     ImagesOfStoreComponent,
     AddReviewComponent,
-    ReviewsComponent
+    ReviewsComponent,
+    ProductsComponent,
+    ImagesComponent
   ],
   imports: [
     BrowserModule,

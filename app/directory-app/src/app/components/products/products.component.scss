@@ -1,0 +1,42 @@
+
+.producto{
+    padding: 0px;
+    aspect-ratio: 16 / 4;
+    border: 1px solid rgb(230, 230, 230);
+    margin-bottom: 25px;
+    .foto{
+        overflow: hidden;
+        height: 100%;
+        overflow: hidden;
+        position: relative;
+        img{
+            height: 100%;
+            width: 100%;
+            object-fit: cover;
+            position: relative;
+        }
+
+    }
+    .content{
+        overflow: hidden;
+        padding: 40px 35px;
+        font-size: 20px;
+        position: relative;;
+        .text{
+            margin: 15px 0;
+            font-size: 20px;
+            font-weight: 300;
+        }
+        .price{
+            font-size: 28px;
+            font-weight: 400;
+        }
+        .time{
+            display: inline;
+            position: absolute;
+            bottom: 35px;
+            right: 35px;
+        }
+
+    }
+}

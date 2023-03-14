@@ -1,0 +1,7 @@
+.deshabilitado{
+    background-color: gray;
+    &:hover{
+        background-color: darkgray!important;
+    }
+}
+

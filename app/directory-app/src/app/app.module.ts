@@ -43,6 +43,7 @@ import { AddReviewComponent } from './components/add-review/add-review.component
 import { ReviewsComponent } from './components/reviews/reviews.component';
 import { ProductsComponent } from './components/products/products.component';
 import { ImagesComponent } from './components/images/images.component';
+import { StoresListComponent } from './components/stores-list/stores-list.component';
 
 @NgModule({
   declarations: [
@@ -80,7 +81,8 @@ import { ImagesComponent } from './components/images/images.component';
     AddReviewComponent,
     ReviewsComponent,
     ProductsComponent,
-    ImagesComponent
+    ImagesComponent,
+    StoresListComponent
   ],
   imports: [
     BrowserModule,

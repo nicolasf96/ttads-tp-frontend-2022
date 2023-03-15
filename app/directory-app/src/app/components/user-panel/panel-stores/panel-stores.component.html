@@ -45,7 +45,6 @@
 
                 <div class="label">Categoría</div>
                 <div *ngIf="store.category" class="tag is-info is-medium">{{store.category?.description}}</div>
-                <div class="tag is-info is-light" style="margin-left: 10px; cursor: pointer;"(click)="showCat()">⬇</div>
 
                 <form [formGroup]="catForm" (ngSubmit)="onSubmitCat()" style="margin-top: 20px;">
                   <div class="select">

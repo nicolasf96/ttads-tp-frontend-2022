@@ -1,9 +1,15 @@
 <div class='columns is-centered fondo' >
-    <div class='column is-9' style="margin-top: 50px; padding: 0px;">
-        <h1 class="title is-5" style="margin-top: 40px;"><span class="breadcrumb">Inicio / </span>Negocios</h1>
+    <div class='column is-9' style="margin-top: 50px; padding-bottom: 150px;">
+        <h1 class="title is-5" ><span class="breadcrumb">Inicio / </span>Negocios</h1>
+        <div class='box' *ngIf="toggle == false">
+          <div class='title is-6'>Mostrando {{storesFiltered.length}} resultados de la búsqueda "{{keyword}}"</div>
+        </div>
+        <div class='box' *ngIf="toggle == true">
+          <div class='title is-6'>Mostrando todos los negocios</div>
+        </div>
         <div class='columns is-multiline'>
           <div class='column is-5'>
-            <div class='filter-container w-border box'>
+            <div class='filter-container box'>
                 <div class='info-deco'>Filtrar</div>
                 <form [formGroup]="searchForm" (ngSubmit)="onSubmit()">
                     <input id="inputForm" type="text" placeholder="Que estás buscando?"  formControlName="keySearch">
@@ -23,37 +29,12 @@
           </div>
 
           <div class='column is-7'>
-            <div class='box' *ngIf="toggle == false">
-              <div class='title is-6'>Mostrando {{storesFiltered.length}} resultados de la búsqueda "{{keyword}}"</div>
-            </div>
-            <div class='box' *ngIf="toggle == true">
-              <div class='title is-6'>Mostrando todos los negocios</div>
-            </div>
-
             <div class='my-5 box has-text-centered' *ngIf="storesFiltered.length == 0">
               No hay coincidencias en tu búsqueda
             </div>
             
-            <div class='single-product w-border box' *ngFor="let store of storesFiltered" (click)="goToStore(store._id)" [ngStyle]="{'cursor': 'pointer'}">
-                <div class='img-product-container'>
-                  <img class="product-img"  [src]="'http://localhost:3000/api/'+store.profilePicture?.path" alt="" *ngIf="store.profilePicture">
-                  <img  [src]="'assets/no-image.png'" *ngIf="!store.profilePicture">
-                  
-                </div>
-                <div class='info-product'>
-                  <div class='superior' >
-                    <svg xmlns="http://www.w3.org/2000/svg"  width="24" height="24" viewBox="0 0 24 24"><path d="M12 0c-4.198 0-8 3.403-8 7.602 0 4.198 3.469 9.21 8 16.398 4.531-7.188 8-12.2 8-16.398 0-4.199-3.801-7.602-8-7.602zm0 11c-1.657 0-3-1.343-3-3s1.343-3 3-3 3 1.343 3 3-1.343 3-3 3z"/></svg>
-                    {{store.city}}
-                  </div>
-                  <div class='info'>
-                    <h3 class="title is-5">{{store.name}}</h3>
-                    <p>{{store.description}}</p>
-                  </div>
-                 
-  
-                    
-                    
-                </div>
+            <div class='box'>
+              <app-stores-list [stores]="storesFiltered"></app-stores-list>
             </div>
 
 

@@ -29,7 +29,7 @@ export class ImagesComponent implements OnInit {
     identifier:any;
     ngOnInit(): void {
       this.route.params.subscribe( (params) => this.storeIdentifier = params['id']);
-      this.storeService.getStore(this.storeIdentifier).subscribe(res => this.store = res.data)
+      this.storeService.getStore(this.storeIdentifier).subscribe(res => this.store = res.data.store)
       
   }
 

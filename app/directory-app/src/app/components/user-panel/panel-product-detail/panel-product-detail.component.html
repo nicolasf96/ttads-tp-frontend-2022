@@ -7,8 +7,15 @@
                 <div class='columns'>
                     <div class='column is-3 has-text-centered '>
                         <div class="img-perfil" >
-                            <img  [src]="'http://localhost:3000/api/' + product.images[0]?.path || 'assets/no-image.png'" alt="">
+                            <img *ngIf="product.images.length > 0" [src]="'http://localhost:3000/api/' + product.images[0]?.path" alt="">
+                            <img *ngIf="product.images.length == 0" [src]="'assets/no-banner.png'" alt="">
                         </div>
+                        <button type="" class="button is-danger is-light is-small mb-5" (click)="deletePhoto()">Eliminar Foto de Producto</button>
+                        <form (submit)="uploadPhoto()">
+                            <label class="label">Nueva Imagen de Perfil</label>              
+                            <input type="file" (change)="onPhotoSelected($event)" #photoInput>
+                            <button class="button is-primary  is-small">Actualizar Foto de Producto</button>
+                        </form>
                     </div>
                     
                     <div class='column is-9'>
@@ -23,21 +30,18 @@
                                 <div class="control">
                                     <input class="input  is-outlined" type="text"  formControlName="title" placeholder="Ingrese el nombre de su producto">
                                 </div>
-                                <p *ngIf="productForm.get('name').touched && productForm.get('name').invalid" class="help is-danger">Este campo es obligatorio</p>
                             </div>
                             <div class="field">
                                 <label class="label">Descripción:</label>
                                 <div class="control">
                                     <textarea class="input  is-outlined" formControlName="description" placeholder="Ingrese una descripción para su producto"></textarea>
                                 </div>
-                                <p *ngIf="productForm.get('name').touched && productForm.get('name').invalid" class="help is-danger">Este campo es obligatorio</p>
                             </div>
                             <div class="field">
                                 <label class="label">Ciudad:</label>
                                 <div class="control">
-                                    <input class="input  is-outlined" type="text"  formControlName="location" placeholder="Ingrese ciudad de su producto" value="{{product.location}}">
+                                    <input class="input  is-outlined" type="text"  formControlName="location" placeholder="Ingrese ciudad de su producto" >
                                 </div>
-                                <p *ngIf="productForm.get('name').touched && productForm.get('name').invalid" class="help is-danger">Este campo es obligatorio</p>
                             </div>
                             
                             <div class="field">
@@ -45,7 +49,6 @@
                                 <div class="control">
                                     <input class="input  is-outlined" type="number"  formControlName="price" placeholder="Ingrese un Precio">
                                 </div>
-                                <p *ngIf="productForm.get('name').touched && productForm.get('name').invalid" class="help is-danger">Este campo es obligatorio</p>
                             </div>
                             <div class="field">
                                 <label class="checkbox">

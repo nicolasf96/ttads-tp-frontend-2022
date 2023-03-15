@@ -52,10 +52,11 @@ export class PerfilComponent implements OnInit {
 
 
     onSubmit() {
-      this.service.editUser(this.userIdentifier, this.userForm.value).subscribe( response => console.log(response));
-      this.service.getUser(this.userIdentifier).subscribe( res => this.user = res.data);
-
-
+      let data:any;
+      this.service.editUser(this.userIdentifier, this.userForm.value).subscribe( res => {
+        data = res;
+        this.user = data.data.user
+      });
       this.showTempDiv();
     }
 
@@ -67,13 +68,14 @@ export class PerfilComponent implements OnInit {
     }
 
     uploadPhoto(){
+      let data:any;
       this.imageService.deleteImage(this.user.profilePicture._id);
-      this.imageService.createImageProfileUser(this.user._id, this.file).subscribe( response => console.log(response));
+      this.imageService.createImageProfileUser(this.user._id, this.file).subscribe( res => {
+        data = res;
+        this.user = data.data.user
+      });
       this.showTempDiv();
       this.showForm = false;
-      this.service.getUser(this.userIdentifier).subscribe( res => {
-        this.user = res.data;
-      }); 
     }
 
     onPhotoSelected($event: any){

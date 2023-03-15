@@ -28,23 +28,11 @@ export class StoreViewComponent implements OnInit {
 
   ngOnInit(): void {
     this.route.params.subscribe( (params) => this.identifier = params['id'] );
-    this.service.getStore(this.identifier).subscribe( response => this.store = response.data);
-    this.loadReviews();
-    this.loadProducts();
+    this.service.getStore(this.identifier).subscribe( response => this.store = response.data.store);
     this.loadUser();
     
   }
 
-
-  loadReviews() {
-    this.service.getReviewsByStore(this.identifier).subscribe( response => this.reviews = response.data);
-    console.log(this.reviews)
-  }
-
-  loadProducts() {
-    this.service.getProductsByStoreId(this.identifier).subscribe( response => this.products = response.data);
-    console.log(this.products)
-  }
 
   loadUser(){
       this.userService.getUserByStore(this.identifier).subscribe( response => this.user = response.data);
@@ -53,9 +41,6 @@ export class StoreViewComponent implements OnInit {
 
   mouseOvered = false;
 
-  goToProduct(productId:any) {
-    this.router.navigate(['product/'+productId])
-  }
 
   
 }

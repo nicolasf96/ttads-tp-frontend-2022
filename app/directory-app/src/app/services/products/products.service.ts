@@ -45,4 +45,9 @@ export class ProductsService {
     return this.http.put<any>(url,tmpViews);
   }
 
+  deleteProduct(id:any) {
+    const url = this.baseURL+'products/'+id;
+    return this.http.delete<any>(url);
+  }
+
 }

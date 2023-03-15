@@ -6,3 +6,16 @@
 
 td{
 }
+
+.product-form{
+    padding: 40px;
+    border-radius: 20px;
+    border: 1px solid #b9b9b9;
+    margin-bottom: 50px;
+}
+
+.img{
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    width: 100%;
+}

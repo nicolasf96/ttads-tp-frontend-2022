@@ -103,7 +103,7 @@ export class PanelStoresComponent implements OnInit, OnChanges {
 
     crearFormularioCat() {
       this.catForm = new FormGroup({
-        category: new FormControl('Hola')
+        category: new FormControl('', [Validators.required])
       })
     }
 
@@ -117,18 +117,27 @@ export class PanelStoresComponent implements OnInit, OnChanges {
     }
 
     onSubmitCat() {
-      /* const selectedValue = this.catForm.get('category').value;
-      console.log('Valor seleccionado:', selectedValue); */
-      this.storesService.editStore(this.catForm.value, this.store._id).subscribe( response => console.log(response));
-      this.showTempDiv();
-      this.showCat();
+      if(this.catForm.valid){
+        let data
+        this.storesService.editStore(this.catForm.value, this.store._id).subscribe( res => {
+          data = res;
+          this.store = data.data.store;
+        });
+        this.showTempDiv();
+        this.showCat();
+      }
       
     }
 
     deleteBanner() {
-      this.imageService.deleteImage(this.store.banner._id).subscribe( response => console.log(response));
+      let data;
+      this.imageService.deleteImage(this.store.banner._id).subscribe( res => {});
       this.showTempDiv();
-      this.storesService.getStore(this.store._id).subscribe( res => this.store = res.data );      
+
+      this.storesService.getStore(this.store._id).subscribe( res => {
+        data = res;
+        this.store = data.data.store;
+      } );      
     }
   
   
@@ -155,7 +164,11 @@ export class PanelStoresComponent implements OnInit, OnChanges {
       if(this.user.store.profilePicture){
         this.imageService.deleteImage(this.user.store.profilePicture._id);
       }
-      this.imageService.createImageProfileStore(this.store._id, this.file).subscribe( response => console.log(response));
+      let data:any;
+      this.imageService.createImageProfileStore(this.store._id, this.file).subscribe( res => {
+        data = res;
+        this.store = data.data.store;
+      });
       this.showTempDiv();
       this.showForm = false;
     }
@@ -164,10 +177,16 @@ export class PanelStoresComponent implements OnInit, OnChanges {
       if(this.store.banner){
         this.imageService.deleteImage(this.user.store.banner._id);
       }
-      this.imageService.createBanner(this.store._id, this.file2).subscribe( response => console.log(response));
+      let data:any;
+      this.imageService.createBanner(this.store._id, this.file2).subscribe( res => {
+        console.log("ESTE ES EL CONSOLE LOG DE BANNER")
+        console.log(res)
+        data = res;
+        this.store = data.data;
+        console.log(this.store)
+      });
       this.showTempDiv();
       this.showForm = false;
-      this.storesService.getStore(this.store._id).subscribe( res => this.store = res.data );      
     }
 
 
@@ -206,33 +225,7 @@ export class PanelStoresComponent implements OnInit, OnChanges {
       this.showCatToggle = !this.showCatToggle;
     }
 
-    
 
-
-
-  crearGrafico() {
-    this.chart = new Chart('canvas', {
-      type: 'pie',
-      data: {
-        labels: ['1', '2', '3', '4', '5'],
-        datasets: [{
-          label: 'Porcentaje de reviews',
-          data: [10, 20, 30, 25, 15],
-          backgroundColor: [
-            'rgba(255, 99, 132, 0.6)',
-            'rgba(54, 162, 235, 0.6)',
-            'rgba(255, 206, 86, 0.6)',
-            'rgba(75, 192, 192, 0.6)',
-            'rgba(153, 102, 255, 0.6)',
-          ],
-          borderWidth: 1
-        }]
-      },
-      options: {
-        responsive: true
-      }
-    });
-  }
   
 
 }

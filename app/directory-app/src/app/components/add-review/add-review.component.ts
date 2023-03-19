@@ -40,10 +40,14 @@ export class AddReviewComponent implements OnInit {
     ngOnInit(): void {
 
       this.userIdentifier = this.authService.getActualId();
-      this.userService.getUser(this.userIdentifier).subscribe( res => this.user = res.data);
-      this.route.params.subscribe( (params) => this.storeIdentifier = params['id']);
-      this.reviewService.getReviewsByUserAndStore(this.userIdentifier, this.storeIdentifier).subscribe(res => this.myReview = res.data)
-      this.crearFormulario();
+      if(this.userIdentifier){
+        this.userService.getUser(this.userIdentifier).subscribe( res => this.user = res.data);
+        this.route.params.subscribe( (params) => this.storeIdentifier = params['id']);
+        this.reviewService.getReviewsByUserAndStore(this.userIdentifier, this.storeIdentifier).subscribe(res => this.myReview = res.data)
+        this.crearFormulario();
+      }else{
+      }
+
       
   }
 

@@ -29,7 +29,7 @@ export class UsersService {
 
 
   createUser(newUser: any) {
-    const url = this.baseURL+'users'
+    const url = this.baseURL+'users/signup'
     return this.http.post<any>(url, newUser);
   }
 

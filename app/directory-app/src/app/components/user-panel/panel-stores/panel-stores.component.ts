@@ -225,6 +225,10 @@ export class PanelStoresComponent implements OnInit, OnChanges {
       this.showCatToggle = !this.showCatToggle;
     }
 
+    createStore(){
+      this.router.navigate(['/create-store'])
+    }
+
 
   
 

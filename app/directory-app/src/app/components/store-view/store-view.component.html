@@ -10,41 +10,52 @@
    
       <div class='columns is-multiline'>
         <div class='column is-4'>
-          <div class='perfil-container box'>
+          <div class='p-6 box'>
               <div class='has-text-centered'>
-                <img [src]="'http://localhost:3000/api/' + store.profilePicture?.path" *ngIf="store.profilePicture">
-                <img [src]="'assets/no-banner.png'" class="profile-img" *ngIf="!store.profilePicture">
+                <img class="profile-img" [src]="'http://localhost:3000/api/' + store.profilePicture?.path" *ngIf="store.profilePicture">
+                <img class="profile-img" [src]="'assets/no-banner.png'" *ngIf="!store.profilePicture">
               </div>
               <div class='has-text-centered my-5'>
                 <h2 class="title is-4 mb-2">{{store.name}}</h2>
-                <p class="title is-6">@{{store.username}}</p>
+                <p class="title is-5">@{{store.username}}</p>
                 <div class="is-inline-block tag is-primary is-large my-4 mx-auto has-text-centered" >{{store.category?.description}}</div>
               </div>
               
-              <div id="center" class="separate-info" *ngIf="store.address">
-                <div class='info-deco'>Address</div>
-                <p class="title is-6">{{store.address}}, {{store.city}}</p>
-              </div>
+              <div class='has-text-centered'>
 
-              <div id="center" class="separate-info"  *ngIf="store.valoration">
-                <div class='info-deco'>Valoration</div>
-                 <div>({{store.valoration}})</div>
-              </div>
-
-              <div id="center" class="separate-info"  *ngIf="store.website">
-                <div class='info-deco'>Website</div>
-                <a href="https:/{{store.website}}" target="_blank">{{store.website}}</a>
-              </div>
-
-              <div class="has-text-centered separate-info"  *ngIf="store.telephone">
-                <a class="d-inline-block" href="tel:store.telephone">
-                  +54 9 {{store.telephone}}
-                </a>
+                <div class="mb-5" *ngIf="store.address">
+                  <div class='mb-1 is-size-6'>Dirección</div>
+                  <p class="is-size-5">{{store.address}}, {{store.city}}</p>
+                </div>
+  
+                <div class="mb-5"  *ngIf="store.valoration">
+                  <div class='mb-1 is-size-6'>Valoración</div>
+                  <div class='valoration'>{{ store.valoration ? store.valoration.toString().slice(0, 3) : '' }} </div>
+                  <div class="stars">
+                    <img  [src]="'assets/star.svg'">
+                    <img  [src]="'assets/star.svg'">
+                    <img  [src]="'assets/star.svg'">
+                    <img  [src]="'assets/star.svg'">
+                    <img  [src]="'assets/star.svg'">
+                  </div>
+                </div>
+  
+                <div id="center" class="mb-5"  *ngIf="store.website">
+                  <div class='mb-1 is-size-6'>Website</div>
+                  <a class="is-size-5"href="https:/{{store.website}}" target="_blank">{{store.website}}</a>
+                </div>
+  
+                <div class="mb-5"  *ngIf="store.telephone">
+                  <div class='mb-1 is-size-6'>Teléfono</div>
+                  <a class="d-inline-block is-size-5" href="tel:store.telephone">
+                    +54 9 {{store.telephone}}
+                  </a>
+                </div>
               </div>
           </div>
 
 
-          <div class='perfil-container box'>
+          <div class='p-6 box'>
             <h3 class="title is-5">Descripción</h3>
             <hr>
             <p class="trivial-text">{{store.description}}</p>
@@ -195,18 +206,14 @@
                 </a>
               </div>
             </div>
-
-            <hr>
-
-
           </div>
         </div>
 
 
         <div class='column is-8'>
        
-                <div class='box my-5'>
-                  <app-images></app-images>
+                <div class='box mb-5'>
+                  <app-images [store]="store"></app-images>
                 </div>
       
        

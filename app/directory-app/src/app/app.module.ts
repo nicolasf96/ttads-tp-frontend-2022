@@ -44,6 +44,8 @@ import { ReviewsComponent } from './components/reviews/reviews.component';
 import { ProductsComponent } from './components/products/products.component';
 import { ImagesComponent } from './components/images/images.component';
 import { StoresListComponent } from './components/stores-list/stores-list.component';
+import { SingupComponent } from './components/singup/singup.component';
+import { NewStoreComponent } from './components/user-panel/new-store/new-store.component';
 
 @NgModule({
   declarations: [
@@ -82,7 +84,9 @@ import { StoresListComponent } from './components/stores-list/stores-list.compon
     ReviewsComponent,
     ProductsComponent,
     ImagesComponent,
-    StoresListComponent
+    StoresListComponent,
+    SingupComponent,
+    NewStoreComponent
   ],
   imports: [
     BrowserModule,

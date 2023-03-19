@@ -50,11 +50,38 @@ export class ListingViewComponent implements OnInit {
 
 
   loadStores(){
-    this.storesService.getStoresByKeyword(this.keyword).subscribe( response => this.storesFiltered = response.data);
+    this.keyword = this.searchForm.value.keySearch;
+    if(this.keyword == '' || this.keyword == null){
+      this.storesService.getStores().subscribe( response => {
+        this.storesFiltered = response.data
+        this.storesFiltered.filter((s: { category: any; }) => this.categoriesFilter._id.includes(s.category._id));
+
+      });
+
+    }else{
+      this.storesService.getStoresByKeyword(this.keyword).subscribe( response =>
+      {
+        this.storesFiltered = response.data;
+        this.storesFiltered.filter((s: { category: any; }) => this.categoriesFilter._id.includes(s.category._id));
+        console.log(this.storesFiltered);
+        console.log(this.categoriesFilter);
+      });
+    }
   }
 
   loadCategories(){
     this.categoriesService.getCategories().subscribe( response => this.categories = response.data)
+  }
+
+
+  addCategory(cat:any){
+    this.categoriesFilter.push(cat);
+    this.loadStores();
+  }
+
+  deleteCategory(cat:any){
+    this.categoriesFilter.splice(cat);
+    this.loadStores();
   }
 
   onSubmit(){
@@ -66,8 +93,9 @@ export class ListingViewComponent implements OnInit {
     }else{
       this.toggle = false;
       this.loadStores();
+      this.storesFiltered = this.storesFiltered.filter((s: { category: any; }) => this.categoriesFilter._id.includes(s.category._id));
+
     }
-    this.categoriesFilter = [];
     this.searchForm.reset()
   }
 

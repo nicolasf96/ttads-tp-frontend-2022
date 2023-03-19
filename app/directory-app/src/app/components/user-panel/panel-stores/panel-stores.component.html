@@ -1,4 +1,4 @@
-<div class='columns is-centered m-0' >
+<div class='columns is-centered m-0 fondo' >
     <div class='column is-9 ' style="margin-top: 50px; padding-bottom: 150px;">
         <h1 class="title is-5"><span class="breadcrumb">Panel / </span>Perfil de Negocio</h1>
         <div  *ngIf="!showPanel" class="notification is-link is-light">
@@ -7,11 +7,11 @@
         <div class='box perfil mb-5'>
           <div class='columns'>
             <div *ngIf="!showPanel" class='column is-12 no-store'>
-              <button class="button is-primary is-medium">Configurar</button>
+              <button class="button is-primary is-medium" (click)="createStore()">Configurar</button>
             </div>
           </div>
           <div *ngIf="showPanel" class='columns is-multiline'>
-            <div class='column is-12 banner'>
+            <div class='column is-12 banner' *ngIf="store">
               <p class="title is-6 mb-2">Banner:</p>
               <div class="banner-container">
                 <img  [src]="'http://localhost:3000/api/' + store.banner?.path" *ngIf="store.banner">
@@ -54,6 +54,17 @@
                   </div> <br>
                   <button type="submit" class="button is-primary  is-small">Actualizar Categoría</button>
                 </form>
+                <div *ngIf="!store.valoration" class='title is-6'>Todavía no se han hecho valoraciónes</div>
+                <div class='val has-text-centered mt-6' *ngIf="store.valoration">
+                  <div class='valoration'>{{ store.valoration ? store.valoration.toString().slice(0, 3) : '' }} </div>
+                  <div class="stars">
+                        <img  [src]="'assets/star.svg'">
+                        <img  [src]="'assets/star.svg'">
+                        <img  [src]="'assets/star.svg'">
+                        <img  [src]="'assets/star.svg'">
+                        <img  [src]="'assets/star.svg'">
+                  </div>
+              </div>
             </div>
 
 
@@ -147,19 +158,21 @@
         </div>
         </div>
 
+        <div *ngIf="store">
 
-        <h1 class="title is-5" style="margin-top: 60px;"><span class="breadcrumb">Dashboard / Perfil de Negocio /</span> Imágenes</h1>
-        <div class='box perfil '>
-          
-          <app-images-of-store [store]="store"></app-images-of-store>
-
-        </div>
-
-        <h1 class="title is-5" style="margin-top: 60px;"><span class="breadcrumb">Dashboard / Perfil de Negocio /</span> Productos</h1>
-        <div class='box perfil '>
-
-          <app-panel-products-list [store]="store"></app-panel-products-list>
-
+          <h1 class="title is-5" style="margin-top: 60px;"><span class="breadcrumb">Dashboard / Perfil de Negocio /</span> Imágenes</h1>
+          <div class='box perfil '>
+            
+            <app-images-of-store [store]="store"></app-images-of-store>
+  
+          </div>
+  
+          <h1 class="title is-5" style="margin-top: 60px;"><span class="breadcrumb">Dashboard / Perfil de Negocio /</span> Productos</h1>
+          <div class='box perfil '>
+  
+            <app-panel-products-list [store]="store"></app-panel-products-list>
+  
+          </div>
         </div>
 
         <!-- <canvas id="canvas"></canvas> -->

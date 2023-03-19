@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { UsersService } from 'src/app/services/users/users.service';
 import { AuthService } from 'src/app/services/auth/auth.service';
@@ -21,15 +21,15 @@ export class ImagesComponent implements OnInit {
     ) { }
    
 
-    store:any;
+    @Input() store:any;
     storeIdentifier: any;
         
 
 
     identifier:any;
     ngOnInit(): void {
-      this.route.params.subscribe( (params) => this.storeIdentifier = params['id']);
-      this.storeService.getStore(this.storeIdentifier).subscribe(res => this.store = res.data.store)
+/*       this.route.params.subscribe( (params) => this.storeIdentifier = params['id']);
+      this.storeService.getStore(this.storeIdentifier).subscribe(res => this.store = res.data.store) */
       
   }
 

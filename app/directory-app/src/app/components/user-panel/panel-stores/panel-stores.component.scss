@@ -1,4 +1,6 @@
-
+.fondo{
+    background-color: var(--background);
+}
 
 .perfil{
     position: relative;
@@ -87,3 +89,23 @@ form.newPhoto{
     
 }
 
+
+.val{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    justify-items: center;
+    .valoration{
+        font-size: 3.5rem;
+        white-space: nowrap;
+    }
+}
+
+.stars{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    img{
+        width: 16px;
+    }
+}

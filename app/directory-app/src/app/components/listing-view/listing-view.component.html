@@ -1,6 +1,15 @@
 <div class='columns is-centered fondo' >
     <div class='column is-9' style="margin-top: 50px; padding-bottom: 150px;">
         <h1 class="title is-5" ><span class="breadcrumb">Inicio / </span>Negocios</h1>
+        <div class='bix'>
+          <div class='filter-container box p-5 mb-5'>
+            <div class='title is-6 m-3'>Buscar</div>
+            <form [formGroup]="searchForm" (ngSubmit)="onSubmit()">
+                <input id="inputForm" type="text" placeholder="Que estás buscando?"  formControlName="keySearch">
+                <button id="buttonForm" class="button is-info"  type="submit">Buscar</button>
+            </form>
+        </div>
+        </div>
         <div class='box' *ngIf="toggle == false">
           <div class='title is-6'>Mostrando {{storesFiltered.length}} resultados de la búsqueda "{{keyword}}"</div>
         </div>
@@ -8,34 +17,36 @@
           <div class='title is-6'>Mostrando todos los negocios</div>
         </div>
         <div class='columns is-multiline'>
-          <div class='column is-5'>
-            <div class='filter-container box'>
-                <div class='info-deco'>Filtrar</div>
-                <form [formGroup]="searchForm" (ngSubmit)="onSubmit()">
-                    <input id="inputForm" type="text" placeholder="Que estás buscando?"  formControlName="keySearch">
-                    <button id="buttonForm"  type="submit">Buscar</button>
-                </form>
-            </div>
-            <div class='filter-container w-border box'>
-              <div class='info-deco'>Categorías</div>
+          <div class='column is-3 p-5'>
+            <div class='p-5'>
+              <div class='mb-5'>
+                <div class='title is-6'>Filtros</div>
+                <div class='tag is-info is-light mb-3' *ngFor="let catF of categoriesFilter">{{catF.description}}
+                  <span (click)="deleteCategory(catF)" style="cursor: pointer;">
+                    <i class="fa-regular fa-circle-xmark mx-3"></i>
+                  </span>
+                </div>
+              </div>
+              <div class='title is-6'>Categorías</div>
               <ul>
-                <li [ngClass]="categoriesFilter.indexOf(cat) === -1 ? 'is-light' : 'is-info'"
-                class="tag is-info is-big  mr-3 mt-3" *ngFor="let cat of categories"
-                [ngStyle]="{'cursor': 'pointer'}">{{cat.description}}</li>
+                <li class="is-size-6" *ngFor="let cat of categories"
+                [ngStyle]="{'cursor': 'pointer'}"
+                (click)="addCategory(cat)">{{cat.description}}
+                </li>
               </ul>
           </div>
 
 
           </div>
 
-          <div class='column is-7'>
+          <div class='column is-9'>
             <div class='my-5 box has-text-centered' *ngIf="storesFiltered.length == 0">
               No hay coincidencias en tu búsqueda
             </div>
             
-            <div class='box'>
-              <app-stores-list [stores]="storesFiltered"></app-stores-list>
-            </div>
+
+            <app-stores-list [stores]="storesFiltered"></app-stores-list>
+
 
 
 

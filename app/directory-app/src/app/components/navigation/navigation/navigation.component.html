@@ -35,7 +35,7 @@
               <div class="navbar-item">
                 <div class="buttons">
                   <ng-container *ngIf="!authService.loggedIn(); else loggedIn">
-                    <a class="button is-info">
+                    <a class="button is-info" routerLink="/singup">
                       <strong>Sign up</strong>
                     </a>
                     <a class="button is-info is-light" routerLink="/login">

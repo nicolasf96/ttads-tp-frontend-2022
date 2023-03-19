@@ -1,0 +1,76 @@
+
+<div class='columns is-centered fondo'>
+    <div class='column is-10 area-container'>
+        
+            <div class='columns is-centered'>
+                <div class='column is-5'>
+                  <div class='box'>
+                      <h1 class="title is-3 my-5 has-text-centered">Registrarse</h1>
+                      <form [formGroup]="userForm" (ngSubmit)="onSubmit()">
+                          <div class="field">
+                            <p class="control has-icons-left has-icons-right">
+                              <input class="input" type="text" placeholder="Nombre" formControlName="firstName">
+                              <span class="icon is-small is-left">
+                                <i class="fa-solid fa-face-smile"></i>
+                              </span>
+                            </p>
+                          </div>
+                          <div class="field">
+                            <p class="control has-icons-left">
+                              <input class="input" type="text" placeholder="Apellido" formControlName="lastName">
+                              <span class="icon is-small is-left">
+                                <i class="fa-regular fa-face-smile"></i>
+                              </span>
+                            </p>
+                          </div>
+
+                          <div class="field">
+                            <p class="control has-icons-left">
+                              <input class="input" type="text" placeholder="Email" formControlName="email">
+                              <span class="icon is-small is-left">
+                                <i class="fa-solid fa-envelope"></i>
+                              </span>
+                            </p>
+                          </div>
+
+                          <div class="field">
+                            <p class="control has-icons-left">
+                              <input class="input" type="text" placeholder="Username" formControlName="username">
+                              <span class="icon is-small is-left">
+                                <i class="fa-solid fa-user"></i>
+                              </span>
+                            </p>
+                          </div>
+
+                          <div class="field">
+                            <p class="control has-icons-left">
+                              <input class="input" type="password" placeholder="password" formControlName="password">
+                              <span class="icon is-small is-left">
+                                <i class="fa-solid fa-lock"></i>
+                              </span>
+                            </p>
+                          </div>
+
+                          <div class="field">
+                            <p class="control has-icons-left">
+                              <input class="input" type="text" placeholder="phone" formControlName="phone">
+                              <span class="icon is-small is-left">
+                                <i class="fa-solid fa-phone"></i>
+                              </span>
+                            </p>
+                          </div>
+
+                          <div class="field">
+                              <div class="control" >
+                                <button class="button is-link is-fullwidth"  [ngStyle]="{'width': '100%'}">Registrarse</button>
+                              </div>
+                          </div>
+                      </form>
+                  </div>
+                  <div class='tag is-info is-light' *ngIf="response">
+                    {{response}}
+                  </div>
+                </div>
+            </div>
+    </div>
+</div>

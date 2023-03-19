@@ -1,4 +1,4 @@
-<div class='columns is-centered m-0' >
+<div class='columns is-centered m-0 fondo' >
     <div class='column is-9' style="margin-top: 50px; padding-bottom: 150px;">
         <h1 class="title is-5"><span class="breadcrumb">Panel / </span>Información Personal</h1>
     
@@ -6,7 +6,8 @@
             <div class='columns'>
                 <div class='column is-3 has-text-centered border is-info'>
                     <div class="img-perfil" >
-                        <img #imgPerfil [src]="'http://localhost:3000/api/' + user.profilePicture?.path || 'assets/no-image.png'" alt="">
+                        <img #imgPerfil [src]="'http://localhost:3000/api/' + user.profilePicture?.path" alt="" *ngIf="user.profilePicture">
+                        <img #imgPerfil [src]="'assets/no-banner.png'" alt="" *ngIf="!user.profilePicture">
                     </div>
                     <button type="" class="button is-link is-light is-small" (click)="showPhotoForm()">Editar Foto de Perfil</button>
                     <form *ngIf="showForm" class="newPhoto" (submit)="uploadPhoto()">

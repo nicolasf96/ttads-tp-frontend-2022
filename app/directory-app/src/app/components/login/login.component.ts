@@ -23,7 +23,6 @@ export class LoginComponent implements OnInit {
 
 
   login(){
-    console.log(this.user)
     if(this.user){
       this.service.auth(this.user).subscribe(
         res => {

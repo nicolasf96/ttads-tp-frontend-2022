@@ -6,24 +6,33 @@
 </div>
 
 
-<div class='columns review my-5 is is-centered' *ngFor="let rev of reviews">
-    <div class='column is-2 has-text-centered'>
+<div class='columns review my-5 is-centered fondo mx-5' *ngFor="let rev of reviews">
+    <div class='column is-3 has-text-centered'>
         <div class='img-review-container'>
-            <img class="ml-auto"  [src]="'http://localhost:3000/api/' + rev.user.profilePicture?.path || 'assets/no-image.png'" alt="">
+            <img class=""  [src]="'http://localhost:3000/api/' + rev.user.profilePicture?.path || 'assets/no-image.png'" alt="">
         </div>
     </div>
-    <div class='column is-5'>
-        <div class='globo'>
-            <div class='user'>
-                By @{{rev.user?.username}}
+    <div class='column is-6'>
+        <div class='px-5 py-4'>
+            <div class='title is-5 mb-2'>
+                {{rev.user?.username}}
             </div>
             <div class='content'>
                 <p>{{rev.comment}}</p>
-                <p>Score: {{rev.score}}</p>
-                <div class="time ml-auto">{{rev.updatedAt | date: 'dd MMM yyyy'}}</div>
+                <div class="has-text-grey has-text-left">{{rev.updatedAt | date: 'dd MMM yyyy'}}</div>
             </div>
         </div>
-        
+    </div>
+    <div class='column is-3 val has-text-centered'>
+        <div class='valoration'>{{ rev.score ? rev.score.toString().slice(0, 3) : '' }} 
+            <div class="stars">
+                <img  [src]="'assets/star.svg'">
+                <img  [src]="'assets/star.svg'">
+                <img  [src]="'assets/star.svg'">
+                <img  [src]="'assets/star.svg'">
+                <img  [src]="'assets/star.svg'">
+            </div>
+        </div>
     </div>
 
 </div>

@@ -1,21 +1,26 @@
-$text-color: #414141;
+/* $text-color: #414141;
 $text-deco-color: #afafaf;
 $color: var(--pcolor);
 $contrast-color: white;
 $background-color: var(--backg-color);
-
+ */
 
 *{
     font-family: Poppins;
 }
 
+.fondo{
+    min-height: 100vh;
+    background-color: var(--background);
+    padding-bottom: 50px;
+}
 
 .separator{
     padding: 20px
 }
 
 *{
-    color: $text-color;
+    color: var(--strongcolor);
 }
 
 .banner{
@@ -37,7 +42,7 @@ $background-color: var(--backg-color);
         border-radius: 10px;
         background-color: rgba(0, 0, 0, 0.25);
         backdrop-filter: blur(5px);
-        color: $contrast-color;
+        color: var(--lightcolor1);
         position: relative;
         top: -100px;
         left: 40px;
@@ -58,85 +63,38 @@ $background-color: var(--backg-color);
     }
 }
 
-.fondo{
-    min-height: 100vh;
-    background-color: $background-color;
-    padding-bottom: 50px;
-}
+
 
 .flex-wrap-start{
-    width: 100%;
-    height: 100%;
-    text-align: center;
-    align-items: center;
+    display: flex;
     justify-content: space-between;
-    justify-content: flex-start;
-    @media  screen and (min-width: 1200px){
-        display: flex;
+    justify-content: center;
+}
+
+.profile-img{ 
+    display: inline-block;
+    margin: 0 auto;
+    width: 200px;
+    border-radius: 50%;
+    overflow: hidden;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+}
+
+
+.stars{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    img{
+        width: 16px;
     }
-}
-
-.perfil-container{
-    img{ 
-        display: inline-block;
-        margin: 0 auto;
-        width: 200px;
-        border-radius: 50%;
-        overflow: hidden;
-        aspect-ratio: 1 / 1;
-        object-fit: cover;
-    }
-}
-.profile-info{
-    margin-left: 20px;
-
-    h2{
-        margin-bottom: 10px;
-    }
-}
-
-
-
-.perfil-container{
-    margin-top: 30px;
-    width: 100%;
-    background-color: $contrast-color;
-    padding: 10%;
-
-    span{
-        margin-right: 15px;
-        &:hover{
-            cursor: pointer;
-        }
-    }
-
-}
-
-
-
-.overflowToggle{
-    overflow: unset!important;
-    background-color: white!important;
-    padding:0 15px 15px 15px!important;
-}
-
-.info-deco{
-    font-size: 14px;
-    color: $text-deco-color;
-    font-weight: 400;
-    margin-bottom: 7px;
-    
-}
-#center{
-@media  screen and (max-width: 760px){
-        text-align: center;
-}
 }
 
 
 .trivial-text{
     font-size: 18px;
-    color: $text-color;
+    color: var(--strongcolor);
     font-weight: 400;
     margin-bottom: 12px;
 
@@ -153,69 +111,14 @@ $background-color: var(--backg-color);
     }
 }
 
-.telephone-container{
-    .svg-size{
-        width: 26px;
-        height: 26px;
-        svg{
-            .fil0 {fill: $contrast-color}
-            .fil1 {fill:$contrast-color;
-                fill-rule:nonzero}
-        }
-    }
-
-    a{
-        color: white;
-    }
-    margin-top: 20px;
-    width: 100%;
-    min-height: 35px;
-    background-color: var(--strongcolor);
-    color: white;
-    text-align: center;
-    vertical-align: middle;
-    padding: 15px;
-    font-size: 24px;
-    border-radius: 4px;
-
-
-}
-
-.separate-info{
-    margin-bottom: 15px;
-}
-
-.section-title{
-    margin-top: 30px;
-    background-color: $contrast-color;
-    padding: 20px;
-    width: 100%;
-    color: $text-color;
-    font-size: 18px;
-    font-weight: bold;
-    border-top: 3px solid var(--strongcolor);
-}
-
-.mr-4{
-    margin-right: 6px;
-}
 
 .social-link{
     cursor: pointer;
     &:hover{
-        color: $color;
+        color: var(--pcolor);
     }
 }
 
-
-
-.perfil-container-img{
-    margin-top: 30px;
-    width: 100%;
-    background-color: $contrast-color;
-    padding: 20px;
-
-}
 
 a svg{
     width: 35px;
@@ -225,29 +128,9 @@ a svg{
 }
 
 
-  span.tag{
-    margin-bottom: 10px;
-  }
 
- .no-reviews{
-    margin-top: 30px;
-    padding: 35px;
-    text-align: center;
-    background-color: var(--lightcolor1);
- }
 
- .module {
-    width: 250px;
-    margin: 0 0 1em 0;
-    overflow: hidden;
-  }
-
-  .module p {
-    margin: 0;
-  }
-  
-  .line-clamp {
-    display: -webkit-box;
-    -webkit-line-clamp: 4;
-    -webkit-box-orient: vertical;
-  }
+  .valoration{
+    font-size: 48px;
+    white-space: nowrap;
+}

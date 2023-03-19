@@ -33,7 +33,9 @@ export class ReviewsComponent implements OnInit {
     ngOnInit(): void {
 
       this.userIdentifier = this.authService.getActualId();
-      this.userService.getUser(this.userIdentifier).subscribe( res => this.user = res.data);
+      if(this.userIdentifier){
+        this.userService.getUser(this.userIdentifier).subscribe( res => this.user = res.data);
+      }
       this.route.params.subscribe( (params) => this.storeIdentifier = params['id']);
       this.reviewService.getReviewsByStore(this.storeIdentifier).subscribe(res => this.reviews = res.data)
       

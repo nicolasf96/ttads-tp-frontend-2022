@@ -1,11 +1,15 @@
 .review{
     .img-review-container{
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        justify-items: center;
         img{
-            margin-top: 30px;
-            aspect-ratio: 1 / 1;
-            width: 120px;
+            width: 80px;
             object-fit: cover;
             border-radius: 50%;
+            margin: 0 auto
         }
     }
 
@@ -16,28 +20,27 @@
     display: inline-block;
 }
 
+.fondo{
+    border: 1px solid rgba(0,0,0,0.1);
+    border-radius: 10px;
+}
 
-.globo{
-    padding: 15px 25px;
-    border-radius: 20px;
-    width: 100%;
-    display: inline-block;
-    background-color: #f0f0f0;
-    .user{
-        font-weight: bold;
-        font-size: 18px;
+.val{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    justify-items: center;
+    .valoration{
+        font-size: 3.5rem;
+        white-space: nowrap;
+    }
+}
 
-    }
-    .content{
-        padding: 12px 0;
-        font-size: 16px;
-        p{
-            margin-bottom: 8px!important;
-        }
-    }
-    .time{
-        color: rgb(21, 21, 100);
-        font-weight: normal;
-        font-size: 14px;
+.stars{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    img{
+        width: 16px;
     }
 }

@@ -2,6 +2,7 @@
     <div class='column is-12'>
         <h2 class="title is-5 mb-5">Productos</h2>
         <hr>
+        <div class="is-5 mb-5" *ngIf="products.length == 0">Esta tienda no tiene productos</div>
     </div>
     <div class='column is-12'>
         <div class='columns producto' *ngFor="let prod of products">
@@ -10,10 +11,9 @@
             </div>
             <div class='column is-8 content'>
                 <strong>{{prod.title}}</strong>
-                <p class="text"><span style="display:inline-block; overflow:hidden; text-overflow:ellipsis; width:500px; height:60px;">{{prod.description}}</span><a>Ver más.</a></p>
                 <div *ngIf="prod.used">Este Producto es Usado</div>
                 <div class='price' *ngIf="prod.price">${{prod.price}}</div>
-                <div class='time'>{{prod.updatedAt}}</div>
+                <div class='time'>{{prod.updatedAt | date: 'dd MMM yyyy'}}</div>
             </div>
         </div>
     </div>

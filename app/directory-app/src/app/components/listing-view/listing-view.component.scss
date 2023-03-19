@@ -14,96 +14,15 @@ $contrast-color: white;
 
 .fondo{
     min-height: 100vh;
-    background-color: var(--backg-color);
+    background-color: var(--background);
     padding-bottom: 50px;
 }
 
 
 
 
-.single-product{
-    width: 100%;
-    height: 220px;
-    background-color: $contrast-color;
-    display: flex;
-    .img-product-container{
-        width: 35%;
-        height: 100%;
-        overflow: hidden;
-        img{
-            height: 100%;
-            width: 100%;
-            object-fit: cover;
-            position: relative;
-        }
-    
-    }
-    .info-product{
-        width: 65%;
-        height: 100%;
-        padding: 15px 35px;
-        color: $text-color;
-        .superior{
-            text-align: end;
-            color: $text-deco-color;
-
-            svg{
-                width: 14px;
-                height: 14px;
-                fill: $text-deco-color
-            }
-        }
-
-        .info h3{
-            margin-bottom: 8px;
-        }
-        .price{
-            margin-top: 10px;
-            font-size: 22px;
-            font-weight: 600;
-            color: $text-color;
-
-            .unitOM{
-                color: $color;
-                font-size: 18px;
-                font-weight:500;
-                font-style: oblique;
-
-            }
-        }
-
-    }
-    &:last-child{
-        margin-bottom: 100px;
-    }
-    
-
-}
-
-.info-deco{
-    font-size: 14px;
-    color: $text-deco-color;
-    font-weight: 400;
-    margin-bottom: 7px;
-}
-
-.svg-size{
-    width: 18px;
-    height: 18px;
-    display: inline-block;
-
-    svg{
-        width: 100%;
-        height: 100%;
-    }
-}
-
-
 
 .filter-container{
-    padding: 35px;
-    background-color: $contrast-color;
-
     form *{
         border: none;
         padding: 10px 14px;
@@ -113,15 +32,16 @@ $contrast-color: white;
     form{
         width: 100%;
         margin-top: 20px;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
         input{
             width: 70%;
             margin-right: 12px;
             border: 1px solid $text-deco-color;
         }
         button{
-            width: 25%;
-            background-color: var(--pcolor2);
-            color: white;
+            width: 30%;
         }
     }
 

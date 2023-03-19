@@ -5,6 +5,12 @@ img{
     border-radius: 12px;
 }
 
+.title{
+    cursor: pointer;
+    &:hover{
+        color: rgb(92, 92, 92);
+    }
+}
 .article-box{
     padding: 30px;
 }
@@ -12,4 +18,34 @@ img{
 .social-icons{
     font-size: 16px;
     
+}
+
+.caja{
+    padding-right: 50px;
+    display: flex;
+    flex-direction: column;
+    .content{
+        flex: 1 1 auto;
+    }
+}
+
+.val{
+    border-left: 3px solid rgba(0,0,0,0.1);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    justify-items: center;
+    .valoration{
+        font-size: 3.5rem;
+        white-space: nowrap;
+    }
+}
+
+.stars{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    img{
+        width: 16px;
+    }
 }

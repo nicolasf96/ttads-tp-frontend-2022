@@ -1,0 +1,120 @@
+<div class='columns is-multiline'>
+    <div class='column is-6'>
+        <canvas baseChart
+            [type]="'pie'"
+            [datasets]="pieChartDatasets"
+            [labels]="pieChartLabels"
+            [options]="pieChartOptions"
+            [plugins]="pieChartPlugins"
+            [legend]="pieChartLegend">
+        </canvas>
+    </div>
+
+    <div class='column is-one-third'>
+        <div class='notification is-link is-light has-text-centered'>
+            Total Stores: {{stores.length}}
+        </div>
+    </div>
+    <div class='column is-one-third'>
+        <div class='notification is-link is-light has-text-centered'>
+            Total Usuarios: {{users.length}}
+        </div>
+    </div>
+    <div class='column is-one-third'>
+        <div class='notification is-link is-light has-text-centered'>
+            Total Categorías: {{categories.length}}
+        </div>
+    </div>
+    <hr>
+    <div class='column is-12'>
+        <div class='notification is-warning is-light'>
+            <i class="fa-solid fa-circle-exclamation mr-2"></i>Tienes X notificaciones por revisar
+        </div>
+    </div>
+    <hr>
+    <div class='title is-6 mt-6'>Comentarios en revisión</div>
+    <div class='table-container'>
+        <table class="table is-hoverable">
+            <thead>
+                <tr>
+                    <th>Foto</th>
+                    <th>Usuario</th>
+                    <th>Negocio</th>
+                    <th>Comentario</th>
+                    <th>Valoración</th>
+                    <th>Aprobar</th>
+                    <th>Rechazar</th>
+                </tr>
+            </thead>
+            <tr>
+                <td>
+                    <img [src]="'assets/no-image.png'" class="profile-img">
+                </td>
+                <td>
+                   Usuario
+                </td>
+                <td>
+                    <div class='tag is-light is-info'>Negocio</div>
+                </td>
+                <td>
+                    "Este es el comentarios asbasf asf falskdfkasjdf asdf asdf61465sf sadfas sdf asf"
+                </td>
+                <td>
+                    2.0
+                </td>
+                <td>
+                    <i class="fa-solid fa-thumbs-up fa-xl aprobar"></i>
+                </td>
+                <td>
+                    <i class="fa-solid fa-circle-xmark fa-xl rechazar"></i>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <img [src]="'assets/no-image.png'" class="profile-img">
+                </td>
+                <td>
+                   Usuario
+                </td>
+                <td>
+                    <div class='tag is-light is-info'>Negocio</div>
+                </td>
+                <td>
+                    "Este es el comentarios asbasf asf falskdfkasjdf asdf asdf61465sf sadfas sdf asf"
+                </td>
+                <td>
+                    2.0
+                </td>
+                <td>
+                    <i class="fa-solid fa-thumbs-up fa-xl aprobar"></i>
+                </td>
+                <td>
+                    <i class="fa-solid fa-circle-xmark fa-xl rechazar"></i>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <img [src]="'assets/no-image.png'" class="profile-img">
+                </td>
+                <td>
+                   Usuario
+                </td>
+                <td>
+                    <div class='tag is-light is-info'>Negocio</div>
+                </td>
+                <td>
+                    "Este es el comentarios asbasf asf falskdfkasjdf asdf asdf61465sf sadfas sdf asf"
+                </td>
+                <td>
+                    2.0
+                </td>
+                <td>
+                    <i class="fa-solid fa-thumbs-up fa-xl aprobar"></i>
+                </td>
+                <td>
+                    <i class="fa-solid fa-circle-xmark fa-xl rechazar"></i>
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>

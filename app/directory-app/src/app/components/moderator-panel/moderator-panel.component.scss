@@ -1,8 +1,28 @@
 .total-container{
-    min-height: 100hv;
+    min-height: 700px;
+
+}
+
+.content{
+    background-color: var(--background);
 }
 
 .sticky-bar{
     position: sticky;
     top: 0;
+
+}
+
+li{
+    margin-bottom: 12px;
+}
+
+ul.pointer li{
+    cursor: pointer;
+    &:hover{
+        color: blue!important;
+    }
+    &:active{
+        color: blue!important;
+    }
 }

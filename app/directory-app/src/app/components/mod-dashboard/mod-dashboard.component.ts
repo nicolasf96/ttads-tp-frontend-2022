@@ -4,13 +4,28 @@ import { CategoriesService } from 'src/app/services/categories/categories.servic
 import { ImagesService } from 'src/app/services/images/images.service';
 import { StoresService } from 'src/app/services/stores/stores.service';
 import { UsersService } from 'src/app/services/users/users.service';
+import { ChartOptions } from 'chart.js';
 
 @Component({
-  selector: 'app-moderator-panel',
-  templateUrl: './moderator-panel.component.html',
-  styleUrls: ['./moderator-panel.component.scss']
+  selector: 'app-mod-dashboard',
+  templateUrl: './mod-dashboard.component.html',
+  styleUrls: ['./mod-dashboard.component.scss']
 })
-export class ModeratorPanelComponent implements OnInit {
+export class ModDashboardComponent implements OnInit {
+
+
+  title = 'ng2-charts-demo';
+
+  // Pie
+  public pieChartOptions: ChartOptions<'pie'> = {
+    responsive: false,
+  };
+  public pieChartLabels = [ [ 'Download', 'Sales' ], [ 'In', 'Store', 'Sales' ], 'Mail Sales' ];
+  public pieChartDatasets = [ {
+    data: [ 300, 500, 100 ]
+  } ];
+  public pieChartLegend = true;
+  public pieChartPlugins = [];
 
   constructor(private route: ActivatedRoute,
     private userService: UsersService,
@@ -39,10 +54,6 @@ export class ModeratorPanelComponent implements OnInit {
     this.userService.getUsers().subscribe(res=>{
       this.users = res.data;
     })
-  }
-
-  showPanel(page:any){
-    this.panel = page;
   }
 
 }

@@ -1,34 +1,30 @@
 <div class='columns p-0 total-container'>
     <div class='column is-3 p-0'>
         <div class='sticky-bar p-6'>
-            <div class='title is-6'>Sidebar</div> 
-            <ul>
-                <li>Usuarios</li>
-                <li>Categorías</li>
+            <div class='title is-6'>Secciones</div> 
+            <ul class="ml-5 pointer">
+                <li (click)="showPanel('Dashboard')"><span><i class="fa-solid fa-chart-pie mr-2"></i></span> Dashboard</li>
+                <li (click)="showPanel('Users')"><span><i class="fa-solid fa-user mr-2"></i></span> Usuarios</li>
+                <li (click)="showPanel('Stores')"><span><i class="fa-solid fa-store mr-2"></i></span> Negocios</li>
+                <li (click)="showPanel('Categories')"><span><i class="fa-solid fa-shapes mr-2"></i></span> Categorías</li>
             </ul>
 
         </div>
     </div>
-    <div class='column is-9 p-6'>
-        <h1 class="title is-4">Panel de Moderación</h1>
-        <hr>
-        <div class='columns is-multiline'>
-            <div class='column is-one-third'>
-                <div class='notification is-link is-light'>
-                    Hola de nuevo {{user.firstName}}!
-                </div>
-            </div>
-        </div>
-        <hr>
-        <section class='box'>
+    <div class='column is-9 p-6 content'>
+        <section class='box p-6' *ngIf="panel=='Dashboard'">
+            <p class="title is-5">Dashboard</p>
+            <app-mod-dashboard *ngIf="panel=='Dashboard'"></app-mod-dashboard>
+        </section>
+        <section class='box p-6' *ngIf="panel=='Categories'">
             <p class="title is-5">Categorías</p>
             <app-categories></app-categories>
         </section>
-        <section class='box'>
-            <i class="fa-solid fa-users fa-lg"></i><p class="title is-5">Usuarios</p>
+        <section class='box p-6' *ngIf="panel=='Users'">
+            <p class="title is-5">Usuarios</p>
             <app-users></app-users>
         </section>
-        <section class='box'>
+        <section class='box p-6' *ngIf="panel=='Stores'">
             <p class="title is-5">Tiendas</p>
             <app-stores></app-stores>
         </section>

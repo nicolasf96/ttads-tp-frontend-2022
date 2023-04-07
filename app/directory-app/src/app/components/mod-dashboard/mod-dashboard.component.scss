@@ -1,17 +1,10 @@
-
 .profile-img{
     width: 40px;
-    overflow: hidden;
     aspect-ratio: 1 / 1;
-    border-radius: 50%;
     object-fit: cover;
-
 }
 
 table.is-hoverable{
-    :hover{
-        background-color: rgb(238, 238, 238);
-    }
     th{
         font-size: 12px;
         font-weight: bold;
@@ -19,6 +12,15 @@ table.is-hoverable{
     td{
         font-size: 12px;
         vertical-align: middle;
+        text-align: center;
 
     }
+}
+
+.aprobar{
+    cursor: pointer;
+}
+
+.rechazar{
+cursor: pointer;
 }

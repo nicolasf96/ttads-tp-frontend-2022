@@ -47,6 +47,12 @@ import { StoresListComponent } from './components/stores-list/stores-list.compon
 import { SingupComponent } from './components/singup/singup.component';
 import { NewStoreComponent } from './components/user-panel/new-store/new-store.component';
 import { ModeratorPanelComponent } from './components/moderator-panel/moderator-panel.component';
+import { ModDashboardComponent } from './components/mod-dashboard/mod-dashboard.component';
+import { ModUsersComponent } from './components/mod-users/mod-users.component';
+import { ModStoresComponent } from './components/mod-stores/mod-stores.component';
+import { ModCategoriesComponent } from './components/mod-categories/mod-categories.component';
+import { ChartsModule } from 'ng2-charts';
+import { PieChartComponent } from './components/pie-chart/pie-chart.component';
 
 @NgModule({
   declarations: [
@@ -88,7 +94,12 @@ import { ModeratorPanelComponent } from './components/moderator-panel/moderator-
     StoresListComponent,
     SingupComponent,
     NewStoreComponent,
-    ModeratorPanelComponent
+    ModeratorPanelComponent,
+    ModDashboardComponent,
+    ModUsersComponent,
+    ModStoresComponent,
+    ModCategoriesComponent,
+    PieChartComponent
   ],
   imports: [
     BrowserModule,
@@ -96,7 +107,8 @@ import { ModeratorPanelComponent } from './components/moderator-panel/moderator-
     HttpClientModule,
     ReactiveFormsModule,
     CommonModule,
-    FormsModule
+    FormsModule,
+    ChartsModule
   ],
   providers: [
     AuthGuard,

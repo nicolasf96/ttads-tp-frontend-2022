@@ -22,6 +22,8 @@
     "@types/chart.js": "^2.9.37",
     "bulma": "^0.9.4",
     "chart.js": "^4.2.1",
+    "frappe-charts": "^1.6.2",
+    "ng2-charts": "^1.6.0",
     "rxjs": "~7.5.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.11.4"

@@ -1,86 +1,62 @@
-
-<div class='columns is-centered'>
-  <div class='column is-10 area-container'>
-    <nav class="breadcrumb" aria-label="breadcrumbs">
-        <ul>
-          <li><a href="javascript:void(0)" routerLink="/home">Home</a></li>
-          <li><a href="javascript:void(0)" routerLink="/stores">Stores</a></li>
-        </ul>
-      </nav>
-    
-    
-    <div class='columns is-centered'>
-      <div class='column'>
-          <h2 class="title is-4">Stores</h2>
-          <button class="button is-primary is-small btn-cat" routerLink="/newstore">+</button>
-      </div>
-    </div>
-    <div class='columns is-centered'>
-      <div class='column'>
-          <div class='table-container'>
-            <table class="table is-hoverable">
-                <thead>
-                    <tr>
-                      <th>Profile</th>
-                      <th>Name</th>
-                      <th>Username</th>
-                      <th>Address</th>
-                      <th>City</th>
-                      <th>Service</th>
-                      <th>*</th>
-                      <th>Category</th>
-                      <th>User Owner</th>
-                      <th>Edit</th>
-                      <th>Delete</th>
-                    </tr>
-                  </thead>
-                <tr  *ngFor="let store of stores"
-                [ngStyle]="{'cursor': 'pointer'}" 
-                (click)="goToStore(store._id)">
-                    <td>
-                      <img [src]="'http://localhost:3000/api/' + store.profilePicture?.path" 
-                        class="profile-img" *ngIf="store.profilePicture">
-                      <img [src]="'assets/no-image.png'" 
-                        class="profile-img" *ngIf="!store.profilePicture">
-                    </td>
-                    <td>
-                        {{store.name}}
-                    </td>
-                    <td>
-                        {{store.username}}
-                    </td>
-                    <td>
-                        {{store.address}}
-                    </td>
-                    <td>
-                        {{store.city}}
-                    </td>
-                    <td>
-                      {{store.isService}}
-                  </td>
-                  <td>
-                      {{store.valoration}}
-                  </td>
-                  <td *ngIf="store.category">
-                      {{store.category?.description}}
-                  </td>
-                  <td *ngIf="!store.category">
-                    - Sin Categoría -
-                </td>
-                  <td>
-                      {{store.user?.username}}
-                  </td>
-                    <td>
-                        <button class="button is-small is-info btn-cat" (click)="goToStore(store._id)">/</button>
-                    </td>
-                    <td>
-                        <button class="button is-small is-danger btn-cat">X</button>
-                    </td>
-                </tr>
-            </table> 
-          </div>
-    </div>
-    </div>
-
-  </div>
+<div class='table-container'>
+  <table class="table is-hoverable">
+      <thead>
+          <tr>
+            <th>Foto</th>
+            <th>Nombre</th>
+            <th>Username</th>
+            <th>Dirección</th>
+            <th>Ciudad</th>
+            <th>Servicio</th>
+            <th><i class="fa-solid fa-star"></i></th>
+            <th>Categoría</th>
+            <th>Usuario</th>
+            <th>Editar</th>
+            <th>Borrar</th>
+          </tr>
+        </thead>
+      <tr  *ngFor="let store of stores"
+      [ngStyle]="{'cursor': 'pointer'}" 
+      (click)="goToStore(store._id)">
+          <td>
+            <img [src]="'http://localhost:3000/api/' + store.profilePicture?.path" 
+              class="profile-img" *ngIf="store.profilePicture">
+            <img [src]="'assets/no-image.png'" 
+              class="profile-img" *ngIf="!store.profilePicture">
+          </td>
+          <td>
+              {{store.name}}
+          </td>
+          <td>
+              @{{store.username}}
+          </td>
+          <td>
+              {{store.address}}
+          </td>
+          <td>
+              {{store.city}}
+          </td>
+          <td>
+            {{store.isService}}
+        </td>
+        <td>
+            {{store.valoration | number: '1.1-1'}}
+        </td>
+        <td *ngIf="store.category">
+            {{store.category?.description}}
+        </td>
+        <td *ngIf="!store.category">
+          - Sin Categoría -
+      </td>
+        <td>
+            {{store.user?.username}}
+        </td>
+          <td>
+              <i class="fa-solid fa-pen-to-square fa-lg" (click)="goToStore(store._id)"></i>
+          </td>
+          <td>
+              <i class="fa-solid fa-trash fa-lg"></i>
+          </td>
+      </tr>
+  </table> 
 </div>

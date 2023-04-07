@@ -1,72 +1,47 @@
-
-<div class='columns is-centered'>
-    <div class='column is-10 area-container'>
-        
-        
-        <nav class="breadcrumb" aria-label="breadcrumbs">
-            <ul>
-              <li><a href="javascript:void(0)" routerLink="/home">Home</a></li>
-              <li class="is-active"><a href="#" aria-current="page">Users</a></li>
-            </ul>
-          </nav>
-        
-        <div class='columns is-centered'>
-            <div class='column'>
-                <h2 class="title is-4">Users</h2>
-                <button class="button is-primary is-small btn-cat" routerLink="/newuser">+</button>
-            </div>
-        </div>
-        <div class='columns is-centered'>
-            <div class='column'>
-                <div class='table-container'>
-        
-                    <table class="table is-hoverable">
-                        <thead>
-                            <tr>
-                              <th>Profile</th>
-                              <th>Email</th>
-                              <th>Username</th>
-                              <th>First Name</th>
-                              <th>Last Name</th>
-                              <th>Store</th>
-                              <th>Edit</th>
-                              <th>Delete</th>
-                            </tr>
-                          </thead>
-                        <tr  *ngFor="let user of users" 
-                        [ngStyle]="{'cursor': 'pointer'}" 
-                    
-                        (click)="userDetails(user._id)">
-                            <td>
-                                <img 
-                                [src]="'http://localhost:3000/api/' + user.profilePicture?.path" class="profile-img">
-                            </td>
-                            <td>
-                                {{user.email}}
-                                - {{user._id}}
-                            </td>
-                            <td>
-                                {{user.username}}
-                            </td>
-                            <td>
-                                {{user.firstName}}
-                            </td>
-                            <td>
-                                {{user.lastName}}
-                            </td>
-                            <td>
-                                <span class="tag is-link is-light" *ngIf="user.store">{{user.store?.name}}</span>
-                            </td>
-                            <td>
-                                <button class="button is-small is-info btn-cat" (click)="userDetails(user._id)">/</button>
-                            </td>
-                            <td>
-                                <button class="button is-small is-danger btn-cat" (click)="deleteUser(user._id)">X</button>
-                            </td>
-                        </tr>
-                    </table>
-                </div>
-        </div>
-        </div>
-    </div>
+<div class='table-container'>
+    <table class="table is-hoverable">
+        <thead>
+            <tr>
+                <th>Foto</th>
+                <th>Email</th>
+                <th>Usuario</th>
+                <th>Nombre</th>
+                <th>Apellido</th>
+                <th>Tienda</th>
+                <th>Editar</th>
+                <th>Borrar</th>
+            </tr>
+            </thead>
+        <tr  *ngFor="let user of users" 
+        [ngStyle]="{'cursor': 'pointer'}" 
+    
+        (click)="userDetails(user._id)">
+            <td>
+                <img [src]="'http://localhost:3000/api/' + user.profilePicture?.path" class="profile-img" *ngIf="user.profilePicture">
+                <img [src]="'assets/no-banner.png'" class="profile-img" *ngIf="!user.profilePicture">
+            </td>
+            <td>
+                {{user.email}}
+                - {{user._id}}
+            </td>
+            <td>
+                {{user.username}}
+            </td>
+            <td>
+                {{user.firstName}}
+            </td>
+            <td>
+                {{user.lastName}}
+            </td>
+            <td>
+                <span class="tag is-link is-light" *ngIf="user.store">{{user.store?.name}}</span>
+            </td>
+            <td>
+                <i class="fa-solid fa-pen-to-square fa-lg" (click)="userDetails(user._id)"></i>
+            </td>
+            <td>
+                <i class="fa-solid fa-trash fa-lg" (click)="deleteUser(user._id)"></i>
+            </td>
+        </tr>
+    </table>
 </div>

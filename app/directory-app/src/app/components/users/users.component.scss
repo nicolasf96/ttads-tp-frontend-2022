@@ -1,3 +1,4 @@
+
 .profile-img{
     height: 40px;
     width: 40px;
@@ -11,6 +12,15 @@
 table.is-hoverable{
     :hover{
         background-color: rgb(238, 238, 238);
+    }
+    th{
+        font-size: 12px;
+        font-weight: bold;
+    }
+    td{
+        font-size: 12px;
+        vertical-align: middle;
+
     }
 }
 

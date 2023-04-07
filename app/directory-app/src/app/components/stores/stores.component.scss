@@ -1,16 +1,27 @@
 
 .profile-img{
     height: 40px;
-    width: 40px;
-    /* los siguientes valores son independientes del tamaño del círculo */
-    background-repeat: no-repeat;
-    background-position: 50%;
+    overflow: hidden;
     border-radius: 50%;
-    background-size: 100% auto;
+    img{
+        width: 100%;
+        object-fit: cover;
+        aspect-ratio: 1 / 1;
+    }
+
 }
 
 table.is-hoverable{
     :hover{
         background-color: rgb(238, 238, 238);
+    }
+    th{
+        font-size: 12px;
+        font-weight: bold;
+    }
+    td{
+        font-size: 12px;
+        vertical-align: middle;
+
     }
 }

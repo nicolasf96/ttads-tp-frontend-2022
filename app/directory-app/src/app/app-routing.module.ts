@@ -23,12 +23,10 @@ import { PerfilComponent } from './components/user-panel/perfil/perfil.component
 import { PanelProductDetailComponent } from './components/user-panel/panel-product-detail/panel-product-detail.component';
 import { SingupComponent } from './components/singup/singup.component';
 import { NewStoreComponent } from './components/user-panel/new-store/new-store.component';
-
+import { ModeratorPanelComponent } from './components/moderator-panel/moderator-panel.component';
 
 const routes: Routes = [
-  { path: 'stores', component: StoresComponent, canActivate: [AuthGuard] },
   { path: 'newstore', component: CreateStoreComponent },
-  { path: 'categories', component: CategoriesComponent},
   { path: 'categories/:id', component: EditCategoriesComponent},
   { path: 'newcategory', component: CreateCategoriesComponent},
   { path: 'login', component: LoginComponent},
@@ -40,7 +38,6 @@ const routes: Routes = [
   { path: 'search/:keySearch', component: ListingViewComponent},
   { path: 'product/:id', component: ProductViewComponent},
   { path: 'product-details/:id', component: PanelProductDetailComponent},
-  { path: 'users', component: UsersComponent, canActivate: [AuthGuard]},
   { path: 'user-panel/:id', component: UserPanelComponent, canActivate: [AuthGuard]},
   { path: 'store-panel/:id', component: PanelStoresComponent, canActivate: [AuthGuard]},
   { path: 'perfil/:id', component: PerfilComponent, canActivate: [AuthGuard]},
@@ -48,6 +45,7 @@ const routes: Routes = [
   { path: 'create-store', component: NewStoreComponent, canActivate: [StoreGuard] },
   { path: 'users/:id', component: EditUsersComponent},
   { path: 'newuser', component: CreateUsersComponent},
+  {path: 'moderator-panel/:id', component: ModeratorPanelComponent},
   { path: '', component: PrincipalViewComponent}
 ];
 

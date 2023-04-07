@@ -46,6 +46,7 @@ import { ImagesComponent } from './components/images/images.component';
 import { StoresListComponent } from './components/stores-list/stores-list.component';
 import { SingupComponent } from './components/singup/singup.component';
 import { NewStoreComponent } from './components/user-panel/new-store/new-store.component';
+import { ModeratorPanelComponent } from './components/moderator-panel/moderator-panel.component';
 
 @NgModule({
   declarations: [
@@ -86,7 +87,8 @@ import { NewStoreComponent } from './components/user-panel/new-store/new-store.c
     ImagesComponent,
     StoresListComponent,
     SingupComponent,
-    NewStoreComponent
+    NewStoreComponent,
+    ModeratorPanelComponent
   ],
   imports: [
     BrowserModule,

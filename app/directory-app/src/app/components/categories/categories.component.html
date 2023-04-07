@@ -1,57 +1,35 @@
-<div class='columns is-centered'>
-    <div class='column is-6 area-container'>
-
-        <nav class="breadcrumb" aria-label="breadcrumbs">
-            <ul>
-              <li><a href="javascript:void(0)" routerLink="/home">Home</a></li>
-              <li class="is-active"><a href="#" aria-current="page">Categories</a></li>
-            </ul>
-          </nav>
-        
-          
-        <div class='columns is-centered'>
-            <div class='column'>
-                <h2 class="title is-4">Categories</h2>
-                <button class="button is-primary is-small btn-cat" routerLink="/newcategory">+</button>
-            </div>
-        </div>
-        <div class='columns is-centered'>
-            <div class='column'>
-                <div class='table-container'>
-        
-                    <table class="table is-hoverable">
-                        <thead>
-                            <tr>
-                              <th>Id</th>
-                              <th>Description</th>
-                              <th>Category Parent</th>
-                              <th>Edit</th>
-                              <th>Delete</th>
-                            </tr>
-                          </thead>
-                        <tr  *ngFor="let cat of categories"
-                        [ngStyle]="{'cursor': 'pointer'}" 
-                        (click)="categoryDetails(cat._id)">
-                            <td>
-                                {{cat._id}}
-                            </td>
-                            <td>
-                                {{cat.description}}
-                            </td>
-                            <td>
-                                {{cat.idCategoryParent?.description}}
-                            </td>
-                            <td>
-                                <button class="button is-small is-info btn-cat" (click)="categoryDetails(cat._id)">/</button>
-                            </td>
-                            <td>
-                                <button class="button is-small is-danger btn-cat" (click)="deleteCategory(cat._id)">X</button>
-                            </td>
-                        </tr>
-                    </table>
-                </div>
-        </div>
-        </div>
-
-    </div>    
-</div>    
+<div class='notification is-primary is-light is-one-third'>
+    Total: {{categories.length}} categorías
+</div>
+<div class='table-container'>
+    <table class="table is-hoverable">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Categoría</th>
+                <th>Categoría Padre</th>
+                <th>Editar</th>
+                <th>Borrar</th>
+            </tr>
+            </thead>
+        <tr  *ngFor="let cat of categories"
+        [ngStyle]="{'cursor': 'pointer'}" 
+        (click)="categoryDetails(cat._id)">
+            <td>
+                {{cat._id}}
+            </td>
+            <td>
+                {{cat.description}}
+            </td>
+            <td>
+                {{cat.idCategoryParent?.description}}
+            </td>
+            <td>
+                <i class="fa-solid fa-pen-to-square fa-lg" (click)="categoryDetails(cat._id)"></i>
+            </td>
+            <td>
+                <i class="fa-solid fa-trash fa-lg" (click)="deleteCategory(cat._id)"></i>
+            </td>
+        </tr>
+    </table>
+</div>

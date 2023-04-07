@@ -49,6 +49,7 @@ export class AuthService {
       return localStorage.getItem('id')
   }
 
+
   logOut(){
     localStorage.removeItem('token');
     localStorage.removeItem('id');
@@ -65,6 +66,19 @@ export class AuthService {
 
     let userId = localStorage.getItem('id');
     this.router.navigate(['store-panel/'+ userId])
+  }
+
+  goToModeratorPanel(){
+    let userId = localStorage.getItem('id');
+    let user;
+    if(userId){
+      this.userService.getUser(userId).subscribe(res =>{
+        user = res.data;
+       /// if(user.role == 'admin'){
+        this.router.navigate(['moderator-panel/'+ userId])
+       /// }
+      })
+    }
   }
 
   

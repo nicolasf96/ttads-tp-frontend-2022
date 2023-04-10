@@ -11,13 +11,13 @@
         'assets/no-image.png'
       "
       class="profile-img"
-      *ngIf="identifier"
+      *ngIf="user.profilePicture"
     />
     <img
       #imgPerfil
       [src]="'assets/no-image.png'"
       class="profile-img"
-      *ngIf="!identifier"
+      *ngIf="!user.profilePicture"
     />
     <button
       type=""

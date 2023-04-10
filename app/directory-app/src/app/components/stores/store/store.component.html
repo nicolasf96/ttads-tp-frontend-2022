@@ -1,99 +1,192 @@
-<div class='columns is-centered'>
-  <div class='column is-10 area-container'>
-    
-    <nav class="breadcrumb" aria-label="breadcrumbs">
-        <ul>
-          <li><a href="javascript:void(0)" routerLink="/home">Home</a></li>
-          <li><a href="javascript:void(0)" routerLink="/stores">Stores</a></li>
-          <li class="is-active"><a href="#" aria-current="page">{{store.name}}</a></li>
-        </ul>
-      </nav>
-    <div class='columns is-multiline'>
-      <div class='column is-narrow'>
-        <img [src]="'http://localhost:3000/api/' + store.profilePicture?.path" 
-          class="profile-img" *ngIf="store.profilePicture">
-        <img [src]="'assets/no-image.png'" 
-          class="profile-img" *ngIf="!store.profilePicture">
-      </div>
-      <div class='column'>
-        <h1 class="title is-4">{{store.name}}</h1>
-        <p class="title is-6">@{{store.username}}</p>
-        <p class="block">{{store.description}}</p>
-        <p class="title is-6">Categoría: <span *ngIf="store.category" >{{store.category?.description}} <span class="tag is-info" [ngStyle]="{'cursor' : 'pointer'}" (click)="editCatToggle()">Editar</span> </span><span *ngIf="!store.category"> - Sin Categoría - <span class="tag is-primary" [ngStyle]="{'cursor' : 'pointer'}" (click)="editCatToggle()">Agregar</span></span></p>
-        <div class="select is-primary" [ngClass]="{'hidden' : !editCategory , 'noHidden': editCategory}">
-          <select (change)="onSelectCategory($event)" > 
-            <option value="">Select category</option>
-            <option *ngFor="let cat of categories" [value]="cat._id">{{cat.description}}</option>
-          </select>
+<div class="columns is-multiline mt-5">
+  <div class="column is-2">
+    <img
+      [src]="'http://localhost:3000/api/' + store.profilePicture?.path"
+      class="profile-img"
+      *ngIf="store.profilePicture"
+    />
+    <img
+      [src]="'assets/no-image.png'"
+      class="profile-img"
+      *ngIf="!store.profilePicture"
+    />
+  </div>
+  <div class="column is-7">
+    <div *ngIf="showDiv" class="notification is-primary is-light">
+      Los cambios se han guardado correctamente.
+    </div>
+    <form [formGroup]="storeForm" (ngSubmit)="onSubmit()">
+      <div class="field">
+        <label class="label">Nombre:</label>
+        <div class="control">
+          <input
+            class="input is-outlined"
+            type="text"
+            formControlName="name"
+            placeholder="Ingrese su nombre"
+          />
         </div>
-        <button class="button is-primary" (click)="changeCategory($event)" [ngClass]="{'hidden' : !editCategory , 'noHidden': editCategory}" >Ok</button>
-        <button class="button is-danger is-light" (click)="editCatToggle()" [ngClass]="{'hidden' : !editCategory , 'noHidden': editCategory}">Cancel</button>
+        <p
+          *ngIf="storeForm.get('name').touched && storeForm.get('name').invalid"
+          class="help is-danger"
+        >
+          Este campo es obligatorio
+        </p>
+      </div>
 
+      <div class="field">
+        <label class="label">Username:</label>
+        <div class="control">
+          <input
+            class="input is-outlined"
+            type="text"
+            formControlName="username"
+            placeholder="Ingrese un nombre de usuario"
+          />
+        </div>
+        <p
+          *ngIf="
+            storeForm.get('username').touched &&
+            storeForm.get('username').invalid
+          "
+          class="help is-danger"
+        >
+          Este campo es obligatorio
+        </p>
       </div>
-      <div class='column is-12'>
-        <p class="title is-4">Profile Picture</p>
-          <form  (submit)="uploadPhoto()">
-            <input type="file"   (change)="onPhotoSelected($event)" #photoInput>
-            <button class="button is-primary block">Submit</button>
-          </form>
+      <div class="field">
+        <label class="label">Description:</label>
+        <div class="control">
+          <textarea
+            class="textarea"
+            formControlName="description"
+            placeholder="Escribe aquí una descripción de tu negocio"
+          ></textarea>
+        </div>
+        <p
+          *ngIf="
+            storeForm.get('description').touched &&
+            storeForm.get('description').invalid
+          "
+          class="help is-danger"
+        >
+          Este campo es obligatorio
+        </p>
       </div>
-      <div class='column is-12'>
-        <p class="title is-4">Banner <span class="tag is-primary"  [ngStyle]="{'cursor': 'pointer'}" (click)="bannerToggle()">+</span></p>
-        <form  (submit)="addBannerToStore()" [ngClass]="{'hidden' : !addBannerToggle , 'noHidden': addBannerToggle}">
-          <input type="file" (change)="onBannerSelected($event)">
-          <button class="button is-primary block">Submit</button>
-        </form>
-        <div class='bannerContainer'>
-          <img [src]="'http://localhost:3000/api/' + store.banner?.path" *ngIf="store.banner">
-          <img [src]="'assets/no-banner.png'" *ngIf="!store.banner">
+      <div class="field">
+        <label class="label">Dirección:</label>
+        <div class="control">
+          <input
+            class="input is-outlined"
+            type="text"
+            formControlName="address"
+            placeholder="Ingrese la dirección de su negocio"
+          />
+        </div>
+        <p
+          *ngIf="
+            storeForm.get('address').touched && storeForm.get('address').invalid
+          "
+          class="help is-danger"
+        >
+          Este campo es obligatorio
+        </p>
+      </div>
+      <div class="field">
+        <label class="label">Ciudad:</label>
+        <div class="control">
+          <input
+            class="input is-outlined"
+            type="text"
+            formControlName="city"
+            placeholder="Ingrese la ciudad de su negocio"
+          />
+        </div>
+        <p
+          *ngIf="storeForm.get('city').touched && storeForm.get('city').invalid"
+          class="help is-danger"
+        >
+          Este campo es obligatorio
+        </p>
+      </div>
+      <div class="field">
+        <label class="label">Teléfono:</label>
+        <div class="control">
+          <input
+            class="input is-outlined"
+            type="text"
+            formControlName="telephone"
+            placeholder="Ingrese su teléfono"
+          />
         </div>
       </div>
-      <div class='column is-12'>
-        <p class="title is-4">Imágenes del Store  <span class="tag is-primary"  [ngStyle]="{'cursor': 'pointer'}" (click)="addImageToggle()">+</span></p>
-        <form  (submit)="addImageToStore()" [ngClass]="{'hidden' : !addImagesToggle , 'noHidden': addImagesToggle}">
-          <input type="file" (change)="onPhotoSelected2($event)">
-          <button class="button is-primary block">Submit</button>
-        </form>
-          <div class='images-container'>
-            <div class='img-deco' *ngFor="let img of store.images">
-              <img [src]="'http://localhost:3000/api/' + img.path">
-              <div class='tag is-danger delete-image-button' (click)="deleteImageOfStore(img._id)" [ngStyle]="{'cursor': 'pointer'}"> Eliminar </div>
-            </div>
-          </div>   
-      </div>
-    </div>
-    <div class='columns'>
-      <div class='column'>
-        <div class="tabs is-centered">
-          <ul>
-            <li [class.is-active] = "currentPanel === 'products'" (click)="activateProducts()">
-              <a>
-                <span>Products</span>
-              </a>
-            </li>
-            <li [class.is-active] = "currentPanel === 'reviews'" (click)="activateReviews()">
-              <a>
-                <span>Reviews</span>
-              </a>
-            </li>
-            
-          </ul>
+      <div class="field">
+        <label class="label">Website:</label>
+        <div class="control">
+          <input
+            class="input is-outlined"
+            type="url"
+            formControlName="website"
+            placeholder="Ingrese su usuario de Website"
+          />
         </div>
-    
       </div>
+      <div class="field">
+        <label class="label">Instagram:</label>
+        <div class="control">
+          <input
+            class="input is-outlined"
+            type="text"
+            formControlName="instagram"
+            placeholder="Ingrese su usuario de Instagram"
+          />
+        </div>
+      </div>
+      <div class="field">
+        <label class="label">Twitter:</label>
+        <div class="control">
+          <input
+            class="input is-outlined"
+            type="text"
+            formControlName="twitter"
+            placeholder="Ingrese su usuario de Twitter"
+          />
+        </div>
+      </div>
+      <div class="field">
+        <label class="label">Facebook:</label>
+        <div class="control">
+          <input
+            class="input is-outlined"
+            type="text"
+            formControlName="facebook"
+            placeholder="Ingrese su usuario de Facebook"
+          />
+        </div>
+      </div>
+      <div *ngIf="errorToggle" class="notification is-danger is-light">
+        Los cambios no se han guardado
+      </div>
+      <div class="buttons is-pulled-right">
+        <button type="submit" class="button is-primary">Guardar cambios</button>
+      </div>
+    </form>
+  </div>
+  <div class="column is-3 p-5">
+    <button class="button is-small mr-3 mb-4" (click)="goToStore(store._id)">
+      Visualizar
+    </button>
+    <div class="my-3">
+      <i class="fa-brands fa-instagram fa-xl mr-2"></i>
+      {{ store.instagram }}
     </div>
-    
-    <app-store-details [store]="store" *ngIf="currentPanel=='details'">
-    
-    </app-store-details>
-    
-    <app-products-of-store [store]="store" *ngIf="currentPanel=='products'">
-    
-    </app-products-of-store>
-    
-    <app-reviews-of-store [reviews]="reviews" *ngIf="currentPanel=='reviews'"> 
-    
-    </app-reviews-of-store>
+    <div class="my-3">
+      <i class="fa-brands fa-facebook fa-xl mr-2"></i>
+      {{ store.facebook }}
+    </div>
+    <div class="my-3">
+      <i class="fa-brands fa-twitter fa-xl mr-2"></i>
+      {{ store.twitter }}
+    </div>
   </div>
 </div>
-

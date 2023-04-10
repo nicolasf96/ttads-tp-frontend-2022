@@ -1,50 +1,65 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { FormControl, FormGroup, NgModel, Validators } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Category } from 'src/app/models/category';
 import { CategoriesService } from 'src/app/services/categories/categories.service';
 
 @Component({
   selector: 'app-edit-categories',
   templateUrl: './edit-categories.component.html',
-  styleUrls: ['./edit-categories.component.scss']
+  styleUrls: ['./edit-categories.component.scss'],
 })
 export class EditCategoriesComponent implements OnInit {
-
-  categoryForm = new FormGroup({
-    description: new FormControl('', [Validators.required, Validators.maxLength(12)]),
-    idCategoryParent: new FormControl('', [Validators.minLength(24)]),
-  })
-
-  identifier = '';
+  @Input() identifier: any;
   category: any;
+  categoryForm: any;
+  categories: any;
 
-
-  constructor(private service: CategoriesService,
+  constructor(
+    private service: CategoriesService,
     private route: ActivatedRoute,
-    private router: Router) { }
-
+    private router: Router
+  ) {}
 
   ngOnInit(): void {
-    this.route.params.subscribe( (params) => this.identifier = params['id'] )
-    this.service.getCategory(this.identifier).subscribe( response => this.category = response.data);
+    this.service
+      .getCategory(this.identifier)
+      .subscribe((response) => (this.category = response.data));
+    this.service
+      .getCategories()
+      .subscribe((res) => (this.categories = res.data));
+    this.crearFormulario();
   }
 
+  ngOnChanges() {
+    this.service
+      .getCategory(this.identifier)
+      .subscribe((response) => (this.category = response.data));
+    this.crearFormulario();
+  }
+
+  crearFormulario() {
+    this.categoryForm = new FormGroup({
+      _id: new FormControl(this.category._id, [Validators.required]),
+      description: new FormControl(this.category.description, [
+        Validators.required,
+        Validators.maxLength(12),
+      ]),
+      categoryParent: new FormControl(this.category.idCategoryParent, [
+        Validators.minLength(24),
+      ]),
+    });
+  }
 
   onSubmit() {
-    console.log("this.categoryForm.value");
-    console.log(this.categoryForm.value);
-    this.category.description = this.categoryForm.value.description;
-    this.service.editCategory(this.category).subscribe( response => console.log(response));;
-    this.router.navigate(['categories'])
+    this.service
+      .editCategory(this.categoryForm.value)
+      .subscribe((response) => console.log(response));
+    this.categoryForm.reset();
   }
 
-  initialize(){
+  initialize() {
     this.categoryForm.patchValue({
-      description: this.category.description
-    })
+      description: this.category.description,
+    });
   }
-
- }
-
-
+}

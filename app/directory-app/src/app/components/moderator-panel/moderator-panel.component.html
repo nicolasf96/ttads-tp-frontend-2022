@@ -23,15 +23,13 @@
       <p class="title is-5">Dashboard</p>
       <app-mod-dashboard *ngIf="panel == 'Dashboard'"></app-mod-dashboard>
     </section>
-    <section class="box p-6" *ngIf="panel == 'Categories'">
-      <p class="title is-5">Categorías</p>
+    <section class="" *ngIf="panel == 'Categories'">
       <app-categories></app-categories>
     </section>
     <section class="" *ngIf="panel == 'Users'">
       <app-users></app-users>
     </section>
-    <section class="box p-6" *ngIf="panel == 'Stores'">
-      <p class="title is-5">Tiendas</p>
+    <section class="" *ngIf="panel == 'Stores'">
       <app-stores></app-stores>
     </section>
   </div>

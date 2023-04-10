@@ -1,24 +1,27 @@
-
-.profile-img{
-    width: 40px;
-    overflow: hidden;
-    aspect-ratio: 1 / 1;
-    border-radius: 50%;
-    object-fit: cover;
-
+.profile-img {
+  width: 40px;
+  overflow: hidden;
+  aspect-ratio: 1 / 1;
+  border-radius: 50%;
+  object-fit: cover;
 }
 
-table.is-hoverable{
-    :hover{
-        background-color: rgb(238, 238, 238);
-    }
-    th{
-        font-size: 12px;
-        font-weight: bold;
-    }
-    td{
-        font-size: 12px;
-        vertical-align: middle;
-
-    }
+table.is-hoverable {
+  :hover {
+    background-color: rgb(238, 238, 238);
+  }
+  & td svg.fa-pen-to-square:hover {
+    color: blue;
+  }
+  & td svg.fa-trash:hover {
+    color: red;
+  }
+  th {
+    font-size: 12px;
+    font-weight: bold;
+  }
+  td {
+    font-size: 12px;
+    vertical-align: middle;
+  }
 }

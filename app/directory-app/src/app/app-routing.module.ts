@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AuthGuard } from './auth.guard';
 import { CreateCategoriesComponent } from './components/categories/create-categories/create-categories.component';
-import { EditCategoriesComponent } from './components/categories/edit-categories/edit-categories.component';
 import { ListingViewComponent } from './components/listing-view/listing-view.component';
 import { LoginComponent } from './components/login/login.component';
 import { ModeratorPanelComponent } from './components/moderator-panel/moderator-panel.component';
@@ -11,7 +10,6 @@ import { ProductViewComponent } from './components/product-view/product-view.com
 import { SingupComponent } from './components/singup/singup.component';
 import { StoreViewComponent } from './components/store-view/store-view.component';
 import { CreateStoreComponent } from './components/stores/create-store/create-store.component';
-import { StoreComponent } from './components/stores/store/store.component';
 import { NewStoreComponent } from './components/user-panel/new-store/new-store.component';
 import { PanelProductDetailComponent } from './components/user-panel/panel-product-detail/panel-product-detail.component';
 import { PanelStoresComponent } from './components/user-panel/panel-stores/panel-stores.component';
@@ -23,11 +21,9 @@ import { StoreGuard } from './store.guard';
 
 const routes: Routes = [
   { path: 'newstore', component: CreateStoreComponent },
-  { path: 'categories/:id', component: EditCategoriesComponent },
   { path: 'newcategory', component: CreateCategoriesComponent },
   { path: 'login', component: LoginComponent },
   { path: 'singup', component: SingupComponent },
-  { path: 'store/:id', component: StoreComponent },
   { path: 'storeDetails/:id/:idUser', component: StoreViewComponent },
   { path: 'storeDetails/:id', component: StoreViewComponent },
   { path: 'listingview', component: ListingViewComponent },

@@ -1,62 +1,77 @@
-<div class='table-container'>
-  <table class="table is-hoverable">
+<div class="box p-6">
+  <p class="title is-5">Negocios</p>
+  <div class="table-container">
+    <table class="table is-hoverable">
       <thead>
-          <tr>
-            <th>Foto</th>
-            <th>Nombre</th>
-            <th>Username</th>
-            <th>Dirección</th>
-            <th>Ciudad</th>
-            <th>Servicio</th>
-            <th><i class="fa-solid fa-star"></i></th>
-            <th>Categoría</th>
-            <th>Usuario</th>
-            <th>Editar</th>
-            <th>Borrar</th>
-          </tr>
-        </thead>
-      <tr  *ngFor="let store of stores"
-      [ngStyle]="{'cursor': 'pointer'}" 
-      (click)="goToStore(store._id)">
-          <td>
-            <img [src]="'http://localhost:3000/api/' + store.profilePicture?.path" 
-              class="profile-img" *ngIf="store.profilePicture">
-            <img [src]="'assets/no-image.png'" 
-              class="profile-img" *ngIf="!store.profilePicture">
-          </td>
-          <td>
-              {{store.name}}
-          </td>
-          <td>
-              @{{store.username}}
-          </td>
-          <td>
-              {{store.address}}
-          </td>
-          <td>
-              {{store.city}}
-          </td>
-          <td>
-            {{store.isService}}
+        <tr>
+          <th>Foto</th>
+          <th>Nombre</th>
+          <th>Username</th>
+          <th>Dirección</th>
+          <th>Ciudad</th>
+          <th>Servicio</th>
+          <th><i class="fa-solid fa-star"></i></th>
+          <th>Categoría</th>
+          <th>Usuario</th>
+          <th>Editar</th>
+          <th>Borrar</th>
+        </tr>
+      </thead>
+      <tr
+        *ngFor="let store of stores"
+        [ngStyle]="{ cursor: 'pointer' }"
+        (click)="editStore(store)"
+      >
+        <td>
+          <img
+            [src]="'http://localhost:3000/api/' + store.profilePicture?.path"
+            class="profile-img"
+            *ngIf="store.profilePicture"
+          />
+          <img
+            [src]="'assets/no-image.png'"
+            class="profile-img"
+            *ngIf="!store.profilePicture"
+          />
         </td>
         <td>
-            {{store.valoration | number: '1.1-1'}}
+          {{ store.name }}
+        </td>
+        <td>@{{ store.username }}</td>
+        <td>
+          {{ store.address }}
+        </td>
+        <td>
+          {{ store.city }}
+        </td>
+        <td>
+          {{ store.isService }}
+        </td>
+        <td>
+          {{ store.valoration | number : "1.1-1" }}
         </td>
         <td *ngIf="store.category">
-            {{store.category?.description}}
+          {{ store.category?.description }}
         </td>
-        <td *ngIf="!store.category">
-          - Sin Categoría -
-      </td>
+        <td *ngIf="!store.category">- Sin Categoría -</td>
         <td>
-            {{store.user?.username}}
+          {{ store.user?.username }}
         </td>
-          <td>
-              <i class="fa-solid fa-pen-to-square fa-lg" (click)="goToStore(store._id)"></i>
-          </td>
-          <td>
-              <i class="fa-solid fa-trash fa-lg"></i>
-          </td>
+        <td>
+          <i class="fa-solid fa-pen-to-square fa-lg"></i>
+        </td>
+        <td>
+          <i class="fa-solid fa-trash fa-lg"></i>
+        </td>
       </tr>
-  </table> 
+    </table>
+  </div>
+</div>
+
+<div class="box p-6">
+  <p class="title is-5">Editar Negocio</p>
+  <div class="notification is-info is-light" *ngIf="!store">
+    Selecciona un Negocio para editar
+  </div>
+  <app-store [store]="store" *ngIf="store"></app-store>
 </div>

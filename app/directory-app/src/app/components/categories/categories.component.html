@@ -1,40 +1,61 @@
-<div class='columns'>
-    <div class='column is-one-third'>
-        <div class='notification is-primary is-light'>
-            Total: {{categories.length}} categorías
-        </div>
-
-    </div>
+<div class="box p-6">
+  <p class="title is-5 pb-4 mb-4">Agregar Categoría</p>
+  <app-create-categories> </app-create-categories>
 </div>
-<div class='table-container'>
+<div class="box p-6 mt-5">
+  <p class="title is-5">Categorías</p>
+  <div class="table-container">
+    Total: {{ categories.length }} categorías
     <table class="table is-hoverable">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Categoría</th>
-                <th>Categoría Padre</th>
-                <th>Editar</th>
-                <th>Borrar</th>
-            </tr>
-            </thead>
-        <tr  *ngFor="let cat of categories"
-        [ngStyle]="{'cursor': 'pointer'}" 
-        (click)="categoryDetails(cat._id)">
-            <td>
-                {{cat._id}}
-            </td>
-            <td>
-                {{cat.description}}
-            </td>
-            <td>
-                {{cat.idCategoryParent?.description}}
-            </td>
-            <td>
-                <i class="fa-solid fa-pen-to-square fa-lg" (click)="categoryDetails(cat._id)"></i>
-            </td>
-            <td>
-                <i class="fa-solid fa-trash fa-lg" (click)="deleteCategory(cat._id)"></i>
-            </td>
+      <thead>
+        <tr>
+          <th>Id</th>
+          <th>Categoría</th>
+          <th>Categoría Padre</th>
+          <th>Editar</th>
+          <th>Borrar</th>
         </tr>
+      </thead>
+      <tr
+        *ngFor="let cat of categories"
+        [ngStyle]="{ cursor: 'pointer' }"
+        (click)="this.identifier = cat._id"
+      >
+        <td>
+          {{ cat._id }}
+        </td>
+        <td>
+          {{ cat.description }}
+        </td>
+        <td>
+          {{ cat.idCategoryParent?.description }}
+        </td>
+        <td>
+          <i
+            class="fa-solid fa-pen-to-square fa-lg"
+            (click)="this.identifier = cat._id"
+          ></i>
+        </td>
+        <td>
+          <i class="fa-solid fa-trash fa-lg"></i>
+        </td>
+      </tr>
     </table>
+  </div>
+</div>
+
+<div class="box p-6 mt-5">
+  <p
+    class="title is-5 pb-4 mb-4"
+    style="border-bottom: 1px solid rgba(0, 0, 0, 0.1)"
+  >
+    Editar Categoría
+  </p>
+  <div class="notification is-info is-light" *ngIf="!identifier">
+    Selecciona una categoría para editar
+  </div>
+  <app-edit-categories
+    [identifier]="identifier"
+    *ngIf="identifier"
+  ></app-edit-categories>
 </div>

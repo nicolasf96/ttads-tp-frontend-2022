@@ -1,45 +1,38 @@
-<div class='columns is-centered'>
-  <div class='column is-6   area-container'>
-      
-    
-    <nav class="breadcrumb" aria-label="breadcrumbs">
-      <ul>
-        <li><a href="javascript:void(0)" routerLink="/home">Home</a></li>
-        <li><a href="javascript:void(0)" routerLink="/categories">Categories</a></li>
-        <li class="is-active"><a href="#" aria-current="page">Edit {{category.description}}</a></li>
-      </ul>
-    </nav>
-    
-    <div *ngIf="category">
-      <div class='columns is-centered'>
-        <div class='column is-12 has-text-centered'>
-            <h3 class="title is-4">{{category.description | uppercase}} Details</h3>
-        </div>
+<div *ngIf="category">
+  <div class="columns is-centered">
+    <div class="column is-12">
+      <div class="tag is-info is-large">
+        {{ category.description }}
+      </div>
     </div>
-    <div class='columns is-centered'>
-        <div class='column is-8'>
-            <div class='card'>
-                <div class='card-content block'>
-                    <form [formGroup]="categoryForm" (ngSubmit)="onSubmit()">
-                        <div class="field">
-                            <label class="label">Description</label>
-                            <div class="control">
-                              <input class="input" type="text" placeholder="{{category.description}}" formControlName="description">
-                            </div>
-                        </div>
-                        <div class="field">
-                            <label class="label">Category Parent</label>
-                            <div class="control">
-                              <input class="input" type="text" placeholder="Text input" formControlName="idCategoryParent">
-                            </div>
-                        </div>
-                        <button class="button is-primary" type="submit" [disabled]="!categoryForm.valid">Submit</button>
-                        <button class="button is-secondary" type="button" (click)="initialize()" >Reset</button>
-                      </form>
-                </div>
-            </div>
+  </div>
+  <div class="columns">
+    <div class="column is-12">
+      <form [formGroup]="categoryForm" (ngSubmit)="onSubmit()">
+        <div class="field">
+          <label class="label">Descripción</label>
+          <div class="control">
+            <input class="input" type="text" formControlName="description" />
+          </div>
         </div>
-    </div>
+        <div class="field">
+          <label class="label">Category Parent</label>
+          <div class="select">
+            <select formControlName="categoryParent">
+              <option *ngFor="let cat of categories" [value]="cat._id">
+                {{ cat.description }}
+              </option>
+            </select>
+          </div>
+        </div>
+        <button
+          class="button is-info"
+          type="submit"
+          [disabled]="!categoryForm.valid"
+        >
+          Editar Categoría
+        </button>
+      </form>
     </div>
   </div>
 </div>

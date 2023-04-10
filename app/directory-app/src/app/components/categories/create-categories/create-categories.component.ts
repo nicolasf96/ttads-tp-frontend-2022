@@ -1,50 +1,51 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { CategoriesService } from 'src/app/services/categories/categories.service';
-import { FormGroup, FormControl, Form, Validators, AbstractControl } from '@angular/forms';
 
 @Component({
   selector: 'app-create-categories',
   templateUrl: './create-categories.component.html',
-  styleUrls: ['./create-categories.component.scss']
+  styleUrls: ['./create-categories.component.scss'],
 })
 export class CreateCategoriesComponent implements OnInit {
-
   categoryForm = new FormGroup({
-    description: new FormControl('', [Validators.required, Validators.maxLength(20)]),
-    idCategoryParent: new FormControl('', [Validators.minLength(24)]),
-  })
+    description: new FormControl('', [
+      Validators.required,
+      Validators.maxLength(20),
+    ]),
+    categoryParent: new FormControl('', [Validators.minLength(24)]),
+  });
 
-  category:any = {};
+  category: any = {};
+  categories: any;
 
-  constructor(private service: CategoriesService, private router: Router) { 
-    this.categoryForm.valueChanges.subscribe(value => console.log(value));
+  constructor(
+    private service: CategoriesService,
+    private router: Router,
+    private categoryService: CategoriesService
+  ) {
+    this.categoryForm.valueChanges.subscribe((value) => console.log(value));
   }
-
-
 
   ngOnInit(): void {
+    this.categoryService
+      .getCategories()
+      .subscribe((res) => (this.categories = res.data));
   }
-
-
 
   onSubmit() {
-    console.log("this.categoryForm.value");
-    console.log(this.categoryForm.value);
-    let cat:any = {
-      description: ""
-    }
-    if(this.categoryForm.value.idCategoryParent === ''){
-      cat.description = this.categoryForm.value.description
+    let cat: any = {
+      description: '',
+    };
+    if (this.categoryForm.value.categoryParent === '') {
+      cat.description = this.categoryForm.value.description;
       this.service.createCategory(cat);
-    }else{
+    } else {
       this.service.createCategory(this.categoryForm.value);
     }
-
-    this.router.navigate(['categories'])
   }
   initialize() {
-    this.categoryForm.reset()
-  }  
-
+    this.categoryForm.reset();
+  }
 }

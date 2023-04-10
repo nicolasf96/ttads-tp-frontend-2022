@@ -74,7 +74,6 @@ export class EditUsersComponent implements OnInit {
 
   uploadPhoto() {
     let data: any;
-    this.imageService.deleteImage(this.user.profilePicture._id);
     this.imageService
       .createImageProfileUser(this.user._id, this.file)
       .subscribe((res) => {

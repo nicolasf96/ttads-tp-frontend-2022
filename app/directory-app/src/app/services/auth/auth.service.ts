@@ -26,11 +26,13 @@ export class AuthService {
   hasStore() {
     let id = this.getActualId();
     let data;
+    let store;
     if (id) {
       this.userService.getUser(id).subscribe((res) => {
-        data = res.store;
+        data = res.data;
+        store = data.store;
       });
-      if (data) {
+      if (store) {
         return true;
       } else {
         return false;

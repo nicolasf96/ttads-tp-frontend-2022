@@ -1,30 +1,32 @@
-
-.profile-img{
-    height: 40px;
-    width: 40px;
-    /* los siguientes valores son independientes del tamaño del círculo */
-    background-repeat: no-repeat;
-    background-position: 50%;
-    border-radius: 50%;
-    background-size: 100% auto;
+.profile-img {
+  object-fit: cover;
+  width: 40px;
+  height: 40px;
+  /* los siguientes valores son independientes del tamaño del círculo */
+  background-repeat: no-repeat;
+  background-position: 50%;
+  border-radius: 50%;
+  background-size: 100% auto;
 }
 
-table.is-hoverable{
-    :hover{
-        background-color: rgb(238, 238, 238);
-    }
-    th{
-        font-size: 12px;
-        font-weight: bold;
-    }
-    td{
-        font-size: 12px;
-        vertical-align: middle;
-
-    }
+table.is-hoverable {
+  :hover {
+    background-color: rgb(238, 238, 238);
+  }
+  th {
+    font-size: 12px;
+    font-weight: bold;
+  }
+  td {
+    font-size: 12px;
+    vertical-align: middle;
+  }
 }
 
-.area-container{
-    padding: 80px 40px;
-    min-height: 800px;
+.area-container {
+  padding: 80px 40px;
+  min-height: 800px;
+}
+
+.my-pagination ::ng-deep .ngx-pagination .current {
 }

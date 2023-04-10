@@ -1,12 +1,11 @@
-.gallery{
-    padding: 30px;
+.gallery {
+  padding: 30px;
 }
 
-.foto{
-    border-radius: 5%;
-    aspect-ratio: 4 / 4;
-    width: 100%;
-    object-fit: cover;
-    overflow: hidden;
+.foto {
+  border-radius: 0;
+  aspect-ratio: 4 / 4;
+  width: 100%;
+  object-fit: cover;
+  overflow: hidden;
 }
-

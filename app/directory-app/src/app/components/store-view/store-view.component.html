@@ -1,239 +1,144 @@
+<div class="columns is-centered fondo">
+  <div class="column is-9" style="padding: 0px">
+    <div class="banner box p-0">
+      <img
+        [src]="'http://localhost:3000/api/' + store.banner?.path"
+        *ngIf="store.banner"
+      />
+      <img [src]="'assets/no-portada.jpg'" *ngIf="!store.banner" />
+      <h1 class="title is-1" *ngIf="store.banner">{{ store.name }}</h1>
+      <h1 class="title is-1 noBanner" *ngIf="!store.banner">
+        {{ store.name }}
+      </h1>
+    </div>
 
-<div class='columns is-centered fondo' >
-    <div class='column is-9' style="padding: 0px;">
-      <div class="banner box p-0" >
-          <img  [src]="'http://localhost:3000/api/' + store.banner?.path" *ngIf="store.banner">
-          <img  [src]="'assets/no-portada.jpg'" *ngIf="!store.banner">
-          <h1 class="title is-1" *ngIf="store.banner">{{store.name}}</h1>
-          <h1 class="title is-1 noBanner" *ngIf="!store.banner">{{store.name}}</h1>
-      </div> 
-   
-      <div class='columns is-multiline'>
-        <div class='column is-4'>
-          <div class='p-6 box'>
-              <div class='has-text-centered'>
-                <img class="profile-img" [src]="'http://localhost:3000/api/' + store.profilePicture?.path" *ngIf="store.profilePicture">
-                <img class="profile-img" [src]="'assets/no-banner.png'" *ngIf="!store.profilePicture">
-              </div>
-              <div class='has-text-centered my-5'>
-                <h2 class="title is-4 mb-2">{{store.name}}</h2>
-                <p class="title is-5">@{{store.username}}</p>
-                <div class="is-inline-block tag is-primary is-large my-4 mx-auto has-text-centered" >{{store.category?.description}}</div>
-              </div>
-              
-              <div class='has-text-centered'>
-
-                <div class="mb-5" *ngIf="store.address">
-                  <div class='mb-1 is-size-6'>Dirección</div>
-                  <p class="is-size-5">{{store.address}}, {{store.city}}</p>
-                </div>
-  
-                <div class="mb-5"  *ngIf="store.valoration">
-                  <div class='mb-1 is-size-6'>Valoración</div>
-                  <div class='valoration'>{{ store.valoration ? store.valoration.toString().slice(0, 3) : '' }} </div>
-                  <div class="stars">
-                    <img  [src]="'assets/star.svg'">
-                    <img  [src]="'assets/star.svg'">
-                    <img  [src]="'assets/star.svg'">
-                    <img  [src]="'assets/star.svg'">
-                    <img  [src]="'assets/star.svg'">
-                  </div>
-                </div>
-  
-                <div id="center" class="mb-5"  *ngIf="store.website">
-                  <div class='mb-1 is-size-6'>Website</div>
-                  <a class="is-size-5"href="https:/{{store.website}}" target="_blank">{{store.website}}</a>
-                </div>
-  
-                <div class="mb-5"  *ngIf="store.telephone">
-                  <div class='mb-1 is-size-6'>Teléfono</div>
-                  <a class="d-inline-block is-size-5" href="tel:store.telephone">
-                    +54 9 {{store.telephone}}
-                  </a>
-                </div>
-              </div>
+    <div class="columns is-multiline">
+      <div class="column is-4">
+        <div class="p-6 box">
+          <div class="has-text-centered">
+            <img
+              class="profile-img"
+              [src]="'http://localhost:3000/api/' + store.profilePicture?.path"
+              *ngIf="store.profilePicture"
+            />
+            <img
+              class="profile-img"
+              [src]="'assets/no-banner.png'"
+              *ngIf="!store.profilePicture"
+            />
+          </div>
+          <div class="has-text-centered my-5">
+            <h2 class="title is-4 mb-2">{{ store.name }}</h2>
+            <p class="title is-5">@{{ store.username }}</p>
+            <div
+              class="is-inline-block tag is-primary is-large my-4 mx-auto has-text-centered"
+              style="line-height: 2"
+            >
+              {{ store.category?.description }}
+            </div>
           </div>
 
+          <div class="has-text-centered">
+            <div class="mb-5" *ngIf="store.address">
+              <div class="mb-1 is-size-6">Dirección</div>
+              <p class="is-size-5">{{ store.address }}, {{ store.city }}</p>
+            </div>
 
-          <div class='p-6 box'>
-            <h3 class="title is-5">Información Adicional</h3>
-            <hr>
-            <p class="trivial-text">{{store.description}}</p>
-            <hr>
+            <div class="mb-5" *ngIf="store.valoration">
+              <div class="mb-1 is-size-6">Valoración</div>
+              <div class="valoration">
+                {{
+                  store.valoration
+                    ? store.valoration.toString().slice(0, 3)
+                    : ""
+                }}
+              </div>
+              <div class="">
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+              </div>
+            </div>
 
-            <div class='flex-wrap-start'>
-              <div *ngIf="store.instagram" class="mr-4">
-                <a class="social-link" href="https://www.instagram.com/{{store.instagram}}" target="_blank" rel="noopener noreferrer">
-                  <svg id="instagram" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-                  viewBox="0 0 112.196 112.196" style="enable-background:new 0 0 112.196 112.196;" xml:space="preserve">
-               <g>
-                 <circle id="instagram" cx="56.098" cy="56.097" r="56.098"/>
-                 <path id="instagram" style="fill:#FFFFFF;" d="M79.124,22.506h-46.05c-5.83,0-10.56,4.73-10.56,10.57v46.05c0,5.83,4.73,10.56,10.56,10.56h46.05
-                   c5.83,0,10.56-4.73,10.56-10.56v-46.05C89.684,27.236,84.954,22.506,79.124,22.506z M71.983,30.276l8.44-0.02h0.02
-                   c0.81-0.01,1.47,0.65,1.47,1.45v8.47c0,0.81-0.65,1.46-1.46,1.46l-8.43,0.03c-0.81,0-1.46-0.65-1.46-1.45l-0.03-8.47
-                   C70.523,30.936,71.173,30.286,71.983,30.276z M45.804,50.326c0.22-0.38,0.45-0.76,0.71-1.12c2.15-2.98,5.64-4.93,9.58-4.93
-                   c3.95,0,7.44,1.95,9.59,4.93c0.26,0.36,0.49,0.74,0.71,1.13c0.96,1.7,1.53,3.67,1.53,5.76c0,6.52-5.31,11.82-11.83,11.82
-                   c-6.52,0-11.82-5.3-11.82-11.82C44.273,54.006,44.834,52.036,45.804,50.326z M83.144,76.706c0,3.55-2.89,6.44-6.44,6.44h-41.21
-                   c-3.55,0-6.44-2.89-6.44-6.44v-27.5h10.03c-0.25,0.61-0.47,1.25-0.65,1.89c-0.46,1.59-0.7,3.27-0.7,5
-                   c0,10.13,8.24,18.37,18.36,18.37c10.13,0,18.37-8.24,18.37-18.37c0-1.73-0.25-3.41-0.7-5c-0.19-0.64-0.4-1.28-0.65-1.89h10.03
-                   V76.706z"/>
-               </g>
-               <g>
-               </g>
-               <g>
-               </g>
-               <g>
-               </g>
-               <g>
-               </g>
-               <g>
-               </g>
-               <g>
-               </g>
-               <g>
-               </g>
-               <g>
-               </g>
-               <g>
-               </g>
-               <g>
-               </g>
-               <g>
-               </g>
-               <g>
-               </g>
-               <g>
-               </g>
-               <g>
-               </g>
-               <g>
-               </g>
-                  </svg>
+            <div id="center" class="mb-5" *ngIf="store.website">
+              <div class="mb-1 is-size-6">Website</div>
+              <a
+                class="is-size-5"
+                href="https:/{{ store.website }}"
+                target="_blank"
+                >{{ store.website }}</a
+              >
+            </div>
+
+            <div class="mb-5" *ngIf="store.telephone">
+              <div class="mb-1 is-size-6">Teléfono</div>
+              <a class="d-inline-block is-size-5" href="tel:store.telephone">
+                +54 9 {{ store.telephone }}
               </a>
-              </div>
-              <div *ngIf="store.twitter" class="mr-4">
-                <a class="social-link" href="https://www.twitter.com/{{store.twitter}}" target="_blank" rel="noopener noreferrer">
-                  <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-	 viewBox="0 0 112.197 112.197" style="enable-background:new 0 0 112.197 112.197;" xml:space="preserve">
-<g>
-	<circle style="fill:#55ACEE;" cx="56.099" cy="56.098" r="56.098"/>
-	<g>
-		<path style="fill:#F1F2F2;" d="M90.461,40.316c-2.404,1.066-4.99,1.787-7.702,2.109c2.769-1.659,4.894-4.284,5.897-7.417
-			c-2.591,1.537-5.462,2.652-8.515,3.253c-2.446-2.605-5.931-4.233-9.79-4.233c-7.404,0-13.409,6.005-13.409,13.409
-			c0,1.051,0.119,2.074,0.349,3.056c-11.144-0.559-21.025-5.897-27.639-14.012c-1.154,1.98-1.816,4.285-1.816,6.742
-			c0,4.651,2.369,8.757,5.965,11.161c-2.197-0.069-4.266-0.672-6.073-1.679c-0.001,0.057-0.001,0.114-0.001,0.17
-			c0,6.497,4.624,11.916,10.757,13.147c-1.124,0.308-2.311,0.471-3.532,0.471c-0.866,0-1.705-0.083-2.523-0.239
-			c1.706,5.326,6.657,9.203,12.526,9.312c-4.59,3.597-10.371,5.74-16.655,5.74c-1.08,0-2.15-0.063-3.197-0.188
-			c5.931,3.806,12.981,6.025,20.553,6.025c24.664,0,38.152-20.432,38.152-38.153c0-0.581-0.013-1.16-0.039-1.734
-			C86.391,45.366,88.664,43.005,90.461,40.316L90.461,40.316z"/>
-	</g>
-</g>
-<g>
-</g>
-<g>
-</g>
-<g>
-</g>
-<g>
-</g>
-<g>
-</g>
-<g>
-</g>
-<g>
-</g>
-<g>
-</g>
-<g>
-</g>
-<g>
-</g>
-<g>
-</g>
-<g>
-</g>
-<g>
-</g>
-<g>
-</g>
-<g>
-</g>
-                  </svg>
-                </a>
-              </div>
-              <div *ngIf="store.facebook" class="mr-4">
-                <a class="social-link" href="https://www.facebook.com/{{store.facebook}}" target="_blank" rel="noopener noreferrer">
-                  <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-	 viewBox="0 0 291.319 291.319" style="enable-background:new 0 0 291.319 291.319;" xml:space="preserve">
-<g>
-	<path style="fill:#3B5998;" d="M145.659,0c80.45,0,145.66,65.219,145.66,145.66c0,80.45-65.21,145.659-145.66,145.659
-		S0,226.109,0,145.66C0,65.219,65.21,0,145.659,0z"/>
-	<path style="fill:#FFFFFF;" d="M163.394,100.277h18.772v-27.73h-22.067v0.1c-26.738,0.947-32.218,15.977-32.701,31.763h-0.055
-		v13.847h-18.207v27.156h18.207v72.793h27.439v-72.793h22.477l4.342-27.156h-26.81v-8.366
-		C154.791,104.556,158.341,100.277,163.394,100.277z"/>
-</g>
-<g>
-</g>
-<g>
-</g>
-<g>
-</g>
-<g>
-</g>
-<g>
-</g>
-<g>
-</g>
-<g>
-</g>
-<g>
-</g>
-<g>
-</g>
-<g>
-</g>
-<g>
-</g>
-<g>
-</g>
-<g>
-</g>
-<g>
-</g>
-<g>
-</g>
-                  </svg>
-                </a>
-              </div>
             </div>
           </div>
         </div>
 
+        <div class="p-6 box">
+          <h3 class="title is-5">Información Adicional</h3>
+          <hr />
+          <p class="trivial-text">{{ store.description }}</p>
+          <hr />
 
-        <div class='column is-8'>
-       
-                <div class='box mb-5'>
-                  <app-images [store]="store"></app-images>
-                </div>
-      
-       
-                 <div class='box my-5'>
-                   <app-products></app-products>
-                 </div>
-       
-                 <div class='box mt-5'>
-                   <app-add-review></app-add-review>
-                 </div>
-       
-                 <div class='box my-5'>
-                   <app-reviews></app-reviews>
-                 </div>
-       
-               </div>
-             </div>
-           </div>
-         </div>
-       
-       
-       
-       
+          <div class="flex-wrap-start">
+            <div *ngIf="store.instagram" class="mr-4">
+              <a
+                class="social-link"
+                href="https://www.instagram.com/{{ store.instagram }}"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <i class="fa-brands fa-instagram fa-2xl"></i>
+              </a>
+            </div>
+            <div *ngIf="store.twitter" class="mr-4">
+              <a
+                class="social-link"
+                href="https://www.twitter.com/{{ store.twitter }}"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <i class="fa-brands fa-twitter fa-2xl"></i>
+              </a>
+            </div>
+            <div *ngIf="store.facebook" class="mr-4">
+              <a
+                class="social-link"
+                href="https://www.facebook.com/{{ store.facebook }}"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <i class="fa-brands fa-facebook-f fa-2xl"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="column is-8">
+        <div class="box mb-5">
+          <app-images [store]="store"></app-images>
+        </div>
+
+        <div class="box my-5">
+          <app-products></app-products>
+        </div>
+
+        <div class="box mt-5">
+          <app-add-review></app-add-review>
+        </div>
+
+        <div class="box my-5">
+          <app-reviews></app-reviews>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

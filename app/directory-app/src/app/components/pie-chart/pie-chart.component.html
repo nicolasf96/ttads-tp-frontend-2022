@@ -1,1 +1,23 @@
-<p>pie-chart works!</p>
+<!-- <canvas
+  baseChart
+  [type]="'pie'"
+  [datasets]="pieChartDatasets"
+  [labels]="pieChartLabels"
+  [options]="pieChartOptions"
+  [plugins]="pieChartPlugins"
+  [legend]="pieChartLegend"
+>
+</canvas> -->
+
+<div style="display: block">
+  <canvas
+    baseChart
+    width="400"
+    height="400"
+    [type]="'line'"
+    [data]="lineChartData"
+    [options]="lineChartOptions"
+    [legend]="lineChartLegend"
+  >
+  </canvas>
+</div>

@@ -1,88 +1,106 @@
-<div class='columns is-centered navbar-style p-0 m-0'>
-  <div class='column is-12 p-0 m-0' style="margin-bottom: 0">
-      <nav class="navbar is-dark" role="navigation" aria-label="main navigation" style="height: 80px; padding: 0 10%;">
+<div class="columns is-centered navbar-style p-0 m-0">
+  <div class="column is-12 p-0 m-0" style="margin-bottom: 0">
+    <nav
+      class="navbar is-dark"
+      role="navigation"
+      aria-label="main navigation"
+      style="height: 80px; padding: 0 10%"
+    >
+      <div class="navbar-brand">
+        <a class="navbar-item navigation-title" href="#">
+          <span style="color: #ffffff !important">
+            <i
+              class="fa-solid fa-house mr-2"
+              style="color: #ffffff !important"
+            ></i>
+          </span>
+          Inicio
+        </a>
 
-          <div class="navbar-brand">
-            <a class="navbar-item navigation-title" href="#">
-              <span style="color: #ffffff!important;">
-                <i class="fa-solid fa-house mr-2" style="color: #ffffff!important;"></i>
-              </span>
-              Inicio
-            </a>
-        
-            <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
-              <span aria-hidden="true"></span>
-              <span aria-hidden="true"></span>
-              <span aria-hidden="true"></span>
-            </a>
+        <a
+          role="button"
+          class="navbar-burger"
+          aria-label="menu"
+          aria-expanded="false"
+          data-target="navbarBasicExample"
+        >
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+        </a>
+      </div>
+
+      <div id="navbarBasicExample" class="navbar-menu">
+        <div class="navbar-start">
+          <a class="navbar-item" href="http://localhost:4200/listingview">
+            Tiendas
+          </a>
+        </div>
+
+        <div class="navbar-end">
+          <div class="img-container">
+            <img [src]="'assets/no-banner.png'" />
           </div>
-        
-          <div id="navbarBasicExample" class="navbar-menu">
-            <div class="navbar-start">
-              <a class="navbar-item" href="http://localhost:4200/listingview">
-                Tiendas
-              </a>
-            </div>
-        
-            <div class="navbar-end">
-              <div class='img-container'>
-                <img [src]="'assets/no-banner.png'">
-              </div>
-              <div class="navbar-item">
-                <div class="buttons">
-                  <ng-container *ngIf="!authService.loggedIn(); else loggedIn">
-                    <a class="button is-info" routerLink="/singup">
-                      <strong>Sign up</strong>
+          <div class="navbar-item">
+            <div class="buttons">
+              <ng-container *ngIf="!authService.loggedIn(); else loggedIn">
+                <a class="button is-info" routerLink="/singup">
+                  <strong>Sign up</strong>
+                </a>
+                <a class="button is-info is-light" routerLink="/login">
+                  Log in
+                </a>
+              </ng-container>
+
+              <ng-template #loggedIn>
+                <div class="navbar-item has-dropdown is-hoverable">
+                  <a class="navbar-link">
+                    <span> </span>
+                    Panel
+                  </a>
+
+                  <div class="navbar-dropdown">
+                    <a
+                      class="navbar-item"
+                      (click)="authService.goToPerfilPanel()"
+                    >
+                      <span>
+                        <i class="fa-solid fa-circle-user mr-2"></i>
+                      </span>
+                      Perfil
                     </a>
-                    <a class="button is-info is-light" routerLink="/login">
-                      Log in
+                    <a
+                      class="navbar-item"
+                      (click)="authService.goToStorePanel()"
+                    >
+                      <span>
+                        <i class="fa-solid fa-store mr-2"></i>
+                      </span>
+                      Negocio
                     </a>
-                  </ng-container>
-                  
-                  <ng-template #loggedIn>
-                    
-                    <div class="navbar-item has-dropdown is-hoverable">
-                      <a class="navbar-link">
-                        <span>
-                        </span>
-                        Panel
-                      </a>
-              
-                      <div class="navbar-dropdown">
-                        <a class="navbar-item" (click)="authService.goToPerfilPanel()">
-                          <span>
-                            <i class="fa-solid fa-circle-user mr-2"></i>
-                          </span>
-                          Perfil
-                        </a>
-                        <a class="navbar-item" (click)="authService.goToStorePanel()">
-                          <span>
-                            <i class="fa-solid fa-store mr-2"></i>
-                          </span>
-                          Negocio
-                        </a>
-                        <a class="navbar-item" (click)="authService.goToModeratorPanel()">
-                          <span>
-                            <i class="fa-solid fa-crown mr-2"></i>
-                          </span>
-                          Moderador
-                        </a>
-                        <hr class="navbar-divider">
-                        <a class="navbar-item" (click)="authService.logOut()">
-                          <span>
-                            <i class="fa-solid fa-right-from-bracket mr-2"></i>
-                          </span>
-                          Cerrar Sesión
-                        </a>
-                      </div>
+                    <a
+                      class="navbar-item"
+                      (click)="authService.goToModeratorPanel('Dashboard')"
+                    >
+                      <span>
+                        <i class="fa-solid fa-crown mr-2"></i>
+                      </span>
+                      Moderador
+                    </a>
+                    <hr class="navbar-divider" />
+                    <a class="navbar-item" (click)="authService.logOut()">
+                      <span>
+                        <i class="fa-solid fa-right-from-bracket mr-2"></i>
+                      </span>
+                      Cerrar Sesión
+                    </a>
                   </div>
-                  </ng-template>
                 </div>
-              </div>
+              </ng-template>
             </div>
           </div>
-      </nav>
-
-
+        </div>
+      </div>
+    </nav>
   </div>
 </div>

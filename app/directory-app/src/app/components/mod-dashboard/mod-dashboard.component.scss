@@ -1,26 +1,26 @@
-.profile-img{
-    width: 40px;
-    aspect-ratio: 1 / 1;
-    object-fit: cover;
+.profile-img {
+  width: 40px;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
 }
 
-table.is-hoverable{
-    th{
-        font-size: 12px;
-        font-weight: bold;
-    }
-    td{
-        font-size: 12px;
-        vertical-align: middle;
-        text-align: center;
-
-    }
+table.is-hoverable {
+  th {
+    font-size: 12px;
+    font-weight: bold;
+    text-align: center;
+  }
+  td {
+    font-size: 12px;
+    vertical-align: middle;
+    text-align: center;
+  }
 }
 
-.aprobar{
-    cursor: pointer;
+.aprobar {
+  cursor: pointer;
 }
 
-.rechazar{
-cursor: pointer;
+.rechazar {
+  cursor: pointer;
 }

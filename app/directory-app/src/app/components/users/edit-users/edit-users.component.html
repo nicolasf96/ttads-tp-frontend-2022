@@ -1,64 +1,137 @@
+<div class="notification is-info is-light" *ngIf="!identifier">
+  No has seleccionado ningún usuario
+</div>
+<hr />
+<div class="columns is-multiline mt-4" *ngIf="identifier">
+  <div class="column is-2 has-text-centered">
+    <img
+      #imgPerfil
+      [src]="
+        'http://localhost:3000/api/' + user.profilePicture?.path ||
+        'assets/no-image.png'
+      "
+      class="profile-img"
+      *ngIf="identifier"
+    />
+    <img
+      #imgPerfil
+      [src]="'assets/no-image.png'"
+      class="profile-img"
+      *ngIf="!identifier"
+    />
+    <button
+      type=""
+      class="button is-link is-light is-small"
+      (click)="showPhotoForm()"
+    >
+      Editar Foto de Perfil
+    </button>
+    <form *ngIf="showForm" class="newPhoto" (submit)="uploadPhoto()">
+      <label class="label is-small mt-3">Nueva Imagen de Perfil</label>
+      <input type="file" (change)="onPhotoSelected($event)" #photoInput />
+      <button class="button is-primary block mt-3 is-small">Enviar</button>
+    </form>
+  </div>
 
-<div class='columns is-centered'>
-  <div class='column is-10 area-container'>   
-    <nav class="breadcrumb" aria-label="breadcrumbs">
-        <ul>
-          <li><a href="javascript:void(0)" routerLink="/home">Home</a></li>
-          <li><a href="javascript:void(0)" routerLink="/users">Users</a></li>
-          <li class="is-active"><a href="#" aria-current="page">Edit {{user.username}}</a></li>
-        </ul>
-    </nav>
-    <div class='columns'>
-      <div class='column is-7'>
-
-        <div class='columns is-multiline'>
-          <div class='column is-6'>
-            <div class='user-section with-border has-text-centered'>
-              <h1 class="title is-6">User: {{user.username}}</h1>
-              <img [src]="'http://localhost:3000/api/' + user.profilePicture?.path || 'assets/no-image.png'" 
-              class="profile-img">
-              <p class="subtitle is-6 my-4">{{user.email}}</p>
-              <p class="subtitle is-6 my-4">{{user._id}}</p>
-              <p class="subtitle is-6 my-4">{{user.firstName}}</p>
-              <p class="subtitle is-6 my-4">{{user.lastName}}</p>
-            </div>
-          </div>
-          <div class='column is-6 '>
-            <div class='user-section with-border has-text-centered'>
-              <p class="title is-6 ">Edit Profile Picture</p>
-              <form  (submit)="uploadPhoto()">
-                <div class='field'>
-                  <img class="imgTmp" [src]="photoSelected || 'assets/no-image.png'" (click)="photoInput.click()" [ngStyle]="{'cursor': 'pointer'}">
-                </div>
-                <input type="file" class="is-hidden" (change)="onPhotoSelected($event)" #photoInput>
-                <button class="button is-primary block">Submit</button>
-              </form>
-            </div>
-          </div>
+  <div class="column is-6">
+    <div *ngIf="showDiv" class="notification is-primary is-light">
+      Los cambios se han guardado correctamente.
+    </div>
+    <span class="tag is-info is-small my-3">_id: {{ identifier }}</span>
+    <form [formGroup]="userForm" (ngSubmit)="onSubmit()">
+      <div class="field">
+        <label class="label is-small">Nombre:</label>
+        <div class="control">
+          <input
+            class="input is-outlined is-small"
+            type="text"
+            formControlName="firstName"
+            placeholder="Ingrese su nombre"
+          />
         </div>
-
-       
+        <p *ngIF="!user.firstName" class="help is-danger is-small">
+          Este campo es obligatorio
+        </p>
       </div>
-
-      <div class='column is-5'>
-        <div class='columns is-multiline'>
-          <div class='column is-12'>
-            <div class='store-section with-border'>
-              <div class='header'>
-                <div class='tag is-info'>Editar</div>
-                <div class='tag is-danger'>Eliminar</div>
-              </div>
-              <p class="subtitle is-4 mb-5">Store:</p>
-              <p class="title is-3">{{user.store?.name}}</p>
-              <img [src]="'http://localhost:3000/api/' + user.store.profilePicture?.path" *ngIf="user.store">
-              <img [src]="'assets/no-banner.png'" *ngIf="!user.store">
-              <p class="subtitle is-6 my-5">{{user.store?.description}}</p>
-            </div>
-          </div>
+      <div class="field">
+        <label class="label is-small">Apellido:</label>
+        <div class="control">
+          <input
+            class="input is-outlined is-small"
+            type="text"
+            formControlName="lastName"
+            placeholder="Ingrese su nombre"
+          />
         </div>
-
+        <p *ngIF="!user.firstName" class="help is-danger">
+          Este campo es obligatorio
+        </p>
       </div>
-      
+      <div class="field">
+        <label class="label is-small">Username:</label>
+        <div class="control">
+          <input
+            class="input is-outlined is-small"
+            type="text"
+            formControlName="username"
+            placeholder="Ingrese su nombre"
+          />
+        </div>
+        <p *ngIF="!user.firstName" class="help is-danger">
+          Este campo es obligatorio
+        </p>
+      </div>
+      <div class="field">
+        <label class="label is-small">Email:</label>
+        <div class="control">
+          <input
+            class="input is-outlined is-small"
+            type="email"
+            formControlName="email"
+            placeholder="Ingrese su nombre"
+          />
+        </div>
+        <p *ngIF="!user.firstName" class="help is-danger">
+          Este campo es obligatorio
+        </p>
+      </div>
+      <div class="field">
+        <label class="label is-small">Phone:</label>
+        <div class="control">
+          <input
+            class="input is-outlined is-small"
+            type="text"
+            formControlName="phone"
+            placeholder="Ingrese su nombre"
+          />
+        </div>
+        <p *ngIF="!user.firstName" class="help is-danger">
+          Este campo es obligatorio
+        </p>
+      </div>
+      <div class="buttons is-pulled-right">
+        <button type="submit" class="button is-primary is-small">
+          Guardar cambios
+        </button>
+      </div>
+    </form>
+  </div>
+
+  <div class="column is-4 has-text-centered">
+    <div class="tag is-info is-light" *ngIf="!user.store">
+      El usuario no tiene un negocio asociado
+    </div>
+    <div *ngIf="user.store">
+      <div class="tag is-info">Store</div>
+      <div class="store-section">
+        <p class="title is-3">{{ user.store?.name }}</p>
+        <img
+          [src]="'http://localhost:3000/api/' + user.store.profilePicture?.path"
+          *ngIf="user.store"
+        />
+        <img [src]="'assets/no-banner.png'" *ngIf="!user.store" />
+        <p class="subtitle is-6 my-5">{{ user.store?.description }}</p>
+      </div>
     </div>
   </div>
 </div>

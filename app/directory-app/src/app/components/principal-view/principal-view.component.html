@@ -1,57 +1,43 @@
-<div class='columns m-0'>
-    <div class='column is-12 p-0 principal-banner'>
-        <h1 class="principal-title">Store Listing</h1>
-        <div class=''>
-            <form class="my-5" [formGroup]="searchForm" (ngSubmit)="onSubmit()">
-                <div class="field is-grouped">
-                    <p class="control is-expanded">
-                      <input class="input" style="width:500px; height: 50px;" type="text" placeholder="¿Que estás buscando?"  formControlName="keySearch" id="inputForm">
-                    </p>
-                    <p class="control">
-                      <button class="button is-medium is-info" style="width: 180px;" id="buttonForm"  type="submit">
-                        Buscar
-                      </button>
-                    </p>
-                </div>
-            </form>
-            <div>
-                
-            </div>
+<div class="columns m-0">
+  <div class="column is-12 p-0 principal-banner">
+    <h1 class="principal-title">Store Listing</h1>
+    <div class="">
+      <form class="my-5" [formGroup]="searchForm" (ngSubmit)="onSubmit()">
+        <div class="field is-grouped">
+          <p class="control is-expanded">
+            <input
+              class="input"
+              style="width: 500px; height: 50px"
+              type="text"
+              placeholder="¿Que estás buscando?"
+              formControlName="keySearch"
+              id="inputForm"
+            />
+          </p>
+          <p class="control">
+            <button
+              class="button is-medium is-info"
+              style="width: 180px"
+              id="buttonForm"
+              type="submit"
+            >
+              Buscar
+            </button>
+          </p>
         </div>
+      </form>
+      <div></div>
     </div>
+  </div>
 </div>
-<div class='fondo'>
-    <div class='columns m-0 '>
-        <div class='column most-popular-stores'>
-            <h1 class="secondary-title">Populares</h1>
-        </div>
-        
+<div class="fondo">
+  <div class="columns is-multiline m-0">
+    <div class="column is-12">dfasdf</div>
+    <div class="column is-12">
+      <h1 class="secondary-title is-4 mb-5">Populares</h1>
+      <div class="" style="padding: 0 20%">
+        <app-store-box-list [stores]="stores"> </app-store-box-list>
+      </div>
     </div>
-    <div class='columns is-multiline is-centered' style="padding: 30px;">
-        <div class='column is-narrow' *ngFor="let store of stores" (click)="goToStore(store._id)" [ngStyle]="{'cursor': 'pointer'}" >
-            <div  class='store-card mx-auto'>
-                <div class='image-container' >
-                    <div class='image-decoration'>
-                        <img [src]="'http://localhost:3000/api/' + store.profilePicture?.path"  *ngIf="store.profilePicture">
-                        <img class="noPicture" [src]="'assets/no-banner.png'"  *ngIf="!store.profilePicture">
-                        <div class='store-title'>
-                            {{store.name}}
-        
-                        </div>
-                        <div class="store-valoration">
-                            {{store.valoration}}
-                        </div>
-                    </div>
-                    
-                </div>
-                <div class='info-container'>
-                    <h2 class="store-info">@{{store.username}}</h2>
-                    <p class="store-city">{{store.city}}</p>
-                    <span> </span>
-                </div>
-                
-            </div>
-        </div>
-    </div>
-
+  </div>
 </div>

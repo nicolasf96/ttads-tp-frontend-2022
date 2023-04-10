@@ -1,86 +1,79 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import {  Router } from '@angular/router';
+import { Router } from '@angular/router';
 import { UsersService } from '../users/users.service';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class AuthService {
-
-  readonly baseURL = 'http://localhost:3000/api/users/'
-  constructor(private http: HttpClient,
+  readonly baseURL = 'http://localhost:3000/api/users/';
+  constructor(
+    private http: HttpClient,
     private router: Router,
-    private userService: UsersService) { }
+    private userService: UsersService
+  ) {}
 
-
-  auth(user:any){
-    const url = this.baseURL+'login'
-    return this.http.post<any>(url,user);
+  auth(user: any) {
+    const url = this.baseURL + 'login';
+    return this.http.post<any>(url, user);
   }
 
-  loggedIn(){
+  loggedIn() {
     return !!localStorage.getItem('token');
   }
-  
-  hasStore(){
+
+  hasStore() {
     let id = this.getActualId();
     let data;
-    if(id){
-      this.userService.getUser(id).subscribe(res=>{
+    if (id) {
+      this.userService.getUser(id).subscribe((res) => {
         data = res.store;
-      })
-      if(data){
-        return true
-      }else{
-        return false
+      });
+      if (data) {
+        return true;
+      } else {
+        return false;
       }
-    }else{
-      return false
+    } else {
+      return false;
     }
-
   }
 
-  getToken(){
+  getToken() {
     return localStorage.getItem('token');
   }
 
-  getActualId(){
-      return localStorage.getItem('id')
+  getActualId() {
+    return localStorage.getItem('id');
   }
 
-
-  logOut(){
+  logOut() {
     localStorage.removeItem('token');
     localStorage.removeItem('id');
-    this.router.navigate(['/login'])
+    this.router.navigate(['/login']);
   }
 
-  goToPerfilPanel(){
-
+  goToPerfilPanel() {
     let userId = localStorage.getItem('id');
-    this.router.navigate(['perfil/'+ userId])
+    this.router.navigate(['perfil/' + userId]);
   }
 
-  goToStorePanel(){
-
+  goToStorePanel() {
     let userId = localStorage.getItem('id');
-    this.router.navigate(['store-panel/'+ userId])
+    this.router.navigate(['store-panel/' + userId]);
   }
 
-  goToModeratorPanel(){
+  goToModeratorPanel(panel: any) {
     let userId = localStorage.getItem('id');
     let user;
-    if(userId){
-      this.userService.getUser(userId).subscribe(res =>{
+    if (userId) {
+      this.userService.getUser(userId).subscribe((res) => {
         user = res.data;
-       /// if(user.role == 'admin'){
-        this.router.navigate(['moderator-panel/'+ userId])
-       /// }
-      })
+        /// if(user.role == 'admin'){
+        this.router.navigate(['moderator-panel/' + panel + '/' + userId]);
+        /// }
+      });
     }
   }
-
-  
-  
 }

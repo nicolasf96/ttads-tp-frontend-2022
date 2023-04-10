@@ -1,32 +1,38 @@
-<div class='columns p-0 total-container'>
-    <div class='column is-3 p-0'>
-        <div class='sticky-bar p-6'>
-            <div class='title is-6'>Secciones</div> 
-            <ul class="ml-5 pointer">
-                <li (click)="showPanel('Dashboard')"><span><i class="fa-solid fa-chart-pie mr-2"></i></span> Dashboard</li>
-                <li (click)="showPanel('Users')"><span><i class="fa-solid fa-user mr-2"></i></span> Usuarios</li>
-                <li (click)="showPanel('Stores')"><span><i class="fa-solid fa-store mr-2"></i></span> Negocios</li>
-                <li (click)="showPanel('Categories')"><span><i class="fa-solid fa-shapes mr-2"></i></span> Categorías</li>
-            </ul>
-
-        </div>
+<div class="columns p-0 total-container">
+  <div class="column is-3 p-0">
+    <div class="sticky-bar p-6">
+      <div class="title is-6">Secciones</div>
+      <ul class="ml-5 pointer">
+        <li (click)="authService.goToModeratorPanel('Dashboard')">
+          <span><i class="fa-solid fa-chart-pie mr-2"></i></span> Dashboard
+        </li>
+        <li (click)="authService.goToModeratorPanel('Users')">
+          <span><i class="fa-solid fa-user mr-2"></i></span> Usuarios
+        </li>
+        <li (click)="authService.goToModeratorPanel('Stores')">
+          <span><i class="fa-solid fa-store mr-2"></i></span> Negocios
+        </li>
+        <li (click)="authService.goToModeratorPanel('Categories')">
+          <span><i class="fa-solid fa-shapes mr-2"></i></span> Categorías
+        </li>
+      </ul>
     </div>
-    <div class='column is-9 p-6 content'>
-        <section class='box p-6' *ngIf="panel=='Dashboard'">
-            <p class="title is-5">Dashboard</p>
-            <app-mod-dashboard *ngIf="panel=='Dashboard'"></app-mod-dashboard>
-        </section>
-        <section class='box p-6' *ngIf="panel=='Categories'">
-            <p class="title is-5">Categorías</p>
-            <app-categories></app-categories>
-        </section>
-        <section class='box p-6' *ngIf="panel=='Users'">
-            <p class="title is-5">Usuarios</p>
-            <app-users></app-users>
-        </section>
-        <section class='box p-6' *ngIf="panel=='Stores'">
-            <p class="title is-5">Tiendas</p>
-            <app-stores></app-stores>
-        </section>
-    </div>
+  </div>
+  <div class="column is-9 p-6 content">
+    <section class="box p-6" *ngIf="panel == 'Dashboard'">
+      <p class="title is-5">Dashboard</p>
+      <app-mod-dashboard *ngIf="panel == 'Dashboard'"></app-mod-dashboard>
+    </section>
+    <section class="box p-6" *ngIf="panel == 'Categories'">
+      <p class="title is-5">Categorías</p>
+      <app-categories></app-categories>
+    </section>
+    <section class="" *ngIf="panel == 'Users'">
+      <app-users></app-users>
+    </section>
+    <section class="box p-6" *ngIf="panel == 'Stores'">
+      <p class="title is-5">Tiendas</p>
+      <app-stores></app-stores>
+    </section>
+  </div>
 </div>

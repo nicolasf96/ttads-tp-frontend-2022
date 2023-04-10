@@ -1,0 +1,41 @@
+.card {
+  border: 2px solid rgba(0, 0, 0, 0);
+  padding: 10px;
+  &:hover {
+    border: 2px solid #3488ce75;
+    cursor: pointer;
+  }
+  .card-img {
+    position: relative;
+    aspect-ratio: 1.75 / 1;
+    overflow: hidden;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    img {
+      width: 100%;
+      object-fit: cover;
+    }
+  }
+  .card-content {
+    height: 160px;
+    overflow: hidden;
+    .cat {
+      color: #979797;
+    }
+
+    .description {
+      font-size: 14px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: 2; /* Número de líneas que se mostrarán */
+    }
+  }
+}
+
+.colored,
+.colored svg,
+.colored i,
+.colored svg path {
+  color: #3489ce !important;
+}

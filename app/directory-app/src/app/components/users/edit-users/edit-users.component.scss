@@ -1,49 +1,50 @@
-.profile-img{
+.profile-img {
+  height: 100px;
+  width: 100px;
+  /* los siguientes valores son independientes del tamaño del círculo */
+  background-repeat: no-repeat;
+  background-position: 50%;
+  border-radius: 50%;
+  background-size: 100% auto;
+  object-fit: cover;
+}
+
+.imgTmp {
+  width: 100px;
+}
+form.newPhoto {
+  margin-top: 30px;
+}
+.area-container {
+  padding: 80px 40px;
+  min-height: 800px;
+}
+
+.with-border {
+  border: 2px solid var(--lightcolor2);
+}
+
+.user-section {
+  padding: 20px;
+  width: 100%;
+}
+
+.store-section {
+  padding: 20px;
+  text-align: center;
+  img {
+    width: 100px;
     height: 100px;
-    width: 100px;
-    /* los siguientes valores son independientes del tamaño del círculo */
-    background-repeat: no-repeat;
-    background-position: 50%;
-    border-radius: 50%;
-    background-size: 100% auto;
     object-fit: cover;
-}
+    border-radius: 50%;
+  }
 
-.imgTmp{
-    width: 100px;
-}
-
-.area-container{
-    padding: 80px 40px;
-    min-height: 800px;
-}
-
-.with-border{
-    border: 2px solid var(--lightcolor2);
-}
-
-.user-section{
-padding: 20px;
-width: 100%;
-
-}
-
-.store-section{
-    padding: 20px;
-    text-align: center;
-    img{
-        width: 100px;
-        height: 100px;
-        object-fit: cover;
-        border-radius: 50%;
+  .header {
+    display: block;
+    text-align: right;
+    margin-bottom: 30px;
+    .tag {
+      margin-right: 15px;
     }
-
-    .header{
-        display: block;
-        text-align: right;
-        margin-bottom: 30px;
-        .tag{
-            margin-right: 15px;
-        }
-    }
+  }
 }

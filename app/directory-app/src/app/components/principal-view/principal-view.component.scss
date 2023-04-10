@@ -1,164 +1,146 @@
-
-
-
-.fondo{
-    min-height: 100vh;
-    background-color: var(--backg-color);
-    padding-bottom: 50px;
+.fondo {
+  min-height: 100vh;
+  background-color: var(--backg-color);
+  padding-bottom: 50px;
 }
 
-
-.principal-banner{
+.principal-banner {
+  width: 100%;
+  height: 600px;
+  background-image: url("https://images.pexels.com/photos/811838/pexels-photo-811838.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  &::before {
+    padding-left: 0;
     width: 100%;
-    height: 600px;
-    background-image: url("https://images.pexels.com/photos/811838/pexels-photo-811838.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1");
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    &::before{
-        padding-left: 0;
-        width: 100%;
-        height: 100%;
-        content: "";
-        position: absolute;
-        //background-color: var(--pcolor2);
-        opacity: 1;
-        mix-blend-mode: multiply;
-    }
+    height: 100%;
+    content: "";
+    position: absolute;
+    //background-color: var(--pcolor2);
+    opacity: 1;
+    mix-blend-mode: multiply;
+  }
 
-    .principal-title{
-        font-size: 54px;
-        color: var(--lightcolor1);
-        font-weight: bold;
-        display: block;
-        text-align: center;
-        position: relative;
-    }
-    
-
-
-}
-
-
-.principal-form{
-    margin: 35px auto;
-    position: relative;
-    input{
-        padding-left: 15px;
-        min-width: 450px;
-        line-height: 46px;
-        font-size: 18px;
-        margin-right: 20px;
-
-    }
-    button{
-        line-height: 48px;
-        font-size: 18px;
-        padding: 0 60px;
-        background-color: var(--pcolor2);
-        color: white;
-        border: 1px solid var(--pcolor2);
-        &:hover{
-            background-color: var(--pcolor3);
-            color: var(--pcolor2);
-            cursor: pointer;
-        }
-    }
-}
-
-
-
-.most-popular-stores{
-    padding: 3%;
-    width: 100%;
-}
-
-
-.secondary-title{
-    font-family: Poppins;
-    font-size: 50px;
-    color: #181D2F;
+  .principal-title {
+    font-size: 54px;
+    color: var(--lightcolor1);
     font-weight: bold;
     display: block;
     text-align: center;
+    position: relative;
+  }
 }
 
-.store-card{
-    width: 300px;
-    height: 250px;
-    // border-radius: 10px;
-    padding: none;
-    background-color: white;
-
-}
-
-.image-container{
-    width: 100%;
-    height: 70%;
-    background: rgba(37, 37, 37);
-    background-position: bottom;
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-blend-mode: darken;
-    // border-radius: 10px 10px 0 0;
-    .image-decoration{
-        top: 0px;
-        width: 100%;
-        height: 100%;
-        background: linear-gradient(180deg, rgba(255,255,255,0) 0%, rgba(0,0,0,0.5) 100%);
-        z-index: 1000;
-        overflow: hidden;
-        img{
-            width: 100%;
-            height: 100%;
-            position: relative;
-            display:inline-block;
-            // border-radius: 10px 10px 0 0;
-            -webkit-transition: all 0.4s ease-in-out;
-            object-fit: cover;
-            &:hover{
-                transform: scale(1.15);
-                -webkit-transition: all 0.4s ease-in-out;
-                // border-radius: 10px 10px 0px 0px;
-            }
-        }
-        .store-title{
-            color: white;
-            position: relative;
-            top: -65px;
-            left: 15px;
-            font-size: 22px;
-            font-weight: bold;
-            display: inline-block;
-            padding: 8px;
-            border-radius: 10px;
-            background-color: rgba(0, 0, 0, 0.25);
-            backdrop-filter: blur(5px);
-        }
-    
+.principal-form {
+  margin: 35px auto;
+  position: relative;
+  input {
+    padding-left: 15px;
+    min-width: 450px;
+    line-height: 46px;
+    font-size: 18px;
+    margin-right: 20px;
+  }
+  button {
+    line-height: 48px;
+    font-size: 18px;
+    padding: 0 60px;
+    background-color: var(--pcolor2);
+    color: white;
+    border: 1px solid var(--pcolor2);
+    &:hover {
+      background-color: var(--pcolor3);
+      color: var(--pcolor2);
+      cursor: pointer;
     }
-
+  }
 }
 
-
-img .noPicture{
-    background-color: #ffffff;
-    backdrop-filter: blur(5px);
+.secondary-title {
+  font-family: Poppins;
+  font-size: 2.5rem;
+  color: #181d2f;
+  font-weight: bold;
+  display: block;
+  text-align: center;
 }
 
-.info-container{
-    height: 30%;
+.store-card {
+  width: 300px;
+  height: 250px;
+  // border-radius: 10px;
+  padding: none;
+  background-color: white;
+}
+
+.image-container {
+  width: 100%;
+  height: 70%;
+  background: rgba(37, 37, 37);
+  background-position: bottom;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-blend-mode: darken;
+  // border-radius: 10px 10px 0 0;
+  .image-decoration {
+    top: 0px;
     width: 100%;
-    padding: 15px;
-    .store-info{
-        font-weight: bold;
-        font-size: 16px;
-        color:#707070;
+    height: 100%;
+    background: linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0) 0%,
+      rgba(0, 0, 0, 0.5) 100%
+    );
+    z-index: 1000;
+    overflow: hidden;
+    img {
+      width: 100%;
+      height: 100%;
+      position: relative;
+      display: inline-block;
+      // border-radius: 10px 10px 0 0;
+      -webkit-transition: all 0.4s ease-in-out;
+      object-fit: cover;
+      &:hover {
+        transform: scale(1.15);
+        -webkit-transition: all 0.4s ease-in-out;
+        // border-radius: 10px 10px 0px 0px;
+      }
     }
+    .store-title {
+      color: white;
+      position: relative;
+      top: -65px;
+      left: 15px;
+      font-size: 22px;
+      font-weight: bold;
+      display: inline-block;
+      padding: 8px;
+      border-radius: 10px;
+      background-color: rgba(0, 0, 0, 0.25);
+      backdrop-filter: blur(5px);
+    }
+  }
 }
 
+img .noPicture {
+  background-color: #ffffff;
+  backdrop-filter: blur(5px);
+}
+
+.info-container {
+  height: 30%;
+  width: 100%;
+  padding: 15px;
+  .store-info {
+    font-weight: bold;
+    font-size: 16px;
+    color: #707070;
+  }
+}

@@ -38,9 +38,11 @@
         </div>
 
         <div class="navbar-end">
-          <div class="img-container">
-            <img [src]="'assets/no-banner.png'" />
-          </div>
+          <!-- <div class="img-container" *ngIf="authService.loggedIn();">
+            <img #imgPerfil [src]="'http://localhost:3000/api/' + user.profilePicture?.path" alt="" *ngIf="user.profilePicture">
+            <img #imgPerfil [src]="'assets/no-banner.png'" alt="" *ngIf="!user.profilePicture">
+            <img [src]="'assets/no-banner.png'" /> 
+          </div> -->
           <div class="navbar-item">
             <div class="buttons">
               <ng-container *ngIf="!authService.loggedIn(); else loggedIn">

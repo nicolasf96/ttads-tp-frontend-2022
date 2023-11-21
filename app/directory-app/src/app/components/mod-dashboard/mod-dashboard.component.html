@@ -1,113 +1,101 @@
-<div class="columns is-multiline">
-  <!--   <div class="column is-12">
-    <app-pie-chart [data]="data"> </app-pie-chart>
-  </div>
- -->
-  <div class="column is-12">
-    <div class="notification is-info is-light">
-      <i class="fa-solid fa-circle-exclamation mr-2"></i>Hay X notificaciones
-      por revisar
-    </div>
-  </div>
-  <hr />
-  <div class="title is-6 mt-6">Comentarios en revisión</div>
-  <br />
+<div class="">
+  <p class="title is-5">Comentarios</p>
   <div class="table-container">
-    <table class="table is-hoverable">
-      <thead>
+      <table class="table is-hoverable">
+        <thead>
+          <tr>
+            <th>Negocio</th>
+            <th></th>
+            <th>Usuario</th>
+            <th></th>
+            <th>Comentario</th>
+            <th>Valoración</th>
+            <th>Status</th>
+            <th>Aprobar</th>
+            <th>Rechazar</th>
+          </tr>
+        </thead>
         <tr>
-          <th>Negocio</th>
-          <th></th>
-          <th>Usuario</th>
-          <th></th>
-          <th>Comentario</th>
-          <th>Valoración</th>
-          <th>Status</th>
-          <th>Aprobar</th>
-          <th>Rechazar</th>
+          <td>
+            <img [src]="'assets/no-banner.png'" class="profile-img" />
+          </td>
+          <td>Nombre de Negocio</td>
+          <td>
+            <img [src]="'assets/no-image.png'" class="profile-img" />
+          </td>
+          <td>Usuario</td>
+          <td>
+            "Este es el comentarios asbasf asf falskdfkasjdf asdf asdf61465sf
+            sadfas sdf asf"
+          </td>
+          <td>2.0</td>
+          <td>
+            <div class="tag is-light is-warning">
+              Pendiente
+              <i class="fa-regular fa-clock ml-2" style="color: #766e14"></i>
+            </div>
+          </td>
+          <td>
+            <i class="fa-solid fa-thumbs-up fa-xl aprobar"></i>
+          </td>
+          <td>
+            <i class="fa-solid fa-circle-xmark fa-xl rechazar"></i>
+          </td>
         </tr>
-      </thead>
-      <tr>
-        <td>
-          <img [src]="'assets/no-banner.png'" class="profile-img" />
-        </td>
-        <td>Nombre de Negocio</td>
-        <td>
-          <img [src]="'assets/no-image.png'" class="profile-img" />
-        </td>
-        <td>Usuario</td>
-        <td>
-          "Este es el comentarios asbasf asf falskdfkasjdf asdf asdf61465sf
-          sadfas sdf asf"
-        </td>
-        <td>2.0</td>
-        <td>
-          <div class="tag is-light is-warning">
-            Pendiente
-            <i class="fa-regular fa-clock ml-2" style="color: #766e14"></i>
-          </div>
-        </td>
-        <td>
-          <i class="fa-solid fa-thumbs-up fa-xl aprobar"></i>
-        </td>
-        <td>
-          <i class="fa-solid fa-circle-xmark fa-xl rechazar"></i>
-        </td>
-      </tr>
-      <tr>
-        <td>
-          <img [src]="'assets/no-banner.png'" class="profile-img" />
-        </td>
-        <td>Nombre de Negocio</td>
-        <td>
-          <img [src]="'assets/no-image.png'" class="profile-img" />
-        </td>
-        <td>Usuario</td>
-        <td>
-          "Este es el comentarios asbasf asf falskdfkasjdf asdf asdf61465sf
-          sadfas sdf asf"
-        </td>
-        <td>2.0</td>
-        <td>
-          <div class="tag is-light is-warning">
-            Pendiente
-            <i class="fa-regular fa-clock ml-2" style="color: #766e14"></i>
-          </div>
-        </td>
-        <td>
-          <i class="fa-solid fa-thumbs-up fa-xl aprobar"></i>
-        </td>
-        <td>
-          <i class="fa-solid fa-circle-xmark fa-xl rechazar"></i>
-        </td>
-      </tr>
-      <tr>
-        <td>
-          <img [src]="'assets/no-banner.png'" class="profile-img" />
-        </td>
-        <td>Nombre de Negocio</td>
-        <td>
-          <img [src]="'assets/no-image.png'" class="profile-img" />
-        </td>
-        <td>Usuario</td>
-        <td>
-          "Este es el comentarios asbasf asf falskdfkasjdf asdf asdf61465sf
-          sadfas sdf asf"
-        </td>
-        <td>2.0</td>
-        <td>
-          <div class="tag is-light is-warning">
-            Pendiente
-            <i class="fa-regular fa-clock ml-2" style="color: #766e14"></i>
-          </div>
-        </td>
-        <td>
-          <i class="fa-solid fa-thumbs-up fa-xl aprobar"></i>
-        </td>
-        <td>
-          <i class="fa-solid fa-circle-xmark fa-xl rechazar"></i>
-        </td>
-      </tr>
-    </table>
+        <tr>
+          <td>
+            <img [src]="'assets/no-banner.png'" class="profile-img" />
+          </td>
+          <td>Nombre de Negocio</td>
+          <td>
+            <img [src]="'assets/no-image.png'" class="profile-img" />
+          </td>
+          <td>Usuario</td>
+          <td>
+            "Este es el comentarios asbasf asf falskdfkasjdf asdf asdf61465sf
+            sadfas sdf asf"
+          </td>
+          <td>2.0</td>
+          <td>
+            <div class="tag is-light is-warning">
+              Pendiente
+              <i class="fa-regular fa-clock ml-2" style="color: #766e14"></i>
+            </div>
+          </td>
+          <td>
+            <i class="fa-solid fa-thumbs-up fa-xl aprobar"></i>
+          </td>
+          <td>
+            <i class="fa-solid fa-circle-xmark fa-xl rechazar"></i>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <img [src]="'assets/no-banner.png'" class="profile-img" />
+          </td>
+          <td>Nombre de Negocio</td>
+          <td>
+            <img [src]="'assets/no-image.png'" class="profile-img" />
+          </td>
+          <td>Usuario</td>
+          <td>
+            "Este es el comentarios asbasf asf falskdfkasjdf asdf asdf61465sf
+            sadfas sdf asf"
+          </td>
+          <td>2.0</td>
+          <td>
+            <div class="tag is-light is-warning">
+              Pendiente
+              <i class="fa-regular fa-clock ml-2" style="color: #766e14"></i>
+            </div>
+          </td>
+          <td>
+            <i class="fa-solid fa-thumbs-up fa-xl aprobar"></i>
+          </td>
+          <td>
+            <i class="fa-solid fa-circle-xmark fa-xl rechazar"></i>
+          </td>
+        </tr>
+      </table>
   </div>
 </div>

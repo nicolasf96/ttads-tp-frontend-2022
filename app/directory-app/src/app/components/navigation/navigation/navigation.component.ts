@@ -4,24 +4,15 @@ import { AuthService } from 'src/app/services/auth/auth.service';
 @Component({
   selector: 'app-navigation',
   templateUrl: './navigation.component.html',
-  styleUrls: ['./navigation.component.scss']
+  styleUrls: ['./navigation.component.scss'],
 })
 export class NavigationComponent implements OnInit {
-
-
   @Output()
   styleMode = new EventEmitter<boolean>();
 
-  constructor(public authService: AuthService) { 
- 
-  }
+  constructor(public authService: AuthService) {}
 
-  ngOnInit(): void {
-  }
+  identifier: any;
 
-  
-
-
-  
-
+  ngOnInit(): void {}
 }

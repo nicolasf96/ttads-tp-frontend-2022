@@ -4,7 +4,7 @@
       <div class="title is-6">Secciones</div>
       <ul class="ml-5 pointer">
         <li (click)="authService.goToModeratorPanel('Dashboard')">
-          <span><i class="fa-solid fa-bell mr-2"></i></span> Dashboard
+          <span><i class="fa-solid fa-bell mr-2"></i></span> Comentarios
         </li>
         <li (click)="authService.goToModeratorPanel('Users')">
           <span><i class="fa-solid fa-user mr-2"></i></span> Usuarios
@@ -20,7 +20,6 @@
   </div>
   <div class="column is-9 p-6 content">
     <section class="box p-6" *ngIf="panel == 'Dashboard'">
-      <p class="title is-5">Dashboard</p>
       <app-mod-dashboard *ngIf="panel == 'Dashboard'"></app-mod-dashboard>
     </section>
     <section class="" *ngIf="panel == 'Categories'">

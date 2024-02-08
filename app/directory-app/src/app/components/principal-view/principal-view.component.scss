@@ -1,21 +1,19 @@
 .fondo {
   min-height: 100vh;
   background-color: var(--backg-color);
-  padding-bottom: 50px;
+  padding-top: 3rem;
+  padding-bottom: 3rem;
 }
 
 .principal-banner {
   width: 100%;
-  height: 600px;
-  background-image: url("https://images.pexels.com/photos/811838/pexels-photo-811838.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
+    min-height: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background: rgb(190,255,217);
+    background: linear-gradient(90deg, rgba(190,255,217,1) 0%, rgba(60,162,241,1) 38%, rgba(117,191,250,1) 100%);
   &::before {
     padding-left: 0;
     width: 100%;
@@ -143,4 +141,9 @@ img .noPicture {
     font-size: 16px;
     color: #707070;
   }
+}
+
+
+.stores-box{
+  padding: 0 20%;
 }

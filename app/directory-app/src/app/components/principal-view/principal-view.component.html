@@ -1,43 +1,36 @@
-<div class="columns m-0">
-  <div class="column is-12 p-0 principal-banner">
-    <h1 class="principal-title">Store Listing</h1>
-    <div class="">
-      <form class="my-5" [formGroup]="searchForm" (ngSubmit)="onSubmit()">
-        <div class="field is-grouped">
-          <p class="control is-expanded">
-            <input
-              class="input"
-              style="width: 500px; height: 50px"
-              type="text"
-              placeholder="¿Que estás buscando?"
-              formControlName="keySearch"
-              id="inputForm"
-            />
-          </p>
-          <p class="control">
-            <button
-              class="button is-medium is-info"
-              style="width: 180px"
-              id="buttonForm"
-              type="submit"
-            >
-              Buscar
-            </button>
-          </p>
-        </div>
-      </form>
-      <div></div>
-    </div>
+<div class="column is-12 p-0 principal-banner">
+  <h1 class="principal-title">Buscador de Tiendas</h1>
+  <div class="">
+    <form class="my-5" [formGroup]="searchForm" (ngSubmit)="onSubmit()">
+      <div class="field is-grouped">
+        <p class="control is-expanded">
+          <input
+            class="input"
+            style="width: 500px; height: 50px"
+            type="text"
+            placeholder="¿Que estás buscando?"
+            formControlName="keySearch"
+            id="inputForm"
+          />
+        </p>
+        <p class="control">
+          <button
+            class="button is-medium is-info"
+            style="width: 180px"
+            id="buttonForm"
+            type="submit"
+          >
+            Buscar
+          </button>
+        </p>
+      </div>
+    </form>
+    <div></div>
   </div>
 </div>
 <div class="fondo">
-  <div class="columns is-multiline m-0">
-    <div class="column is-12"></div>
-    <div class="column is-12">
-      <h1 class="secondary-title is-4 mb-5">Populares</h1>
-      <div class="" style="padding: 0 20%">
+      <h2 class="secondary-title is-4 mb-5">Populares</h2>
+      <div class="stores-box">
         <app-store-box-list [stores]="stores"> </app-store-box-list>
       </div>
-    </div>
-  </div>
 </div>

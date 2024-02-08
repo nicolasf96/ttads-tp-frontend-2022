@@ -23,6 +23,7 @@ export class AuthService {
     return !!localStorage.getItem('token');
   }
 
+
   hasStore() {
     let id = this.getActualId();
     let data;
@@ -49,6 +50,7 @@ export class AuthService {
   getActualId() {
     return localStorage.getItem('id');
   }
+
 
   logOut() {
     localStorage.removeItem('token');

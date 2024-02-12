@@ -48,9 +48,9 @@ export class PrincipalViewComponent implements OnInit {
   onSubmit() {
     this.keyword = this.searchForm.value.keySearch;
     if (this.keyword == '' || this.keyword == null) {
-      this.router.navigate(['listingview']);
+      this.router.navigate(['listing']);
     } else {
-      this.router.navigate(['search/' + this.searchForm.value.keySearch]);
+      this.router.navigate(['listing/' + this.searchForm.value.keySearch]);
     }
     this.searchForm.reset();
   }

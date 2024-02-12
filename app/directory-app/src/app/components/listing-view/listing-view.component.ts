@@ -22,7 +22,6 @@ export class ListingViewComponent implements OnInit {
   keyword:any ;
   stores:any;
   categories:any;
-  storesFiltered:any;
   toggle = false;
 
   categoriesFilter:any = [];
@@ -35,66 +34,45 @@ export class ListingViewComponent implements OnInit {
   ngOnInit(): void {
     this.route.params.subscribe( (params) => this.keyword = params['keySearch'] );
     if(this.keyword == '' || this.keyword == null){
-      this.toggle = true;
       this.loadAllStores();
     }else{
-      this.loadStores();
+      this.loadSearch();
     }
     
     this.loadCategories();
   }
 
   loadAllStores(){
-    this.storesService.getStores().subscribe( response => this.storesFiltered = response.data);
+    this.storesService.getStores().subscribe( response => this.stores = response.data);
   }
 
 
-  loadStores(){
-    this.keyword = this.searchForm.value.keySearch;
-    if(this.keyword == '' || this.keyword == null){
-      this.storesService.getStores().subscribe( response => {
-        this.storesFiltered = response.data
-        this.storesFiltered.filter((s: { category: any; }) => this.categoriesFilter._id.includes(s.category._id));
-
-      });
-
-    }else{
-      this.storesService.getStoresByKeyword(this.keyword).subscribe( response =>
-      {
-        this.storesFiltered = response.data;
-        this.storesFiltered.filter((s: { category: any; }) => this.categoriesFilter._id.includes(s.category._id));
-        console.log(this.storesFiltered);
-        console.log(this.categoriesFilter);
-      });
-    }
+  loadSearch(){
+    this.storesService.searchStores(this.keyword).subscribe( response => this.stores = response.data)
+      
   }
 
   loadCategories(){
     this.categoriesService.getCategories().subscribe( response => this.categories = response.data)
   }
 
-
-  addCategory(cat:any){
-    this.categoriesFilter.push(cat);
-    this.loadStores();
+  redirectTo(category: string) {
+    this.keyword = category;
+    if(this.keyword == '' || this.keyword == null){
+      this.loadAllStores();
+    }else{
+      this.loadSearch();
+    }
   }
-
-  deleteCategory(cat:any){
-    this.categoriesFilter.splice(cat);
-    this.loadStores();
-  }
+  
 
   onSubmit(){
     // this.storesService.getStoresByKeyword(this.searchForm.value.keySearch).subscribe( response => this.stores = response.data);
     this.keyword = this.searchForm.value.keySearch;
     if(this.keyword == '' || this.keyword == null){
-      this.toggle = true;
       this.loadAllStores();
     }else{
-      this.toggle = false;
-      this.loadStores();
-      this.storesFiltered = this.storesFiltered.filter((s: { category: any; }) => this.categoriesFilter._id.includes(s.category._id));
-
+      this.loadSearch();
     }
     this.searchForm.reset()
   }

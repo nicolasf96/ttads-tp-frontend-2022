@@ -26,6 +26,12 @@ export class StoresService {
     return this.http.get<any>(url);
   }
 
+  searchStores(search: any) {
+    const url = this.baseURL+'stores/search/'+search;
+    return this.http.get<any>(url);
+  }
+
+
 
   getStore(id: String) {
     const url = this.baseURL+'stores/'+id;

@@ -74,11 +74,12 @@ $background-color: var(--backg-color);
 .profile-img{ 
     display: inline-block;
     margin: 0 auto;
-    width: 200px;
+    width: 150px;
     border-radius: 50%;
     overflow: hidden;
     aspect-ratio: 1 / 1;
     object-fit: cover;
+    border: 1px solid lightgray;
 }
 
 

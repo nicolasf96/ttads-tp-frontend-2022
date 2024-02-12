@@ -21,7 +21,7 @@
     </div>
     <div class="box" *ngIf="toggle == false">
       <div class="title is-6">
-        Mostrando {{ storesFiltered.length }} resultados de la búsqueda "{{
+        Mostrando {{ stores.length }} resultados de la búsqueda "{{
           keyword
         }}"
       </div>
@@ -44,7 +44,7 @@
               *ngFor="let catF of categoriesFilter"
             >
               {{ catF.description }}
-              <span (click)="deleteCategory(catF)" style="cursor: pointer">
+              <span style="cursor: pointer">
                 <i class="fa-regular fa-circle-xmark mx-3"></i>
               </span>
             </div>
@@ -55,7 +55,7 @@
               class="is-size-6"
               *ngFor="let cat of categories"
               [ngStyle]="{ cursor: 'pointer' }"
-              (click)="addCategory(cat)"
+              (click)="redirectTo(cat.description)"
             >
               {{ cat.description }}
             </li>
@@ -66,12 +66,12 @@
       <div class="column is-9">
         <div
           class="my-5 box has-text-centered"
-          *ngIf="storesFiltered.length == 0"
+          *ngIf="stores.length == 0"
         >
           No hay coincidencias en tu búsqueda
         </div>
 
-        <app-store-box-list [stores]="storesFiltered"></app-store-box-list>
+        <app-store-box-list [stores]="stores"></app-store-box-list>
         <!-- <app-stores-list [stores]="storesFiltered"></app-stores-list> -->
       </div>
     </div>

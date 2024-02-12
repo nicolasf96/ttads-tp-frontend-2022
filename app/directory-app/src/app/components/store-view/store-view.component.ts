@@ -28,7 +28,7 @@ export class StoreViewComponent implements OnInit {
 
   ngOnInit(): void {
     this.route.params.subscribe( (params) => this.identifier = params['id'] );
-    this.service.getStore(this.identifier).subscribe( response => this.store = response.data.store);
+    this.service.getStore(this.identifier).subscribe( response => {this.store = response.data});
     
   }
 

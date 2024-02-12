@@ -16,11 +16,6 @@ export class StoresService {
     return this.http.get<any>(url);
   }
 
-  getStoresWithImage() {
-    const url = this.baseURL+'stores/images/'
-    return this.http.get<any>(url);
-  }
-
   getStoresWithLimit(limit: any) {
     const url = this.baseURL+'stores/limit/'+limit;
     return this.http.get<any>(url);

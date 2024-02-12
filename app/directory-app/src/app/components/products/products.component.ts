@@ -33,7 +33,7 @@ export class ProductsComponent implements OnInit {
     identifier:any;
     ngOnInit(): void {
       this.route.params.subscribe( (params) => this.storeIdentifier = params['id']);
-      this.productService.getProductsByStore(this.storeIdentifier).subscribe(res => this.products = res.data)
+      this.productService.getProductsByStore(this.storeIdentifier).subscribe(res => {this.products = res.data, console.log('PRODUCTSSS',res.data)})
       
   }
 

@@ -1,11 +1,11 @@
 <div class="columns is-centered fondo">
   <div class="column is-9" style="padding: 0px">
     <div class="banner box p-0">
-      <img
+       <img
         [src]="'http://localhost:3000/api/' + store.banner?.path"
         *ngIf="store.banner"
-      />
-      <img [src]="'assets/no-portada.jpg'" *ngIf="!store.banner" />
+      />  
+      <img [src]="'assets/no-portada.jpg'" *ngIf="!store.banner" /> 
       <h1 class="title is-1" *ngIf="store.banner">{{ store.name }}</h1>
       <h1 class="title is-1 noBanner" *ngIf="!store.banner">
         {{ store.name }}

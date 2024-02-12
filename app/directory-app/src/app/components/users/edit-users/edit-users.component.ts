@@ -46,6 +46,7 @@ export class EditUsersComponent implements OnInit {
       email: new FormControl(this.user.email, [Validators.required]),
       username: new FormControl(this.user.username, [Validators.required]),
       phone: new FormControl(this.user.phone, [Validators.required]),
+      role: new FormControl(this.user.role === 'moderator'),
     });
   }
 
@@ -85,9 +86,15 @@ export class EditUsersComponent implements OnInit {
   }
 
   onSubmit() {
+
+    // Obtener el valor actual del formulario
+    const formData = this.userForm.value;
+
+    // Si el checkbox está marcado, establecer el valor del campo 'role' como 'moderator', de lo contrario, establecerlo como 'user'
+    formData.role = formData.role ? 'moderator' : 'user';
     let data: any;
     this.userService
-      .editUser(this.identifier, this.userForm.value)
+      .editUser(this.identifier, formData)
       .subscribe((res) => {
         data = res;
         this.user = data.data.user;

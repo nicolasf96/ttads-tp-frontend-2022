@@ -9,24 +9,18 @@
       <div class="card-img">
         <img [src]="'http://localhost:3000/api/' + s.profilePicture?.path" />
       </div>
-      <div class="card-content p-5">
+      <div class="card-content">
         <div class="title is-6 mb-2">
           {{ s.name }}
         </div>
         <div class="cat mb-2">
           {{ s.category?.description }}
         </div>
-        <p class="description">{{ s.description }}</p>
-        <div class="tag is-light ml-auto my-2">
-          <i class="fa-solid fa-eye mr-2"></i>Preview
+        <div *ngIf="s.address">
+          <i class="fa-solid fa-location-dot mr-2"></i>{{ s.address }}
         </div>
-      </div>
-      <div class="c-footer p-5">
-        <div class="colored" *ngIf="s.address">
-          <i class="fa-solid fa-location-dot mr-1"></i>{{ s.address }}
-        </div>
-        <div class="colored" *ngIf="s.instagram">
-          <i class="fa-brands fa-instagram mt-3 mr-1"></i>{{ s.instagram }}
+        <div *ngIf="s.instagram">
+          <i class="fa-brands fa-instagram mt-3 mr-2"></i>{{ s.instagram }}
         </div>
       </div>
     </div>

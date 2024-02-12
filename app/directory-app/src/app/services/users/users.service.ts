@@ -23,7 +23,7 @@ export class UsersService {
   }
 
   getUserByStore(id: string) {
-    const url = this.baseURL+'users/store/'+id;
+    const url = this.baseURL+'/users/store/'+id+'/user';
     return this.http.get<any>(url);
   }
 

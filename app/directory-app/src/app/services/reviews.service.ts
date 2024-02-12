@@ -7,7 +7,7 @@ import { Injectable } from '@angular/core';
 export class ReviewsService {
 
 
-readonly baseURL = 'http://localhost:3000/api/'
+readonly baseURL = 'http://localhost:3000/api/reviews/'
 constructor(private http: HttpClient) { }
 
 
@@ -17,26 +17,33 @@ getReview() {
 }
 
 getReviewsByUser(idUser: string) {
-  const url = this.baseURL+'reviewsByUser/'+idUser;
+  const url = this.baseURL+'user/'+idUser;
   return this.http.get<any>(url);
 }
 
 getReviewsByStore(idStore: string) {
-  const url = this.baseURL+'reviews/'+idStore;
+  const url = this.baseURL+'store/'+idStore;
   return this.http.get<any>(url);
 }
 
 getReviewsByUserAndStore(idUser: string, idStore:string) {
-  const url = this.baseURL+'reviewsByUserAndStore/'+idUser+'/'+idStore;
+  const url = this.baseURL+'user/'+idUser+'/store/'+idStore;
   return this.http.get<any>(url);
 }
 
-
-
-
 createReview(review: any) {
-  const url = this.baseURL+'review'
+  const url = this.baseURL+''
   return this.http.post<any>(url, review);
+}
+
+editReview(review: any) {
+  const url = this.baseURL+review._id;
+  return this.http.put<any>(url, review);
+}
+
+deleteReview(review: any) {
+  const url = this.baseURL+review._id;
+  return this.http.delete<any>(url);
 }
 
 

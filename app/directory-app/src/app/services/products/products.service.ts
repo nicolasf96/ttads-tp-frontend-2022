@@ -22,7 +22,7 @@ export class ProductsService {
   }
 
   getProductsByStore(idStore:any) {
-    const url = this.baseURL+'products/'+idStore;
+    const url = this.baseURL+'products/store/'+idStore;
     return this.http.get<any>(url);
   }
 

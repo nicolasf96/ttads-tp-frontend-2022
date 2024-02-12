@@ -2,12 +2,14 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { UsersService } from '../users/users.service';
+import { Subject, tap } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AuthService {
   readonly baseURL = 'http://localhost:3000/api/users/';
+  userLoggedIn$ = new Subject<void>();
   constructor(
     private http: HttpClient,
     private router: Router,
@@ -16,7 +18,14 @@ export class AuthService {
 
   auth(user: any) {
     const url = this.baseURL + 'login';
-    return this.http.post<any>(url, user);
+    this.userLoggedIn$.next();
+    return this.http.post<any>(url, user).pipe( 
+      tap(() => {
+        // Redirigir o recargar la página después de iniciar sesión
+        this.router.navigate(['/']); // Redirige a una nueva página
+        // O recarga la página actual
+        // window.location.reload();
+      }));
   }
 
   loggedIn() {
@@ -47,6 +56,14 @@ export class AuthService {
     return localStorage.getItem('token');
   }
 
+  isModerator(){
+    if(localStorage.getItem('role') === 'moderator'){
+      return true
+    }else{
+      return false
+    }
+  }
+
   getActualId() {
     return localStorage.getItem('id');
   }
@@ -55,6 +72,7 @@ export class AuthService {
   logOut() {
     localStorage.removeItem('token');
     localStorage.removeItem('id');
+    localStorage.removeItem('role');
     this.router.navigate(['/login']);
   }
 

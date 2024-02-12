@@ -55,6 +55,16 @@
               </ng-container>
 
               <ng-template #loggedIn>
+                <div class="navbar-item user" *ngIf="user">
+                  Hola 
+                  <span>
+                    {{user.username}}
+                  </span>
+                  <div class="img-perfil" >
+                    <img #imgPerfil [src]="'http://localhost:3000/api/' + user.profilePicture?.path" alt="" *ngIf="user.profilePicture">
+                    <img #imgPerfil [src]="'assets/no-banner.png'" alt="" *ngIf="!user.profilePicture">
+                  </div>
+                </div>
                 <div class="navbar-item has-dropdown is-hoverable">
                   <a class="navbar-link">
                     <span> </span>
@@ -83,6 +93,7 @@
                     <a
                       class="navbar-item"
                       (click)="authService.goToModeratorPanel('Dashboard')"
+                      *ngIf="authService.isModerator()"
                      
                     >
                       <span>

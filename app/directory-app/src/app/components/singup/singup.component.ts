@@ -59,8 +59,9 @@ export class SingupComponent implements OnInit {
     if(data){
       this.authService.auth(data).subscribe(
         res => {
-        localStorage.setItem('token', res.token)
-        localStorage.setItem('id',res._id)
+        localStorage.setItem('token', res.token),
+        localStorage.setItem('role', res.role),
+        localStorage.setItem('id',res._id),
           this.router.navigate(['/'])
         },
         err =>{

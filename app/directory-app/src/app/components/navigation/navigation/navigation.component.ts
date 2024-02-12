@@ -1,18 +1,54 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
-import { AuthService } from 'src/app/services/auth/auth.service';
+import { Component, EventEmitter, OnDestroy, OnInit, Output } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { AuthService } from '../../../services/auth/auth.service';
+import { UsersService } from '../../../services/users/users.service';
+import { Subscription} from 'rxjs';
 
 @Component({
   selector: 'app-navigation',
   templateUrl: './navigation.component.html',
   styleUrls: ['./navigation.component.scss'],
 })
-export class NavigationComponent implements OnInit {
+export class NavigationComponent implements OnInit, OnDestroy {
   @Output()
   styleMode = new EventEmitter<boolean>();
 
-  constructor(public authService: AuthService) {}
+  private userLoggedInSubscription: Subscription = new Subscription;
 
+  constructor(
+    public authService: AuthService
+    ,private userService: UsersService
+    ) {}
+  
   identifier: any;
+  user: any;
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+
+    this.userLoggedInSubscription = this.authService.userLoggedIn$.subscribe(() => {
+      // Vuelve a cargar los datos necesarios
+      this.loadData();
+    });
+
+    this.loadData();
+  }
+
+
+
+  loadData(){
+    this.user = null;
+    this.identifier = this.authService.getActualId()
+      if (this.identifier) {
+        this.userService.getUser(this.identifier).subscribe(user => {
+          console.log('USER',user.data)
+          this.user = user.data;
+        });
+      }
+    
+  }
+
+  ngOnDestroy(): void {
+    this.userLoggedInSubscription.unsubscribe();
+  }
+
 }

@@ -18,6 +18,7 @@ import { UserPanelComponent } from './components/user-panel/user-panel.component
 import { CreateUsersComponent } from './components/users/create-users/create-users.component';
 import { EditUsersComponent } from './components/users/edit-users/edit-users.component';
 import { StoreGuard } from './store.guard';
+import { ModeratorGuard } from './moderator.guard';
 
 const routes: Routes = [
   { path: 'newstore', component: CreateStoreComponent },
@@ -53,7 +54,11 @@ const routes: Routes = [
   },
   { path: 'users/:id', component: EditUsersComponent },
   { path: 'newuser', component: CreateUsersComponent },
-  { path: 'moderator-panel/:panel/:id', component: ModeratorPanelComponent },
+  { 
+    path: 'moderator-panel/:panel/:id',
+    component: ModeratorPanelComponent,
+    canActivate: [ModeratorGuard]
+   },
   { path: '', component: PrincipalViewComponent },
 ];
 

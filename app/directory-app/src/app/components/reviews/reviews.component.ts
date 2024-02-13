@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { UsersService } from 'src/app/services/users/users.service';
 import { AuthService } from 'src/app/services/auth/auth.service';
@@ -21,23 +21,20 @@ export class ReviewsComponent implements OnInit {
     private reviewService: ReviewsService
     ) { }
    
-
+    @Input() storeID: any;
     userIdentifier: any;
     user:any;
     reviews:any;
     storeIdentifier: any;
-        
-
-
     identifier:any;
+    
     ngOnInit(): void {
-
       this.userIdentifier = this.authService.getActualId();
       if(this.userIdentifier){
         this.userService.getUser(this.userIdentifier).subscribe( res => this.user = res.data);
       }
-      this.route.params.subscribe( (params) => this.storeIdentifier = params['id']);
-      this.reviewService.getReviewsByStore(this.storeIdentifier).subscribe(res => this.reviews = res.data)
+      // this.route.params.subscribe( (params) => this.storeIdentifier = params['id']);
+      this.reviewService.getReviewsByStore(this.storeID).subscribe(res => this.reviews = res.data)
       
   }
 

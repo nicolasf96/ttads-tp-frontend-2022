@@ -1,5 +1,5 @@
 
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { UsersService } from 'src/app/services/users/users.service';
 import { AuthService } from 'src/app/services/auth/auth.service';
@@ -25,15 +25,14 @@ export class ProductsComponent implements OnInit {
 
     userIdentifier: any;
     user:any;
-    products:any;
-    storeIdentifier: any;
+    @Input() products: any;
         
 
 
     identifier:any;
     ngOnInit(): void {
-      this.route.params.subscribe( (params) => this.storeIdentifier = params['id']);
-      this.productService.getProductsByStore(this.storeIdentifier).subscribe(res => {this.products = res.data, console.log('PRODUCTSSS',res.data)})
+      // this.route.params.subscribe( (params) => this.storeIdentifier = params['id']);
+      // this.productService.getProductsByStore(this.storeIdentifier).subscribe(res => {this.products = res.data, console.log('PRODUCTSSS',res.data)})
       
   }
 

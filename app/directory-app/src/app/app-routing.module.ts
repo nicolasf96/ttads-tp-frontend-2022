@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AuthGuard } from './auth.guard';
-import { CreateCategoriesComponent } from './components/categories/create-categories/create-categories.component';
+import { CreateCategoriesComponent } from './components/create-categories/create-categories.component';
 import { ListingViewComponent } from './components/listing-view/listing-view.component';
 import { LoginComponent } from './components/login/login.component';
 import { ModeratorPanelComponent } from './components/moderator-panel/moderator-panel.component';
@@ -9,14 +9,14 @@ import { PrincipalViewComponent } from './components/principal-view/principal-vi
 import { ProductViewComponent } from './components/product-view/product-view.component';
 import { SingupComponent } from './components/singup/singup.component';
 import { StoreViewComponent } from './components/store-view/store-view.component';
-import { CreateStoreComponent } from './components/stores/create-store/create-store.component';
+import { CreateStoreComponent } from './components/create-store/create-store.component';
 import { NewStoreComponent } from './components/user-panel/new-store/new-store.component';
 import { PanelProductDetailComponent } from './components/user-panel/panel-product-detail/panel-product-detail.component';
 import { PanelStoresComponent } from './components/user-panel/panel-stores/panel-stores.component';
 import { PerfilComponent } from './components/user-panel/perfil/perfil.component';
 import { UserPanelComponent } from './components/user-panel/user-panel.component';
-import { CreateUsersComponent } from './components/users/create-users/create-users.component';
-import { EditUsersComponent } from './components/users/edit-users/edit-users.component';
+import { CreateUsersComponent } from './components/create-users/create-users.component';
+import { EditUsersComponent } from './components/edit-users/edit-users.component';
 import { StoreGuard } from './store.guard';
 import { ModeratorGuard } from './moderator.guard';
 

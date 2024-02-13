@@ -10,10 +10,9 @@ import { NgxPaginationModule } from 'ngx-pagination';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AuthGuard } from './auth.guard';
-import { AllProductsViewComponent } from './components/all-products-view/all-products-view.component';
 import { CategoriesComponent } from './components/categories/categories.component';
-import { CreateCategoriesComponent } from './components/categories/create-categories/create-categories.component';
-import { EditCategoriesComponent } from './components/categories/edit-categories/edit-categories.component';
+import { CreateCategoriesComponent } from './components/create-categories/create-categories.component';
+import { EditCategoriesComponent } from './components/edit-categories/edit-categories.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { ImagesComponent } from './components/images/images.component';
 import { ListingViewComponent } from './components/listing-view/listing-view.component';
@@ -23,21 +22,17 @@ import { ModDashboardComponent } from './components/mod-dashboard/mod-dashboard.
 import { ModStoresComponent } from './components/mod-stores/mod-stores.component';
 import { ModUsersComponent } from './components/mod-users/mod-users.component';
 import { ModeratorPanelComponent } from './components/moderator-panel/moderator-panel.component';
-import { NavigationComponent } from './components/navigation/navigation/navigation.component';
+import { NavigationComponent } from './components/navigation/navigation.component';
 import { PrincipalViewComponent } from './components/principal-view/principal-view.component';
 import { ProductViewComponent } from './components/product-view/product-view.component';
 import { ProductsComponent } from './components/products/products.component';
 import { ReviewsComponent } from './components/reviews/reviews.component';
-import { SearcherComponent } from './components/searcher/searcher.component';
-import { SideMenuComponent } from './components/side-menu/side-menu.component';
 import { SingupComponent } from './components/singup/singup.component';
 import { StoreViewComponent } from './components/store-view/store-view.component';
 import { StoresListComponent } from './components/stores-list/stores-list.component';
-import { CreateStoreComponent } from './components/stores/create-store/create-store.component';
-import { ProductsOfStoreComponent } from './components/stores/products-of-store/products-of-store.component';
-import { ReviewsOfStoreComponent } from './components/stores/reviews-of-store/reviews-of-store.component';
-import { StoreDetailsComponent } from './components/stores/store-details/store-details.component';
-import { StoreComponent } from './components/stores/store/store.component';
+import { CreateStoreComponent } from './components/create-store/create-store.component';
+import { ProductsOfStoreComponent } from './components/products-of-store/products-of-store.component';
+import { StoreComponent } from './components/store/store.component';
 import { StoresComponent } from './components/stores/stores.component';
 import { ImagesOfStoreComponent } from './components/user-panel/images-of-store/images-of-store.component';
 import { NewStoreComponent } from './components/user-panel/new-store/new-store.component';
@@ -47,12 +42,12 @@ import { PanelProductsListComponent } from './components/user-panel/panel-produc
 import { PanelStoresComponent } from './components/user-panel/panel-stores/panel-stores.component';
 import { PerfilComponent } from './components/user-panel/perfil/perfil.component';
 import { UserPanelComponent } from './components/user-panel/user-panel.component';
-import { CreateUsersComponent } from './components/users/create-users/create-users.component';
-import { EditUsersComponent } from './components/users/edit-users/edit-users.component';
+import { CreateUsersComponent } from './components/create-users/create-users.component';
+import { EditUsersComponent } from './components/edit-users/edit-users.component';
 import { UsersComponent } from './components/users/users.component';
-import { HomeComponent } from './home/home.component';
 import { TokenInterceptorService } from './services/token-interceptor/token-interceptor.service';
 import { StoreBoxListComponent } from './components/store-box-list/store-box-list.component';
+import { ReviewComponent } from './components/review/review.component';
 
 @NgModule({
   declarations: [
@@ -60,29 +55,23 @@ import { StoreBoxListComponent } from './components/store-box-list/store-box-lis
     CategoriesComponent,
     StoresComponent,
     NavigationComponent,
-    SideMenuComponent,
     CreateCategoriesComponent,
     StoreComponent,
     UsersComponent,
     CreateUsersComponent,
     EditCategoriesComponent,
-    HomeComponent,
     CreateStoreComponent,
     ProductsOfStoreComponent,
-    ReviewsOfStoreComponent,
-    StoreDetailsComponent,
     EditUsersComponent,
     PrincipalViewComponent,
     ListingViewComponent,
     StoreViewComponent,
     FooterComponent,
     ProductViewComponent,
-    SearcherComponent,
     LoginComponent,
     PanelNavComponent,
     PerfilComponent,
     PanelStoresComponent,
-    AllProductsViewComponent,
     UserPanelComponent,
     PanelProductsListComponent,
     PanelProductDetailComponent,
@@ -99,6 +88,7 @@ import { StoreBoxListComponent } from './components/store-box-list/store-box-lis
     ModStoresComponent,
     ModCategoriesComponent,
     StoreBoxListComponent,
+    ReviewComponent,
   ],
   imports: [
     BrowserModule,

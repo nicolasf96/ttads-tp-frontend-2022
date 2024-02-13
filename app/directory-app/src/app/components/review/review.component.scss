@@ -1,0 +1,51 @@
+.review{
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: start;
+    gap: 1.5rem;
+    align-items: center;
+    border-bottom: 1px solid lightgray;
+    .img-review-container{
+        min-width: 45px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        /* justify-items: center; */
+        align-items: center;
+        img{
+            width: 45px;
+            object-fit: cover;
+            border-radius: 50%;
+            margin: 0 auto;
+            height: 45px;
+            background-repeat: no-repeat;
+            background-position: 50%;
+            background-size: 100% auto;
+        }
+    }
+    .contenido{
+
+        .titulo{
+            font-weight: 700;
+            font-size: 1.2rem;
+        }
+        .descripcion{
+            margin: 0.2rem 0;
+        }
+        .review-footer{
+            display: flex;
+            align-items: center;
+            .valoracion{
+                font-size: 1rem;
+                font-weight: 700;
+                display: inline;
+            }
+            .fecha{
+                margin-left: 0.7rem;
+                color: gray;
+                display: inline;
+            }
+        }
+    }
+}
+

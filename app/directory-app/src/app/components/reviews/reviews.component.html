@@ -5,17 +5,6 @@
     Esta tienda todavía no tiene comentarios!
 </div>
 
-
-<div class='review' *ngFor="let rev of reviews">
-    <div class='img-review-container'>
-        <img class=""  [src]="'http://localhost:3000/api/' + rev.user.profilePicture?.path || 'assets/no-image.png'" alt="">
-    </div>
-    <div class='contenido'>
-        <div class='titulo'>{{rev.user?.username}}</div>
-        <p class="descripcion">{{rev.comment}}</p>
-        <div class="review-footer">
-            <div class='valoracion'>Valoración: {{ rev.score ? rev.score.toString().slice(0, 3) : '' }}</div>
-            <div class="fecha">{{rev.updatedAt | date: 'dd MMM yyyy'}}</div>
-        </div>
-    </div>
+<div *ngFor="let rev of reviews">
+    <app-review [review]="rev"></app-review>
 </div>

@@ -1,7 +1,7 @@
 import { Component, EventEmitter, OnDestroy, OnInit, Output } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { AuthService } from '../../../services/auth/auth.service';
-import { UsersService } from '../../../services/users/users.service';
+import { AuthService } from '../../services/auth/auth.service';
+import { UsersService } from '../../services/users/users.service';
 import { Subscription} from 'rxjs';
 
 @Component({

@@ -29,9 +29,7 @@ export class ModeratorPanelComponent implements OnInit {
   panel: any;
 
   ngOnInit(): void {
-    this.route.params.subscribe(
-      (params) => (this.userIdentifier = params['id'])
-    );
+    
     this.route.params.subscribe((params) => (this.panel = params['panel']));
     this.userService.getUser(this.userIdentifier).subscribe((res) => {
       this.user = res.data;

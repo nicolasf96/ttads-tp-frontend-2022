@@ -31,9 +31,6 @@ export class ModDashboardComponent implements OnInit {
     this.route.params.subscribe(
       (params) => (this.userIdentifier = params['id'])
     );
-    this.userService.getUser(this.userIdentifier).subscribe((res) => {
-      this.user = res.data;
-    });
     this.categoryService.getCategories().subscribe((res) => {
       this.categories = res.data;
     });
@@ -43,19 +40,7 @@ export class ModDashboardComponent implements OnInit {
     this.userService.getUsers().subscribe((res) => {
       this.users = res.data;
     });
-    this.crearDatos();
   }
 
-  crearDatos() {
-    this.data.labels.push('1', '2', '3', '4', '5');
-    let newDataSet = {
-      data: [10, 18, 19, 28, 16],
-      label: 'Series A',
-      fill: true,
-      tension: 0.4,
-      borderColor: 'black',
-      backgroundColor: 'rgba(255,0,0,0.3)',
-    };
-    this.data.datasets.push(newDataSet);
-  }
+  
 }

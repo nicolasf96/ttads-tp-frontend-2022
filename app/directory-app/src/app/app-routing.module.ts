@@ -56,7 +56,7 @@ const routes: Routes = [
   { path: 'users/:id', component: EditUsersComponent },
   { path: 'newuser', component: CreateUsersComponent },
   { 
-    path: 'moderator-panel/:panel/:id',
+    path: 'moderator/:panel',
     component: ModeratorPanelComponent,
     canActivate: [ModeratorGuard]
    },

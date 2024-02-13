@@ -93,7 +93,7 @@ export class AuthService {
       this.userService.getUser(userId).subscribe((res) => {
         user = res.data;
         /// if(user.role == 'admin'){
-        this.router.navigate(['moderator-panel/' + panel + '/' + userId]);
+        this.router.navigate(['moderator/' + panel]);
         /// }
       });
     }

@@ -10,7 +10,6 @@ import { NgxPaginationModule } from 'ngx-pagination';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AuthGuard } from './auth.guard';
-import { AddReviewComponent } from './components/add-review/add-review.component';
 import { AllProductsViewComponent } from './components/all-products-view/all-products-view.component';
 import { CategoriesComponent } from './components/categories/categories.component';
 import { CreateCategoriesComponent } from './components/categories/create-categories/create-categories.component';
@@ -25,7 +24,6 @@ import { ModStoresComponent } from './components/mod-stores/mod-stores.component
 import { ModUsersComponent } from './components/mod-users/mod-users.component';
 import { ModeratorPanelComponent } from './components/moderator-panel/moderator-panel.component';
 import { NavigationComponent } from './components/navigation/navigation/navigation.component';
-import { PieChartComponent } from './components/pie-chart/pie-chart.component';
 import { PrincipalViewComponent } from './components/principal-view/principal-view.component';
 import { ProductViewComponent } from './components/product-view/product-view.component';
 import { ProductsComponent } from './components/products/products.component';
@@ -89,7 +87,6 @@ import { StoreBoxListComponent } from './components/store-box-list/store-box-lis
     PanelProductsListComponent,
     PanelProductDetailComponent,
     ImagesOfStoreComponent,
-    AddReviewComponent,
     ReviewsComponent,
     ProductsComponent,
     ImagesComponent,
@@ -101,7 +98,6 @@ import { StoreBoxListComponent } from './components/store-box-list/store-box-lis
     ModUsersComponent,
     ModStoresComponent,
     ModCategoriesComponent,
-    PieChartComponent,
     StoreBoxListComponent,
   ],
   imports: [

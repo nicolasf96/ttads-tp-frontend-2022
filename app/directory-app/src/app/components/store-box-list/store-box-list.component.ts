@@ -16,6 +16,6 @@ export class StoreBoxListComponent implements OnInit {
   ngOnInit() {}
 
   goToStore(id: any) {
-    this.router.navigate(['/storeDetails', id]);
+    this.router.navigate(['/store', id]);
   }
 }

@@ -3,13 +3,10 @@
         <div class='title is-5 mb-5'>Formulario Comentario</div>
         <hr class="my-5">
         <div class='review'>
-            <div *ngIf="myReview">
+            <!-- <div *ngIf="myReview">
                 Ya hiciste un comentario en esta tienda!
-            </div>
-            <div *ngIf="!myReview">
-                Ya hiciste un comentario en esta tienda!
-            </div>
-            <form [formGroup]="reviewForm" (ngSubmit)="onSubmit()" *ngIf="!myReview">
+            </div> -->
+            <form [formGroup]="reviewForm" (ngSubmit)="onSubmit()">
                 <div class="field">
                     <label class="label">Comentario:</label>
                     <div class="control">
@@ -24,9 +21,9 @@
                 </div>
                 <div class='buttons has-pulled-right'>
                     <button type="submit" class="button is-primary" [ngClass]="{'is-disabled': myReview, 'deshabilitado': myReview}">Enviar</button>
-                    <span *ngIf="myReview">
+                    <!-- <span *ngIf="myReview">
                         No puedes publicar un nuevo comentario
-                    </span>
+                    </span> -->
                 </div>
             </form>
         </div>

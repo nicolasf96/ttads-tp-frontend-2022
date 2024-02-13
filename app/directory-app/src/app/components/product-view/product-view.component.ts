@@ -81,7 +81,7 @@ export class ProductViewComponent implements OnInit {
   } 
 
   goToStore(id:any){
-    this.router.navigate(['storeDetails/'+id]);
+    this.router.navigate(['store/'+id]);
   }
   
 }

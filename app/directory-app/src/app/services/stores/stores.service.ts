@@ -49,7 +49,7 @@ export class StoresService {
   }
 
   getReviewsByStore(identifier: string) {
-    const url = this.baseURL+'reviews/'+identifier;
+    const url = this.baseURL+'reviews/store/'+identifier;
     return this.http.get<any>(url);
   }
 

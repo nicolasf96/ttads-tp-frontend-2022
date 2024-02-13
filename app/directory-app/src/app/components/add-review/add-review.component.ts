@@ -28,9 +28,9 @@ export class AddReviewComponent implements OnInit {
     userIdentifier: any;
     user:any;
     reviews:any;
-    myReview:any;
+    myReview: any = {};
     storeIdentifier: any;
-    reviewForm: any;
+    reviewForm: any; 
     showTempDiv: any;
     showError: any;
         
@@ -41,20 +41,25 @@ export class AddReviewComponent implements OnInit {
 
       this.userIdentifier = this.authService.getActualId();
       if(this.userIdentifier){
+
         this.userService.getUser(this.userIdentifier).subscribe( res => this.user = res.data);
         this.route.params.subscribe( (params) => this.storeIdentifier = params['id']);
-        this.reviewService.getReviewsByUserAndStore(this.userIdentifier, this.storeIdentifier).subscribe(res => this.myReview = res.data)
-        this.crearFormulario();
+        this.reviewService.getReviewsByUserAndStore(this.userIdentifier, this.storeIdentifier)
+        .subscribe(res => {
+          this.myReview = res.data;
+          this.crearFormulario(this.myReview);
+        });
+
       }else{
       }
 
       
   }
 
-  crearFormulario(){
+  crearFormulario(review:any){
     this.reviewForm = new FormGroup({
-      comment: new FormControl('', [Validators.required]),
-      score: new FormControl('', [Validators.required])
+      comment: new FormControl(review.comment || '', [Validators.required]),
+      score: new FormControl(review.score || '', [Validators.required])
     })
   }
 
@@ -63,7 +68,7 @@ export class AddReviewComponent implements OnInit {
       let rev = this.reviewForm.value
       rev.store = this.storeIdentifier
       rev.user = this. userIdentifier
-      this.reviewService.createReview(rev).subscribe( response => console.log(response));
+      this.reviewService.createReview(rev).subscribe( response => console.log('RESPONSE:',response));
       this.reviewForm.reset();
     }
   }

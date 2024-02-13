@@ -20,7 +20,6 @@ export class StoreViewComponent implements OnInit {
 
    
   identifier = '';
-  identifierUser = '';
   store: any;
   products: any =[];
   reviews: any =[];

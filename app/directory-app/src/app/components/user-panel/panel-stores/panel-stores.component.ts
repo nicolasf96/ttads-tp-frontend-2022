@@ -83,7 +83,7 @@ export class PanelStoresComponent implements OnInit, OnChanges {
     }
 
     goToStore(id:any){
-      this.router.navigate(['storeDetails/'+id]);
+      this.router.navigate(['store/'+id]);
     }
 
     crearFormulario() {

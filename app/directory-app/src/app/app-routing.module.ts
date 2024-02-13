@@ -21,17 +21,39 @@ import { StoreGuard } from './store.guard';
 import { ModeratorGuard } from './moderator.guard';
 
 const routes: Routes = [
-  { path: 'newstore', component: CreateStoreComponent },
-  { path: 'newcategory', component: CreateCategoriesComponent },
-  { path: 'login', component: LoginComponent },
-  { path: 'singup', component: SingupComponent },
-  { path: 'storeDetails/:id/:idUser', component: StoreViewComponent },
-  { path: 'storeDetails/:id', component: StoreViewComponent },
-  { path: 'listing', component: ListingViewComponent },
-  { path: 'listing/:keySearch', component: ListingViewComponent },
-  { path: 'search/:keySearch', component: ListingViewComponent },
-  { path: 'product/:id', component: ProductViewComponent },
-  { path: 'product-details/:id', component: PanelProductDetailComponent },
+  { path: 'newstore', 
+    component: CreateStoreComponent 
+  },
+  { path: 'newcategory', 
+    component: CreateCategoriesComponent 
+  },
+  { path: 'login', 
+    component: LoginComponent 
+  },
+  { path: 'singup', 
+    component: SingupComponent 
+  },
+  { path: 'store/:id/:idUser', 
+    component: StoreViewComponent 
+  },
+  { path: 'store/:id', 
+    component: StoreViewComponent 
+  },
+  { path: 'listing', 
+    component: ListingViewComponent 
+  },
+  { path: 'listing/:keySearch', 
+    component: ListingViewComponent 
+  },
+  { path: 'search/:keySearch', 
+    component: ListingViewComponent 
+  },
+  { path: 'product/:id',
+    component: ProductViewComponent 
+  },
+  { path: 'product-details/:id',
+    component: PanelProductDetailComponent
+  },
   {
     path: 'user-panel/:id',
     component: UserPanelComponent,
@@ -60,7 +82,9 @@ const routes: Routes = [
     component: ModeratorPanelComponent,
     canActivate: [ModeratorGuard]
    },
-  { path: '', component: PrincipalViewComponent },
+  { path: '', 
+    component: PrincipalViewComponent 
+  },
 ];
 
 @NgModule({

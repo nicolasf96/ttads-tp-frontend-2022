@@ -3,4 +3,16 @@
     text-align: center;
     display: inline-block;
 }
+.formulario{
+    margin: 20px;
+    padding: 20px;
+    border: 1px solid lightgray;
+    border-radius: 14px;
+}
+.deshabilitado{
+    background-color: gray;
+    &:hover{
+        background-color: darkgray!important;
+    }
+}
 

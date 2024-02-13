@@ -44,14 +44,10 @@
               <p class="is-size-5">{{ store.address }}, {{ store.city }}</p>
             </div>
 
-            <div class="mb-5" *ngIf="store.valoration">
+            <div class="mb-5" *ngIf="averageScore">
               <div class="mb-1 is-size-6">Valoración</div>
               <div class="valoration">
-                {{
-                  store.valoration
-                    ? store.valoration.toString().slice(0, 3)
-                    : ""
-                }}
+                {{ averageScore ? averageScore : '' }}
               </div>
               <div class="">
                 <i class="fa-solid fa-star"></i>

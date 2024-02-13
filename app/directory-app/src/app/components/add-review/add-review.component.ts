@@ -3,7 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { UsersService } from 'src/app/services/users/users.service';
 import { AuthService } from 'src/app/services/auth/auth.service';
 import { StoresService } from 'src/app/services/stores/stores.service';
-import { ReviewsService } from 'src/app/services/reviews.service';
+import { ReviewsService } from 'src/app/services/reviews/reviews.service';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 

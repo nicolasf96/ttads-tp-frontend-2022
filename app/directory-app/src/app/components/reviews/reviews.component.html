@@ -5,6 +5,28 @@
     Esta tienda todavía no tiene comentarios!
 </div>
 
-<div *ngFor="let rev of reviews">
-    <app-review [review]="rev"></app-review>
-</div>
+<!-- <div *ngIf="reviews.length > 0"> -->
+
+    <div *ngFor="let rev of reviews" >
+        <app-review [review]="rev"></app-review>
+    </div>
+<!-- </div> -->
+
+
+<form class="formulario" [formGroup]="reviewForm" (ngSubmit)="onSubmit()" *ngIf="logueado">
+    <div class="field">
+        <label class="label">Comentario:</label>
+        <div class="control">
+          <textarea class="input  is-outlined" type="text"  formControlName="comment" ></textarea>
+        </div>
+    </div>
+    <div class="field">
+        <label class="label">Puntaje: (de 1 a 5)</label>
+        <div class="control">
+          <input class="input"  type="number" min="1" max="5" formControlName="score">
+        </div>
+    </div>
+    <div class='buttons has-pulled-right'>
+        <button type="submit" class="button is-primary">Enviar</button>
+    </div>
+</form>

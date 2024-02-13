@@ -4,6 +4,7 @@
     gap: 10px;
   .img-container {
     overflow: hidden;
+    border: 1px solid lightgray;
     img{
       width: 100%; /* Asegúrate de que las imágenes ocupen todo el espacio disponible */
       height: auto; /* Mantén la proporción de aspecto */

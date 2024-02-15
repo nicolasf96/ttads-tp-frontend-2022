@@ -21,10 +21,7 @@ export class AuthService {
     this.userLoggedIn$.next();
     return this.http.post<any>(url, user).pipe( 
       tap(() => {
-        // Redirigir o recargar la página después de iniciar sesión
-        this.router.navigate(['/']); // Redirige a una nueva página
-        // O recarga la página actual
-        // window.location.reload();
+        window.location.href = '/';
       }));
   }
 

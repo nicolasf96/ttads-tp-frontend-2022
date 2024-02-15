@@ -6,8 +6,8 @@
     position: relative;
     padding: 40px 60px;
     .img-perfil{
-        width:150px;
-        height:150px;
+        aspect-ratio: 1;
+        max-width: 150px;
         border-radius: 70%;
         overflow: hidden;
         position: relative;

@@ -5,7 +5,6 @@
     </h1>
     <div class="bix">
       <div class="filter-container box p-5 mb-5">
-        <div class="title is-6 m-3">Buscar</div>
         <form [formGroup]="searchForm" (ngSubmit)="onSubmit()">
           <input
             id="inputForm"
@@ -19,37 +18,15 @@
         </form>
       </div>
     </div>
-    <div class="box" *ngIf="toggle == false">
+    <div class="box">
       <div class="title is-6">
-        Mostrando {{ stores.length }} resultados de la búsqueda "{{
-          keyword
-        }}"
+        Mostrando {{ stores.length }} resultados de la búsqueda "{{keyword}}"
       </div>
     </div>
-    <div class="box" *ngIf="toggle == true">
-      <div class="title is-6">Mostrando todos los negocios</div>
-    </div>
     <div class="columns is-multiline">
-      <div class="column is-3 p-5">
+      <div class="column is-3 p-3">
         <div class="box p-5">
-          <div class="mb-5">
-            <div
-              class="title is-6 pb-4"
-              style="border-bottom: 1px solid rgba(0, 0, 0, 0.1)"
-            >
-              Filtros
-            </div>
-            <div
-              class="tag is-info is-light mb-3"
-              *ngFor="let catF of categoriesFilter"
-            >
-              {{ catF.description }}
-              <span style="cursor: pointer">
-                <i class="fa-regular fa-circle-xmark mx-3"></i>
-              </span>
-            </div>
-          </div>
-          <div class="title is-6">Categorías</div>
+          <div class="title is-6 py-3" style="border-bottom: 1px solid rgba(0, 0, 0, 0.1)">Categorías</div>
           <ul>
             <li
               class="is-size-6"

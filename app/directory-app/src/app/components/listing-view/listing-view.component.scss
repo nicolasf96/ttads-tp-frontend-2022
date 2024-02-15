@@ -31,7 +31,6 @@ $contrast-color: white;
     
     form{
         width: 100%;
-        margin-top: 20px;
         display: flex;
         flex-direction: row;
         justify-content: center;
@@ -39,9 +38,12 @@ $contrast-color: white;
             width: 70%;
             margin-right: 12px;
             border: 1px solid $text-deco-color;
+            border-radius: 8px;
         }
         button{
             width: 30%;
+            max-width: 160px;
+            border-radius: 8px;
         }
     }
 

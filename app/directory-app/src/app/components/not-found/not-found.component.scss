@@ -1,0 +1,21 @@
+.not-found-container {
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: calc(100vh - 280px);
+    flex-direction: column;
+    svg{
+      font-size: 150px;
+      color: lightgray;
+      margin-bottom: 2rem;
+    }
+    h1 {
+      font-size: 36px;
+    }
+    p {
+      font-size: 18px;
+    }
+    
+  }
+  

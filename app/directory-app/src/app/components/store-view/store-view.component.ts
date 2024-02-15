@@ -33,18 +33,21 @@ export class StoreViewComponent implements OnInit {
 
   ngOnInit(): void {
     this.route.params.subscribe( (params) => this.identifier = params['id'] );
-    this.service.getStore(this.identifier).subscribe( response => {
-      this.store = response.data,
-      this.productService.getProductsByStore(this.store._id).subscribe(res => {
-        this.products = res.data
-      });
-      this.reviewService.getReviewsByStore(this.identifier).subscribe( res=>{
-        console.log(res.data);
-        this.calculateAverageScore(res.data)
-      })       
-  });
-
-    
+    this.service.getStore(this.identifier)
+    .subscribe({
+      next: (response) => {
+        this.store = response.data,
+        this.productService.getProductsByStore(this.store._id).subscribe(res => {
+          this.products = res.data
+        });
+        this.reviewService.getReviewsByStore(this.identifier).subscribe( res=>{
+          this.calculateAverageScore(res.data)
+        });
+      },
+      error: (e) => {
+        this.router.navigate(['**'])
+      }
+    });
   }
 
   calculateAverageScore(reviews:any) {

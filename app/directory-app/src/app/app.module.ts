@@ -9,7 +9,7 @@ import { NgChartsModule } from 'ng2-charts';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { AuthGuard } from './auth.guard';
+import { AuthGuard } from './guards/auth.guard';
 import { CategoriesComponent } from './components/categories/categories.component';
 import { CreateCategoriesComponent } from './components/create-categories/create-categories.component';
 import { EditCategoriesComponent } from './components/edit-categories/edit-categories.component';
@@ -48,6 +48,8 @@ import { UsersComponent } from './components/users/users.component';
 import { TokenInterceptorService } from './services/token-interceptor/token-interceptor.service';
 import { StoreBoxListComponent } from './components/store-box-list/store-box-list.component';
 import { ReviewComponent } from './components/review/review.component';
+import { NotFoundComponent } from './components/not-found/not-found.component';
+import { MiniStoreComponent } from './components/mini-store/mini-store.component';
 
 @NgModule({
   declarations: [
@@ -89,6 +91,8 @@ import { ReviewComponent } from './components/review/review.component';
     ModCategoriesComponent,
     StoreBoxListComponent,
     ReviewComponent,
+    NotFoundComponent,
+    MiniStoreComponent,
   ],
   imports: [
     BrowserModule,

@@ -5,24 +5,8 @@
     *ngFor="let s of stores"
     (click)="goToStore(s._id)"
   >
-    <div class="card">
-      <div class="card-img">
-        <img [src]="'http://localhost:3000/api/' + s.profilePicture?.path" />
-      </div>
-      <div class="card-content">
-        <div class="title is-6 mb-2">
-          {{ s.name }}
-        </div>
-        <div class="cat mb-2">
-          {{ s.category?.description }}
-        </div>
-        <div *ngIf="s.address">
-          <i class="fa-solid fa-location-dot mr-2"></i>{{ s.address }}
-        </div>
-        <div *ngIf="s.instagram">
-          <i class="fa-brands fa-instagram mt-3 mr-2"></i>{{ s.instagram }}
-        </div>
-      </div>
-    </div>
+
+  <app-mini-store [store]="s"></app-mini-store>
+    
   </div>
 </div>

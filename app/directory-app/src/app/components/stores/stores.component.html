@@ -10,7 +10,6 @@
           <th>Dirección</th>
           <th>Ciudad</th>
           <th>Servicio</th>
-          <th><i class="fa-solid fa-star"></i></th>
           <th>Categoría</th>
           <th>Usuario</th>
           <th>Editar</th>
@@ -46,9 +45,6 @@
         </td>
         <td>
           {{ store.isService }}
-        </td>
-        <td>
-          {{ store.valoration | number : "1.1-1" }}
         </td>
         <td *ngIf="store.category">
           {{ store.category?.description }}

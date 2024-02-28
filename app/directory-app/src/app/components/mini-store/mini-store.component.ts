@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { ReviewsService } from 'src/app/services/reviews/reviews.service';
 
 @Component({
   selector: 'app-mini-store',
@@ -8,12 +9,38 @@ import { Component, Input } from '@angular/core';
 export class MiniStoreComponent {
 
   @Input() store: any;
+  averageScore: any;
 
-  constructor(){
+  constructor(private reviewService: ReviewsService){
+
+    
     
   }
 
+  ngOnInit(): void {
+    this.reviewService.getReviewsByStore(this.store._id)
+    .subscribe({
+      next: (response) => {
+        this.calculateAverageScore(response.data)
+      },
+      error: (e) => {
+        console.log(e);
+      }
+    });
+  }
 
-  
+
+  calculateAverageScore(reviews:any) {
+    let totalScore = 0;
+    let averageScore;
+    for (let review of reviews) {
+      totalScore += review.score;
+    }
+    if (reviews.length > 0) {
+      averageScore = totalScore / reviews.length;
+      this.averageScore = averageScore;
+    }
+    
+  }
 
 }

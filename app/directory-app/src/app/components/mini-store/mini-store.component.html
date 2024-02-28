@@ -2,6 +2,10 @@
     <div class="card-img">
       <img [src]="'http://localhost:3000/api/' + store.profilePicture?.path" />
     </div>
+    <div class='valoration' *ngIf="averageScore">
+      {{averageScore}}
+      <i class="fa-solid fa-star fa-sm"></i>
+    </div>
     <div class="card-content">
       <div class="title is-6 mb-2">
         {{ store.name }}
@@ -9,9 +13,10 @@
       <div class="cat mb-2">
         {{ store.category?.description }}
       </div>
-      <div *ngIf="store.address">
-        <i class="fa-solid fa-location-dot mr-2"></i>{{ store.address }}
+      <div *ngIf="store.address" class="capitalized">
+        <i class="fa-solid fa-location-dot mr-2"></i>{{ store.city }}
       </div>
+      <hr class="mt-3 mb-1" *ngIf="store.instagram">
       <div *ngIf="store.instagram">
         <i class="fa-brands fa-instagram mt-3 mr-2"></i>{{ store.instagram }}
       </div>

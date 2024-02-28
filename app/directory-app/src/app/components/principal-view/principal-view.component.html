@@ -1,36 +1,25 @@
 <div class="column is-12 p-0 principal-banner">
-  <h1 class="principal-title">Buscador de Tiendas</h1>
+  <div class="overlay"></div>
+  <h1 class="principal-title">Explora los mejores lugares</h1>
   <div class="">
     <form class="my-5" [formGroup]="searchForm" (ngSubmit)="onSubmit()">
       <div class="field is-grouped">
         <p class="control is-expanded">
-          <input
-            class="input"
-            style="width: 500px;"
-            type="text"
-            placeholder="¿Que estás buscando?"
-            formControlName="keySearch"
-            id="inputForm"
-          />
+          <input class="input" style="width: 500px;" type="text"  placeholder="¿Que estás buscando?" formControlName="keySearch" id="inputForm"/>
         </p>
         <p class="control">
-          <button
-            class="button is-info"
-            style="width: 160px"
-            id="buttonForm"
-            type="submit"
-          >
-            Buscar
-          </button>
+          <button class="button is-primary" style="width: 160px" id="buttonForm" type="submit">Buscar</button>
         </p>
       </div>
     </form>
-    <div></div>
   </div>
 </div>
 <div class="fondo">
-      <h2 class="secondary-title is-4 mb-5">Lo más nuevo</h2>
+      <h2 class="secondary-title is-5 mb-5">Lo más nuevo</h2>
       <div class="stores-box">
         <app-store-box-list [stores]="stores"> </app-store-box-list>
+      </div>
+      <div class='button-container'>
+        <a href="/listing" class="button is-primary mx-auto">Ver todos</a>
       </div>
 </div>

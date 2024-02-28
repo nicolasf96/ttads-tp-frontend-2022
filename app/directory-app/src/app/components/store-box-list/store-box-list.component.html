@@ -1,12 +1,5 @@
 <div class="columns is-multiline">
-  <div
-    div
-    class="column is-4 store"
-    *ngFor="let s of stores"
-    (click)="goToStore(s._id)"
-  >
-
-  <app-mini-store [store]="s"></app-mini-store>
-    
+  <div class="column is-3 store" *ngFor="let s of stores" (click)="goToStore(s._id)">
+    <app-mini-store [store]="s"></app-mini-store>
   </div>
 </div>

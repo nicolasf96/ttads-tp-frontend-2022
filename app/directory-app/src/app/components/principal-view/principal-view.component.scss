@@ -6,14 +6,17 @@
 }
 
 .principal-banner {
-  width: 100%;
-    min-height: 300px;
+    width: 100%;
+    min-height: calc(100vh - 80px);
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    background: rgb(190,255,217);
-    background: linear-gradient(90deg, rgba(190,255,217,1) 0%, rgba(60,162,241,1) 38%, rgba(117,191,250,1) 100%);
+    /* background: rgb(190, 255, 217); */
+    background-image: url(https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?q=80&w=2144&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D);
+    background-size: cover;
+    background-position: center;
+    position: relative;
   &::before {
     padding-left: 0;
     width: 100%;
@@ -23,6 +26,16 @@
     //background-color: var(--pcolor2);
     opacity: 1;
     mix-blend-mode: multiply;
+  }
+
+  
+  .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.35); /* Cambiar el último valor para ajustar el nivel de opacidad */
   }
 
   .principal-title {
@@ -61,7 +74,8 @@
 }
 
 .secondary-title {
-  font-size: 2rem;
+  text-transform: uppercase;
+  font-size: 1rem;
   color: #181d2f;
   font-weight: bold;
   display: block;
@@ -145,4 +159,10 @@ img .noPicture {
 
 .stores-box{
   padding: 0 20%;
+}
+
+.button-container{
+  display: flex;
+  justify-content: center;
+  margin: 1.5rem 0 3rem;
 }

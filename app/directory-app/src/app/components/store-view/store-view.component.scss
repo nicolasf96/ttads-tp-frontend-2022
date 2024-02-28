@@ -75,7 +75,7 @@ $background-color: var(--backg-color);
     display: inline-block;
     margin: 0 auto;
     width: 150px;
-    border-radius: 50%;
+    // border-radius: 50%;
     overflow: hidden;
     aspect-ratio: 1 / 1;
     object-fit: cover;
@@ -133,5 +133,13 @@ a svg{
 
   .valoration{
     font-size: 48px;
+    font-weight: 700;
     white-space: nowrap;
+}
+
+
+.etiquetas{
+    text-transform: uppercase;
+    font-weight: 500;
+    font-size: 0.8rem!important;
 }

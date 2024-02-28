@@ -26,7 +26,7 @@ export class PrincipalViewComponent implements OnInit {
   stores: any = [];
   categories: any = [];
   storesSing: any = [];
-  limit = 6;
+  limit = 8;
 
   ngOnInit(): void {
     this.storeService

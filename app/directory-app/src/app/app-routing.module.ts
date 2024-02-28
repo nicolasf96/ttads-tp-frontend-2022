@@ -36,7 +36,7 @@ const routes: Routes = [
     component: LoginComponent ,
     canActivate: [NotAuthGuard],
   },
-  { path: 'singup', 
+  { path: 'signup', 
     component: SingupComponent,
     canActivate: [NotAuthGuard],
   },

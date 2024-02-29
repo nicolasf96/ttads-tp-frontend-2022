@@ -111,6 +111,7 @@ export class PanelStoresComponent implements OnInit, OnChanges {
       if (this.storeForm.valid){
         this.storesService.editStore(this.storeForm.value, this.store._id).subscribe( response => console.log(response));
         this.showTempDiv();
+        alert('Canbios guardados exitosamente')
       }else{
         this.showError();
       }

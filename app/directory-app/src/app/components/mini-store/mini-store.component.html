@@ -3,7 +3,7 @@
       <img [src]="'http://localhost:3000/api/' + store.profilePicture?.path" />
     </div>
     <div class='valoration' *ngIf="averageScore">
-      {{averageScore}}
+      {{averageScore | number:'1.1-1'}}
       <i class="fa-solid fa-star fa-sm"></i>
     </div>
     <div class="card-content">

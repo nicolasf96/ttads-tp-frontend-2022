@@ -112,4 +112,17 @@ export class EditUsersComponent implements OnInit {
   showPhotoForm() {
     this.showForm = !this.showForm;
   }
+
+  deleteUser(){
+    this.userService.deleteUser(this.identifier)
+    .subscribe({
+      next: (res) => {
+        alert('Usuario borrado exitosamente');
+        window.location.reload();
+      },
+      error: (e) => {
+        alert(e.error.message)
+      },
+    });
+  }
 }

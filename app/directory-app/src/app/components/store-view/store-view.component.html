@@ -43,8 +43,8 @@
 
             <div class="mb-5" *ngIf="averageScore">
               <div class="mb-1 is-size-6 etiquetas">Valoración</div>
-              <div class="valoration">
-                {{ averageScore ? averageScore : '' }}
+              <div class="valoration" *ngIf="averageScore">
+                {{ averageScore | number:'1.1-1'}}
               </div>
               <div class="">
                 <i class="fa-solid fa-star"></i>

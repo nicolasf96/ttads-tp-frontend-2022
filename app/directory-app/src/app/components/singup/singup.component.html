@@ -63,8 +63,8 @@
                 </div>
             </div>
         </form>
-    </div>
-    <div class='tag is-info is-light' *ngIf="response">
-      {{response}}
+        <div class='centrar'>
+          <div class="tag is-warning mx-auto mt-4" [class.noMostrar]="toggle">{{error}}</div>
+        </div>
     </div>
 </div>

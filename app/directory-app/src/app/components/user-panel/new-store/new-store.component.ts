@@ -57,15 +57,22 @@ export class NewStoreComponent implements OnInit {
     if (this.storeForm.valid){
       let store = this.storeForm.value;
       store.user = this.userIdentifier;
-      this.storeService.createStore(store).subscribe( res=>{
-        if(this.file){
-          this.imageService.createImageProfileStore(res.data._id, this.file).subscribe( res => {
-          });
+      this.storeService.createStore(store)
+      .subscribe({
+        next: (res) => {
+          if(this.file){
+            this.imageService.createImageProfileStore(res.data._id, this.file).subscribe( res => {
+            });
+          }
+          this.router.navigate(['/store-panel/'+this.userIdentifier]);
+        },
+        error: (e) => {
+          alert(e.error.message);
         }
-        this.router.navigate(['/store-panel/'+this.userIdentifier]);
       });
-    }
+
   }
+}
 
   uploadPhoto(){
 

@@ -12,7 +12,6 @@
           <th>Apellido</th>
           <th>Tienda</th>
           <th>Editar</th>
-          <th>Borrar</th>
         </tr>
       </thead>
       <tr
@@ -57,9 +56,6 @@
             (click)="this.identifier = user._id"
             [ngStyle]="{ cursor: 'pointer' }"
           ></i>
-        </td>
-        <td>
-          <i class="fa-solid fa-trash fa-lg" (click)="deleteUser(user._id)"></i>
         </td>
       </tr>
     </table>

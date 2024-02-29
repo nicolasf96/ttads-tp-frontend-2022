@@ -95,4 +95,18 @@ export class StoreComponent implements OnInit {
   goToStore(id: any) {
     this.router.navigate(['store/' + id]);
   }
+
+  deleteStore(){
+    this.service.deleteStore(this.store._id)
+    .subscribe({
+      next: (res) => {
+        alert('Tienda borrada exitosamente')
+        window.location.reload();
+      },
+      error: (e) => {
+        alert(e.error.message);
+      },
+    });
+  }
+
 }

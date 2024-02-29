@@ -24,13 +24,13 @@ export class CategoriesComponent implements OnInit {
   }
 
   deleteCategory(idCategory: any) {
-    this.service
-      .deleteCategory(idCategory)
-      .subscribe((response) => console.log(response));
+    this.service.deleteCategory(idCategory);
     this.loadCategories();
   }
 
   categoryDetails(idCategory: string) {
     this.router.navigate(['categories/' + idCategory]);
   }
+
+
 }

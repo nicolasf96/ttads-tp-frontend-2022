@@ -10,7 +10,8 @@ import { AuthService } from 'src/app/services/auth/auth.service';
 export class LoginComponent implements OnInit {
 
 
-
+  error: any;
+  toggle = true;
   user = {
     username: '',
     password: ''
@@ -24,17 +25,20 @@ export class LoginComponent implements OnInit {
 
   login(){
     if(this.user){
-      this.service.auth(this.user).subscribe(
-        res => {
-          console.log(res);
-        localStorage.setItem('token', res.token),
-        localStorage.setItem('role', res.role),
-        localStorage.setItem('id',res._id)
-          this.router.navigate(['/'])
-        },
-        err =>{
-          console.log(err)
-        })
+      this.service.auth(this.user)
+        .subscribe({
+          next: (res) => {
+            localStorage.setItem('token', res.token),
+            localStorage.setItem('role', res.role),
+            localStorage.setItem('id',res._id)
+            this.router.navigate(['/'])
+          },
+          error: (e) => {
+            this.error = e.error.message;
+            this.toggle = false;
+          },
+        });
     }
   }
+
 }

@@ -20,6 +20,8 @@ export class PerfilComponent implements OnInit {
     private imageService: ImagesService
   ) {}
 
+  error: any;
+  toggle = true;
   userForm: any;
   showDiv = false;
   showForm = false;
@@ -52,13 +54,19 @@ export class PerfilComponent implements OnInit {
 
   onSubmit() {
     let data: any;
-    this.service
-      .editUser(this.userIdentifier, this.userForm.value)
-      .subscribe((res) => {
-        data = res;
-        this.user = data.data.user;
+    this.service.editUser(this.userIdentifier, this.userForm.value)
+      .subscribe({
+        next: (res) => {
+          data = res;
+          this.user = data.data.user;
+          alert('Datos guardados exitosamente')
+        },
+        error: (e) => {
+          this.error = e.error.message;
+          this.toggle = false;
+        },
       });
-    this.showTempDiv();
+    
   }
 
   showTempDiv() {

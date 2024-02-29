@@ -1,7 +1,7 @@
 <div class="">
-  <p class="title is-5">Dashboard</p>
+  <p class="title is-5">Insights</p>
   <div class='dashboard-container'>
-    <div class='box'>
+    <!-- <div class='box'>
       Usuarios
       <hr>
       <div>Total Usuarios: {{users.length}}</div>
@@ -15,6 +15,32 @@
       Categorias
       <hr>
       <div>Total Categorías: {{categories.length}}</div>
-    </div>
+    </div> -->
+    <table class="table">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Entidad</th>
+          <th>Cantidad</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th>1</th>
+          <td>Usuarios</td>
+          <td>{{users.length}}</td>
+        </tr>
+        <tr>
+          <th>2</th>
+          <td>Tiendas</td>
+          <td>{{stores.length}}</td>
+        </tr>
+        <tr>
+          <th>3</th>
+          <td>Categorías</td>
+          <td>{{categories.length}}</td>
+        </tr>
+      </tbody>
+    </table>
   </div>
 </div>

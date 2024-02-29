@@ -27,19 +27,20 @@ export class PanelProductsListComponent implements OnInit {
     private imageService: ImagesService) { }
 
   ngOnInit(): void {
-    console.log("this.store")
-    console.log(this.store)
-    this.loadProducts();
     this.crearFormulario();
+    this.storeService.getProductsByStoreId(this.store._id)
+    .subscribe({
+      next: (res) => {
+        this.products = res.data
+      },
+      error: (e) => {
+        alert(e.error.message)
+      },
+    });
   }
 
   
-  loadProducts(){
-    setTimeout(() => {
-      this.storeService.getProductsByStoreId(this.store._id).subscribe( response => this.products = response.data)
-    }, 1000);
-    
-  }
+
 
   goToProduct(id:any){
     this.router.navigate(['product-details/'+id]);

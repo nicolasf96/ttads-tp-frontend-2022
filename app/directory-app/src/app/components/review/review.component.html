@@ -1,6 +1,7 @@
 <div class='review' >
     <div class='img-review-container'>
-        <img class=""  [src]="'http://localhost:3000/api/' + review.user.profilePicture?.path || 'assets/no-image.png'" alt="">
+        <img [src]="'http://localhost:3000/api/' + review.user.profilePicture?.path" alt="" *ngIf="review.user.profilePicture">
+        <img [src]="'assets/no-banner.png'" class="profile-img"  *ngIf="!review.user.profilePicture"/>
     </div>
     <div class='contenido'>
         <div class='titulo'>{{review.user?.username}}</div>

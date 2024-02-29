@@ -25,12 +25,11 @@
             </select>
           </div>
         </div>
-        <button
-          class="button is-info"
-          type="submit"
-          [disabled]="!categoryForm.valid"
-        >
+        <button class="button is-info" type="submit"  [disabled]="!categoryForm.valid">
           Editar Categoría
+        </button>
+        <button class="button is-danger ml-3" type="submit"  (click)="deleteCategory()">
+          Borrar Categoría
         </button>
       </form>
     </div>

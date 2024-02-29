@@ -7,7 +7,7 @@
         <div class='foto'>
             <img  [src]="'http://localhost:3000/api/' + prod.images[0]?.path || 'assets/no-banner.png'" alt="">
         </div>
-        <div class='contenido'>
+        <div class='contenido pt-3'>
             <strong>{{prod.title}}</strong>
             <div *ngIf="prod.used">Este Producto es Usado</div>
             <div class='price' *ngIf="prod.price">${{prod.price}}</div>

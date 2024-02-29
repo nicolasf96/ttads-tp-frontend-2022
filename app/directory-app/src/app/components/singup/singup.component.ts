@@ -13,7 +13,8 @@ export class SingupComponent implements OnInit {
 
 
   userForm: any;
-  response: any;
+  error: any;
+  toggle = true;
 
     constructor(
       private userService: UsersService,
@@ -46,27 +47,37 @@ export class SingupComponent implements OnInit {
   onSubmit() {
     let data;
     if(this.userForm.valid){
-      this.userService.createUser(this.userForm.value).subscribe(
-        res =>{
-          data = res.userStored;
-          this.response = res.message;
-          this.router.navigate(['/login'])
-        }
-      )
+      this.userService.createUser(this.userForm.value)
+        .subscribe({
+          next: (res) => {
+            data = res.userStored;
+            this.router.navigate(['/login'])
+          },
+          error: (e) => {
+            this.error = e.error.message;
+            console.log(e);
+            this.toggle = false;
+          },
+        });
+
     }else{
-      this.userForm.reset();
+      this.error = 'El formulario no está completado correctamente';
+      this.toggle = false;
     }
     if(data){
-      this.authService.auth(data).subscribe(
-        res => {
-        localStorage.setItem('token', res.token),
-        localStorage.setItem('role', res.role),
-        localStorage.setItem('id',res._id),
-          this.router.navigate(['/'])
-        },
-        err =>{
-          console.log(err)
-        })
+      this.authService.auth(data)
+        .subscribe({
+          next: (res) => {
+            localStorage.setItem('token', res.token),
+            localStorage.setItem('role', res.role),
+            localStorage.setItem('id',res._id),
+            this.router.navigate(['/'])
+          },
+          error: (e) => {
+            this.error = e.error.message;
+            this.toggle = false;
+          },
+        });
     }
   }
 }

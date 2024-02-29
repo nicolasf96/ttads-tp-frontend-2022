@@ -58,5 +58,10 @@ export class StoresService {
     return this.http.put<any>(url,storeEdited);
   }
 
+  deleteStore(identifier:any) {
+    const url = this.baseURL+'stores/'+identifier
+    return this.http.delete<any>(url);
+  }
+
 
 }

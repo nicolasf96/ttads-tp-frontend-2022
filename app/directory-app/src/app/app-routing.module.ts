@@ -49,10 +49,7 @@ const routes: Routes = [
   { path: 'listing', 
     component: ListingViewComponent 
   },
-  { path: 'listing/:keySearch', 
-    component: ListingViewComponent 
-  },
-  { path: 'search/:keySearch', 
+  { path: 'listing/:query', 
     component: ListingViewComponent 
   },
   { path: 'product/:id',

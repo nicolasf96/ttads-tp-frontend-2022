@@ -2,16 +2,7 @@
   <div class="overlay"></div>
   <h1 class="principal-title">Explora los mejores lugares</h1>
   <div class="">
-    <form class="my-5" [formGroup]="searchForm" (ngSubmit)="onSubmit()">
-      <div class="field is-grouped">
-        <p class="control is-expanded">
-          <input class="input" style="width: 500px;" type="text"  placeholder="¿Que estás buscando?" formControlName="keySearch" id="inputForm"/>
-        </p>
-        <p class="control">
-          <button class="button is-primary" style="width: 160px" id="buttonForm" type="submit">Buscar</button>
-        </p>
-      </div>
-    </form>
+    <app-busqueda></app-busqueda>
   </div>
 </div>
 <div class="color">

@@ -11,20 +11,13 @@ import { StoresService } from 'src/app/services/stores/stores.service';
 })
 export class ListingViewComponent implements OnInit {
 
-  searchForm = new FormGroup({
-    keySearch: new FormControl('', [Validators.required])
-  })
-
-  categoriesForm = new FormGroup({
-    keySearch: new FormControl('', [Validators.required])
-  })
-
-  keyword:any ;
+  query:any ;
   stores:any;
+  totalDocs: any;
   categories:any;
   toggle = false;
-
-  categoriesFilter:any = [];
+  page: any = '';
+  limit: any = '';
 
   constructor( private route: ActivatedRoute,
     private storesService: StoresService,
@@ -32,49 +25,75 @@ export class ListingViewComponent implements OnInit {
     private router: Router) { }
 
   ngOnInit(): void {
-    this.route.params.subscribe( (params) => this.keyword = params['keySearch'] );
-    if(this.keyword == '' || this.keyword == null){
-      this.loadAllStores();
-    }else{
-      this.loadSearch();
-    }
-    
+
+
+    this.route.params
+    .subscribe({
+      next: (params) => {
+        this.query = params['query']
+        this.page = this.route.snapshot.queryParamMap.get('page');
+        this.limit = this.route.snapshot.queryParamMap.get('limit')
+        if(this.query == '' || this.query == null){
+          this.loadAllStores();
+        }else{
+          this.loadSearch();
+        }
+      },
+      error: (e) => {
+        alert(e)
+      },
+    });
+
     this.loadCategories();
   }
 
+
   loadAllStores(){
-    this.storesService.getStores().subscribe( response => this.stores = response.data);
+    console.log('ENTRAMOS ACA');
+    this.storesService.getStores()
+    .subscribe({
+      next: (res) => {
+        this.stores = res.data.docs;
+        this.totalDocs = res.data.totalDocs;
+
+      },
+      error: (e) => {
+        alert(e.error)
+      },
+    });
   }
-
-
   loadSearch(){
-    this.storesService.searchStores(this.keyword).subscribe( response => this.stores = response.data)
-      
+    this.storesService.getStores(this.query,this.page,this.limit)
+    .subscribe({
+      next: (res) => {
+        this.stores = res.data.docs
+        this.totalDocs = res.data.totalDocs;
+      },
+      error: (e) => {
+        alert(e.error)
+      },
+    });
   }
 
   loadCategories(){
-    this.categoriesService.getCategories().subscribe( response => this.categories = response.data)
+    this.categoriesService.getCategories()
+    .subscribe({
+      next: (res) => {
+        this.categories = res.data
+      },
+      error: (e) => {
+        alert(e.error)
+      },
+    })
   }
 
   redirectTo(category: string) {
-    this.keyword = category;
-    if(this.keyword == '' || this.keyword == null){
+    this.query = category;
+    if(this.query == '' || this.query == null){
       this.loadAllStores();
     }else{
       this.loadSearch();
     }
-  }
-  
-
-  onSubmit(){
-    // this.storesService.getStoresByKeyword(this.searchForm.value.keySearch).subscribe( response => this.stores = response.data);
-    this.keyword = this.searchForm.value.keySearch;
-    if(this.keyword == '' || this.keyword == null){
-      this.loadAllStores();
-    }else{
-      this.loadSearch();
-    }
-    this.searchForm.reset()
   }
 
   goToStore(id:any){

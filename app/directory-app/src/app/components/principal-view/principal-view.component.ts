@@ -10,9 +10,7 @@ import { StoresService } from 'src/app/services/stores/stores.service';
   styleUrls: ['./principal-view.component.scss'],
 })
 export class PrincipalViewComponent implements OnInit {
-  searchForm = new FormGroup({
-    keySearch: new FormControl('', [Validators.maxLength(12)]),
-  });
+
 
   constructor(
     private storeService: StoresService,
@@ -22,7 +20,6 @@ export class PrincipalViewComponent implements OnInit {
     this.loadCategories();
   }
 
-  keyword: any;
   stores: any = [];
   categories: any = [];
   storesSing: any = [];
@@ -45,13 +42,5 @@ export class PrincipalViewComponent implements OnInit {
     this.router.navigate(['store/' + id]);
   }
 
-  onSubmit() {
-    this.keyword = this.searchForm.value.keySearch;
-    if (this.keyword == '' || this.keyword == null) {
-      this.router.navigate(['listing']);
-    } else {
-      this.router.navigate(['listing/' + this.searchForm.value.keySearch]);
-    }
-    this.searchForm.reset();
-  }
+
 }

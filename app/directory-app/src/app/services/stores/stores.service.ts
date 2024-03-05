@@ -11,8 +11,8 @@ export class StoresService {
   constructor(private http: HttpClient) { }
   
   
-  getStores() {
-    const url = this.baseURL+'stores'
+  getStores(query:any = '', page:any = '', limit: any = '', category: any = '') {
+    const url = this.baseURL+'stores?busqueda='+query+'&page='+page+'&limit='+limit+'&categoria='+category
     return this.http.get<any>(url);
   }
 
@@ -25,13 +25,6 @@ export class StoresService {
     const url = this.baseURL+'stores/keyword/'+keyword;
     return this.http.get<any>(url);
   }
-
-  searchStores(search: any) {
-    const url = this.baseURL+'stores/search/'+search;
-    return this.http.get<any>(url);
-  }
-
-
 
   getStore(id: String) {
     const url = this.baseURL+'stores/'+id;

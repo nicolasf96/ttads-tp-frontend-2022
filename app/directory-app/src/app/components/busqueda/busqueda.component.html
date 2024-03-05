@@ -1,0 +1,10 @@
+<form class="my-5" [formGroup]="searchForm" (ngSubmit)="onSubmit()">
+    <div class="field is-grouped">
+      <p class="control is-expanded">
+        <input class="input" type="text"  placeholder="¿Que estás buscando?" formControlName="busqueda" id="inputForm"/>
+      </p>
+      <p class="control">
+        <button class="button is-primary" id="buttonForm" type="submit">Buscar</button>
+      </p>
+    </div>
+  </form>

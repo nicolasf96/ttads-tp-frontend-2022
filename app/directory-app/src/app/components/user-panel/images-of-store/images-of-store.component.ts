@@ -34,6 +34,7 @@ export class ImagesOfStoreComponent implements OnInit {
         this.photoSelected = '';
       });
     });
+    location.reload()
   }
 
 
@@ -46,6 +47,7 @@ export class ImagesOfStoreComponent implements OnInit {
         this.store = data.data.store;
       });
     });
+    location.reload()
   }
 
   onPhotoSelected($event: any){

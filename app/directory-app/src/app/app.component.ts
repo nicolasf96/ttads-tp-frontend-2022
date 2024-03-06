@@ -22,7 +22,7 @@ export class AppComponent implements OnInit {
     }
 
     setStyleMode(mode:any){
-      console.log(mode);
+      // console.log(mode);
       this.cssUrl = (this.cssUrl === `/assets/styleLightMode.css`) ? `/assets/styleDarkMode.css` : `/assets/styleLightMode.css`;
 
     }

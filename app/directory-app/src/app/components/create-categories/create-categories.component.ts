@@ -44,6 +44,7 @@ export class CreateCategoriesComponent implements OnInit {
     } else {
       this.service.createCategory(this.categoryForm.value);
     }
+    location.reload();
   }
   initialize() {
     this.categoryForm.reset();

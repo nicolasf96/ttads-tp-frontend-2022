@@ -70,7 +70,9 @@ export class StoreComponent implements OnInit {
           this.store = data.data;
         });
       this.showTempDiv();
+      window.location.reload()
     } else {
+      alert('Error al editar tienda')
       this.showError();
     }
   }

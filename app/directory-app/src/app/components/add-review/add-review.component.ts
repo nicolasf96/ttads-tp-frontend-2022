@@ -68,7 +68,15 @@ export class AddReviewComponent implements OnInit {
       let rev = this.reviewForm.value
       rev.store = this.storeIdentifier
       rev.user = this. userIdentifier
-      this.reviewService.createReview(rev).subscribe( response => console.log('RESPONSE:',response));
+      this.reviewService.createReview(rev)
+      .subscribe({
+        next: (res) => {
+          console.log(res);
+        },
+        error: (e) => {
+          alert(e.error.message)
+        },
+      });
       this.reviewForm.reset();
     }
   }

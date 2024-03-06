@@ -20,7 +20,14 @@ export class StoresComponent implements OnInit {
   loadStores() {
     this.service
       .getStores()
-      .subscribe((response) => (this.stores = response.data));
+      .subscribe({
+        next: (res) => {
+          this.stores = res.data.docs
+        },
+        error: (e) => {
+          alert(e)
+        },
+      });
   }
 
   editStore(store: any) {

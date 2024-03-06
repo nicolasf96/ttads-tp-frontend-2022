@@ -24,7 +24,9 @@ export class PanelProductsListComponent implements OnInit {
     private storeService: StoresService,
     private router: Router,
     private productService: ProductsService,
-    private imageService: ImagesService) { }
+    private imageService: ImagesService) {
+
+    }
 
   ngOnInit(): void {
     this.crearFormulario();

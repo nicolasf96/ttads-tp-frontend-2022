@@ -34,11 +34,23 @@ export class ModDashboardComponent implements OnInit {
     this.categoryService.getCategories().subscribe((res) => {
       this.categories = res.data;
     });
-    this.storesService.getStores().subscribe((res) => {
-      this.stores = res.data;
+    this.storesService.getStores()
+    .subscribe({
+      next: (res) => {
+        this.stores = res.data.docs
+      },
+      error: (e) => {
+        alert(e)
+      },
     });
-    this.userService.getUsers().subscribe((res) => {
-      this.users = res.data;
+    this.userService.getUsers()
+    .subscribe({
+      next: (res) => {
+        this.users = res.data
+      },
+      error: (e) => {
+        alert(e)
+      },
     });
   }
 

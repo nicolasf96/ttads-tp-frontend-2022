@@ -7,3 +7,23 @@ input{
 .button{
     min-width: 160px;
 }
+
+@media  screen and (max-width: 800px){
+    input{
+        min-width: 500px;
+    }
+    .button{
+        min-width: 130px;
+    }
+    
+}
+
+@media  screen and (max-width: 600px){
+    input{
+        min-width: 300px;
+    }
+    .button{
+        min-width: 100px;
+    }
+    
+}

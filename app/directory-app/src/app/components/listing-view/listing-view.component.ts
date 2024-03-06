@@ -18,6 +18,7 @@ export class ListingViewComponent implements OnInit {
   toggle = false;
   page: any = '';
   limit: any = '';
+  data:any;
 
   constructor( private route: ActivatedRoute,
     private storesService: StoresService,
@@ -33,6 +34,7 @@ export class ListingViewComponent implements OnInit {
         this.query = params['query']
         this.page = this.route.snapshot.queryParamMap.get('page');
         this.limit = this.route.snapshot.queryParamMap.get('limit')
+        console.log(this.route.snapshot);
         if(this.query == '' || this.query == null){
           this.loadAllStores();
         }else{
@@ -49,11 +51,11 @@ export class ListingViewComponent implements OnInit {
 
 
   loadAllStores(){
-    console.log('ENTRAMOS ACA');
     this.storesService.getStores()
     .subscribe({
       next: (res) => {
         this.stores = res.data.docs;
+        this.data = res.data;
         this.totalDocs = res.data.totalDocs;
 
       },
@@ -67,6 +69,7 @@ export class ListingViewComponent implements OnInit {
     .subscribe({
       next: (res) => {
         this.stores = res.data.docs
+        this.data = res.data;
         this.totalDocs = res.data.totalDocs;
       },
       error: (e) => {

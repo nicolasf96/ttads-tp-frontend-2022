@@ -27,9 +27,15 @@ export class PrincipalViewComponent implements OnInit {
 
   ngOnInit(): void {
     this.storeService
-      .getStoresWithLimit(this.limit)
-      .subscribe((response) => (this.stores = response.data));
-    console.log(this.stores);
+      .getStores('',1,this.limit)
+      .subscribe({
+        next: (res) => {
+          this.stores = res.data.docs
+        },
+        error: (e) => {
+          alert(e)
+        },
+      });
   }
 
   loadCategories() {

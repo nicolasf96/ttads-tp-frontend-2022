@@ -51,6 +51,7 @@ import { ReviewComponent } from './components/review/review.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import { MiniStoreComponent } from './components/mini-store/mini-store.component';
 import { BusquedaComponent } from './components/busqueda/busqueda.component';
+import { PaginationComponent } from './components/pagination/pagination.component';
 
 @NgModule({
   declarations: [
@@ -95,6 +96,7 @@ import { BusquedaComponent } from './components/busqueda/busqueda.component';
     NotFoundComponent,
     MiniStoreComponent,
     BusquedaComponent,
+    PaginationComponent,
   ],
   imports: [
     BrowserModule,

@@ -40,6 +40,9 @@
 
         <app-store-box-list [stores]="stores"></app-store-box-list>
         <!-- <app-stores-list [stores]="storesFiltered"></app-stores-list> -->
+        <div class="my-5">
+          <app-pagination [data]="data" [query]="query" [page]="page"></app-pagination>
+        </div>
       </div>
     </div>
   </div>

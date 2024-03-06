@@ -19,13 +19,13 @@ export class StoresComponent implements OnInit {
 
   loadStores() {
     this.service
-      .getStores()
+      .getAllStores()
       .subscribe({
         next: (res) => {
-          this.stores = res.data.docs
+          this.stores = res.data
         },
         error: (e) => {
-          alert(e)
+          alert(e.error.message)
         },
       });
   }

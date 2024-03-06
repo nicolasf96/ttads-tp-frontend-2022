@@ -2,7 +2,7 @@
   width: 40px;
   overflow: hidden;
   aspect-ratio: 1 / 1;
-  border-radius: 50%;
+  // border-radius: 50%;
   object-fit: cover;
 }
 
@@ -24,4 +24,13 @@ table.is-hoverable {
     font-size: 12px;
     vertical-align: middle;
   }
+}
+
+.activa{
+    color: #00d1b2;
+    font-size: 16px;
+}
+.bloqueada{
+    color: red;
+    font-size: 16px;
 }

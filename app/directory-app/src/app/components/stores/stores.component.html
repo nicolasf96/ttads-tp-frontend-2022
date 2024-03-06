@@ -12,6 +12,7 @@
           <th>Servicio</th>
           <th>Categoría</th>
           <th>Usuario</th>
+          <th>Bloqueada</th>
           <th>Editar</th>
         </tr>
       </thead>
@@ -51,6 +52,10 @@
         <td *ngIf="!store.category">- Sin Categoría -</td>
         <td>
           {{ store.user?.username }}
+        </td>
+        <td>
+          <span  *ngIf="!store.blocked"><i class="fa-solid fa-circle activa mr-2"></i>Activa</span>
+          <span  *ngIf="store.blocked"><i class="fa-solid fa-circle-minus bloqueada mr-2"></i>Bloqueada</span>
         </td>
         <td>
           <i class="fa-solid fa-pen-to-square fa-lg"></i>

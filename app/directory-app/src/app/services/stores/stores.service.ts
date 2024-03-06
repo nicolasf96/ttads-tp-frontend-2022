@@ -16,13 +16,8 @@ export class StoresService {
     return this.http.get<any>(url);
   }
 
-  getStoresWithLimit(limit: any) {
-    const url = this.baseURL+'stores/limit/'+limit;
-    return this.http.get<any>(url);
-  }
-
-  getStoresByKeyword(keyword: any) {
-    const url = this.baseURL+'stores/keyword/'+keyword;
+  getAllStores() {
+    const url = this.baseURL+'stores/all'
     return this.http.get<any>(url);
   }
 

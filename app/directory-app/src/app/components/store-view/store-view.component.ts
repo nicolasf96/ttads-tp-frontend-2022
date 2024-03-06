@@ -36,9 +36,13 @@ export class StoreViewComponent implements OnInit {
     this.service.getStore(this.identifier)
     .subscribe({
       next: (response) => {
+        if(response.data.blocked){
+          alert('Tienda No disponible')
+          this.router.navigate(['listing'])
+        }
         this.store = response.data,
         this.productService.getProductsByStore(this.store._id).subscribe(res => {
-          this.products = res.data
+        this.products = res.data
         });
         this.reviewService.getReviewsByStore(this.identifier).subscribe( res=>{
           this.calculateAverageScore(res.data)

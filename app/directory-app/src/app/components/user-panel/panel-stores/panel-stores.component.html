@@ -54,17 +54,7 @@
                   </div> <br>
                   <button type="submit" class="button is-primary  is-small">Actualizar Categoría</button>
                 </form>
-                <div *ngIf="!store.valoration" class='title is-6'>Todavía no se han hecho valoraciónes</div>
-                <div class='val has-text-centered mt-6' *ngIf="store.valoration">
-                  <div class='valoration'>{{ store.valoration ? store.valoration.toString().slice(0, 3) : '' }} </div>
-                  <div class="stars">
-                        <img  [src]="'assets/star.svg'">
-                        <img  [src]="'assets/star.svg'">
-                        <img  [src]="'assets/star.svg'">
-                        <img  [src]="'assets/star.svg'">
-                        <img  [src]="'assets/star.svg'">
-                  </div>
-              </div>
+
             </div>
 
 

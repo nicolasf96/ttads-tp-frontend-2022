@@ -56,6 +56,7 @@ export class StoreComponent implements OnInit {
       twitter: new FormControl(this.store.twitter),
       facebook: new FormControl(this.store.facebook),
       website: new FormControl(this.store.website),
+      blocked: new FormControl(this.store.blocked === true),
     });
   }
 

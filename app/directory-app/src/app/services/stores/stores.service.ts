@@ -11,8 +11,8 @@ export class StoresService {
   constructor(private http: HttpClient) { }
   
   
-  getStores(query:any = '', page:any = '', limit: any = '', category: any = '') {
-    const url = this.baseURL+'stores?busqueda='+query+'&page='+page+'&limit='+limit+'&categoria='+category
+  getStores(query:any = '',categoria: any = '', page:any = '', limit: any = '') {
+    const url = this.baseURL+'stores?busqueda='+query+'&categoriaID='+categoria+'&page='+page+'&limit='+limit
     return this.http.get<any>(url);
   }
 

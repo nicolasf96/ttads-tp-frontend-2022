@@ -24,7 +24,7 @@ export class MiniStoreComponent {
         this.calculateAverageScore(response.data)
       },
       error: (e) => {
-        console.log(e);
+        // console.log(e);
       }
     });
   }

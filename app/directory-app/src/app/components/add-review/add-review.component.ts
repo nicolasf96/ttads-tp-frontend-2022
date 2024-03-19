@@ -71,7 +71,7 @@ export class AddReviewComponent implements OnInit {
       this.reviewService.createReview(rev)
       .subscribe({
         next: (res) => {
-          console.log(res);
+          // console.log(res);
         },
         error: (e) => {
           alert(e.error.message)

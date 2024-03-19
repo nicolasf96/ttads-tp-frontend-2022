@@ -27,7 +27,7 @@ export class PrincipalViewComponent implements OnInit {
 
   ngOnInit(): void {
     this.storeService
-      .getStores('',1,this.limit)
+      .getStores('','',1,this.limit)
       .subscribe({
         next: (res) => {
           this.stores = res.data.docs

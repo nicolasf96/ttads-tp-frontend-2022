@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute, ParamMap, Params, Router } from '@angular/router';
 import { CategoriesService } from 'src/app/services/categories/categories.service';
 import { SpinnerService } from 'src/app/services/spinner/spinner.service';
 import { StoresService } from 'src/app/services/stores/stores.service';
@@ -12,7 +12,7 @@ import { StoresService } from 'src/app/services/stores/stores.service';
 })
 export class ListingViewComponent implements OnInit {
 
-  query:any ;
+  query:any = '' ;
   stores:any;
   totalDocs: any;
   categories:any;
@@ -20,6 +20,8 @@ export class ListingViewComponent implements OnInit {
   page: any = '';
   limit: any = '';
   data:any;
+  selectedCategory: string | null = null;
+  categoriaID: any = '';
 
   constructor( private route: ActivatedRoute,
     private storesService: StoresService,
@@ -30,44 +32,29 @@ export class ListingViewComponent implements OnInit {
     }
 
   ngOnInit(): void {
-
-    this.route.params
+    this.route.queryParamMap
     .subscribe({
-      next: (params) => {
-        this.query = params['query']
-        this.page = this.route.snapshot.queryParamMap.get('page');
-        this.limit = this.route.snapshot.queryParamMap.get('limit')
-        console.log(this.route.snapshot);
-        if(this.query == '' || this.query == null){
-          this.loadAllStores();
-        }else{
-          this.loadSearch();
-        }
+      next: (params: ParamMap) => {
+        this.query = params.get('query');
+        this.page = params.get('page');
+        this.limit = params.get('limit');
+        this.loadSearch()
       },
       error: (e) => {
-        alert(e)
+        alert(e.error.message)
       },
     });
     this.loadCategories();
   }
 
-
-  loadAllStores(){
-    this.storesService.getStores()
-    .subscribe({
-      next: (res) => {
-        this.stores = res.data.docs;
-        this.data = res.data;
-        this.totalDocs = res.data.totalDocs;
-
-      },
-      error: (e) => {
-        alert(e.error)
-      },
-    });
-  }
   loadSearch(){
-    this.storesService.getStores(this.query,this.page,this.limit)
+    let q
+    if(this.query == '' || this.query == null){
+      q = ''
+    }else{
+      q = this.query
+    }
+    this.storesService.getStores(q,this.categoriaID,this.page,this.limit)
     .subscribe({
       next: (res) => {
         this.stores = res.data.docs
@@ -75,9 +62,10 @@ export class ListingViewComponent implements OnInit {
         this.totalDocs = res.data.totalDocs;
       },
       error: (e) => {
-        alert(e.error)
+        alert(e.error.message)
       },
     });
+    
   }
 
   loadCategories(){
@@ -92,13 +80,15 @@ export class ListingViewComponent implements OnInit {
     })
   }
 
-  redirectTo(category: string) {
-    this.query = category;
-    if(this.query == '' || this.query == null){
-      this.loadAllStores();
-    }else{
-      this.loadSearch();
-    }
+  filtroCategoria(cat: any) {
+    this.selectedCategory = cat.description;
+    this.categoriaID = cat._id;
+    this.loadSearch();
+  }
+  borrarFiltro(){
+    this.selectedCategory = ''
+    this.categoriaID = ''
+    this.loadSearch();
   }
 
   goToStore(id:any){

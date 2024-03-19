@@ -21,10 +21,12 @@
             <li
               class="is-size-6"
               *ngFor="let cat of categories"
-              [ngStyle]="{ cursor: 'pointer' }"
-              (click)="redirectTo(cat.description)"
+              [ngStyle]="{ cursor: 'pointer', fontWeight: selectedCategory === cat.description ? 'bold' : 'normal' }"
             >
-              {{ cat.description }}
+              <div style="display: inline" (click)="filtroCategoria(cat)" >
+                {{ cat.description }}
+              </div>
+              <span *ngIf="selectedCategory === cat.description" (click)="borrarFiltro()"><i class="fa-solid fa-circle-xmark"></i></span>
             </li>
           </ul>
         </div>
@@ -40,7 +42,7 @@
 
         <app-store-box-list [stores]="stores"></app-store-box-list>
         <!-- <app-stores-list [stores]="storesFiltered"></app-stores-list> -->
-        <div class="my-5">
+        <div class="my-5" *ngIf="stores.length > 0">
           <app-pagination [data]="data" [query]="query" [page]="page"></app-pagination>
         </div>
       </div>

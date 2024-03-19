@@ -40,7 +40,7 @@ export class NavigationComponent implements OnInit, OnDestroy {
     this.identifier = this.authService.getActualId()
       if (this.identifier) {
         this.userService.getUser(this.identifier).subscribe(user => {
-          console.log('USER',user.data)
+          // console.log('USER',user.data)
           this.user = user.data;
         });
       }

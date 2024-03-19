@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CategoriesService } from 'src/app/services/categories/categories.service';
+import { SpinnerService } from 'src/app/services/spinner/spinner.service';
 import { StoresService } from 'src/app/services/stores/stores.service';
 
 @Component({
@@ -23,10 +24,12 @@ export class ListingViewComponent implements OnInit {
   constructor( private route: ActivatedRoute,
     private storesService: StoresService,
     private categoriesService: CategoriesService,
-    private router: Router) { }
+    private router: Router,
+    private spinnerService: SpinnerService) { 
+      this.spinnerService.show();
+    }
 
   ngOnInit(): void {
-
 
     this.route.params
     .subscribe({
@@ -45,7 +48,6 @@ export class ListingViewComponent implements OnInit {
         alert(e)
       },
     });
-
     this.loadCategories();
   }
 

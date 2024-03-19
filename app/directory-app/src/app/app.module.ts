@@ -50,6 +50,8 @@ import { NotFoundComponent } from './components/not-found/not-found.component';
 import { MiniStoreComponent } from './components/mini-store/mini-store.component';
 import { BusquedaComponent } from './components/busqueda/busqueda.component';
 import { PaginationComponent } from './components/pagination/pagination.component';
+import { SpinnerModule } from './components/spinner/spinner.module';
+import { SpinnerInterceptor } from './interceptors/spinner.interceptor';
 
 @NgModule({
   declarations: [
@@ -104,14 +106,21 @@ import { PaginationComponent } from './components/pagination/pagination.componen
     CommonModule,
     FormsModule,
     NgxPaginationModule,
+    SpinnerModule
   ],
   providers: [
     AuthGuard,
     {
       provide: HTTP_INTERCEPTORS,
+      useClass: SpinnerInterceptor,
+      multi: true,
+    },
+    {
+      provide: HTTP_INTERCEPTORS,
       useClass: TokenInterceptorService,
       multi: true,
     },
+   
   ],
   bootstrap: [AppComponent],
 })

@@ -36,7 +36,7 @@ export class PanelProductsListComponent implements OnInit {
         this.products = res.data
       },
       error: (e) => {
-        alert(e.error.message)
+        console.log(e.error.message);
       },
     });
   }

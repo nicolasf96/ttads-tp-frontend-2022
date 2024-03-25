@@ -52,6 +52,7 @@ import { BusquedaComponent } from './components/busqueda/busqueda.component';
 import { PaginationComponent } from './components/pagination/pagination.component';
 import { SpinnerModule } from './components/spinner/spinner.module';
 import { SpinnerInterceptor } from './interceptors/spinner.interceptor';
+import { ImgSliderComponent } from './components/img-slider/img-slider.component';
 
 @NgModule({
   declarations: [
@@ -97,6 +98,7 @@ import { SpinnerInterceptor } from './interceptors/spinner.interceptor';
     MiniStoreComponent,
     BusquedaComponent,
     PaginationComponent,
+    ImgSliderComponent,
   ],
   imports: [
     BrowserModule,

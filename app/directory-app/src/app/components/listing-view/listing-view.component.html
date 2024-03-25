@@ -35,14 +35,14 @@
       <div class="column is-9">
         <div
           class="my-5 box has-text-centered"
-          *ngIf="stores.length == 0"
+          *ngIf="stores?.length == 0"
         >
           No hay coincidencias en tu búsqueda
         </div>
 
         <app-store-box-list [stores]="stores"></app-store-box-list>
         <!-- <app-stores-list [stores]="storesFiltered"></app-stores-list> -->
-        <div class="my-5" *ngIf="stores.length > 0">
+        <div class="my-5" *ngIf="stores?.length > 0">
           <app-pagination [data]="data" [query]="query" [page]="page"></app-pagination>
         </div>
       </div>

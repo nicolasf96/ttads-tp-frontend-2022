@@ -41,7 +41,6 @@ export class PanelStoresComponent implements OnInit, OnChanges {
         this.service.getUser(this.userIdentifier).subscribe( res => {
           this.user = res.data;
           this.store = res.data.store;
-          console.log(res.data)
           if(res.data.store){
             this.showPanel = true;
           }else{

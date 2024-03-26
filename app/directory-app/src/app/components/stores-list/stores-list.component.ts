@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { ImagesService } from 'src/app/services/images/images.service';
 
 @Component({
   selector: 'app-stores-list',
@@ -10,10 +11,15 @@ export class StoresListComponent implements OnInit {
 
 
   @Input() stores:any;
+  baseURL: any;
 
-  constructor(private router: Router) { }
+  constructor(
+    private router: Router,
+    private imageService: ImagesService
+    ) { }
 
   ngOnInit(): void {
+    this.baseURL = this.imageService.getBaseUrl()
   }
 
   goToStore(id:any){

@@ -50,10 +50,12 @@ export class StoreFormComponent implements OnInit, OnChanges  {
     file2: any | File;
     selectedOption: any;
     showCatToggle = false;
+    baseURL: any;
 
 
     identifier:any;
     ngOnInit(): void {
+      this.baseURL = this.imageService.getBaseUrl()
       this.service.getUser(this.userIdentifier).subscribe( res => {
         this.user = res.data;
         this.store = res.data.store;

@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { AuthService } from '../../services/auth/auth.service';
 import { UsersService } from '../../services/users/users.service';
 import { Subscription} from 'rxjs';
+import { ImagesService } from 'src/app/services/images/images.service';
 
 @Component({
   selector: 'app-navigation',
@@ -17,13 +18,16 @@ export class NavigationComponent implements OnInit, OnDestroy {
 
   constructor(
     public authService: AuthService
-    ,private userService: UsersService
+    ,private userService: UsersService,
+    private imageService: ImagesService
     ) {}
   
   identifier: any;
   user: any;
+  baseURL: any;
 
   ngOnInit(): void {
+    this.baseURL = this.imageService.getBaseUrl();
 
     this.userLoggedInSubscription = this.authService.userLoggedIn$.subscribe(() => {
       // Vuelve a cargar los datos necesarios

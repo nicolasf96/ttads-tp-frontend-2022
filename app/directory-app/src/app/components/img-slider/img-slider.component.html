@@ -4,7 +4,7 @@
 <div class="is-5 mb-5" *ngIf="imagenes?.length == 0">Esta tienda no tiene imágenes</div>
 <section *ngIf="imagenes?.length > 0">
     <div class="slider">
-        <img  [src]="'http://localhost:3000/api/' + actualPath" >
+        <img  [src]="baseURL + actualPath" >
     </div>
     <div class="botones">
         <div class="anterior" (click)="anterior()">

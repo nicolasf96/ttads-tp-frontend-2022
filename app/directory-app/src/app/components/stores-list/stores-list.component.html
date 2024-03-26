@@ -3,7 +3,7 @@
     <div class="column is-3 m-auto">
       <img
         *ngIf="store.images[0]"
-        [src]="'http://localhost:3000/api/' + store.profilePicture?.path"
+        [src]="baseURL + store.profilePicture?.path"
       />
       <img *ngIf="!store.images[0]" [src]="'assets/no-banner.png'" />
     </div>

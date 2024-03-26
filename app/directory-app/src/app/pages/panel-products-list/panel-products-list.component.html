@@ -61,7 +61,7 @@
             </thead>
             <tr *ngFor="let prod of products">
               <td>
-                <img [src]="'http://localhost:3000/api/' + prod.images[0]?.path"  class="prod-img">
+                <img [src]="baseURL + prod.images[0]?.path"  class="prod-img">
               </td>
               <td>
                  <div class='tag is-link'> {{prod._id}}</div>

@@ -16,7 +16,7 @@ export class StoreComponent implements OnInit {
     private imageService: ImagesService,
     private catService: CategoriesService,
     private route: ActivatedRoute,
-    private router: Router
+    private router: Router,
   ) {}
 
   currentPanel = 'products';
@@ -30,8 +30,10 @@ export class StoreComponent implements OnInit {
   showDiv = false;
   showForm = false;
   errorToggle = false;
+  baseURL: any;
 
   ngOnInit() {
+    this.baseURL = this.imageService.getBaseUrl();
     this.catService
       .getCategories()
       .subscribe((response) => (this.categories = response.data));

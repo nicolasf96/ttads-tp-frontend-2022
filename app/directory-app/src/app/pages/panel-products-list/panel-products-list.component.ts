@@ -23,6 +23,7 @@ export class PanelProductsListComponent implements OnInit {
   userIdentifier:any;
   user:any;
   store: any;
+  baseURL: any;
 
   
   constructor(
@@ -39,7 +40,7 @@ export class PanelProductsListComponent implements OnInit {
 
   ngOnInit(): void {
     this.crearFormulario();
-  
+    this.baseURL = this.imageService.getBaseUrl()
     this.userIdentifier = this.authService.getActualId()
     this.userService.getUser(this.userIdentifier)
     .subscribe({

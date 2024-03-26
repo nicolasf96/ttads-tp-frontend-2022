@@ -8,8 +8,13 @@ export class ImagesService {
  
 
   
-  readonly baseURL = 'http://localhost:3000/api/'
+  private baseURL = 'http://localhost:3000/api/'
   constructor(private http: HttpClient) { }
+
+
+  getBaseUrl(): string {
+    return this.baseURL;
+  }
 
   getImages() {
     const url = this.baseURL+'images'

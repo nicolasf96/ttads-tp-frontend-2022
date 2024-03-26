@@ -5,7 +5,7 @@
 <section class='contenedor-productos'>
     <div class='producto' *ngFor="let prod of products">
         <div class='foto'>
-            <img  [src]="'http://localhost:3000/api/' + prod.images[0]?.path || 'assets/no-banner.png'" alt="">
+            <img  [src]="baseURL+ prod.images[0]?.path || 'assets/no-banner.png'" alt="">
         </div>
         <div class='contenido pt-3'>
             <div class="titulo">{{prod.title}}</div>

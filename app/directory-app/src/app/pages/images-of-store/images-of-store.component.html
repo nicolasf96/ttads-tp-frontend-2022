@@ -15,7 +15,7 @@
             <div class='column is-3' *ngFor="let img of store.images">
                 <div class="img-container" >
                     <button class="button is-danger is-small" (click)="deletePhoto(img._id)">Eliminar</button>
-                    <img class="img2" #imgPerfil [src]="'http://localhost:3000/api/' + img.path || 'assets/no-image.png'" alt="">
+                    <img class="img2" #imgPerfil [src]="baseURL+ img.path || 'assets/no-image.png'" alt="">
                 </div>
             </div>
         </div>

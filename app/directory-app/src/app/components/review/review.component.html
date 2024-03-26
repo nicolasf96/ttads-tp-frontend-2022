@@ -1,6 +1,6 @@
 <div class='review' >
     <div class='img-review-container'>
-        <img [src]="'http://localhost:3000/api/' + review.user.profilePicture?.path" alt="" *ngIf="review.user.profilePicture">
+        <img [src]="baseURL + review.user.profilePicture?.path" alt="" *ngIf="review.user.profilePicture">
         <img [src]="'assets/no-banner.png'" class="profile-img"  *ngIf="!review.user.profilePicture"/>
     </div>
     <div class='contenido'>

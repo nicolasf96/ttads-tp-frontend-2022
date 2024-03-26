@@ -87,7 +87,7 @@
             </form>
           </div>
           <div class='img' *ngFor="let img of prod.images">
-            <img [src]="'http://localhost:3000/api/'+ img.path" alt="">
+            <img [src]="baseURL+ img.path" alt="">
             <div class="tag is-danger delete-tag" (click)="deleteImageOfProduct(img._id)" [ngStyle]="{'cursor': 'pointer'}">Eliminar</div>
           </div>
         </div>

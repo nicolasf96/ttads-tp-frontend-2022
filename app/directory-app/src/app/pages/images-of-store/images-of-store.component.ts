@@ -17,6 +17,7 @@ export class ImagesOfStoreComponent implements OnInit {
   photoSelected: any | ArrayBuffer;
   file: any | File;
   userIdentifier: any;
+  baseURL: any;
 
 
   constructor(
@@ -29,6 +30,7 @@ export class ImagesOfStoreComponent implements OnInit {
     ) { }
 
   ngOnInit(): void {
+    this.baseURL = this.imageService.getBaseUrl();
     this.userIdentifier = this.authService.getActualId();
     this.service.getUser(this.userIdentifier).subscribe( res => {
       this.store = res.data.store;

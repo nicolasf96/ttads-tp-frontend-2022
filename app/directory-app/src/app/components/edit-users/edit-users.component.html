@@ -7,7 +7,7 @@
     <img
       #imgPerfil
       [src]="
-        'http://localhost:3000/api/' + user.profilePicture?.path ||
+        baseURL + user.profilePicture?.path ||
         'assets/no-image.png'
       "
       class="profile-img"
@@ -137,7 +137,7 @@
       <div class="store-section">
         <p class="title is-3">{{ user.store?.name }}</p>
         <img
-          [src]="'http://localhost:3000/api/' + user.store.profilePicture?.path"
+          [src]="baseURL + user.store.profilePicture?.path"
           *ngIf="user.store"
         />
         <img [src]="'assets/no-banner.png'" *ngIf="!user.store" />

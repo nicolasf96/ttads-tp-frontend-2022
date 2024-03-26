@@ -2,7 +2,7 @@
   <div class="column is-9" style="padding: 0px">
     <div class="banner box p-0" *ngIf="store.banner?.path">
        <img
-        [src]="'http://localhost:3000/api/' + store.banner?.path"
+        [src]="baseURL + store.banner?.path"
         *ngIf="store.banner"
       />  
       <img [src]="'assets/no-portada.jpg'" *ngIf="!store.banner" /> 
@@ -18,7 +18,7 @@
           <div class="has-text-centered">
             <img
               class="profile-img"
-              [src]="'http://localhost:3000/api/' + store.profilePicture?.path"
+              [src]="baseURL + store.profilePicture?.path"
               *ngIf="store.profilePicture"
             />
             <img

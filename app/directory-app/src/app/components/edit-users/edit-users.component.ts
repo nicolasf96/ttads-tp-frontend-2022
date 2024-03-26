@@ -23,16 +23,18 @@ export class EditUsersComponent implements OnInit {
   userForm: any;
   showDiv = false;
   showForm = false;
+  baseURL: any;
 
   constructor(
     private userService: UsersService,
     private imageService: ImagesService,
     private route: ActivatedRoute,
-    private router: Router
+    private router: Router,
+
   ) {}
 
   ngOnInit(): void {
-    // this.route.params.subscribe((params) => (this.identifier = params['id']));
+    this.baseURL = this.imageService.getBaseUrl();
     this.userService.getUser(this.identifier).subscribe((response) => {
       this.user = response.data;
       this.crearFormulario();

@@ -4,7 +4,7 @@
 <div class="is-5 mb-5" *ngIf="store.images.length == 0">Esta tienda no tiene imágenes</div>
 <div class='gallery'>   
     <div class='img-container' *ngFor="let img of store.images">
-        <img  [src]="'http://localhost:3000/api/' + img.path || 'assets/no-banner.png'" alt="" >
+        <img  [src]="baseURL + img.path || 'assets/no-banner.png'" alt="" >
     </div>
 </div>
 

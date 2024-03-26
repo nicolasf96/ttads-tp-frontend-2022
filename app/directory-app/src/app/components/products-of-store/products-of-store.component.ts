@@ -18,6 +18,7 @@ export class ProductsOfStoreComponent implements OnInit {
   fileTmp: any;
   photoSelected: any | ArrayBuffer;
   file: any | File;
+  baseURL: any;
 
 
   productForm = new FormGroup({
@@ -38,6 +39,7 @@ export class ProductsOfStoreComponent implements OnInit {
 
   ngOnInit(): void {
     this.loadProducts();
+    this.baseURL = this.imageService.getBaseUrl();
   }
 
   

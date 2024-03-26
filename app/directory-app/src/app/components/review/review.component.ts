@@ -1,12 +1,24 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { ImagesService } from 'src/app/services/images/images.service';
 
 @Component({
   selector: 'app-review',
   templateUrl: './review.component.html',
   styleUrls: ['./review.component.scss']
 })
-export class ReviewComponent {
+export class ReviewComponent implements OnInit{
 
+  baseURL: any;
   @Input() review: any;
+
+  constructor(
+    private imageService: ImagesService
+  ){
+
+  }
+
+  ngOnInit():void{
+    this.baseURL = this.imageService.getBaseUrl();
+  }
 
 }

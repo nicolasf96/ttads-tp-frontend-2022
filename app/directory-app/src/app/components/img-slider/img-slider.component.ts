@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { ImagesService } from 'src/app/services/images/images.service';
 
 @Component({
   selector: 'app-img-slider',
@@ -12,12 +13,16 @@ export class ImgSliderComponent {
   actualPath: any;
   index = 0;
   total: any;
+  baseURL: any;
 
-  constructor(){
+  constructor(
+    private imageService: ImagesService
+  ){
 
   }
 
   ngOnInit():void{
+    this.baseURL = this.imageService.getBaseUrl();
     this.actualPath = this.imagenes[this.index].path;   
     this.total = this.imagenes.length
 

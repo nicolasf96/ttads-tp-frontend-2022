@@ -23,7 +23,7 @@
       >
         <td>
           <img
-            [src]="'http://localhost:3000/api/' + store.profilePicture?.path"
+            [src]="baseURL + store.profilePicture?.path"
             class="profile-img"
             *ngIf="store.profilePicture"
           />

@@ -1,6 +1,7 @@
 import { Component, ElementRef, OnInit, Renderer2, ViewChild } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Subscriber, Subscription } from 'rxjs';
+import { ImagesService } from 'src/app/services/images/images.service';
 import { ProductsService } from 'src/app/services/products/products.service';
 import { ReviewsService } from 'src/app/services/reviews/reviews.service';
 import { StoresService } from 'src/app/services/stores/stores.service';
@@ -20,7 +21,8 @@ export class StoreViewComponent implements OnInit {
     private userService: UsersService,
     private route: ActivatedRoute,
     private router: Router,
-    private renderer2: Renderer2) {
+    private renderer2: Renderer2,
+    private imageService: ImagesService) {
    }
 
    
@@ -30,8 +32,10 @@ export class StoreViewComponent implements OnInit {
   reviews: any =[];
   user:any;
   averageScore: any;
+  baseURL: any;
 
   ngOnInit(): void {
+    this.baseURL = this.imageService.getBaseUrl();
     this.route.params.subscribe( (params) => this.identifier = params['id'] );
     this.service.getStore(this.identifier)
     .subscribe({

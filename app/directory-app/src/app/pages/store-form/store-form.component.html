@@ -9,7 +9,7 @@
         <div class='column is-12 banner' *ngIf="store">
             <p class="title is-6 mb-2">Banner:</p>
             <div class="banner-container">
-              <img  [src]="'http://localhost:3000/api/' + store.banner?.path" *ngIf="store.banner">
+              <img  [src]="baseURL + store.banner?.path" *ngIf="store.banner">
               <img  [src]="'assets/no-portada.jpg'" *ngIf="!store.banner">
             </div>
             <div class='buttons is-pulled-right mt-2'>
@@ -27,7 +27,7 @@
           </div>
           <div class='column is-3 has-text-centered border is-info'>
               <div class="img-perfil" >
-                  <img #imgPerfil [src]="'http://localhost:3000/api/' + store.profilePicture?.path || 'assets/no-image.png'" alt="">
+                  <img #imgPerfil [src]="baseURL + store.profilePicture?.path || 'assets/no-image.png'" alt="">
               </div>
               <button type="" class="button is-info is-light is-small" (click)="showPhotoForm()">Editar Foto de Perfil</button>
               <form *ngIf="showForm" class="newPhoto" (submit)="uploadPhoto()">

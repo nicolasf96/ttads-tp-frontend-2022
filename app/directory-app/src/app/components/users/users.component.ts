@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { ImagesService } from 'src/app/services/images/images.service';
 import { UsersService } from 'src/app/services/users/users.service';
 
 @Component({
@@ -12,11 +13,17 @@ export class UsersComponent implements OnInit {
   p: number = 1;
   n = 6;
   identifier = '';
-  constructor(private service: UsersService, private router: Router) {
+  baseURL: any;
+  constructor(
+    private service: UsersService,
+    private router: Router,
+    private imageService: ImagesService
+    ) {
     this.loadUsers();
   }
 
   ngOnInit(): void {
+    this.baseURL = this.imageService.getBaseUrl();
     this.loadUsers();
   }
 

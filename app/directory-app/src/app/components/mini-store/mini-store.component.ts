@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { ImagesService } from 'src/app/services/images/images.service';
 import { ReviewsService } from 'src/app/services/reviews/reviews.service';
 
 @Component({
@@ -10,14 +11,17 @@ export class MiniStoreComponent {
 
   @Input() store: any;
   averageScore: any;
+  baseURL: any;
 
-  constructor(private reviewService: ReviewsService){
+  constructor(private reviewService: ReviewsService,
+    private imageService: ImagesService){
 
     
     
   }
 
   ngOnInit(): void {
+    this.baseURL = this.imageService.getBaseUrl()
     this.reviewService.getReviewsByStore(this.store._id)
     .subscribe({
       next: (response) => {

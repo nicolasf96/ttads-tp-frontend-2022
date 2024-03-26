@@ -41,8 +41,10 @@ export class PanelProductDetailComponent implements OnInit {
   errorToggle = false;
   photoSelected: any | ArrayBuffer;
   file: any | File;
+  baseURL: any;
 
   ngOnInit(): void {
+    this.baseURL = this.imagesService.getBaseUrl();
     this.route.params.subscribe( (params) => this.identifier = params['id'] );
     this.productService.getProduct(this.identifier).subscribe( response => {
       this.product = response.data;

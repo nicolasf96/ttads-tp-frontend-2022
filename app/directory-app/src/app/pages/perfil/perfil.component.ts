@@ -30,8 +30,10 @@ export class PerfilComponent implements OnInit {
   file: any | File;
   fileInput = document.querySelector('.file-input');
   fileNameLabel = document.querySelector('#file-name-label');
+  baseURL: any;
 
   ngOnInit(): void {
+    this.baseURL = this.imageService.getBaseUrl();
     this.route.params.subscribe(
       (params) => (this.userIdentifier = params['id'])
     );

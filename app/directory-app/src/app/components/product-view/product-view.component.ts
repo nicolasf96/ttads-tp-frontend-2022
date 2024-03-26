@@ -1,6 +1,7 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
+import { ImagesService } from 'src/app/services/images/images.service';
 import { ProductsService } from 'src/app/services/products/products.service';
 import { StoresService } from 'src/app/services/stores/stores.service';
 import { UsersService } from 'src/app/services/users/users.service';
@@ -21,7 +22,8 @@ export class ProductViewComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private service: ProductsService,
-    private router: Router) { }
+    private router: Router,
+    private imageService: ImagesService) { }
 
 
     identifier = '';
@@ -29,10 +31,11 @@ export class ProductViewComponent implements OnInit {
     store:any;
     picSlider = 0;
     views: any;
+    baseURL: any;
 
 
    ngOnInit(): void {
-
+    this.baseURL = this.imageService.getBaseUrl()
     this.route.params.subscribe( (params) => this.identifier = params['id'] );
     this.service.getProduct(this.identifier).subscribe( (response) => this.product = response.data);
     this.service.getProduct(this.identifier).subscribe( (response) => this.views = response.data.views);

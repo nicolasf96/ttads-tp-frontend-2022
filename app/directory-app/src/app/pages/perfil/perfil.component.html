@@ -6,7 +6,7 @@
             <div class='columns'>
                 <div class='column is-3 has-text-centered border is-info'>
                     <div class="img-perfil" >
-                        <img #imgPerfil [src]="'http://localhost:3000/api/' + user.profilePicture?.path" alt="" *ngIf="user.profilePicture">
+                        <img #imgPerfil [src]="baseURL + user.profilePicture?.path" alt="" *ngIf="user.profilePicture">
                         <img #imgPerfil [src]="'assets/no-banner.png'" alt="" *ngIf="!user.profilePicture">
                     </div>
                     <button type="" class="button is-link is-light is-small" (click)="showPhotoForm()">Editar Foto de Perfil</button>

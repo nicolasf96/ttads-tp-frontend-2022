@@ -6,6 +6,7 @@ import { AuthService } from 'src/app/services/auth/auth.service';
 import { StoresService } from 'src/app/services/stores/stores.service';
 import { ProductsService } from 'src/app/services/products/products.service';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { ImagesService } from 'src/app/services/images/images.service';
 
 @Component({
   selector: 'app-products',
@@ -14,12 +15,14 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 })
 export class ProductsComponent implements OnInit {
 
+  baseURL: any;
   constructor(
     private route: ActivatedRoute,
     private userService: UsersService,
     private authService: AuthService,
     private storeService: StoresService,
-    private productService: ProductsService
+    private productService: ProductsService,
+    private imageService: ImagesService
     ) { }
    
 
@@ -31,9 +34,8 @@ export class ProductsComponent implements OnInit {
 
     identifier:any;
     ngOnInit(): void {
-      // this.route.params.subscribe( (params) => this.storeIdentifier = params['id']);
-      // this.productService.getProductsByStore(this.storeIdentifier).subscribe(res => {this.products = res.data, console.log('PRODUCTSSS',res.data)})
-      
+      this.baseURL = this.imageService.getBaseUrl()
+
   }
 
 }

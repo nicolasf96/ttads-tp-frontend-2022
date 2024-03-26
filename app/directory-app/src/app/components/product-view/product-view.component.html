@@ -37,7 +37,7 @@
 
 
                   <div class='profile-img mt-5'>
-                    <img class="mb-5" [src]="'http://localhost:3000/api/' + product.store.profilePicture?.path"
+                    <img class="mb-5" [src]="baseURL + product.store.profilePicture?.path"
                     (click)="goToStore(product.store._id)" [ngStyle]="{'cursor': 'pointer'}">
                   </div>
                   <br>
@@ -126,7 +126,7 @@
                   <p class="title is-6 views my-2">Views: {{product.views}}</p>
                 </div>
                 <div class="principal-img-container">
-                  <img class="product-img"  [ngStyle]="{'left' : picSlider+'%'}" [src]="'http://localhost:3000/api/' +img.path" alt="" *ngFor="let img of product.images">
+                  <img class="product-img"  [ngStyle]="{'left' : picSlider+'%'}" [src]="baseURL +img.path" alt="" *ngFor="let img of product.images">
                   <div class='used' *ngIf="product.used">Producto Usado</div>    
                 </div>
                 <div class='has-text-centered'>
@@ -135,7 +135,7 @@
                 </div>
                 <div class="thumbnail-container">
                   <img class="product-img-thumbnail" [ngStyle]="{'left' : picSlider+'%' , 'cursor': 'pointer'}" 
-                  [src]="'http://localhost:3000/api/' +i.path" *ngFor="let i of product.images"
+                  [src]="baseURL +i.path" *ngFor="let i of product.images"
                   (click)="buscarImg(i)">
                 </div>
                 <div class="content">

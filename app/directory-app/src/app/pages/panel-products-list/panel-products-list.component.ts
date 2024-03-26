@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
+import { AuthService } from 'src/app/services/auth/auth.service';
 import { ImagesService } from 'src/app/services/images/images.service';
 import { ProductsService } from 'src/app/services/products/products.service';
 import { StoresService } from 'src/app/services/stores/stores.service';
@@ -30,22 +31,16 @@ export class PanelProductsListComponent implements OnInit {
     private route: ActivatedRoute,
     private router: Router,
     private productService: ProductsService,
-    private imageService: ImagesService) {
+    private imageService: ImagesService,
+    private authService: AuthService
+    ) {
 
     }
 
   ngOnInit(): void {
     this.crearFormulario();
-    // this.storeService.getProductsByStoreId(this.store._id)
-    // .subscribe({
-    //   next: (res) => {
-    //     this.products = res.data
-    //   },
-    //   error: (e) => {
-    //     console.log(e.error.message);
-    //   },
-    // });
-    this.route.params.subscribe( (params) => this.userIdentifier = params['id']);
+  
+    this.userIdentifier = this.authService.getActualId()
     this.userService.getUser(this.userIdentifier)
     .subscribe({
       next: (res:any) => {

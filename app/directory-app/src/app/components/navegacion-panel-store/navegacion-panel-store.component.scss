@@ -1,0 +1,28 @@
+.contenedor {
+    width: 100%;
+    background-color: white;
+  }
+  
+  .content {
+    background-color: var(--background);
+  }
+  
+  .sticky-bar {
+    position: sticky;
+    top: 0;
+  }
+  
+  li {
+    margin-bottom: 12px;
+  }
+  
+  ul.pointer li {
+    cursor: pointer;
+    &:hover {
+      color: blue !important;
+    }
+    &:active {
+      color: blue !important;
+    }
+  }
+  

@@ -1,20 +1,7 @@
 <div class="columns p-0 total-container">
   <div class="column is-2 p-0">
-    <div class="sticky-bar p-6">
-      <div class="title is-6">Secciones</div>
-      <ul class="ml-5 pointer">
-        <li (click)="goToNegocio()">
-          <span><i class="fa-solid fa-store mr-2"></i></span> Negocio
-        </li>
-        <li (click)="goToImagenes()" *ngIf="store">
-          <span><i class="fa-solid fa-images mr-2"></i></span> Imágenes
-        </li>
-        <li (click)="goToProductos()" *ngIf="store" >
-          <span><i class="fa-solid fa-bag-shopping mr-2"></i></span> Productos
-        </li>
-      </ul>
+    <app-navegacion-panel-store></app-navegacion-panel-store>
     </div>
-  </div>
   <div class="column is-10 p-6 content">
     <h1 class="title is-5"><span class="breadcrumb">Panel / </span>Perfil de Negocio</h1>
     <section class="box p-6" *ngIf="panel == 'configurar'">
@@ -39,7 +26,7 @@
       <div *ngIf="store">
         <h2 class="title is-5"><span class="breadcrumb">Dashboard / Perfil de Negocio /</span> Imágenes</h2>
         <div class='box perfil '>
-          <app-images-of-store [store]="store"></app-images-of-store>
+          <app-images-of-store></app-images-of-store>
         </div>
       </div>
     </section>

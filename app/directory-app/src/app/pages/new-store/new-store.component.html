@@ -1,0 +1,99 @@
+<div class="columns p-0 total-container">
+  <div class="column is-2 p-0">
+    <app-navegacion-panel-store></app-navegacion-panel-store>
+    </div>
+  <div class="column is-10 p-6 content">
+    <h1 class="title is-5"><span class="breadcrumb">Panel / </span>Perfil de Negocio</h1>
+    <section class="box p-6" >   
+        <h1 class="title is-5"><span class="breadcrumb">Panel / </span>Crear una Tienda</h1>
+
+          <div class='columns is-centered'>
+            <div class='column is-3 has-text-centered border is-info'>
+              <div class="img-perfil" >
+                  <img [src]="'assets/no-banner.png'">
+              </div>
+                <label class="label">Nueva Imagen de Perfil</label>              
+                <input type="file" (change)="onPhotoSelected($event)">
+            </div>
+            <div class='column is-9'>
+              <form [formGroup]="storeForm" (ngSubmit)="onSubmit()">
+                  <div class="field">
+                      <label class="label">Nombre:</label>
+                      <div class="control">
+                        <input class="input  is-outlined" type="text"  formControlName="name" placeholder="Ingrese su nombre">
+                      </div>
+                      <p *ngIf="storeForm.get('name').touched && storeForm.get('name').invalid" class="help is-danger">Este campo es obligatorio</p>
+                  </div>
+                  
+                  <div class="field">
+                      <label class="label">Username:</label>
+                      <div class="control">
+                        <input class="input  is-outlined" type="text"  formControlName="username" placeholder="Ingrese un nombre de usuario">
+                      </div>
+                      <p *ngIf="storeForm.get('username').touched && storeForm.get('username').invalid" class="help is-danger">Este campo es obligatorio</p>
+                  </div>
+                  <div class="field">
+                    <label class="label">Description:</label>
+                    <div class="control">
+                      <textarea class="textarea" formControlName="description" placeholder="Escribe aquí una descripción de tu negocio"></textarea>
+                    </div>
+                    <p *ngIf="storeForm.get('description').touched && storeForm.get('description').invalid" class="help is-danger">Este campo es obligatorio</p>
+                  </div>
+                  <div class="field">
+                      <label class="label">Dirección:</label>
+                      <div class="control">
+                        <input class="input is-outlined" type="text"  formControlName="address" placeholder="Ingrese la dirección de su negocio">
+                      </div>
+                      <p *ngIf="storeForm.get('address').touched && storeForm.get('address').invalid" class="help is-danger">Este campo es obligatorio</p>
+                  </div>
+                  <div class="field">
+                      <label class="label">Ciudad:</label>
+                      <div class="control">
+                        <input class="input is-outlined" type="text"  formControlName="city" placeholder="Ingrese la ciudad de su negocio">
+                      </div>
+                      <p *ngIf="storeForm.get('city').touched && storeForm.get('city').invalid" class="help is-danger">Este campo es obligatorio</p>
+                  </div>
+                  <div class="field">
+                      <label class="label">Teléfono:</label>
+                      <div class="control">
+                        <input class="input is-outlined" type="text"  formControlName="telephone" placeholder="Ingrese su teléfono">
+                      </div>
+                  </div>
+                  <div class="field">
+                    <label class="label">Website:</label>
+                    <div class="control">
+                      <input class="input  is-outlined" type="url"  formControlName="website" placeholder="Ingrese su usuario de Website">
+                    </div>
+                  </div>
+                  <div class="field">
+                    <label class="label">Instagram:</label>
+                    <div class="control">
+                      <input class="input is-outlined" type="text"  formControlName="instagram" placeholder="Ingrese su usuario de Instagram">
+                    </div>
+                  </div>
+                  <div class="field">
+                    <label class="label">Twitter:</label>
+                    <div class="control">
+                      <input class="input is-outlined" type="text"  formControlName="twitter" placeholder="Ingrese su usuario de Twitter">
+                    </div>
+                </div>
+                <div class="field">
+                  <label class="label">Facebook:</label>
+                  <div class="control">
+                    <input class="input is-outlined" type="text"  formControlName="facebook" placeholder="Ingrese su usuario de Facebook">
+                  </div>
+                </div>
+                <div class='buttons is-pulled-right'>
+                    <button type="submit" class="button is-primary ">Guardar cambios</button>
+                </div>
+              </form>
+            </div>
+          </div>
+
+      
+    </section>
+  </div>
+
+
+
+

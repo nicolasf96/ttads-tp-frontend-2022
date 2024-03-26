@@ -1,8 +1,10 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { AuthService } from 'src/app/services/auth/auth.service';
 import { ImagesService } from 'src/app/services/images/images.service';
 import { ProductsService } from 'src/app/services/products/products.service';
 import { StoresService } from 'src/app/services/stores/stores.service';
+import { UsersService } from 'src/app/services/users/users.service';
 
 @Component({
   selector: 'app-images-of-store',
@@ -11,18 +13,27 @@ import { StoresService } from 'src/app/services/stores/stores.service';
 })
 export class ImagesOfStoreComponent implements OnInit {
 
-  @Input() store:any;
+  store:any;
   photoSelected: any | ArrayBuffer;
   file: any | File;
+  userIdentifier: any;
 
 
   constructor(
     private storeService: StoresService,
     private router: Router,
     private productService: ProductsService,
-    private imageService: ImagesService) { }
+    private imageService: ImagesService,
+    private service: UsersService,
+    private authService: AuthService
+    ) { }
 
   ngOnInit(): void {
+    this.userIdentifier = this.authService.getActualId();
+    this.service.getUser(this.userIdentifier).subscribe( res => {
+      this.store = res.data.store;
+      }
+    );
   }
 
   uploadPhoto(){

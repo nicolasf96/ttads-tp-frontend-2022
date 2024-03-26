@@ -79,8 +79,7 @@ export class AuthService {
   }
 
   goToStorePanel() {
-    let userId = localStorage.getItem('id');
-    this.router.navigate(['store-panel/' + userId]);
+    this.router.navigate(['store-panel/']);
   }
 
   goToModeratorPanel(panel: any) {

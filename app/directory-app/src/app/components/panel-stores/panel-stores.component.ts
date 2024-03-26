@@ -59,15 +59,4 @@ export class PanelStoresComponent implements OnInit, OnChanges {
     }
 
 
-    goToImagenes(){
-      this.router.navigate(['/store-panel/'+this.id+'/imagenes'])
-    }
-    goToProductos(){
-      this.router.navigate(['/store-panel/'+this.id+'/productos'])
-    }
-    goToNegocio(){
-      this.router.navigate(['/store-panel/'+this.id])
-    }
-  
-
 }

@@ -13,32 +13,32 @@ import { CreateCategoriesComponent } from './components/create-categories/create
 import { EditCategoriesComponent } from './components/edit-categories/edit-categories.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { ImagesComponent } from './components/images/images.component';
-import { ListingViewComponent } from './components/listing-view/listing-view.component';
-import { LoginComponent } from './components/login/login.component';
-import { ModCategoriesComponent } from './components/mod-categories/mod-categories.component';
-import { ModDashboardComponent } from './components/mod-dashboard/mod-dashboard.component';
-import { ModStoresComponent } from './components/mod-stores/mod-stores.component';
-import { ModUsersComponent } from './components/mod-users/mod-users.component';
-import { ModeratorPanelComponent } from './components/moderator-panel/moderator-panel.component';
+import { ListingViewComponent } from './pages/listing-view/listing-view.component';
+import { LoginComponent } from './pages/login/login.component';
+import { ModCategoriesComponent } from './pages/mod-categories/mod-categories.component';
+import { ModDashboardComponent } from './pages/mod-dashboard/mod-dashboard.component';
+import { ModStoresComponent } from './pages/mod-stores/mod-stores.component';
+import { ModUsersComponent } from './pages/mod-users/mod-users.component';
+import { ModeratorPanelComponent } from './pages/moderator-panel/moderator-panel.component';
 import { NavigationComponent } from './components/navigation/navigation.component';
-import { PrincipalViewComponent } from './components/principal-view/principal-view.component';
+import { PrincipalViewComponent } from './pages/principal-view/principal-view.component';
 import { ProductViewComponent } from './components/product-view/product-view.component';
 import { ProductsComponent } from './components/products/products.component';
 import { ReviewsComponent } from './components/reviews/reviews.component';
-import { SingupComponent } from './components/singup/singup.component';
-import { StoreViewComponent } from './components/store-view/store-view.component';
+import { SingupComponent } from './pages/singup/singup.component';
+import { StoreViewComponent } from './pages/store-view/store-view.component';
 import { StoresListComponent } from './components/stores-list/stores-list.component';
 import { CreateStoreComponent } from './components/create-store/create-store.component';
 import { ProductsOfStoreComponent } from './components/products-of-store/products-of-store.component';
 import { StoreComponent } from './components/store/store.component';
 import { StoresComponent } from './components/stores/stores.component';
-import { ImagesOfStoreComponent } from './components/user-panel/images-of-store/images-of-store.component';
-import { NewStoreComponent } from './components/user-panel/new-store/new-store.component';
-import { PanelNavComponent } from './components/user-panel/panel-nav/panel-nav.component';
-import { PanelProductDetailComponent } from './components/user-panel/panel-product-detail/panel-product-detail.component';
-import { PanelProductsListComponent } from './components/user-panel/panel-products-list/panel-products-list.component';
-import { PanelStoresComponent } from './components/user-panel/panel-stores/panel-stores.component';
-import { PerfilComponent } from './components/user-panel/perfil/perfil.component';
+import { ImagesOfStoreComponent } from './pages/images-of-store/images-of-store.component';
+import { NewStoreComponent } from './pages/new-store/new-store.component';
+import { PanelNavComponent } from './components/panel-nav/panel-nav.component';
+import { PanelProductDetailComponent } from './components/panel-product-detail/panel-product-detail.component';
+import { PanelProductsListComponent } from './pages/panel-products-list/panel-products-list.component';
+import { PanelStoresComponent } from './components/panel-stores/panel-stores.component';
+import { PerfilComponent } from './pages/perfil/perfil.component';
 import { UserPanelComponent } from './components/user-panel/user-panel.component';
 import { CreateUsersComponent } from './components/create-users/create-users.component';
 import { EditUsersComponent } from './components/edit-users/edit-users.component';
@@ -46,14 +46,15 @@ import { UsersComponent } from './components/users/users.component';
 import { TokenInterceptorService } from './services/token-interceptor/token-interceptor.service';
 import { StoreBoxListComponent } from './components/store-box-list/store-box-list.component';
 import { ReviewComponent } from './components/review/review.component';
-import { NotFoundComponent } from './components/not-found/not-found.component';
+import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { MiniStoreComponent } from './components/mini-store/mini-store.component';
 import { BusquedaComponent } from './components/busqueda/busqueda.component';
 import { PaginationComponent } from './components/pagination/pagination.component';
 import { SpinnerModule } from './components/spinner/spinner.module';
 import { SpinnerInterceptor } from './interceptors/spinner.interceptor';
 import { ImgSliderComponent } from './components/img-slider/img-slider.component';
-import { StoreFormComponent } from './components/store-form/store-form.component';
+import { StoreFormComponent } from './pages/store-form/store-form.component';
+import { NavegacionPanelStoreComponent } from './components/navegacion-panel-store/navegacion-panel-store.component';
 
 @NgModule({
   declarations: [
@@ -101,6 +102,7 @@ import { StoreFormComponent } from './components/store-form/store-form.component
     PaginationComponent,
     ImgSliderComponent,
     StoreFormComponent,
+    NavegacionPanelStoreComponent,
   ],
   imports: [
     BrowserModule,

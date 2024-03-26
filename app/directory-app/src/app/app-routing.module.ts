@@ -2,26 +2,29 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AuthGuard } from './guards/auth.guard';
 import { CreateCategoriesComponent } from './components/create-categories/create-categories.component';
-import { ListingViewComponent } from './components/listing-view/listing-view.component';
-import { LoginComponent } from './components/login/login.component';
-import { ModeratorPanelComponent } from './components/moderator-panel/moderator-panel.component';
-import { PrincipalViewComponent } from './components/principal-view/principal-view.component';
+import { ListingViewComponent } from './pages/listing-view/listing-view.component';
+import { LoginComponent } from './pages/login/login.component';
+import { ModeratorPanelComponent } from './pages/moderator-panel/moderator-panel.component';
+import { PrincipalViewComponent } from './pages/principal-view/principal-view.component';
 import { ProductViewComponent } from './components/product-view/product-view.component';
-import { SingupComponent } from './components/singup/singup.component';
-import { StoreViewComponent } from './components/store-view/store-view.component';
+import { SingupComponent } from './pages/singup/singup.component';
+import { StoreViewComponent } from './pages/store-view/store-view.component';
 import { CreateStoreComponent } from './components/create-store/create-store.component';
-import { NewStoreComponent } from './components/user-panel/new-store/new-store.component';
-import { PanelProductDetailComponent } from './components/user-panel/panel-product-detail/panel-product-detail.component';
-import { PanelStoresComponent } from './components/user-panel/panel-stores/panel-stores.component';
-import { PerfilComponent } from './components/user-panel/perfil/perfil.component';
+import { NewStoreComponent } from './pages/new-store/new-store.component';
+import { PanelProductDetailComponent } from './components/panel-product-detail/panel-product-detail.component';
+import { PanelStoresComponent } from './components/panel-stores/panel-stores.component';
+import { PerfilComponent } from './pages/perfil/perfil.component';
 import { UserPanelComponent } from './components/user-panel/user-panel.component';
 import { CreateUsersComponent } from './components/create-users/create-users.component';
 import { EditUsersComponent } from './components/edit-users/edit-users.component';
 import { StoreGuard } from './guards/store.guard';
 import { ModeratorGuard } from './guards/moderator.guard';
 import { NotAuthGuard } from './guards/not-auth.guard';
-import { NotFoundComponent } from './components/not-found/not-found.component';
+import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { PanelAuthGuard } from './guards/panel-auth.guard';
+import { StoreFormComponent } from './pages/store-form/store-form.component';
+import { ImagesOfStoreComponent } from './pages/images-of-store/images-of-store.component';
+import { PanelProductsListComponent } from './pages/panel-products-list/panel-products-list.component';
 
 const routes: Routes = [
   { path: 'newstore', 
@@ -64,18 +67,18 @@ const routes: Routes = [
     canActivate: [AuthGuard],
   },
   {
-    path: 'store-panel/:id',
-    component: PanelStoresComponent,
+    path: 'store-panel',
+    component: StoreFormComponent,
     canActivate: [PanelAuthGuard],
   },
   {
-    path: 'store-panel/:id/imagenes',
-    component: PanelStoresComponent,
+    path: 'store-panel/imagenes',
+    component: ImagesOfStoreComponent,
     canActivate: [PanelAuthGuard],
   },
   {
-    path: 'store-panel/:id/productos',
-    component: PanelStoresComponent,
+    path: 'store-panel/productos',
+    component: PanelProductsListComponent,
     canActivate: [PanelAuthGuard],
   },
   { path: 'perfil/:id',

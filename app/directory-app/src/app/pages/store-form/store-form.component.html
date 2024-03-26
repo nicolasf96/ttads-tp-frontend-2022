@@ -1,0 +1,152 @@
+<div class="columns p-0 total-container">
+  <div class="column is-2 p-0">
+    <app-navegacion-panel-store></app-navegacion-panel-store>
+    </div>
+  <div class="column is-10 p-6 content">
+    <h1 class="title is-5"><span class="breadcrumb">Panel / </span>Perfil de Negocio</h1>
+    <section class="box p-6" *ngIf="showPanel">      
+      <div class="columns is-multiline">
+        <div class='column is-12 banner' *ngIf="store">
+            <p class="title is-6 mb-2">Banner:</p>
+            <div class="banner-container">
+              <img  [src]="'http://localhost:3000/api/' + store.banner?.path" *ngIf="store.banner">
+              <img  [src]="'assets/no-portada.jpg'" *ngIf="!store.banner">
+            </div>
+            <div class='buttons is-pulled-right mt-2'>
+              <form *ngIf="showFormBanner" class="bannerForm" (submit)="uploadBannerPhoto()">            
+                <input type="file" (change)="onPhotoSelected2($event)" #photoInput>
+                <button class="button is-primary is-light is-small">Enviar</button>
+              </form>
+              <button class="button is-info is-light is-small" (click)="showBannerForm()" *ngIf="store.banner">Editar Banner</button>
+              <button class="button is-danger is-light is-small" (click)="deleteBanner()" *ngIf="store.banner">Eliminar Banner</button>
+              <button class="button is-info is-light is-small" (click)="showBannerForm()" *ngIf="!store.banner">Agregar Banner</button>
+            </div>
+            <br>
+            <br>
+            <hr>
+          </div>
+          <div class='column is-3 has-text-centered border is-info'>
+              <div class="img-perfil" >
+                  <img #imgPerfil [src]="'http://localhost:3000/api/' + store.profilePicture?.path || 'assets/no-image.png'" alt="">
+              </div>
+              <button type="" class="button is-info is-light is-small" (click)="showPhotoForm()">Editar Foto de Perfil</button>
+              <form *ngIf="showForm" class="newPhoto" (submit)="uploadPhoto()">
+                  <label class="label">Nueva Imagen de Perfil</label>              
+                  <input type="file" (change)="onPhotoSelected($event)" #photoInput>
+                  <button class="button is-primary  is-small">Enviar</button>
+              </form>
+        
+              <hr>
+        
+              <div class="label">Categoría</div>
+              <div *ngIf="store.category" class="tag is-info is-medium">{{store.category?.description}}</div>
+        
+              <form [formGroup]="catForm" (ngSubmit)="onSubmitCat()" style="margin-top: 20px;">
+                <div class="select">
+                  <select formControlName="category">
+                    <option *ngFor="let cat of categories" [value]="cat._id">{{cat.description}}</option>
+                  </select>
+                </div> <br>
+                <button type="submit" class="button is-primary  is-small">Actualizar Categoría</button>
+              </form>
+        
+          </div>
+        
+          <div class='column is-9'>
+              <div *ngIf="showDiv" class="notification is-primary is-light">
+                  Los cambios se han guardado correctamente.
+              </div>
+              <div class="tag is-info is-small mr-3 mb-4">Store_id: {{store._id}}</div>
+              <div class="tag is-info is-small mr-3 mb-4">User_id: {{user._id}}</div>
+              <button class="button is-small mr-3 mb-4" (click)="goToStore(store._id)">Ver Cambios</button>
+              <form [formGroup]="storeForm" (ngSubmit)="onSubmit()">
+                  <div class="field">
+                      <label class="label">Nombre:</label>
+                      <div class="control">
+                        <input class="input  is-outlined" type="text"  formControlName="name" placeholder="Ingrese su nombre">
+                      </div>
+                      <p *ngIf="storeForm.get('name').touched && storeForm.get('name').invalid" class="help is-danger">Este campo es obligatorio</p>
+                  </div>
+                  
+                  <div class="field">
+                      <label class="label">Username:</label>
+                      <div class="control">
+                        <input class="input  is-outlined" type="text"  formControlName="username" placeholder="Ingrese un nombre de usuario">
+                      </div>
+                      <p *ngIf="storeForm.get('username').touched && storeForm.get('username').invalid" class="help is-danger">Este campo es obligatorio</p>
+                  </div>
+                  <div class="field">
+                    <label class="label">Description:</label>
+                    <div class="control">
+                      <textarea class="textarea" formControlName="description" placeholder="Escribe aquí una descripción de tu negocio"></textarea>
+                    </div>
+                    <p *ngIf="storeForm.get('description').touched && storeForm.get('description').invalid" class="help is-danger">Este campo es obligatorio</p>
+                  </div>
+                  <div class="field">
+                      <label class="label">Dirección:</label>
+                      <div class="control">
+                        <input class="input is-outlined" type="text"  formControlName="address" placeholder="Ingrese la dirección de su negocio">
+                      </div>
+                      <p *ngIf="storeForm.get('address').touched && storeForm.get('address').invalid" class="help is-danger">Este campo es obligatorio</p>
+                  </div>
+                  <div class="field">
+                      <label class="label">Ciudad:</label>
+                      <div class="control">
+                        <input class="input is-outlined" type="text"  formControlName="city" placeholder="Ingrese la ciudad de su negocio">
+                      </div>
+                      <p *ngIf="storeForm.get('city').touched && storeForm.get('city').invalid" class="help is-danger">Este campo es obligatorio</p>
+                  </div>
+                  <div class="field">
+                      <label class="label">Teléfono:</label>
+                      <div class="control">
+                        <input class="input is-outlined" type="text"  formControlName="telephone" placeholder="Ingrese su teléfono">
+                      </div>
+                  </div>
+                  <div class="field">
+                    <label class="label">Website:</label>
+                    <div class="control">
+                      <input class="input  is-outlined" type="url"  formControlName="website" placeholder="Ingrese su usuario de Website">
+                    </div>
+                  </div>
+                  <div class="field">
+                    <label class="label">Instagram:</label>
+                    <div class="control">
+                      <input class="input is-outlined" type="text"  formControlName="instagram" placeholder="Ingrese su usuario de Instagram">
+                    </div>
+                  </div>
+                  <div class="field">
+                    <label class="label">Twitter:</label>
+                    <div class="control">
+                      <input class="input is-outlined" type="text"  formControlName="twitter" placeholder="Ingrese su usuario de Twitter">
+                    </div>
+                </div>
+                <div class="field">
+                  <label class="label">Facebook:</label>
+                  <div class="control">
+                    <input class="input is-outlined" type="text"  formControlName="facebook" placeholder="Ingrese su usuario de Facebook">
+                  </div>
+                </div>
+                <div *ngIf="errorToggle" class="notification is-danger is-light">
+                  Los cambios no se han guardado
+                </div>
+                <div class='buttons is-pulled-right'>
+                    <button type="submit" class="button is-primary ">Guardar cambios</button>
+                </div>
+              </form>
+          </div>
+      </div>
+    </section>
+    <section *ngIf="!showPanel">
+      <div  *ngIf="!showPanel" class="notification is-link is-light">
+        Parece que todavía no has creado tu Perfil de Negocio
+      </div> 
+      <div *ngIf="!showPanel" class='column is-12 no-store'>
+        <button class="button is-primary is-medium" (click)="createStore()">Configurar</button>
+      </div>
+    </section>
+  </div>
+
+
+
+
+

@@ -16,13 +16,17 @@ import { CategoriesService } from 'src/app/services/categories/categories.servic
 })
 export class StoreFormComponent implements OnInit, OnChanges  {
 
-  constructor(private route: ActivatedRoute,
+  constructor(
+    private authService: AuthService,
+    private route: ActivatedRoute,
     private service: UsersService,
     private imageService: ImagesService,
     private categoryService: CategoriesService,
     private router: Router,
     private storesService: StoresService,
-    private cdRef: ChangeDetectorRef) { }
+    private cdRef: ChangeDetectorRef) { 
+      this.userIdentifier = this.authService.getActualId();
+    }
    
 
     panel: any = 'store';
@@ -44,15 +48,12 @@ export class StoreFormComponent implements OnInit, OnChanges  {
 
     photoSelected2: any | ArrayBuffer;
     file2: any | File;
-/*       fileInput = document.querySelector('.file-input');
-    fileNameLabel = document.querySelector('#file-name-label'); */
     selectedOption: any;
     showCatToggle = false;
 
 
     identifier:any;
     ngOnInit(): void {
-      this.route.params.subscribe( (params) => this.userIdentifier = params['id']);
       this.service.getUser(this.userIdentifier).subscribe( res => {
         this.user = res.data;
         this.store = res.data.store;
@@ -68,7 +69,6 @@ export class StoreFormComponent implements OnInit, OnChanges  {
         }
       );
       this.categoryService.getCategories().subscribe( res => this.categories = res.data );
-      this.loadProducts();
     }
 
   ngOnChanges(changes: SimpleChanges) {
@@ -76,9 +76,6 @@ export class StoreFormComponent implements OnInit, OnChanges  {
 
   }
 
-  loadProducts(){
-    this.storesService.getProductsByStoreId(this.store._id).subscribe( response => this.products = response.data)
-  }
 
   goToStore(id:any){
     this.router.navigate(['store/'+id]);

@@ -1,9 +1,10 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ImagesService } from 'src/app/services/images/images.service';
 import { ProductsService } from 'src/app/services/products/products.service';
 import { StoresService } from 'src/app/services/stores/stores.service';
+import { UsersService } from 'src/app/services/users/users.service';
 
 @Component({
   selector: 'app-panel-products-list',
@@ -19,9 +20,14 @@ export class PanelProductsListComponent implements OnInit {
   productForm:any;
   photoSelected: any | ArrayBuffer;
   file: any | File;
+  userIdentifier:any;
+  user:any;
+
   
   constructor(
     private storeService: StoresService,
+    private userService: UsersService,
+    private route: ActivatedRoute,
     private router: Router,
     private productService: ProductsService,
     private imageService: ImagesService) {
@@ -30,15 +36,37 @@ export class PanelProductsListComponent implements OnInit {
 
   ngOnInit(): void {
     this.crearFormulario();
-    this.storeService.getProductsByStoreId(this.store._id)
+    // this.storeService.getProductsByStoreId(this.store._id)
+    // .subscribe({
+    //   next: (res) => {
+    //     this.products = res.data
+    //   },
+    //   error: (e) => {
+    //     console.log(e.error.message);
+    //   },
+    // });
+    this.route.params.subscribe( (params) => this.userIdentifier = params['id']);
+    this.userService.getUser(this.userIdentifier)
     .subscribe({
-      next: (res) => {
-        this.products = res.data
+      next: (res:any) => {
+        console.log(res.data);
+        this.user = res.data;
+        this.productService.getProductsByStore(res.data.store?._id)
+        .subscribe({
+          next: (res) => {
+            this.products = res.data
+          },
+          error: (e) => {
+            console.log(e.error.message);
+          },
+        });
+        
       },
       error: (e) => {
-        console.log(e.error.message);
+        
       },
     });
+    
   }
 
   

@@ -68,6 +68,16 @@ const routes: Routes = [
     component: PanelStoresComponent,
     canActivate: [PanelAuthGuard],
   },
+  {
+    path: 'store-panel/:id/imagenes',
+    component: PanelStoresComponent,
+    canActivate: [PanelAuthGuard],
+  },
+  {
+    path: 'store-panel/:id/productos',
+    component: PanelStoresComponent,
+    canActivate: [PanelAuthGuard],
+  },
   { path: 'perfil/:id',
     component: PerfilComponent,
     canActivate: [PanelAuthGuard]

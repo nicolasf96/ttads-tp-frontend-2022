@@ -53,6 +53,7 @@ import { PaginationComponent } from './components/pagination/pagination.componen
 import { SpinnerModule } from './components/spinner/spinner.module';
 import { SpinnerInterceptor } from './interceptors/spinner.interceptor';
 import { ImgSliderComponent } from './components/img-slider/img-slider.component';
+import { StoreFormComponent } from './components/store-form/store-form.component';
 
 @NgModule({
   declarations: [
@@ -99,6 +100,7 @@ import { ImgSliderComponent } from './components/img-slider/img-slider.component
     BusquedaComponent,
     PaginationComponent,
     ImgSliderComponent,
+    StoreFormComponent,
   ],
   imports: [
     BrowserModule,

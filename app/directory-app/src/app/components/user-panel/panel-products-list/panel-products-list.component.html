@@ -1,11 +1,11 @@
 <div class='title is-5'>Crear Producto</div>
 <div class='product-form'>
   <div class='columns'>
-    <div class='column is-4'>
+    <div class='column is-2'>
       <img class="img" [src]="photoSelected || 'assets/no-banner.png'" (click)="photoInput.click()" [ngStyle]="{'cursor': 'pointer'}">
       <input type="file" class="is-hidden" (change)="onPhotoSelected($event)" #photoInput>
     </div>
-    <div class='column is-8'>
+    <div class='column is-10'>
       <form [formGroup]="productForm" (ngSubmit)="onSubmit()">
         <div class="field">
             <label class="label">Título:</label>

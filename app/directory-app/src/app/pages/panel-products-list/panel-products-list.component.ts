@@ -16,13 +16,13 @@ export class PanelProductsListComponent implements OnInit {
 
 
 
-  @Input() store:any;
   products: any;
   productForm:any;
   photoSelected: any | ArrayBuffer;
   file: any | File;
   userIdentifier:any;
   user:any;
+  store: any;
 
   
   constructor(
@@ -46,6 +46,7 @@ export class PanelProductsListComponent implements OnInit {
       next: (res:any) => {
         console.log(res.data);
         this.user = res.data;
+        this.store = res.data.store;
         this.productService.getProductsByStore(res.data.store?._id)
         .subscribe({
           next: (res) => {

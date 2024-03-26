@@ -2,23 +2,16 @@
 <app-spinner></app-spinner>
 <div class='columns is-centered' style="margin-bottom: 0">
   <div class='column' style="margin-bottom: 0; padding-bottom: 0;">
-    <app-navigation (styleMode)="setStyleMode($event)" >
-    </app-navigation>
-
+    <app-navigation></app-navigation>
   </div>
-
 </div>
 <div class='columns m-0'>
-  <div class='column app-home p-0'>
-        <router-outlet (activate)="onActivate($event)" >
-
-        </router-outlet>
+  <div class='column p-0' >
+    <router-outlet (activate)="onActivate($event)" ></router-outlet>
   </div>
 </div>
 <div class='columns'>
   <div class='column'>
-       <app-footer>
-        
-       </app-footer>
+       <app-footer></app-footer>
   </div>
 </div>

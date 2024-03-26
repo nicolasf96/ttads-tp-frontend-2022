@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth/auth.service';
 
@@ -9,8 +9,7 @@ import { AuthService } from 'src/app/services/auth/auth.service';
 })
 export class NavegacionPanelStoreComponent implements OnInit {
 
-    store: Boolean = false;
-
+    @Input() tienda:any;
 
     constructor(
       private router: Router,
@@ -20,9 +19,7 @@ export class NavegacionPanelStoreComponent implements OnInit {
     }
 
     ngOnInit():void {
-      if(this.authService.hasStore()){
-        this.store = true;
-      }
+
     }
 
   

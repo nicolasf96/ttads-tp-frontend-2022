@@ -114,10 +114,14 @@ export class StoreFormComponent implements OnInit, OnChanges  {
 
   onSubmitCat() {
     if(this.catForm.valid){
-      let data
-      this.storesService.editStore(this.catForm.value, this.store._id).subscribe( res => {
-        data = res;
-        this.store = data.data.store;
+      this.storesService.editStore(this.catForm.value, this.store._id)
+      .subscribe({
+        next: (res:any) => {
+          this.store = res.data;
+        },
+        error: (e) => {
+          alert(e.error.message)
+        },
       });
       this.showTempDiv();
       this.showCat();

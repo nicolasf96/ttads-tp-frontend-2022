@@ -1,16 +1,14 @@
-<div class="contenedor">
   <div class="sticky-bar p-6">
       <div class="title is-6">Secciones</div>
       <ul class="ml-5 pointer">
         <li (click)="goToNegocio()">
           <span><i class="fa-solid fa-store mr-2"></i></span> Negocio
         </li>
-        <li (click)="goToImagenes()">
+        <li (click)="goToImagenes()" *ngIf="tienda">
           <span><i class="fa-solid fa-images mr-2"></i></span> Imágenes
         </li>
-        <li (click)="goToProductos()">
+        <li (click)="goToProductos()" *ngIf="tienda">
           <span><i class="fa-solid fa-bag-shopping mr-2"></i></span> Productos
         </li>
       </ul>
   </div>
-</div>

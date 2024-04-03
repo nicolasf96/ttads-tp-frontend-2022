@@ -39,3 +39,18 @@ nav{
         }
     }
 }
+
+@media screen and (max-width: 1024px){
+    .navbar-start{
+        text-align: center;       
+    }
+    .buttons{
+        flex-direction: column;
+        .navbar-item.user{
+            display: flex;
+            align-items: center;
+            color: black;
+        }
+    }
+    
+}

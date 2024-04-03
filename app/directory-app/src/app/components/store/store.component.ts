@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, EventEmitter, Output} from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CategoriesService } from 'src/app/services/categories/categories.service';
@@ -19,6 +19,8 @@ export class StoreComponent implements OnInit {
     private router: Router,
   ) {}
 
+
+  @Output() actualizacion = new EventEmitter<boolean>();
   currentPanel = 'products';
   @Input() store: any;
   categories: any = [];
@@ -70,14 +72,21 @@ export class StoreComponent implements OnInit {
         .subscribe((response) => {
           data = response;
           this.store = data.data;
+          this.showTempDiv();
+          this.enviarMensaje();
         });
-      this.showTempDiv();
-      window.location.reload()
+      // window.location.reload()
     } else {
       alert('Error al editar tienda')
       this.showError();
     }
   }
+
+  
+  enviarMensaje() {
+    this.actualizacion.emit(true);
+  }
+
 
   initialize() {
     this.storeForm.reset();

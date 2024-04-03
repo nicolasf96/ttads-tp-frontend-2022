@@ -43,4 +43,19 @@ export class StoresComponent implements OnInit {
   editStore(store: any) {
     this.store = store;
   }
+
+  manejarMensaje(mensaje: boolean) {
+    if(mensaje){
+      this.service
+      .getAllStores()
+      .subscribe({
+        next: (res) => {
+          this.stores = res.data
+        },
+        error: (e) => {
+          alert(e.error.message)
+        },
+      });
+    }
+  }
 }

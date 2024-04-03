@@ -9,7 +9,6 @@
           <th>Username</th>
           <th>Dirección</th>
           <th>Ciudad</th>
-          <th>Servicio</th>
           <th>Categoría</th>
           <th>Usuario</th>
           <th>Estado</th>
@@ -43,9 +42,6 @@
         <td>
           {{ store.city }}
         </td>
-        <td>
-          {{ store.isService }}
-        </td>
         <td *ngIf="store.category">
           {{ store.category?.description }}
         </td>
@@ -70,5 +66,5 @@
   <div class="notification is-info is-light" *ngIf="!store">
     Selecciona un Negocio para editar
   </div>
-  <app-store [store]="store" *ngIf="store"></app-store>
+  <app-store [store]="store" *ngIf="store" (actualizacion)="manejarMensaje($event)"></app-store>
 </div>

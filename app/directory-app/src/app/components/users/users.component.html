@@ -38,6 +38,9 @@
         </td>
         <td>
           {{ user.username }}
+          <span class="ml-2 tag is-primary is-light" *ngIf="user.role == 'moderator'">
+            Moderador
+          </span>
         </td>
         <td>
           {{ user.firstName }}

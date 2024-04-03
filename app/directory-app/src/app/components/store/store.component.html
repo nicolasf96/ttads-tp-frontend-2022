@@ -7,6 +7,9 @@
     <div *ngIf="showDiv" class="notification is-primary is-light">
       Los cambios se han guardado correctamente.
     </div>
+    <div *ngIf="store.blocked" class="notification is-danger is-light">
+      La tienda se encuentra bloqueada
+    </div>
     <form [formGroup]="storeForm" (ngSubmit)="onSubmit()">
       <div class="field">
         <label class="label">Nombre:</label>

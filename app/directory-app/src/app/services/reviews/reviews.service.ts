@@ -7,7 +7,7 @@ import { Injectable } from '@angular/core';
 export class ReviewsService {
 
 
-readonly baseURL = 'http://localhost:3000/api/reviews/'
+readonly baseURL = 'https://ttads-tp-backend-2022.onrender.com/api/reviews/'
 constructor(private http: HttpClient) { }
 
 

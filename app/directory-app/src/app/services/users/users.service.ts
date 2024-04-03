@@ -8,7 +8,7 @@ export class UsersService {
   
   
  
-  readonly baseURL = 'http://localhost:3000/api/'
+  readonly baseURL = 'https://ttads-tp-backend-2022.onrender.com/api/'
   constructor(private http: HttpClient) { }
   
   

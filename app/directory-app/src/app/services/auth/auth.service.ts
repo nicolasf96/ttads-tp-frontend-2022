@@ -9,7 +9,7 @@ import { Subject, tap } from 'rxjs';
 })
 export class AuthService {
   
-  readonly baseURL = 'https://ttads-tp-backend-2022.onrender.com/api/'
+  readonly baseURL = 'https://ttads-tp-backend-2022.onrender.com/api/users/'
   // readonly baseURL = 'http://localhost:3000/api/users/';
   userLoggedIn$ = new Subject<void>();
   constructor(

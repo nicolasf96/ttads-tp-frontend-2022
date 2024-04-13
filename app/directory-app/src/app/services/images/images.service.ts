@@ -7,8 +7,8 @@ import { Injectable } from '@angular/core';
 export class ImagesService {
  
 
-  
-  private baseURL = 'https://ttads-tp-backend-2022.onrender.com/api/'
+  // readonly baseURL = 'https://ttads-tp-backend-2022.onrender.com/api/'
+  private baseURL = 'http://localhost:3000/api/'
   constructor(private http: HttpClient) { }
 
 

@@ -6,8 +6,8 @@ import { HttpClient } from '@angular/common/http';
 })
 export class ProductsService {
  
-
-  readonly baseURL = 'https://ttads-tp-backend-2022.onrender.com/api/'
+// readonly baseURL = 'https://ttads-tp-backend-2022.onrender.com/api/'
+  readonly baseURL = 'http://localhost:3000/api/'
   constructor(private http: HttpClient) { }
   
   
@@ -17,7 +17,7 @@ export class ProductsService {
   }
 
   getProduct(id: string) {
-    const url = this.baseURL+'product/'+id;
+    const url = this.baseURL+'products/'+id;
     return this.http.get<any>(url);
   }
 

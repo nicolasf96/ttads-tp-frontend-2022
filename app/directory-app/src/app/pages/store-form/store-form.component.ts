@@ -45,6 +45,7 @@ export class StoreFormComponent implements OnInit, OnChanges  {
     fileTmp: any;
     photoSelected: any | ArrayBuffer;
     file: any | File;
+    mostrarModal = false;
 
     photoSelected2: any | ArrayBuffer;
     file2: any | File;
@@ -240,6 +241,28 @@ export class StoreFormComponent implements OnInit, OnChanges  {
   }
   goToNegocio(){
     this.panel = 'store'
+  }
+
+  activarModal(){
+    this.mostrarModal = true;
+  }
+
+  desactivarModal(){
+    this.mostrarModal = false;
+  }
+
+  eliminarTienda(){
+    this.storesService.deleteStore(this.store._id)
+    .subscribe({
+      next: (res) => {
+        alert("La tienda se ha eliminado exitosamente")
+        this.router.navigate(['/'])
+      },
+      error: (e) => {
+        alert(e.error.message)
+      },
+    });
+  
   }
 
 }

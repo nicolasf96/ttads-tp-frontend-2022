@@ -1,3 +1,17 @@
+<div class="modal is-active" id="modal-js-example" *ngIf="mostrarModal">
+  <div class="modal-background" (click)="desactivarModal()"></div>
+  <div class="modal-content">
+    <div class="card modal-eliminar-tienda">
+      ¿Estas seguro que quieres eliminar la tienda definitivamente?
+      <div class="tienda-info">
+        {{store.name}}
+      </div>
+      <button class="button is-danger mt-5" (click)="eliminarTienda()"> Eliminar definitivamente</button>
+    </div>
+  </div>
+  <button class="modal-close is-large" aria-label="close" (click)="desactivarModal()"></button>
+</div>
+
 <div class="columns p-0 total-container">
   <div class="column is-2 p-0">
     <app-navegacion-panel-store [tienda]="store"></app-navegacion-panel-store>
@@ -56,9 +70,13 @@
               <div *ngIf="showDiv" class="notification is-primary is-light">
                   Los cambios se han guardado correctamente.
               </div>
-              <div class="tag is-info is-small mr-3 mb-4">Store_id: {{store._id}}</div>
-              <div class="tag is-info is-small mr-3 mb-4">User_id: {{user._id}}</div>
-              <button class="button is-small mr-3 mb-4" (click)="goToStore(store._id)">Ver Cambios</button>
+              <!-- <div class="tag is-info is-small mr-3 mb-4">Store_id: {{store._id}}</div>
+              <div class="tag is-info is-small mr-3 mb-4">User_id: {{user._id}}</div> -->
+              <div class="botonera">
+                <button class="button is-small mr-3" (click)="goToStore(store._id)"><i class="fa-solid fa-eye mr-2"></i>Ver Cambios</button>
+                <button class="js-modal-trigger button is-danger is-small" (click)="activarModal()"><i class="fa-solid fa-circle-xmark mr-2"></i>Eliminar Tienda</button>
+              </div>
+
               <form [formGroup]="storeForm" (ngSubmit)="onSubmit()">
                   <div class="field">
                       <label class="label">Nombre:</label>
@@ -145,8 +163,5 @@
       </div>
     </section>
   </div>
-
-
-
 
 

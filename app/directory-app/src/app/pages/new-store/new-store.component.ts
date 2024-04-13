@@ -42,7 +42,7 @@ export class NewStoreComponent implements OnInit {
       description: new FormControl('', [Validators.required]),
       address: new FormControl('', [Validators.required]),
       city: new FormControl('', [Validators.required]),
-      telephone: new FormControl('', [Validators.required]),
+      telephone: new FormControl('',),
       instagram: new FormControl(''),
       twitter: new FormControl(''),
       facebook: new FormControl(''),
@@ -64,7 +64,7 @@ export class NewStoreComponent implements OnInit {
             this.imageService.createImageProfileStore(res.data._id, this.file).subscribe( res => {
             });
           }
-          this.router.navigate(['/store-panel/'+this.userIdentifier]);
+          this.router.navigate(['/store-panel/']);
         },
         error: (e) => {
           alert(e.error.message);

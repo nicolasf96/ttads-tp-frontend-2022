@@ -35,7 +35,7 @@ import { StoresComponent } from './components/stores/stores.component';
 import { ImagesOfStoreComponent } from './pages/images-of-store/images-of-store.component';
 import { NewStoreComponent } from './pages/new-store/new-store.component';
 import { PanelNavComponent } from './components/panel-nav/panel-nav.component';
-import { PanelProductDetailComponent } from './components/panel-product-detail/panel-product-detail.component';
+import { PanelProductDetailComponent } from './pages/panel-product-detail/panel-product-detail.component';
 import { PanelProductsListComponent } from './pages/panel-products-list/panel-products-list.component';
 import { PanelStoresComponent } from './components/panel-stores/panel-stores.component';
 import { PerfilComponent } from './pages/perfil/perfil.component';

@@ -5,6 +5,8 @@ import { UsersService } from 'src/app/services/users/users.service';
 import { ProductsService } from 'src/app/services/products/products.service';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ImagesService } from 'src/app/services/images/images.service';
+import { forkJoin } from 'rxjs';
+import { AuthService } from 'src/app/services/auth/auth.service';
 
 @Component({
   selector: 'app-panel-product-detail',
@@ -14,16 +16,15 @@ import { ImagesService } from 'src/app/services/images/images.service';
 export class PanelProductDetailComponent implements OnInit {
 
   constructor(private productService: ProductsService,
-    private storeService: StoresService,
+    private authService: AuthService,
     private userService: UsersService,
     private route: ActivatedRoute,
-    private router: Router,
     private imagesService: ImagesService) {
    }
 
    
   identifier = '';
-  identifierUser = '';
+  identifierUser: any;
   product: any;
   user:any;
 
@@ -44,12 +45,30 @@ export class PanelProductDetailComponent implements OnInit {
   baseURL: any;
 
   ngOnInit(): void {
+
     this.baseURL = this.imagesService.getBaseUrl();
+    this.identifierUser = this.authService.getActualId();
     this.route.params.subscribe( (params) => this.identifier = params['id'] );
-    this.productService.getProduct(this.identifier).subscribe( response => {
-      this.product = response.data;
-      this.crearFormulario();
-      });
+    this.productService.getProduct(this.identifier)
+    .subscribe({
+      next: (res) => {
+        this.product = res.data;
+        this.crearFormulario();
+        this.userService.getUser(this.identifierUser)
+        .subscribe({
+          next: (res) => {
+            this.store = res.data.store;
+          },
+          error: (e) => {
+            alert(e.error.message);
+          },
+        });;
+      },
+      error: (e) => {
+        alert(e.error.message)
+      },
+    });
+
 
   }
 

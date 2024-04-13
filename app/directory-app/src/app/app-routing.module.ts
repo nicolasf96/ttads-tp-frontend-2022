@@ -11,7 +11,7 @@ import { SingupComponent } from './pages/singup/singup.component';
 import { StoreViewComponent } from './pages/store-view/store-view.component';
 import { CreateStoreComponent } from './components/create-store/create-store.component';
 import { NewStoreComponent } from './pages/new-store/new-store.component';
-import { PanelProductDetailComponent } from './components/panel-product-detail/panel-product-detail.component';
+import { PanelProductDetailComponent } from './pages/panel-product-detail/panel-product-detail.component';
 import { PanelStoresComponent } from './components/panel-stores/panel-stores.component';
 import { PerfilComponent } from './pages/perfil/perfil.component';
 import { UserPanelComponent } from './components/user-panel/user-panel.component';

@@ -30,7 +30,14 @@ export class UsersComponent implements OnInit {
   loadUsers() {
     this.service
       .getUsers()
-      .subscribe((response) => (this.users = response.data));
+      .subscribe({
+        next: (res) => {
+          this.users = res.data
+        },
+        error: (e) => {
+          alert(e.error.message)
+        },
+      });
   }
 
   deleteUser(idUser: string) {
@@ -38,5 +45,11 @@ export class UsersComponent implements OnInit {
       .deleteUser(idUser)
       .subscribe((response) => console.log(response));
     this.loadUsers();
+  }
+
+  recibirMensaje(mensaje: Boolean) {
+    if(mensaje){
+      this.loadUsers();
+    }
   }
 }

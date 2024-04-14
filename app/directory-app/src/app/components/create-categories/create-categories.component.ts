@@ -40,11 +40,27 @@ export class CreateCategoriesComponent implements OnInit {
     };
     if (this.categoryForm.value.categoryParent === '') {
       cat.description = this.categoryForm.value.description;
-      this.service.createCategory(cat);
+      this.service.createCategory(cat)
+      .subscribe({
+        next: (res) => {
+          location.reload()
+        },
+        error: (e) => {
+          alert(e.error.message)
+        },
+      });
     } else {
-      this.service.createCategory(this.categoryForm.value);
+      this.service.createCategory(this.categoryForm.value)
+      .subscribe({
+        next: (res) => {
+          location.reload()
+        },
+        error: (e) => {
+          alert(e.error.message)
+        },
+      });
     }
-    location.reload();
+
   }
   initialize() {
     this.categoryForm.reset();

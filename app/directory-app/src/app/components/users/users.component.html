@@ -71,5 +71,5 @@
 
 <div class="box p-6">
   <p class="title is-5">Panel de edición</p>
-  <app-edit-users [identifier]="identifier"> </app-edit-users>
+  <app-edit-users [identifier]="identifier" (recargarUsuarios)="recibirMensaje($event)"> </app-edit-users>
 </div>

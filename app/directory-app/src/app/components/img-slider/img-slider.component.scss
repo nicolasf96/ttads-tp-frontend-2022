@@ -15,6 +15,7 @@ $ancho: 350px;
     }
 }
 .botones{
+    color: #00D1B2;
     width: $ancho;
     padding-left: 1rem;
     padding-right: 1rem;
@@ -26,14 +27,14 @@ $ancho: 350px;
         display: inline-block;
         &:hover{
             cursor: pointer;
-            color: greenyellow;
+            color: #00d1b285;
         }
     }
     .siguiente{
         display: inline-block;
         &:hover{
             cursor: pointer;
-            color: greenyellow;
+            color: #00d1b285;
         }
     }
 }

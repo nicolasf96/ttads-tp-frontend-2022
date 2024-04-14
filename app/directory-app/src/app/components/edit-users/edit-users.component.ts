@@ -1,8 +1,9 @@
-import { Component, Input, OnInit, SimpleChanges } from '@angular/core';
+import { Component, Input, OnInit, SimpleChanges, Output, EventEmitter } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ImagesService } from 'src/app/services/images/images.service';
 import { UsersService } from 'src/app/services/users/users.service';
+
 
 interface HtmlInputEvent extends Event {
   target: HTMLInputElement & EventTarget;
@@ -15,6 +16,7 @@ interface HtmlInputEvent extends Event {
 })
 export class EditUsersComponent implements OnInit {
   @Input() identifier = '';
+  @Output() recargarUsuarios = new EventEmitter<Boolean>();
 
   user: any;
   fileTmp: any;
@@ -88,18 +90,18 @@ export class EditUsersComponent implements OnInit {
   }
 
   onSubmit() {
-
-    // Obtener el valor actual del formulario
     const formData = this.userForm.value;
-
-    // Si el checkbox está marcado, establecer el valor del campo 'role' como 'moderator', de lo contrario, establecerlo como 'user'
     formData.role = formData.role ? 'moderator' : 'user';
-    let data: any;
     this.userService
       .editUser(this.identifier, formData)
-      .subscribe((res) => {
-        data = res;
-        this.user = data.data.user;
+      .subscribe({
+        next: (res) => {
+          this.user = res.data;
+          this.enviarMensaje();
+        },
+        error: (e) => {
+          alert(e.error.message)
+        },
       });
     this.showTempDiv();
   }
@@ -126,5 +128,8 @@ export class EditUsersComponent implements OnInit {
         alert(e.error.message)
       },
     });
+  }
+  enviarMensaje() {
+    this.recargarUsuarios.emit(true);
   }
 }

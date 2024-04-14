@@ -23,8 +23,7 @@ export class CategoriesService {
 
   createCategory(newCat: any) {
     const url = this.baseURL+'categories';
-    console.log("servicio: ", newCat)
-    return this.http.post(url,newCat).subscribe(response => this.getCategories());
+    return this.http.post(url,newCat);
   }
 
   deleteCategory(idCategory: any) {

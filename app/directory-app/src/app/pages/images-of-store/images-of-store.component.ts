@@ -40,27 +40,30 @@ export class ImagesOfStoreComponent implements OnInit {
 
   uploadPhoto(){
     let data:any;
-    this.imageService.addImageToStore(this.store._id, this.file).subscribe( res => {
-      this.storeService.getStore(this.store._id).subscribe(res=>{
-        data=res;
-        this.store = data.data.store;
-        this.photoSelected = '';
-      });
+    this.imageService.addImageToStore(this.store._id, this.file)
+    .subscribe({
+      next: (res) => {
+        location.reload()
+      },
+      error: (e) => {
+        alert(e.error.message)
+      },
     });
-    location.reload()
   }
 
 
 
   deletePhoto(id:any){
     let data;
-    this.imageService.deleteImage(id).subscribe(res=>{
-      this.storeService.getStore(this.store._id).subscribe(res=>{
-        data=res;
-        this.store = data.data.store;
-      });
+    this.imageService.deleteImage(id)
+    .subscribe({
+      next: (res) => {
+        location.reload()
+      },
+      error: (e) => {
+        alert(e.error.message)
+      },
     });
-    location.reload()
   }
 
   onPhotoSelected($event: any){

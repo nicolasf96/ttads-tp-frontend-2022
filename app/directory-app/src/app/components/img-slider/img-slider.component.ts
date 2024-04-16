@@ -39,7 +39,7 @@ export class ImgSliderComponent {
   }
 
   actualizarPath(index:any){
-    this.actualPath = this.imagenes[index].path;
+    this.actualPath = this.baseURL + this.imagenes[index].path;
   }
 
   anterior(){

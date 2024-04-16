@@ -9,6 +9,7 @@ import { ImagesService } from 'src/app/services/images/images.service';
 export class ReviewComponent implements OnInit{
 
   baseURL: any;
+  noImageURL: any;
   @Input() review: any;
 
   constructor(
@@ -19,6 +20,11 @@ export class ReviewComponent implements OnInit{
 
   ngOnInit():void{
     this.baseURL = this.imageService.getBaseUrl();
+    this.noImageURL = this.imageService.getNoImageUrl()
+  }
+
+  imageError(event: any){
+    event.target.src = this.noImageURL
   }
 
 }

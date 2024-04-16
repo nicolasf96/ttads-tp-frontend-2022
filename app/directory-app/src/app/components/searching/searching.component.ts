@@ -4,11 +4,11 @@ import { ActivatedRoute, ParamMap, Router } from '@angular/router';
 
 
 @Component({
-  selector: 'app-busqueda',
-  templateUrl: './busqueda.component.html',
-  styleUrls: ['./busqueda.component.scss']
+  selector: 'app-searching',
+  templateUrl: './searching.component.html',
+  styleUrls: ['./searching.component.scss']
 })
-export class BusquedaComponent {
+export class SearchingComponent {
 
   valor:any;
 

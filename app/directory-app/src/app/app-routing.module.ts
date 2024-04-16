@@ -12,8 +12,7 @@ import { StoreViewComponent } from './pages/store-view/store-view.component';
 import { CreateStoreComponent } from './components/create-store/create-store.component';
 import { NewStoreComponent } from './pages/new-store/new-store.component';
 import { PanelProductDetailComponent } from './pages/panel-product-detail/panel-product-detail.component';
-import { PanelStoresComponent } from './components/panel-stores/panel-stores.component';
-import { PerfilComponent } from './pages/perfil/perfil.component';
+import { ProfileComponent } from './pages/profile/profile.component';
 import { UserPanelComponent } from './components/user-panel/user-panel.component';
 import { CreateUsersComponent } from './components/create-users/create-users.component';
 import { EditUsersComponent } from './components/edit-users/edit-users.component';
@@ -82,7 +81,7 @@ const routes: Routes = [
     canActivate: [PanelAuthGuard],
   },
   { path: 'perfil/:id',
-    component: PerfilComponent,
+    component: ProfileComponent,
     canActivate: [PanelAuthGuard]
   },
   {

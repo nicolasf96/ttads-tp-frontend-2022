@@ -5,11 +5,11 @@ import { ImagesService } from 'src/app/services/images/images.service';
 import { UsersService } from 'src/app/services/users/users.service';
 
 @Component({
-  selector: 'app-perfil',
-  templateUrl: './perfil.component.html',
-  styleUrls: ['./perfil.component.scss'],
+  selector: 'app-profile',
+  templateUrl: './profile.component.html',
+  styleUrls: ['./profile.component.scss'],
 })
-export class PerfilComponent implements OnInit {
+export class ProfileComponent implements OnInit {
   @Input()
   user: any;
   userIdentifier: any;

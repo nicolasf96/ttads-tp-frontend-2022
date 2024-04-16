@@ -16,6 +16,7 @@ import { ImagesService } from 'src/app/services/images/images.service';
 export class ProductsComponent implements OnInit {
 
   baseURL: any;
+  noImageURL: any;
   constructor(
     private route: ActivatedRoute,
     private userService: UsersService,
@@ -35,7 +36,12 @@ export class ProductsComponent implements OnInit {
     identifier:any;
     ngOnInit(): void {
       this.baseURL = this.imageService.getBaseUrl()
+      this.noImageURL = this.imageService.getNoImageUrl();
 
+  }
+
+  imageError(event: any){
+    event.target.src = this.noImageURL
   }
 
 }

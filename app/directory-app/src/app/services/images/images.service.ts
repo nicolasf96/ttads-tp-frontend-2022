@@ -9,11 +9,16 @@ export class ImagesService {
  
 
   readonly baseURL = environment.apiUrl
+  readonly NoImageURL = environment.noImageUrl
   constructor(private http: HttpClient) { }
 
 
   getBaseUrl(): string {
     return this.baseURL;
+  }
+
+  getNoImageUrl(): string {
+    return this.NoImageURL;
   }
 
   getImages() {

@@ -11,7 +11,7 @@
           <div class='product-form'>
             <div class='columns'>
               <div class='column is-2'>
-                <img class="img" [src]="photoSelected || 'assets/no-banner.png'" (click)="photoInput.click()" [ngStyle]="{'cursor': 'pointer'}">
+                <img class="img" [src]="photoSelected || 'assets/no-banner.png'" (click)="photoInput.click()" [ngStyle]="{'cursor': 'pointer'}" (error)="imageError($event)">
                 <input type="file" class="is-hidden" (change)="onPhotoSelected($event)" #photoInput>
               </div>
               <div class='column is-10'>
@@ -61,7 +61,7 @@
             </thead>
             <tr *ngFor="let prod of products">
               <td>
-                <img [src]="baseURL + prod.images[0]?.path"  class="prod-img">
+                <img [src]="baseURL + prod.images[0]?.path"  class="prod-img" (error)="imageError($event)">
               </td>
               <td>
                  <div class='tag is-link'> {{prod._id}}</div>

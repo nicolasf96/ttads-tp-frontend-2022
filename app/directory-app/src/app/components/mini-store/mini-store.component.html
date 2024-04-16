@@ -1,6 +1,6 @@
 <div class="card">
     <div class="card-img">
-      <img [src]="baseURL + store.profilePicture?.path" />
+      <img [src]="path" (load)="imagenCargada()" (error)="imagenError()"/>
     </div>
     <div class='valoration' *ngIf="averageScore">
       {{averageScore | number:'1.1-1'}}

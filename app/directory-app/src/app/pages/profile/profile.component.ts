@@ -31,9 +31,11 @@ export class ProfileComponent implements OnInit {
   fileInput = document.querySelector('.file-input');
   fileNameLabel = document.querySelector('#file-name-label');
   baseURL: any;
+  noImageURL: any;
 
   ngOnInit(): void {
     this.baseURL = this.imageService.getBaseUrl();
+    this.noImageURL = this.imageService.getNoImageUrl();
     this.route.params.subscribe(
       (params) => (this.userIdentifier = params['id'])
     );
@@ -102,5 +104,9 @@ export class ProfileComponent implements OnInit {
 
   showPhotoForm() {
     this.showForm = !this.showForm;
+  }
+  
+  imageError(event: any){
+    event.target.src = this.noImageURL
   }
 }

@@ -14,6 +14,7 @@ export class UsersComponent implements OnInit {
   n = 6;
   identifier = '';
   baseURL: any;
+  noImageURL: any;
   constructor(
     private service: UsersService,
     private router: Router,
@@ -24,6 +25,7 @@ export class UsersComponent implements OnInit {
 
   ngOnInit(): void {
     this.baseURL = this.imageService.getBaseUrl();
+    this.noImageURL = this.imageService.getNoImageUrl();
     this.loadUsers();
   }
 
@@ -51,5 +53,9 @@ export class UsersComponent implements OnInit {
     if(mensaje){
       this.loadUsers();
     }
+  }
+
+  imageError(event: any, user: any): void {
+    event.target.src = this.noImageURL;
   }
 }

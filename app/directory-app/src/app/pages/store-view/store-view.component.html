@@ -1,11 +1,7 @@
 <div class="columns is-centered fondo" style="padding-top: 3rem;">
   <div class="column is-9" style="padding: 0px">
     <div class="banner box p-0" *ngIf="store.banner?.path">
-       <img
-        [src]="baseURL + store.banner?.path"
-        *ngIf="store.banner"
-      />  
-      <img [src]="'assets/no-portada.jpg'" *ngIf="!store.banner" /> 
+       <img [src]="bannerPath" *ngIf="store.banner" (error)="bannerError()"/>
       <h1 class="title is-1" *ngIf="store.banner">{{ store.name }}</h1>
       <h1 class="title is-1 noBanner" *ngIf="!store.banner">
         {{ store.name }}
@@ -16,16 +12,7 @@
       <div class="column is-4">
         <div class="p-6 box">
           <div class="has-text-centered">
-            <img
-              class="profile-img"
-              [src]="baseURL + store.profilePicture?.path"
-              *ngIf="store.profilePicture"
-            />
-            <img
-              class="profile-img"
-              [src]="'assets/no-banner.png'"
-              *ngIf="!store.profilePicture"
-            />
+            <img class="profile-img" [src]="profilePicturePath" *ngIf="store.profilePicture" (error)="profilePictureError()"/>
           </div>
           <div class="has-text-centered my-5">
             <h2 class="title is-4 mb-2">{{ store.name }}</h2>

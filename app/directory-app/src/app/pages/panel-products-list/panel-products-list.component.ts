@@ -24,6 +24,7 @@ export class PanelProductsListComponent implements OnInit {
   user:any;
   store: any;
   baseURL: any;
+  noImageURL: any;
 
   
   constructor(
@@ -41,6 +42,7 @@ export class PanelProductsListComponent implements OnInit {
   ngOnInit(): void {
     this.crearFormulario();
     this.baseURL = this.imageService.getBaseUrl()
+    this.noImageURL = this.imageService.getNoImageUrl();
     this.userIdentifier = this.authService.getActualId()
     this.userService.getUser(this.userIdentifier)
     .subscribe({
@@ -122,6 +124,10 @@ export class PanelProductsListComponent implements OnInit {
       reader.onload = e => this.photoSelected = reader.result;
       reader.readAsDataURL(this.file);
     }
+  }
+
+  imageError(event: any){
+    event.target.src = this.noImageURL
   }
 
   

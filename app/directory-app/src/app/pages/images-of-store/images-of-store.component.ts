@@ -18,8 +18,9 @@ export class ImagesOfStoreComponent implements OnInit {
   file: any | File;
   userIdentifier: any;
   baseURL: any;
+  noImageURL: any;
 
-
+  
   constructor(
     private storeService: StoresService,
     private router: Router,
@@ -31,6 +32,7 @@ export class ImagesOfStoreComponent implements OnInit {
 
   ngOnInit(): void {
     this.baseURL = this.imageService.getBaseUrl();
+    this.noImageURL = this.imageService.getNoImageUrl();
     this.userIdentifier = this.authService.getActualId();
     this.service.getUser(this.userIdentifier).subscribe( res => {
       this.store = res.data.store;
@@ -74,6 +76,10 @@ export class ImagesOfStoreComponent implements OnInit {
       reader.onload = e => this.photoSelected = reader.result;
       reader.readAsDataURL(this.file);
     }
+  }
+
+  imageError(event: any){
+    event.target.src = this.noImageURL
   }
 
 

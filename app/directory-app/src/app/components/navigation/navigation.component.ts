@@ -25,9 +25,11 @@ export class NavigationComponent implements OnInit, OnDestroy {
   identifier: any;
   user: any;
   baseURL: any;
+  noImageURL: any;
 
   ngOnInit(): void {
     this.baseURL = this.imageService.getBaseUrl();
+    this.noImageURL = this.imageService.getNoImageUrl();
 
     this.userLoggedInSubscription = this.authService.userLoggedIn$.subscribe(() => {
       // Vuelve a cargar los datos necesarios
@@ -53,6 +55,10 @@ export class NavigationComponent implements OnInit, OnDestroy {
 
   ngOnDestroy(): void {
     this.userLoggedInSubscription.unsubscribe();
+  }
+
+  imageError(event: any){
+    event.target.src = this.noImageURL
   }
 
 }

@@ -24,12 +24,7 @@
           <img
             [src]="baseURL + store.profilePicture?.path"
             class="profile-img"
-            *ngIf="store.profilePicture"
-          />
-          <img
-            [src]="'assets/no-image.png'"
-            class="profile-img"
-            *ngIf="!store.profilePicture"
+            (error)="imageError($event, store)"
           />
         </td>
         <td>

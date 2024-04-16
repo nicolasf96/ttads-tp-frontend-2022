@@ -52,11 +52,13 @@ export class StoreFormComponent implements OnInit, OnChanges  {
     selectedOption: any;
     showCatToggle = false;
     baseURL: any;
+    noImageURL:any;
 
 
     identifier:any;
     ngOnInit(): void {
       this.baseURL = this.imageService.getBaseUrl()
+      this.noImageURL = this.imageService.getNoImageUrl();
       this.service.getUser(this.userIdentifier).subscribe( res => {
         this.user = res.data;
         this.store = res.data.store;
@@ -263,6 +265,10 @@ export class StoreFormComponent implements OnInit, OnChanges  {
       },
     });
   
+  }
+
+  imageError(event: any){
+    event.target.src = this.noImageURL
   }
 
 }

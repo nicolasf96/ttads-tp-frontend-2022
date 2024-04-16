@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -7,13 +8,17 @@ import { Injectable } from '@angular/core';
 export class ImagesService {
  
 
-  readonly baseURL = 'https://ttads-tp-backend-2022.onrender.com/api/'
-  // private baseURL = 'http://localhost:3000/api/'
+  readonly baseURL = environment.apiUrl
+  readonly NoImageURL = environment.noImageUrl
   constructor(private http: HttpClient) { }
 
 
   getBaseUrl(): string {
     return this.baseURL;
+  }
+
+  getNoImageUrl(): string {
+    return this.NoImageURL;
   }
 
   getImages() {

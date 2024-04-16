@@ -1,7 +1,6 @@
 <div class="columns is-multiline mt-5">
   <div class="column is-2">
-    <img [src]="baseURL + store.profilePicture?.path" class="profile-img" *ngIf="store.profilePicture"/>
-    <img [src]="'assets/no-image.png'" class="profile-img"  *ngIf="!store.profilePicture"/>
+    <img [src]="baseURL + store.profilePicture?.path" class="profile-img" (error)="imageError($event)"/>
   </div>
   <div class="column is-7">
     <div *ngIf="showDiv" class="notification is-primary is-light">

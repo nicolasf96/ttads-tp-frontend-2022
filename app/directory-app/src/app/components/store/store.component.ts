@@ -33,9 +33,11 @@ export class StoreComponent implements OnInit {
   showForm = false;
   errorToggle = false;
   baseURL: any;
+  noImageURL: any;
 
   ngOnInit() {
     this.baseURL = this.imageService.getBaseUrl();
+    this.noImageURL = this.imageService.getNoImageUrl();
     this.catService
       .getCategories()
       .subscribe((response) => (this.categories = response.data));
@@ -121,6 +123,10 @@ export class StoreComponent implements OnInit {
         alert(e.error.message);
       },
     });
+  }
+
+  imageError(event: any): void {
+    event.target.src = this.noImageURL;
   }
 
 }

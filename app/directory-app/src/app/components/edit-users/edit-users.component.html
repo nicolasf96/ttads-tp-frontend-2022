@@ -11,13 +11,7 @@
         'assets/no-image.png'
       "
       class="profile-img"
-      *ngIf="user.profilePicture"
-    />
-    <img
-      #imgPerfil
-      [src]="'assets/no-image.png'"
-      class="profile-img"
-      *ngIf="!user.profilePicture"
+      (error)="imageError($event)"
     />
     <button
       type=""
@@ -139,8 +133,8 @@
         <img
           [src]="baseURL + user.store.profilePicture?.path"
           *ngIf="user.store"
+          (error)="imageError($event)"
         />
-        <img [src]="'assets/no-banner.png'" *ngIf="!user.store" />
         <p class="subtitle is-6 my-5">{{ user.store?.description }}</p>
       </div>
     </div>

@@ -33,9 +33,13 @@ export class StoreViewComponent implements OnInit {
   user:any;
   averageScore: any;
   baseURL: any;
+  noImageURL: any;
+  bannerPath: any;
+  profilePicturePath: any;
 
   ngOnInit(): void {
     this.baseURL = this.imageService.getBaseUrl();
+    this.noImageURL = this.imageService.getNoImageUrl();
     this.route.params.subscribe( (params) => this.identifier = params['id'] );
     this.service.getStore(this.identifier)
     .subscribe({
@@ -45,6 +49,8 @@ export class StoreViewComponent implements OnInit {
           this.router.navigate(['listing'])
         }
         this.store = response.data,
+        this.bannerPath = this.baseURL + this.store.banner?.path
+        this.profilePicturePath = this.baseURL + this.store.profilePicture?.path
         this.productService.getProductsByStore(this.store._id).subscribe(res => {
         this.products = res.data
         });
@@ -73,6 +79,14 @@ export class StoreViewComponent implements OnInit {
 
 
   mouseOvered = false;
+
+  bannerError(){
+    this.bannerPath = this.noImageURL
+  }
+
+  profilePictureError(){
+    this.profilePicturePath = this.noImageURL
+  }
 
 
   

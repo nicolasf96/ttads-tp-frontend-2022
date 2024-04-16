@@ -55,8 +55,7 @@
                     {{user.username}}
                   </span>
                   <div class="img-perfil" >
-                    <img #imgPerfil [src]="baseURL + user.profilePicture?.path" alt="" *ngIf="user.profilePicture">
-                    <img #imgPerfil [src]="'assets/no-banner.png'" alt="" *ngIf="!user.profilePicture">
+                    <img #imgPerfil [src]="baseURL + user.profilePicture?.path" alt="" (error)="imageError($event)">
                   </div>
                 </div>
                 <div class="navbar-item has-dropdown is-hoverable">

@@ -14,7 +14,7 @@
 
 <div class="columns p-0 total-container">
   <div class="column is-2 p-0">
-    <app-navegacion-panel-store [tienda]="store"></app-navegacion-panel-store>
+    <app-navigation-panel-store [tienda]="store"></app-navigation-panel-store>
     </div>
   <div class="column is-10 p-6 gris">
     <h1 class="title is-5"><span class="breadcrumb">Panel / </span>Perfil de Negocio</h1>
@@ -23,8 +23,7 @@
         <div class='column is-12 banner' *ngIf="store">
             <p class="title is-6 mb-2">Banner:</p>
             <div class="banner-container">
-              <img  [src]="baseURL + store.banner?.path" *ngIf="store.banner">
-              <img  [src]="'assets/no-portada.jpg'" *ngIf="!store.banner">
+              <img  [src]="baseURL + store.banner?.path" (error)="imageError($event)">
             </div>
             <div class='buttons is-pulled-right mt-2'>
               <form *ngIf="showFormBanner" class="bannerForm" (submit)="uploadBannerPhoto()">            
@@ -41,7 +40,7 @@
           </div>
           <div class='column is-3 has-text-centered border is-info'>
               <div class="img-perfil" >
-                  <img #imgPerfil [src]="baseURL + store.profilePicture?.path || 'assets/no-image.png'" alt="">
+                  <img #imgPerfil [src]="baseURL + store.profilePicture?.path || 'assets/no-image.png'" alt="" (error)="imageError($event)">
               </div>
               <button type="" class="button is-info is-light is-small" (click)="showPhotoForm()">Editar Foto de Perfil</button>
               <form *ngIf="showForm" class="newPhoto" (submit)="uploadPhoto()">

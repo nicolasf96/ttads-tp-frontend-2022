@@ -12,16 +12,17 @@ export class MiniStoreComponent {
   @Input() store: any;
   averageScore: any;
   baseURL: any;
+  noImageURL: any;
+  path: any;
 
   constructor(private reviewService: ReviewsService,
-    private imageService: ImagesService){
-
-    
-    
+    private imageService: ImagesService){    
   }
 
   ngOnInit(): void {
     this.baseURL = this.imageService.getBaseUrl()
+    this.noImageURL = this.imageService.getNoImageUrl()
+    this.path = this.baseURL + this.store.profilePicture?.path;
     this.reviewService.getReviewsByStore(this.store._id)
     .subscribe({
       next: (response) => {
@@ -47,4 +48,10 @@ export class MiniStoreComponent {
     
   }
 
+  imagenCargada(){
+
+  }
+  imagenError(){
+    this.path = this.noImageURL
+  }
 }

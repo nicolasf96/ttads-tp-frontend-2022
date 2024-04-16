@@ -14,6 +14,7 @@ export class ImgSliderComponent {
   index = 0;
   total: any;
   baseURL: any;
+  noImageURL: any;
 
   constructor(
     private imageService: ImagesService
@@ -23,7 +24,8 @@ export class ImgSliderComponent {
 
   ngOnInit():void{
     this.baseURL = this.imageService.getBaseUrl();
-    this.actualPath = this.imagenes[this.index].path;   
+    this.noImageURL = this.imageService.getNoImageUrl();
+    this.actualPath = this.baseURL + this.imagenes[this.index].path;   
     this.total = this.imagenes.length
 
   }
@@ -46,6 +48,10 @@ export class ImgSliderComponent {
       this.index = this.total -1
     }
     this.actualizarPath(this.index)
+  }
+
+  imageError(){
+    this.actualPath = this.noImageURL
   }
 
 

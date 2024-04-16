@@ -43,10 +43,12 @@ export class PanelProductDetailComponent implements OnInit {
   photoSelected: any | ArrayBuffer;
   file: any | File;
   baseURL: any;
+  noImageURL: any;
 
   ngOnInit(): void {
 
     this.baseURL = this.imagesService.getBaseUrl();
+    this.noImageURL = this.imagesService.getNoImageUrl();
     this.identifierUser = this.authService.getActualId();
     this.route.params.subscribe( (params) => this.identifier = params['id'] );
     this.productService.getProduct(this.identifier)
@@ -148,7 +150,9 @@ export class PanelProductDetailComponent implements OnInit {
   }
 
 
-
+  imageError(event: any){
+    event.target.src = this.noImageURL
+  }
 
 
 }

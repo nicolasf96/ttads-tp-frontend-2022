@@ -1,6 +1,6 @@
 <div class="columns p-0 total-container">
     <div class="column is-2 p-0">
-      <app-navegacion-panel-store [tienda]="store"></app-navegacion-panel-store>
+      <app-navigation-panel-store [tienda]="store"></app-navigation-panel-store>
       </div>
 <div class="column is-10 p-6 gris">
     <a href="/store-panel/productos"><i class="fa-solid fa-arrow-left"></i> Volver a Productos</a>
@@ -11,8 +11,7 @@
             <div class='columns'>
                 <div class='column is-3 has-text-centered '>
                     <div class="img-perfil" >
-                        <img *ngIf="product.images?.length > 0" [src]="baseURL + product.images[0]?.path" alt="">
-                        <img *ngIf="product.images?.length == 0" [src]="'assets/no-banner.png'" alt="">
+                        <img *ngIf="product.images?.length > 0" [src]="baseURL + product.images[0]?.path" alt="" (error)="imageError($event)">
                     </div>
                     <button type="" class="button is-danger is-light is-small mb-5" (click)="deletePhoto()">Eliminar Foto de Producto</button>
                     <form (submit)="uploadPhoto()">

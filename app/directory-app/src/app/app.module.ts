@@ -38,7 +38,7 @@ import { PanelNavComponent } from './components/panel-nav/panel-nav.component';
 import { PanelProductDetailComponent } from './pages/panel-product-detail/panel-product-detail.component';
 import { PanelProductsListComponent } from './pages/panel-products-list/panel-products-list.component';
 import { PanelStoresComponent } from './components/panel-stores/panel-stores.component';
-import { PerfilComponent } from './pages/perfil/perfil.component';
+import { ProfileComponent } from './pages/profile/profile.component';
 import { UserPanelComponent } from './components/user-panel/user-panel.component';
 import { CreateUsersComponent } from './components/create-users/create-users.component';
 import { EditUsersComponent } from './components/edit-users/edit-users.component';
@@ -48,13 +48,13 @@ import { StoreBoxListComponent } from './components/store-box-list/store-box-lis
 import { ReviewComponent } from './components/review/review.component';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { MiniStoreComponent } from './components/mini-store/mini-store.component';
-import { BusquedaComponent } from './components/busqueda/busqueda.component';
+import { SearchingComponent } from './components/searching/searching.component';
 import { PaginationComponent } from './components/pagination/pagination.component';
 import { SpinnerModule } from './components/spinner/spinner.module';
 import { SpinnerInterceptor } from './interceptors/spinner.interceptor';
 import { ImgSliderComponent } from './components/img-slider/img-slider.component';
 import { StoreFormComponent } from './pages/store-form/store-form.component';
-import { NavegacionPanelStoreComponent } from './components/navegacion-panel-store/navegacion-panel-store.component';
+import { NavigationPanelStoreComponent } from './components/navigation-panel-store/navigation-panel-store.component';
 
 @NgModule({
   declarations: [
@@ -77,7 +77,7 @@ import { NavegacionPanelStoreComponent } from './components/navegacion-panel-sto
     ProductViewComponent,
     LoginComponent,
     PanelNavComponent,
-    PerfilComponent,
+    ProfileComponent,
     PanelStoresComponent,
     UserPanelComponent,
     PanelProductsListComponent,
@@ -98,11 +98,11 @@ import { NavegacionPanelStoreComponent } from './components/navegacion-panel-sto
     ReviewComponent,
     NotFoundComponent,
     MiniStoreComponent,
-    BusquedaComponent,
+    SearchingComponent,
     PaginationComponent,
     ImgSliderComponent,
     StoreFormComponent,
-    NavegacionPanelStoreComponent,
+    NavigationPanelStoreComponent,
   ],
   imports: [
     BrowserModule,

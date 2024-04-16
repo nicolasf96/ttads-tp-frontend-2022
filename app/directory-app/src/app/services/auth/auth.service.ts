@@ -3,14 +3,14 @@ import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { UsersService } from '../users/users.service';
 import { Subject, tap } from 'rxjs';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AuthService {
   
-  readonly baseURL = 'https://ttads-tp-backend-2022.onrender.com/api/users/'
-  // readonly baseURL = 'http://localhost:3000/api/users/';
+  readonly baseURL = environment.apiUrl + 'users/'
   userLoggedIn$ = new Subject<void>();
   constructor(
     private http: HttpClient,

@@ -5,11 +5,11 @@ import { ImagesService } from 'src/app/services/images/images.service';
 import { UsersService } from 'src/app/services/users/users.service';
 
 @Component({
-  selector: 'app-perfil',
-  templateUrl: './perfil.component.html',
-  styleUrls: ['./perfil.component.scss'],
+  selector: 'app-profile',
+  templateUrl: './profile.component.html',
+  styleUrls: ['./profile.component.scss'],
 })
-export class PerfilComponent implements OnInit {
+export class ProfileComponent implements OnInit {
   @Input()
   user: any;
   userIdentifier: any;
@@ -31,9 +31,11 @@ export class PerfilComponent implements OnInit {
   fileInput = document.querySelector('.file-input');
   fileNameLabel = document.querySelector('#file-name-label');
   baseURL: any;
+  noImageURL: any;
 
   ngOnInit(): void {
     this.baseURL = this.imageService.getBaseUrl();
+    this.noImageURL = this.imageService.getNoImageUrl();
     this.route.params.subscribe(
       (params) => (this.userIdentifier = params['id'])
     );
@@ -102,5 +104,9 @@ export class PerfilComponent implements OnInit {
 
   showPhotoForm() {
     this.showForm = !this.showForm;
+  }
+  
+  imageError(event: any){
+    event.target.src = this.noImageURL
   }
 }

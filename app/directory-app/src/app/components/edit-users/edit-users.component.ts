@@ -26,6 +26,7 @@ export class EditUsersComponent implements OnInit {
   showDiv = false;
   showForm = false;
   baseURL: any;
+  noImageURL: any;
 
   constructor(
     private userService: UsersService,
@@ -37,6 +38,7 @@ export class EditUsersComponent implements OnInit {
 
   ngOnInit(): void {
     this.baseURL = this.imageService.getBaseUrl();
+    this.noImageURL = this.imageService.getNoImageUrl();
     this.userService.getUser(this.identifier).subscribe((response) => {
       this.user = response.data;
       this.crearFormulario();
@@ -131,5 +133,9 @@ export class EditUsersComponent implements OnInit {
   }
   enviarMensaje() {
     this.recargarUsuarios.emit(true);
+  }
+
+  imageError(event: any){
+    event.target.src = this.noImageURL;
   }
 }

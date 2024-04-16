@@ -22,9 +22,11 @@ export class StoresComponent implements OnInit {
   stores: any = [];
   store: any;
   baseURL: any;
+  noImageURL: any;
 
   ngOnInit(): void {
     this.baseURL = this.imageService.getBaseUrl();
+    this.noImageURL = this.imageService.getNoImageUrl();
   }
 
   loadStores() {
@@ -57,5 +59,9 @@ export class StoresComponent implements OnInit {
         },
       });
     }
+  }
+
+  imageError(event: any, store: any): void {
+    event.target.src = this.noImageURL;
   }
 }

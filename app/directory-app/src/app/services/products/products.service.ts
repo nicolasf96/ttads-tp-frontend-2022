@@ -1,13 +1,13 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ProductsService {
  
-// readonly baseURL = 'https://ttads-tp-backend-2022.onrender.com/api/'
-  readonly baseURL = 'http://localhost:3000/api/'
+  readonly baseURL = environment.apiUrl
   constructor(private http: HttpClient) { }
   
   

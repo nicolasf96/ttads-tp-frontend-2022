@@ -3,7 +3,8 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: true,
+  apiUrl: 'https://ttads-tp-backend-2022.onrender.com/api/'
 };
 
 /*
